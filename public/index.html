@@ -6,101 +6,18 @@
 
 <link rel="stylesheet" type="text/css" href="styles.css" />
 <link rel="stylesheet" type="text/css" href="buttons/buttons.css" />
-<link href="styleme.css" rel="stylesheet">
 
 <link rel="stylesheet" type="text/css" href="responsive.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" type="text/css" href="z_styles.css" />
-<!-- Add jQuery library -->
-	<script type="text/javascript" src="lib/jquery-1.7.2.min.js"></script>
-
-	<!-- Add mousewheel plugin (this is optional) -->
-	<script type="text/javascript" src="lib/jquery.mousewheel-3.0.6.pack.js"></script>
-
-	<!-- Add fancyBox main JS and CSS files -->
-	<script type="text/javascript" src="source/jquery.fancybox.js?v=2.0.6"></script>
-	<link rel="stylesheet" type="text/css" href="source/jquery.fancybox.css?v=2.0.6" media="screen" />
-
-
-<script type="text/javascript">
-		$(document).ready(function() {
-				$(".various").fancybox({
-					fitToView	: false,
-					width		: '500px',
-					height		: '80%',
-					autoSize	: false,
-					closeClick	: false,
-					openEffect	: 'fade',
-					closeEffect	: 'fade'
-				});
-				
-			$('.fancybox-buttons').fancybox({
-				openEffect  : 'none',
-				closeEffect : 'none',
-				closeBtn  : false,
-				helpers : {
-					buttons	: {}
-				},
-
-				afterLoad : function() {
-					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
-				}
-			});
-			if($("#introbox").height() <$("#col").height() )
-				$("#introbox").height($("#col").height() );
-			$(".ajaxee").click(function(){
-				var attri = $(this).attr("href");
-				$("#content *").hide();
-				 $(attri).fadeIn('slow', function() {
-						$(attri+" * ").show();
-						if($(attri).height() <$("#col").height() )
-							$(attri).height($("#col").height() );
-				  });
-				  if(attri=='#authorlist'){
-					$("#autl").tablesorter();
-					}else if(attri=='#unilist'){
-						$("#unil").tablesorter();
-					}	
-			});
-			$(".workshoplink").click(function() {
-				$.fancybox.open({
-					href : 'workshops/'+$(this).attr("id")+'.htm',
-					//href : 'workshops/workshop1.htm',
-					type : 'iframe',
-					padding : 5,
-					fitToView	: true,
-					autoSize	: false
-				});
-			});
-			$(".scilist a").click(function() {
-				$.fancybox.open({
-					href : 'scitalk/'+$(this).attr("id")+'.htm',
-					type : 'iframe',
-					padding : 5,
-					fitToView	: true,
-					autoSize	: false
-				});
-			});
-			$(".maplinks").click(function(){
-				$("#mapimg").attr("src", "img/"+ $(this).attr("alt"));
-			});
-			$("#col .button").click(function(){
-				$("#col .button").removeClass("orange");
-				$(this).addClass("orange");
-				
-			});
-		});
-		
-		
-		
-		</script>
+<link rel="stylesheet" type="text/css" href="source/jquery.fancybox.css?v=2.0.6" media="screen" />
 </head>
 <body>
 <div id="wrapper">
 	<div id="header">
 		<a href="index.html">
-			<img src="img/CGCO-2022-Header.jpg">
+			<img src="img/CGCO-2022-Header.jpg" width="1944" height="514" alt="">
 			<div class="top-wave"></div>
 		</a>
 	</div>
@@ -186,7 +103,7 @@
 						<br>
 							<div class="grid">
 								<div class="person">
-									<img class="pic" src="img\komiteh\1.jpg">
+									<img class="pic" data-src="img/komiteh/1.jpg">
 									<div class="caption">
 										<p class="title"> رئیس کنفرانس </p>
 										<p class="name"> دکتر حسین هرسیج </p>
@@ -195,7 +112,7 @@
 								</div>
 
 								<div class="person">
-									<img class="pic" src="img\komiteh\2.jpg">
+									<img class="pic" data-src="img/komiteh/2.jpg">
 									<div class="caption">
 										<p class="title"> رئیس کنفرانس </p>
 										<p class="name"> سید صادق پژمان </p>
@@ -204,7 +121,7 @@
 								</div>
 								
 								<div class="person">
-									<img class="pic" src="img\komiteh\3.jpg">
+									<img class="pic" data-src="img/komiteh/3.jpg">
 									<div class="caption">
 										<p class="title"> دبیر کنفرانس </p>
 										<p class="name"> دکتر جواد راستی </p>
@@ -213,7 +130,7 @@
 								</div>
 								
 								<div class="person">
-									<img class="pic" src="img\komiteh\4.png">
+									<img class="pic" data-src="img/komiteh/4.png">
 									<div class="caption">
 										<p class="title"> مسئول هماهنگی با بنیاد </p>
 										<p class="name"> حامد نصیری </p>
@@ -222,7 +139,7 @@
 								</div>
 								
 								<div class="person">
-									<img class="pic" src="img\komiteh\5.jpg">
+									<img class="pic" data-src="img/komiteh/5.jpg">
 									<div class="caption">
 										<p class="title"> دبیر علمی بخش فنی </p>
 										<p class="name"> دکتر مجتبی وحیدی اصل </p>
@@ -232,7 +149,7 @@
 								
 								
 								<div class="person">
-									<img class="pic" src="img\komiteh\6.jpg">
+									<img class="pic" data-src="img/komiteh/6.jpg">
 									<div class="caption">
 										<p class="title"> دبیر علمی بخش علوم انسانی </p>
 										<p class="name"> دکتر امیر قمرانی </p>
@@ -241,7 +158,7 @@
 								</div>
 								
 								<div class="person">
-									<img class="pic" src="img\komiteh\7.jpg">
+									<img class="pic" data-src="img/komiteh/7.jpg">
 									<div class="caption">
 										<p class="title"> دبیر علمی بخش هنر </p>
 										<p class="name"> دکتر پریسا دارویی </p>
@@ -252,7 +169,7 @@
 								
 
 								<div class="person">
-									<img class="pic" src="img\komiteh\8.png">
+									<img class="pic" data-src="img/komiteh/8.png">
 									<div class="caption">
 										<p class="title"> مسئول هماهنگی‌های بین‌المللی </p>
 										<p class="name"> امین بابادی </p>
@@ -261,7 +178,7 @@
 								</div>
 
 								<div class="person">
-									<img class="pic" src="img\komiteh\9.png">
+									<img class="pic" data-src="img/komiteh/9.png">
 									<div class="caption">
 										<p class="title"> مسئول هماهنگی‌های بین‌المللی </p>
 										<p class="name"> شقایق کلی </p>
@@ -272,7 +189,7 @@
 
 
 								<div class="person">
-									<img class="pic" src="img\komiteh\10.png">
+									<img class="pic" data-src="img/komiteh/10.jpg">
 									<div class="caption">
 										<p class="title"> مسئول دبیرخانه و روابط عمومی </p>
 										<p class="name"> نسیبه صرامی </p>
@@ -284,7 +201,7 @@
 
 
 								<div class="person">
-									<img class="pic" src="img\komiteh\11.jpg">
+									<img class="pic" data-src="img/komiteh/11.jpg">
 									<div class="caption">
 										<p class="title"> مسئول دبیرخانه و روابط عمومی </p>
 										<p class="name"> حنانه یوسفی‌نکو </p>
@@ -2011,12 +1928,6 @@
 			
 
 
-			<div id="announcebox" class="BZar hidden">
-				<center>
-				<img width="100%" height="100%" src="img/announce.png">
-				</center>
-			</div>
-			
 			<div id="keyspeechbox" class="BZar hidden" style="padding: 2% 20%;" >
 				<div class="sponsorBar"><strong>سخنرانان کلیدی و پنل‌ها</strong></div>
 				<br>
@@ -2024,8 +1935,8 @@
 				<div class="scrolable-div conf-articles">
 
 					<div class="presenter">
-						<img class="pic" src="img\presenters\1.png">
-						<img class="pic" src="img\presenters\2.png">
+						<img class="pic" data-src="img/presenters/1.jpg">
+						<img class="pic" data-src="img/presenters/2.jpg">
 						<div class="caption">
 							<div class="name"> دکتر Cody Mejeur  و Mahli-Ann Butt </div>
 							<p>
@@ -2044,8 +1955,8 @@
 
 
 					<div class="presenter">
-						<img class="pic" src="img\presenters\3.png">
-						<img class="pic" src="img\presenters\4.png">
+						<img class="pic" data-src="img/presenters/3.jpg">
+						<img class="pic" data-src="img/presenters/4.jpg">
 						<div class="caption">
 							<div class="name"> دکتر Stephanie Rennick و دکتر Seán Roberts </div>
 							<p>
@@ -2065,7 +1976,7 @@
 					
 
 						<div class="presenter">
-						<img class="pic" src="img\presenters\5.png">
+						<img class="pic" data-src="img/presenters/5.jpg">
 						<div class="caption">
 							<div class="name"> دکتر حامد علیاری </div>
 							<p>
@@ -2084,7 +1995,7 @@
 					
 
 					<div class="presenter">
-						<img class="pic" src="img\presenters\6.png">
+						<img class="pic" data-src="img/presenters/6.jpg">
 						<div class="caption">
 							<div class="name"> دکتر پروانه محمدخانی </div>
 							<p>
@@ -2102,7 +2013,7 @@
 
 
 					<div class="presenter">
-						<img class="pic" src="img\presenters\7.png">
+						<img class="pic" data-src="img/presenters/7.jpg">
 						<div class="caption">
 							<div class="name"> دکتر Antonios Liapis </div>
 							<p>
@@ -2116,7 +2027,7 @@
 
 
 					<div class="presenter">
-						<img class="pic" src="img\presenters\8.png">
+						<img class="pic" data-src="img/presenters/8.jpg">
 						<div class="caption">
 							<div class="name"> دکتر Dion Hoe-Lian Goh </div>
 							<p>
@@ -2135,7 +2046,7 @@
 
 
 					<div class="presenter">
-						<img class="pic" src="img\presenters\9.png">
+						<img class="pic" data-src="img/presenters/9.jpg">
 						<div class="caption">
 							<div class="name"> دکتر Thomas Apperley </div>
 							<p>
@@ -2157,7 +2068,7 @@
 				<br>
 
 				<div class="panelists">
-					<img class="pic" src="img\presenters\panels\1.png">
+					<img class="pic" data-src="img/presenters/panels/1.jpg">
 
 					<p class="detail">
 						در این پنل که روز جمعه ۶ اسفند ۱۴۰۰ ساعت ۱۱ به‌صورت آنلاین به میزبانی دکتر کاظم پورالوار عضو هیأت علمی دانشکده چندرسانه‌ای دانشگاه هنر اسلامی تبریز برگزار می‌شود، دکتر Claudio Aguayo مشاور ارشد نوآوری دیجیتال و عضو هیأت علمی دانشگاه تکنولوژی اوکلند (AUT) و علی طاهری مسئول تحقیقات رسانه‌های دیجیتال در AppLab و دانشجوی دکتری دانشگاه  AUTحضور خواهند داشت و در مورد آنچه در AppLab می‌گذرد گفتگو خواهند کرد.
@@ -2172,7 +2083,7 @@
 				<br>
 
 				<div class="panelists">
-					<img class="pic" src="img\presenters\panels\2.png">
+					<img class="pic" data-src="img/presenters/panels/2.jpg">
 
 					<p class="detail">
 						در این پنل، متخصصینی از سنگاپور، هلند و ایران حضور خواهند داشت و در مورد ابعاد مختلف بازی‌های رایانه‌ای-ورزشی به گفتگو خواهند پرداخت.
@@ -2187,7 +2098,7 @@
 				<br>				
 				
 				<div class="panelists">
-					<img class="pic" src="img\presenters\panels\3.png">
+					<img class="pic" data-src="img/presenters/panels/3.jpg">
 
 					<p class="detail">
 						در این کارگاه که با همراهی بنیاد ملّی بازی‌های رایانه‌ای و مرکز تحقیقات بازی‌های دیجیتال (دایرک) روز پنجشنبه ۵ اسفند ۱۴۰۰ از ساعت ۱۸ تا ۲۱ برگزار می‌شود، سه نفر از متخصصین حوزه‌ی مطالعات و طراحی بازی در مورد شاخص‌های عملکردی بازی، الگوی داده‌ها و طراحی بازی‌های دیجیتال بر اساس داده‌ها به گفتگو خواهند پرداخت. محمدرضا صیدی عضو مرکز تحقیقات بازی‌های دیجیتال و دانشجوی دکتری دانشگاه اومئو به تعریف و توصیف شاخص‌های عملکردی بازی خواهد پرداخت. شقایق کلی عضو مرکز تحقیقات بازی‌های دیجیتال و دانشجوی مهندسی کامپیوتر دانشگاه ورونا در مورد الگوی داده‌های سخن می‌گوید و شهره اسماعیلی گیم دیزاینر کاریزما گیم‌ استودیو در مورد چگونگی استفاده‌ی طراحان بازی از داده‌ها برای طراحی بهینه صحبت خواهد کرد. 
@@ -2226,19 +2137,19 @@
 
 					<div class="ax">
 						
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (1).jpg"><img src="gallery/94/img (1).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (2).jpg"><img src="gallery/94/img (2).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (3).jpg"><img src="gallery/94/img (3).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (4).jpg"><img src="gallery/94/img (4).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (5).jpg"><img src="gallery/94/img (5).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (6).jpg"><img src="gallery/94/img (6).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (7).jpg"><img src="gallery/94/img (7).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (8).jpg"><img src="gallery/94/img (8).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (9).jpg"><img src="gallery/94/img (9).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (10).jpg"><img src="gallery/94/img (10).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (11).jpg"><img src="gallery/94/img (11).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (12).jpg"><img src="gallery/94/img (12).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (13).jpg"><img src="gallery/94/img (13).jpg" alt="" /></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (1).jpg"><img data-src="gallery/94/th/img (1).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (2).jpg"><img data-src="gallery/94/th/img (2).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (3).jpg"><img data-src="gallery/94/th/img (3).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (4).jpg"><img data-src="gallery/94/th/img (4).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (5).jpg"><img data-src="gallery/94/th/img (5).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (6).jpg"><img data-src="gallery/94/th/img (6).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (7).jpg"><img data-src="gallery/94/th/img (7).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (8).jpg"><img data-src="gallery/94/th/img (8).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (9).jpg"><img data-src="gallery/94/th/img (9).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (10).jpg"><img data-src="gallery/94/th/img (10).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (11).jpg"><img data-src="gallery/94/th/img (11).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (12).jpg"><img data-src="gallery/94/th/img (12).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/94/img (13).jpg"><img data-src="gallery/94/th/img (13).jpg" alt=""></a>
 
 					
 					<br/>
@@ -2263,25 +2174,25 @@
 						<div class="sponsorBar"><strong>تصاویر مرکز نوآوری صنایع سرگرمی</strong></div> <br>
 
 					<div class="ax">
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (1).jpg"><img src="gallery/uicei/img (1).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (2).jpg"><img src="gallery/uicei/img (2).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (3).jpg"><img src="gallery/uicei/img (3).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (4).jpg"><img src="gallery/uicei/img (4).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (5).jpg"><img src="gallery/uicei/img (5).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (6).jpg"><img src="gallery/uicei/img (6).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (7).jpg"><img src="gallery/uicei/img (7).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (8).jpg"><img src="gallery/uicei/img (8).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (9).jpg"><img src="gallery/uicei/img (9).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (10).jpg"><img src="gallery/uicei/img (10).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (11).jpg"><img src="gallery/uicei/img (11).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (12).jpg"><img src="gallery/uicei/img (12).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (13).jpg"><img src="gallery/uicei/img (13).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (14).jpg"><img src="gallery/uicei/img (14).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (15).jpg"><img src="gallery/uicei/img (15).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (16).jpg"><img src="gallery/uicei/img (16).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (17).jpg"><img src="gallery/uicei/img (17).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (18).jpg"><img src="gallery/uicei/img (18).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (19).jpg"><img src="gallery/uicei/img (19).jpg" alt="" /></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (1).jpg"><img data-src="gallery/uicei/th/img (1).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (2).jpg"><img data-src="gallery/uicei/th/img (2).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (3).jpg"><img data-src="gallery/uicei/th/img (3).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (4).jpg"><img data-src="gallery/uicei/th/img (4).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (5).jpg"><img data-src="gallery/uicei/th/img (5).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (6).jpg"><img data-src="gallery/uicei/th/img (6).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (7).jpg"><img data-src="gallery/uicei/th/img (7).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (8).jpg"><img data-src="gallery/uicei/th/img (8).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (9).jpg"><img data-src="gallery/uicei/th/img (9).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (10).jpg"><img data-src="gallery/uicei/th/img (10).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (11).jpg"><img data-src="gallery/uicei/th/img (11).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (12).jpg"><img data-src="gallery/uicei/th/img (12).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (13).jpg"><img data-src="gallery/uicei/th/img (13).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (14).jpg"><img data-src="gallery/uicei/th/img (14).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (15).jpg"><img data-src="gallery/uicei/th/img (15).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (16).jpg"><img data-src="gallery/uicei/th/img (16).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (17).jpg"><img data-src="gallery/uicei/th/img (17).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (18).jpg"><img data-src="gallery/uicei/th/img (18).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/uicei/img (19).jpg"><img data-src="gallery/uicei/th/img (19).jpg" alt=""></a>
 					<br/>
 					<div style="clear: both;"> </div>
 
@@ -2304,20 +2215,20 @@
 						<div class="sponsorBar"><strong>تصاویر کنفرانس ۱۳۹۵ </strong></div> <br>
 
 					<div class="ax">
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (1).jpg"><img src="gallery/95/img (1).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (2).jpg"><img src="gallery/95/img (2).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (3).jpg"><img src="gallery/95/img (3).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (4).jpg"><img src="gallery/95/img (4).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (5).jpg"><img src="gallery/95/img (5).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (6).jpg"><img src="gallery/95/img (6).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (7).jpg"><img src="gallery/95/img (7).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (8).jpg"><img src="gallery/95/img (8).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (9).jpg"><img src="gallery/95/img (9).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (10).jpg"><img src="gallery/95/img (10).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (11).jpg"><img src="gallery/95/img (11).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (12).jpg"><img src="gallery/95/img (12).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (13).jpg"><img src="gallery/95/img (13).jpg" alt="" /></a>
-					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (14).jpg"><img src="gallery/95/img (14).jpg" alt="" /></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (1).jpg"><img data-src="gallery/95/th/img (1).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (2).jpg"><img data-src="gallery/95/th/img (2).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (3).jpg"><img data-src="gallery/95/th/img (3).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (4).jpg"><img data-src="gallery/95/th/img (4).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (5).jpg"><img data-src="gallery/95/th/img (5).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (6).jpg"><img data-src="gallery/95/th/img (6).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (7).jpg"><img data-src="gallery/95/th/img (7).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (8).jpg"><img data-src="gallery/95/th/img (8).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (9).jpg"><img data-src="gallery/95/th/img (9).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (10).jpg"><img data-src="gallery/95/th/img (10).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (11).jpg"><img data-src="gallery/95/th/img (11).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (12).jpg"><img data-src="gallery/95/th/img (12).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (13).jpg"><img data-src="gallery/95/th/img (13).jpg" alt=""></a>
+					<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/95/img (14).jpg"><img data-src="gallery/95/th/img (14).jpg" alt=""></a>
 					<br/>
 					<div style="clear: both;"> </div>
 					</div>
@@ -2344,24 +2255,24 @@
 						<div class="sponsorBar"><strong>گالری کنفرانس ۱۳۹۶ </strong></div> <br>
 
 					<div class="ax">
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (1).JPG"><img src="gallery/96/img (1).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (2).JPG"><img src="gallery/96/img (2).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (3).JPG"><img src="gallery/96/img (3).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (4).JPG"><img src="gallery/96/img (4).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (5).JPG"><img src="gallery/96/img (5).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (6).JPG"><img src="gallery/96/img (6).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (7).JPG"><img src="gallery/96/img (7).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (8).JPG"><img src="gallery/96/img (8).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (9).JPG"><img src="gallery/96/img (9).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (10).JPG"><img src="gallery/96/img (10).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (11).JPG"><img src="gallery/96/img (11).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (12).JPG"><img src="gallery/96/img (12).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (13).JPG"><img src="gallery/96/img (13).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (14).JPG"><img src="gallery/96/img (14).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (15).JPG"><img src="gallery/96/img (15).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (16).JPG"><img src="gallery/96/img (16).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (17).JPG"><img src="gallery/96/img (17).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (18).JPG"><img src="gallery/96/img (18).JPG" alt="" /></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (1).jpg"><img data-src="gallery/96/th/img (1).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (2).jpg"><img data-src="gallery/96/th/img (2).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (3).jpg"><img data-src="gallery/96/th/img (3).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (4).jpg"><img data-src="gallery/96/th/img (4).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (5).jpg"><img data-src="gallery/96/th/img (5).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (6).jpg"><img data-src="gallery/96/th/img (6).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (7).jpg"><img data-src="gallery/96/th/img (7).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (8).jpg"><img data-src="gallery/96/th/img (8).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (9).jpg"><img data-src="gallery/96/th/img (9).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (10).jpg"><img data-src="gallery/96/th/img (10).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (11).jpg"><img data-src="gallery/96/th/img (11).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (12).jpg"><img data-src="gallery/96/th/img (12).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (13).jpg"><img data-src="gallery/96/th/img (13).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (14).jpg"><img data-src="gallery/96/th/img (14).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (15).jpg"><img data-src="gallery/96/th/img (15).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (16).jpg"><img data-src="gallery/96/th/img (16).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (17).jpg"><img data-src="gallery/96/th/img (17).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/96/img (18).jpg"><img data-src="gallery/96/th/img (18).jpg" alt=""></a>
 						<br/>
 						<div style="clear: both;"> </div>
 						                 
@@ -2388,22 +2299,22 @@
 				<div class="sponsorBar"><strong>گالری کنفرانس ۱۳۹۷ </strong></div> <br>
 
 					<div class="ax">
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (1).JPG"><img src="gallery/97/img (1).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (2).JPG"><img src="gallery/97/img (2).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (3).JPG"><img src="gallery/97/img (3).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (4).JPG"><img src="gallery/97/img (4).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (5).JPG"><img src="gallery/97/img (5).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (6).JPG"><img src="gallery/97/img (6).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (7).JPG"><img src="gallery/97/img (7).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (8).JPG"><img src="gallery/97/img (8).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (9).JPG"><img src="gallery/97/img (9).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (10).JPG"><img src="gallery/97/img (10).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (11).JPG"><img src="gallery/97/img (11).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (12).JPG"><img src="gallery/97/img (12).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (13).JPG"><img src="gallery/97/img (13).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (14).JPG"><img src="gallery/97/img (14).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (15).JPG"><img src="gallery/97/img (15).JPG" alt="" /></a>
-						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (16).JPG"><img src="gallery/97/img (16).JPG" alt="" /></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (1).jpg"><img data-src="gallery/97/th/img (1).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (2).jpg"><img data-src="gallery/97/th/img (2).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (3).jpg"><img data-src="gallery/97/th/img (3).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (4).jpg"><img data-src="gallery/97/th/img (4).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (5).jpg"><img data-src="gallery/97/th/img (5).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (6).jpg"><img data-src="gallery/97/th/img (6).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (7).jpg"><img data-src="gallery/97/th/img (7).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (8).jpg"><img data-src="gallery/97/th/img (8).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (9).jpg"><img data-src="gallery/97/th/img (9).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (10).jpg"><img data-src="gallery/97/th/img (10).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (11).jpg"><img data-src="gallery/97/th/img (11).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (12).jpg"><img data-src="gallery/97/th/img (12).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (13).jpg"><img data-src="gallery/97/th/img (13).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (14).jpg"><img data-src="gallery/97/th/img (14).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (15).jpg"><img data-src="gallery/97/th/img (15).jpg" alt=""></a>
+						<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/97/img (16).jpg"><img data-src="gallery/97/th/img (16).jpg" alt=""></a>
 
 	
 
@@ -2430,24 +2341,24 @@
 				<div class="sponsorBar"><strong> گالری کنفرانس ۱۳۹۸ </strong></div> <br>
 
 					<div class="ax">
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (1).jpg"><img src="gallery/98/img (1).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (2).jpg"><img src="gallery/98/img (2).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (3).jpg"><img src="gallery/98/img (3).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (4).jpg"><img src="gallery/98/img (4).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (5).jpg"><img src="gallery/98/img (5).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (6).jpg"><img src="gallery/98/img (6).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (7).jpg"><img src="gallery/98/img (7).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (8).jpg"><img src="gallery/98/img (8).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (9).jpg"><img src="gallery/98/img (9).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (10).jpg"><img src="gallery/98/img (10).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (11).jpg"><img src="gallery/98/img (11).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (12).jpg"><img src="gallery/98/img (12).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (13).jpg"><img src="gallery/98/img (13).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (14).jpg"><img src="gallery/98/img (14).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (15).jpg"><img src="gallery/98/img (15).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (16).jpg"><img src="gallery/98/img (16).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (17).jpg"><img src="gallery/98/img (17).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (18).jpg"><img src="gallery/98/img (18).jpg" alt="" /></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (1).jpg"><img data-src="gallery/98/th/img (1).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (2).jpg"><img data-src="gallery/98/th/img (2).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (3).jpg"><img data-src="gallery/98/th/img (3).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (4).jpg"><img data-src="gallery/98/th/img (4).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (5).jpg"><img data-src="gallery/98/th/img (5).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (6).jpg"><img data-src="gallery/98/th/img (6).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (7).jpg"><img data-src="gallery/98/th/img (7).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (8).jpg"><img data-src="gallery/98/th/img (8).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (9).jpg"><img data-src="gallery/98/th/img (9).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (10).jpg"><img data-src="gallery/98/th/img (10).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (11).jpg"><img data-src="gallery/98/th/img (11).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (12).jpg"><img data-src="gallery/98/th/img (12).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (13).jpg"><img data-src="gallery/98/th/img (13).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (14).jpg"><img data-src="gallery/98/th/img (14).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (15).jpg"><img data-src="gallery/98/th/img (15).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (16).jpg"><img data-src="gallery/98/th/img (16).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (17).jpg"><img data-src="gallery/98/th/img (17).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/98/img (18).jpg"><img data-src="gallery/98/th/img (18).jpg" alt=""></a>
 	
 
 						<div style="clear: both;"> </div>
@@ -2473,26 +2384,26 @@
 				<div class="sponsorBar"><strong> گالری کنفرانس ۱۳۹۹ </strong></div> <br>
 
 					<div class="ax">
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (1).jpg"><img src="gallery/99/img (1).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (2).jpg"><img src="gallery/99/img (2).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (3).jpg"><img src="gallery/99/img (3).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (4).jpg"><img src="gallery/99/img (4).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (5).jpg"><img src="gallery/99/img (5).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (6).jpg"><img src="gallery/99/img (6).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (7).jpg"><img src="gallery/99/img (7).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (8).jpg"><img src="gallery/99/img (8).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (9).jpg"><img src="gallery/99/img (9).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (10).jpg"><img src="gallery/99/img (10).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (11).jpg"><img src="gallery/99/img (11).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (12).jpg"><img src="gallery/99/img (12).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (13).jpg"><img src="gallery/99/img (13).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (14).jpg"><img src="gallery/99/img (14).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (15).jpg"><img src="gallery/99/img (15).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (16).jpg"><img src="gallery/99/img (16).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (17).jpg"><img src="gallery/99/img (17).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (18).jpg"><img src="gallery/99/img (18).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (19).jpg"><img src="gallery/99/img (19).jpg" alt="" /></a>
-<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (20).jpg"><img src="gallery/99/img (20).jpg" alt="" /></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (1).jpg"><img data-src="gallery/99/th/img (1).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (2).jpg"><img data-src="gallery/99/th/img (2).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (3).jpg"><img data-src="gallery/99/th/img (3).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (4).jpg"><img data-src="gallery/99/th/img (4).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (5).jpg"><img data-src="gallery/99/th/img (5).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (6).jpg"><img data-src="gallery/99/th/img (6).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (7).jpg"><img data-src="gallery/99/th/img (7).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (8).jpg"><img data-src="gallery/99/th/img (8).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (9).jpg"><img data-src="gallery/99/th/img (9).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (10).jpg"><img data-src="gallery/99/th/img (10).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (11).jpg"><img data-src="gallery/99/th/img (11).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (12).jpg"><img data-src="gallery/99/th/img (12).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (13).jpg"><img data-src="gallery/99/th/img (13).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (14).jpg"><img data-src="gallery/99/th/img (14).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (15).jpg"><img data-src="gallery/99/th/img (15).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (16).jpg"><img data-src="gallery/99/th/img (16).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (17).jpg"><img data-src="gallery/99/th/img (17).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (18).jpg"><img data-src="gallery/99/th/img (18).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (19).jpg"><img data-src="gallery/99/th/img (19).jpg" alt=""></a>
+<a class="fancybox-buttons" data-fancybox-group="button" title=".. ." href="gallery/99/img (20).jpg"><img data-src="gallery/99/th/img (20).jpg" alt=""></a>
 
 						<div style="clear: both;"> </div>
 					</div>
@@ -3440,45 +3351,45 @@
 						<table >
 							<tbody>
 							<tr>
-							<td width="25%"><img src="img/new-img/1.png" style="width: 100px;" /></td>
-							<td width="25%"><img src="img/new-img/2.jpg" style="width: 150px;" /></td>
-							<td width="25%"><img src="img/new-img/3.jpg" style="width: 100px;" /></td>
-							<td width="25%"><img src="img/new-img/4.jpg" style="width: 120px;" /></td>
+							<td width="25%"><img data-src="img/new-img/1.png" style="width: 100px;"></td>
+							<td width="25%"><img data-src="img/new-img/2.jpg" style="width: 150px;"></td>
+							<td width="25%"><img data-src="img/new-img/3.jpg" style="width: 100px;"></td>
+							<td width="25%"><img data-src="img/new-img/4.jpg" style="width: 120px;"></td>
 							
 							</tr>
 						   
 						   <tr>
-							<td width="20%"><img src="img/new-img/5.png" style="width: 120px;" /></td>
-							<td width="20%"><img src="img/new-img/6.png" style="width: 120px;" /></td>
-							<td width="20%"><img src="img/new-img/7.png" style="width: 120px;" /></td>
-							<td width="20%"><img src="img/new-img/8.jpg" style="width: 120px;" /></td>
+							<td width="20%"><img data-src="img/new-img/5.png" style="width: 120px;"></td>
+							<td width="20%"><img data-src="img/new-img/6.png" style="width: 120px;"></td>
+							<td width="20%"><img data-src="img/new-img/7.png" style="width: 120px;"></td>
+							<td width="20%"><img data-src="img/new-img/8.jpg" style="width: 120px;"></td>
 						   
 						   </tr>
 						   
 							<tr>
-							<td width="20%"><img src="img/new-img/9.jpg" style="width: 120px;" /></td>
-							<td width="20%"><img src="img/new-img/10.png" style="width: 120px;" /></td>
-							<td width="20%"><img src="img/new-img/11.png" style="width: 100px;" /></td>
-							<td width="20%"><img src="img/new-img/12.jpg" style="width: 100px;" /></td>
+							<td width="20%"><img data-src="img/new-img/9.jpg" style="width: 120px;"></td>
+							<td width="20%"><img data-src="img/new-img/10.png" style="width: 120px;"></td>
+							<td width="20%"><img data-src="img/new-img/11.png" style="width: 100px;"></td>
+							<td width="20%"><img data-src="img/new-img/12.jpg" style="width: 100px;"></td>
 							
 							</tr>
 							
 							<tr>
-								<td width="20%"><img src="img/new-img/13.jpg" style="width: 100px;" /></td>
-								<td width="20%"><img src="img/new-img/14.jpg" style="width: 100px;" /></td>
-								<td width="20%"><img src="img/new-img/15.jpg" style="width: 100px;" /></td>
-								<td width="20%"><img src="img/new-img/16.png" style="width: 100px;" /></td>
+								<td width="20%"><img data-src="img/new-img/13.jpg" style="width: 100px;"></td>
+								<td width="20%"><img data-src="img/new-img/14.jpg" style="width: 100px;"></td>
+								<td width="20%"><img data-src="img/new-img/15.jpg" style="width: 100px;"></td>
+								<td width="20%"><img data-src="img/new-img/16.png" style="width: 100px;"></td>
 							</tr>
 							<tr>
-								<td width="20%"><img src="img/new-img/17.jpg" style="width: 150px;" /></td>
-								<td width="20%"><img src="img/new-img/18.png" style="width: 100px;" /></td>
-								<td width="20%"><img src="img/new-img/19.jpg" style="width: 100px;" /></td>
-								<td width="20%"><img src="img/new-img/20.png" style="width: 100px;" /></td>
+								<td width="20%"><img data-src="img/new-img/17.jpg" style="width: 150px;"></td>
+								<td width="20%"><img data-src="img/new-img/18.png" style="width: 100px;"></td>
+								<td width="20%"><img data-src="img/new-img/19.jpg" style="width: 100px;"></td>
+								<td width="20%"><img data-src="img/new-img/20.png" style="width: 100px;"></td>
 						
 							</tr>
 						
 							<tr>
-								<td width="20%"><img src="img/new-img/21.jpg" style="width: 150px;" /></td>
+								<td width="20%"><img data-src="img/new-img/21.jpg" style="width: 150px;"></td>
 						
 							</tr>
 						   
@@ -3538,6 +3449,84 @@ var navbar = document.getElementById("col");
 	$("#col .button").removeClass("orange");
 	$("#artlist").addClass("orange");
 	}
+</script>
+
+<script type="text/javascript" src="lib/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="lib/jquery.mousewheel-3.0.6.pack.js"></script>
+<script type="text/javascript" src="source/jquery.fancybox.js?v=2.0.6"></script>
+<script type="text/javascript" src="source/jquery.tablesorter.min.js"></script>
+<script type="text/javascript">
+		$(document).ready(function() {
+				$(".various").fancybox({
+					fitToView	: false,
+					width		: '500px',
+					height		: '80%',
+					autoSize	: false,
+					closeClick	: false,
+					openEffect	: 'fade',
+					closeEffect	: 'fade'
+				});
+				
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+				closeBtn  : false,
+				helpers : {
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+			if($("#introbox").height() <$("#col").height() )
+				$("#introbox").height($("#col").height() );
+			$(".ajaxee").click(function(){
+				var attri = $(this).attr("href");
+				$(attri).find('img[data-src]').each(function() {
+					this.src = this.getAttribute('data-src');
+					this.removeAttribute('data-src');
+				});
+				$("#content *").hide();
+				 $(attri).fadeIn('slow', function() {
+						$(attri+" * ").show();
+						if($(attri).height() <$("#col").height() )
+							$(attri).height($("#col").height() );
+				  });
+				  if(attri=='#authorlist'){
+					$("#autl").tablesorter();
+					}else if(attri=='#unilist'){
+						$("#unil").tablesorter();
+					}	
+			});
+			$(".workshoplink").click(function() {
+				$.fancybox.open({
+					href : 'workshops/'+$(this).attr("id")+'.htm',
+					//href : 'workshops/workshop1.htm',
+					type : 'iframe',
+					padding : 5,
+					fitToView	: true,
+					autoSize	: false
+				});
+			});
+			$(".scilist a").click(function() {
+				$.fancybox.open({
+					href : 'scitalk/'+$(this).attr("id")+'.htm',
+					type : 'iframe',
+					padding : 5,
+					fitToView	: true,
+					autoSize	: false
+				});
+			});
+			$(".maplinks").click(function(){
+				$("#mapimg").attr("src", "img/"+ $(this).attr("alt"));
+			});
+			$("#col .button").click(function(){
+				$("#col .button").removeClass("orange");
+				$(this).addClass("orange");
+				
+			});
+		});
 </script>
 
 </body>
