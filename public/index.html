@@ -15,6 +15,10 @@
 </head>
 <body>
 <div id="wrapper">
+	<div id="mnav">
+		<a href="index.html" class="mnav-logo"><img src="img/CGCO-2026-Header.jpg" alt="CGCO2026" /></a>
+		<button type="button" id="mnav-btn" aria-label="منوی سایت"><span class="mnav-icon"><span></span><span></span><span></span></span>منو</button>
+	</div>
 	<div id="header">
 		<a href="index.html">
 			<img src="img/CGCO-2026-Header.jpg" width="4004" height="1056" alt="">
@@ -3430,9 +3434,11 @@ window.onscroll = function() { addFixedToMenu() };
 var navbar = document.getElementById("col");
 	var sticky = navbar.offsetTop;
 
-	console.log(sticky);
-
 	function addFixedToMenu() {
+		if (window.matchMedia && window.matchMedia("(max-width: 1200px)").matches) {
+			navbar.classList.remove("sticky");
+			return;
+		}
 		if (window.pageYOffset >= sticky) {
 		navbar.classList.add("sticky")
 		} else {
@@ -3527,6 +3533,15 @@ var navbar = document.getElementById("col");
 				
 			});
 		});
+</script>
+
+<script type="text/javascript">
+	$("#mnav-btn").click(function(){
+		$("#col").toggleClass("open");
+	});
+	$("#col .button").click(function(){
+		$("#col").removeClass("open");
+	});
 </script>
 
 </body>

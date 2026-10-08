@@ -1,50 +1,326 @@
+/* base rules */
+img {
+	max-width: 100%;
+	height: auto;
+}
+
 .BZar img {
    max-width: 100%;
    margin: auto !important;
 }
 
+.scrolable-div {
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+table {
+	max-width: 100%;
+}
+
+/* compact mobile bar (only shown on phones) */
+#mnav {
+	display: none;
+}
+
+/* ============ tablets & smaller laptops ============ */
 @media only screen and (max-width: 1200px) {
     .nav.sticky {
         display: none;
     }
 
-    .button {
-        width: 25%;
+    /* keep the banner visible and fully stacked above the content.
+       the hidden .top-wave div (height:555px + negative margins) is a
+       desktop-only spacing trick; kill it here so it can't collapse the header */
+    #header {
+        margin-bottom: 0;
+        padding-top: 0;
+        z-index: auto;
+        line-height: 0;
     }
 
-    #header {
-        padding-top: 210px;
+    #header a {
+        line-height: normal;
+        font-size: 0;
     }
 
     #header img {
-        visibility: hidden;
+        visibility: visible;
+        display: block;
+    }
+
+    #header .top-wave {
+        display: none;
+    }
+
+    #buttonContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #col .button {
+        flex: 0 1 23%;
+        box-sizing: border-box;
+        margin: 3px;
     }
 
     #main {
-        margin-top: -480px;
+        margin-top: 10px;
     }
 
-
-    .blue.button {
-        border: 1px solid #686868;
-        border-radius: 3px;
-    }   
-    
-    .scrolable-div {
-        overflow-x: auto;
-    }   
-
-}
-
-@media only screen and (max-width: 960px) {
     #content .BZar {
-        Padding: 25px 5%;
+        padding: 20px 6%;
+    }
+
+    #keyspeechbox {
+        padding: 2% 6% !important;
+    }
+
+    #footer {
+        padding-top: 90px;
     }
 }
 
+/* ============ small tablets / large phones ============ */
+@media only screen and (max-width: 768px) {
+    /* overflow-x: clip avoids the RTL "can't scroll down" trap on mobile */
+    html {
+        overflow-x: clip;
+    }
 
-@media only screen and (max-width: 460px) {
-    .button {
-        width: 35%;
+    /* replace the big banner with a compact bar + dropdown menu */
+    #header {
+        display: none;
+    }
+
+    #mnav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #ec4f56;
+        padding: 8px 12px;
+    }
+
+    #mnav .mnav-logo img {
+        display: block;
+        height: 34px;
+        width: auto;
+    }
+
+    #mnav-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        background: #252525;
+        color: #f8ffff;
+        border: none;
+        border-radius: 4px;
+        font-family: "IRANSansFaNum", Tahoma, sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 7px 13px;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    #mnav-btn .mnav-icon {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 18px;
+        height: 13px;
+    }
+
+    #mnav-btn .mnav-icon span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #f8ffff;
+        border-radius: 1px;
+    }
+
+    #col {
+        display: none;
+    }
+
+    #col.open {
+        display: block;
+    }
+
+    #col .button {
+        flex: 0 1 100%;
+        padding: 12px 6px;
+        font-size: 14px;
+        border-radius: 3px;
+    }
+
+    #main {
+        margin-top: 0;
+    }
+
+    #content .BZar {
+        Padding: 15px 10px;
+    }
+
+    #keyspeechbox {
+        padding: 2% !important;
+    }
+
+    .sponsorBar {
+        font-size: 15px;
+        padding: 10px;
+    }
+
+    .grid .person {
+        width: 100%;
+        margin: 5px auto;
+    }
+
+    /* stack speaker cards */
+    .presenter .pic {
+        position: static;
+        display: block;
+        margin: 15px auto;
+    }
+
+    .presenter .pic:nth-child(2) {
+        top: auto;
+    }
+
+    .presenter .caption {
+        margin: 0 15px 20px;
+        text-align: center;
+    }
+
+    .panelists {
+        width: 100%;
+    }
+
+    .panelists .detail {
+        font-size: 13px;
+        line-height: 26px;
+    }
+
+    #intronav {
+        width: 100%;
+    }
+
+    /* album year-switcher buttons (inline width:19% -> 2 per row) */
+    #content .button.rounded {
+        width: 45% !important;
+        box-sizing: border-box;
+        margin: 3px;
+        padding: 9px 6px;
+        font-size: 12px;
+    }
+
+    #footer {
+        padding-top: 60px;
+        margin-top: 0;
+    }
+
+    table td {
+        height: auto;
+    }
+
+    /* intro sponsor logos (cellspacing=50 => too wide) */
+    .BZar table {
+        border-spacing: 10px;
+    }
+}
+
+/* ============ phones ============ */
+@media only screen and (max-width: 480px) {
+    #col .button {
+        flex: 0 1 100%;
+        margin: 4px 0;
+        padding: 12px 6px;
+        font-size: 13px;
+    }
+
+    #main {
+        margin-top: 5px;
+    }
+
+    #header img {
+        max-width: 100%;
+    }
+
+    #content .BZar,
+    #keyspeechbox {
+        Padding: 12px 10px;
+    }
+
+    #content h4 {
+        font-size: 15px;
+        line-height: 28px;
+    }
+
+    #content p {
+        font-size: 13px;
+    }
+
+    .sponsorBar {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .grid .person img {
+        float: none;
+        display: block;
+        margin: 10px auto;
+        width: 130px;
+    }
+
+    .grid .person .caption {
+        float: none;
+        width: 100%;
+        margin: 0;
+        padding: 0 10px 12px;
+        text-align: center;
+    }
+
+    .conf-articles table p {
+        font-size: 12px;
+    }
+
+    .conf-articles table td {
+        font-size: 12px;
+        padding: 4px;
+    }
+
+    .fancybox-buttons {
+        margin: 3px;
+    }
+
+    .fancybox-buttons img {
+        height: 56px;
+        width: 56px;
+    }
+
+    #content .button.rounded {
+        width: 98% !important;
+        font-size: 13px;
+    }
+
+    /* intro sponsor logos (cellspacing=50 => too wide) */
+    .BZar table {
+        border-spacing: 10px;
+    }
+
+    #footerNote {
+        font-size: 13px;
+    }
+}
+@media only screen and (max-width: 360px) {
+    .fancybox-buttons img {
+        height: 46px;
+        width: 46px;
+    }
+
+    #col .button {
+        font-size: 12px;
+        padding: 9px 3px;
     }
 }
