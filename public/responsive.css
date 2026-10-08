@@ -1,0 +1,50 @@
+.BZar img {
+   max-width: 100%;
+   margin: auto !important;
+}
+
+@media only screen and (max-width: 1200px) {
+    .nav.sticky {
+        display: none;
+    }
+
+    .button {
+        width: 25%;
+    }
+
+    #header {
+        padding-top: 210px;
+    }
+
+    #header img {
+        visibility: hidden;
+    }
+
+    #main {
+        margin-top: -480px;
+    }
+
+
+    .blue.button {
+        border: 1px solid #686868;
+        border-radius: 3px;
+    }   
+    
+    .scrolable-div {
+        overflow-x: auto;
+    }   
+
+}
+
+@media only screen and (max-width: 960px) {
+    #content .BZar {
+        Padding: 25px 5%;
+    }
+}
+
+
+@media only screen and (max-width: 460px) {
+    .button {
+        width: 35%;
+    }
+}

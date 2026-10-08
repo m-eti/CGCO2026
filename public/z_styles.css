@@ -1,0 +1,45 @@
+.z_komite_elmi{
+	border:5px groove #006666 ;
+}
+.z_komite_elmi tr:first-child td{
+	font-weight: bold;
+	font-size: 20px;
+	border-bottom:3px solid #006666;
+}
+.z_komite_elmi td{
+	text-align:center;
+}
+.z_komite_elmi tr td{
+	border-bottom:2px solid #006666;
+}
+.z_komite_elmi tr:last-child td{
+	border:none;
+}
+.z_red_span_dabir{
+	color: red;
+}
+.z_blue_span_dabir{
+	color:blue;
+}
+.z_abstract_kilidi{
+	text-align:justify;
+	direction:ltr;
+	font-size:15px;
+}
+.persian_txt{
+	font-size:17.7px;
+}
+.english_txt{
+	font-size:15px;
+}
+.z_footer_link{
+	color:white;
+	text-decoration:none;
+}
+.z_footer_link:visited{
+	color:white;
+}
+.strangeNumbers {
+  word-spacing: -0.2em;
+}
+

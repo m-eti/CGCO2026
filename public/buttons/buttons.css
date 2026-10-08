@@ -1,0 +1,76 @@
+.button {
+    width: 10%;
+    display: inline-block;
+    border-radius: 2px;
+    padding: 15px 10px;
+}
+
+.button:active{
+	/* Moving the button 1px to the bottom when clicked */
+	bottom:-1px;
+}
+
+/* The three buttons sizes */
+
+.button.big		{ font-size:30px;}
+.button.medium	{ font-size:14px;}
+.button.small	{ font-size:13px;}
+
+/* A more rounded button */
+
+.button.rounded{
+	-moz-border-radius:4em;
+	-webkit-border-radius:4em;
+	border-radius:4em;
+}
+
+
+/* Defining four button colors */
+
+
+/* BlueButton */
+
+.blue.button {
+    color: #ffffff !important;
+    background-color: #ec4f56;
+    font-weight: bold;
+}
+
+.blue.button:hover {
+    background-color: #252525;
+    color: #FFF !important;
+}
+
+/* Green Button */
+
+.green.button{
+	color:#345903 !important;
+	border:1px solid #96a37b !important;
+	background-color: #79be1e;
+}
+
+.green.button:hover{
+	background-color:#89d228;
+
+}
+
+/* Orange Button */
+
+.orange.button{
+	color: #f8ffff !important;
+	background-color:  #252525;
+
+}
+
+
+.gray.button{
+	color:#525252 !important;
+	border:1px solid #a5a5a5 !important;
+	background-color: #a9adb1;
+
+}
+
+.gray.button:hover{
+	background-color:#b6bbc0;
+
+}
