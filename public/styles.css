@@ -1,3 +1,16 @@
+:root{
+	/* palette sampled from the 2026 key-art (deep navy + gold) */
+	--navy-900: #05041a;
+	--navy-800: #0b0b22;
+	--navy-700: #16162f;
+	--navy-600: #242440;
+	--indigo-400: #3c3c5c;
+	--gold: #d4b55f;
+	--gold-light: #ecdb9e;
+	--gold-dark: #9c7d34;
+	--gold-soft: rgba(212, 181, 95, 0.18);
+	}
+
 *{
 	margin:0;
 	padding:0;
@@ -23,7 +36,7 @@
 }
 	
 	body {
-		  color: #242424;
+		  color: #1c1c33;
 		  direction: rtl;
 		  overflow-x: hidden;
 	}
@@ -43,7 +56,7 @@
 
 	.article-head-subject {
 		display: table-cell;
-		background: #224863;
+		background: var(--navy-800);
 		color: #FFF;
 		line-height: 20px;
 	}
@@ -70,12 +83,14 @@
 		top: 0;
 		right: 0;
 		left: 0;
-		background: #ec4f56;
+		background: var(--navy-800);
+		border-bottom: 2px solid var(--gold);
+		box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
 		z-index: 999999999999999999;
 	}
 
 	.nav.sticky .button {
-		border: 1px solid rgb(255 255 255);
+		border: 1px solid var(--gold);
 		margin: 12px 2px;
 		border-radius: 5px;
 	}
@@ -86,11 +101,11 @@
 	
 	
 	.sponsorBar {
-		color: #ec4f56;
+		color: var(--gold-dark);
 		font-size: 18px;
 		font-weight: bold !important;
 		text-align: center;
-		border: 3px solid #ec4f56;
+		border: 3px solid var(--gold);
 		padding: 13px;
 		border-radius: 0px;
 		border-right: none;
@@ -132,7 +147,7 @@
 
 	#header a {
 		font-size: 43px;
-		color: #034653;
+		color: var(--navy-800);
 		position: relative;
 		//top: -275px;
 	}
@@ -233,8 +248,8 @@
 	cursor:pointer
 	}
 	#footer {
-		background-color: #ec4f56;
-		color: #f8ffff;
+		background-color: var(--navy-900);
+		color: #f4efdd;
 		position: absolute;
 		width: 100%;
 		padding: 35px 0;
@@ -343,7 +358,7 @@
 	}
 
 	.conf-articles table td {
-		border: 1px solid #ec4f56 !important;
+		border: 1px solid var(--gold) !important;
 	}
 
 	/*
@@ -372,11 +387,11 @@
 	}
 
 	.color-effect tr:nth-child(2n-1) td {
-		background: rgb(236 79 86 / 30%);
+		background: var(--gold-soft);
 	}
 
 	.conf-articles table tr:first-child td {
-		background-color: rgb(236 79 86) !important;
+		background-color: var(--navy-800) !important;
 	}
 
 	.grid .person {
@@ -395,7 +410,7 @@
 	}
 
 	.grid .person .name  {
-		color: #ec4f56;
+		color: var(--gold-dark);
 		font-weight: bold;
 	}
 
@@ -450,7 +465,7 @@
 
 	.presenter .caption .name {
 		font-weight: bold;
-		color: #ec4f56;
+		color: var(--gold-dark);
 		margin-bottom: 5px;
 		font-size: 16px;
 	}
@@ -458,7 +473,7 @@
 
 	.presenter b {
 		font-weight: bold;
-		color: #ec4f56;
+		color: var(--gold-dark);
 		display: block !important;
 		margin-top: 15px;
 	}
@@ -479,8 +494,9 @@
 
 	
 	.last.button.orange {
-		color: #ffffff !important;
-		background-color: #ec4f56;
+		color: var(--navy-900) !important;
+		background-color: var(--gold);
+		border-color: var(--gold-light);
 		font-weight: bold;
 	}
 	
@@ -504,7 +520,7 @@
 
 
 	.diffrent-table-background {
-		background: #ec4f56 !important;
+		background: var(--navy-800) !important;
 	}
 
 	.diffrent-table-background p {

@@ -23,6 +23,11 @@ table {
 	display: none;
 }
 
+/* mobile-only banner (hidden on desktop) */
+.mobile-only {
+	display: none;
+}
+
 /* ============ tablets & smaller laptops ============ */
 @media only screen and (max-width: 1200px) {
     .nav.sticky {
@@ -98,28 +103,64 @@ table {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background: #ec4f56;
-        padding: 8px 12px;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1000000;
+        height: 58px;
+        box-sizing: border-box;
+        background: var(--navy-800);
+        border-bottom: 2px solid var(--gold);
+        box-shadow: 0 3px 14px rgba(0, 0, 0, 0.35);
+        padding: 0 12px;
+    }
+
+    /* keep the page content clear of the fixed mobile bar */
+    #wrapper {
+        padding-top: 58px;
+    }
+
+    #mnav .mnav-logo {
+        display: inline-flex;
+        align-items: center;
     }
 
     #mnav .mnav-logo img {
         display: block;
-        height: 34px;
+        height: 40px;
         width: auto;
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
+    }
+
+    /* persistent mobile banner shown above the content on every section */
+    .mobile-only {
+        display: block;
+        width: 100%;
+        margin: 0 0 12px;
+        line-height: 0;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    }
+
+    .mobile-only img {
+        display: block;
+        width: 100%;
+        height: auto;
     }
 
     #mnav-btn {
         display: inline-flex;
         align-items: center;
         gap: 7px;
-        background: #252525;
-        color: #f8ffff;
+        background: var(--gold);
+        color: var(--navy-900);
         border: none;
-        border-radius: 4px;
+        border-radius: 20px;
         font-family: "IRANSansFaNum", Tahoma, sans-serif;
         font-size: 14px;
         font-weight: bold;
-        padding: 7px 13px;
+        padding: 7px 15px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         cursor: pointer;
         -webkit-tap-highlight-color: transparent;
     }
@@ -136,7 +177,7 @@ table {
         display: block;
         width: 100%;
         height: 2px;
-        background: #f8ffff;
+        background: var(--navy-900);
         border-radius: 1px;
     }
 
@@ -144,8 +185,33 @@ table {
         display: none;
     }
 
+    /* dropdown menu that opens over the page at the current scroll position */
     #col.open {
         display: block;
+        position: fixed;
+        top: 58px;
+        right: 0;
+        left: 0;
+        z-index: 999999;
+        box-sizing: border-box;
+        padding: 10px;
+        background: var(--navy-800);
+        border-bottom: 2px solid var(--gold);
+        box-shadow: 0 16px 34px rgba(0, 0, 0, 0.55);
+        max-height: calc(100vh - 58px);
+        overflow-y: auto;
+        animation: mnavDrop 0.18s ease-out;
+    }
+
+    @keyframes mnavDrop {
+        from {
+            opacity: 0;
+            transform: translateY(-8px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     #col .button {
@@ -153,6 +219,10 @@ table {
         padding: 12px 6px;
         font-size: 14px;
         border-radius: 3px;
+    }
+
+    #col.open .button {
+        margin: 4px 0;
     }
 
     #main {
