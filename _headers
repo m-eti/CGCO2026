@@ -33,3 +33,13 @@
 
 /*.js
   Cache-Control: public, max-age=31536000, immutable
+
+/food_delivery/*
+  Cache-Control: no-store, max-age=0
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(self), microphone=(), geolocation=()
+
+/food_delivery/assets/*
+  Cache-Control: public, max-age=31536000, immutable
