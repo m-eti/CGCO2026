@@ -10,8 +10,7 @@ Options -Indexes
     </IfModule>
 </FilesMatch>
 
-# دسترسی مستقیم به فایل مقالات (articles.zip) مسدود است؛
-# ارائه فایل تنها از طریق download-articles.php و پس از احراز هویت انجام می‌شود.
+
 <Files "articles.zip">
     <IfModule mod_authz_core.c>
         Require all denied

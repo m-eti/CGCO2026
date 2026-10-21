@@ -11,7 +11,7 @@ header("X-Content-Type-Options: nosniff");
 header("Referrer-Policy: strict-origin-when-cross-origin");
 
 define('EXCEL_FILE', __DIR__ . '/participants.xlsx');
-define('ARTICLES_FILE', __DIR__ . '/articles.zip');
+define('ARTICLES_FILE', __DIR__ . '/assets/articles.zip');
 define('CUSTOM_FONT_PATH', 'assets/custom-font.ttf');
 define('CUSTOM_TEMPLATE_PATH', 'assets/certificate-template.png');
 define('SESSION_TTL', 1800);             // اعتبار نشست کاربر: ۳۰ دقیقه

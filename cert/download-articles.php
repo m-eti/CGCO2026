@@ -12,7 +12,7 @@ header('Referrer-Policy: strict-origin-when-cross-origin');
 header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
 header('Pragma: no-cache');
 
-define('ARTICLES_FILE', __DIR__ . '/articles.zip');
+define('ARTICLES_FILE', __DIR__ . '/assets/articles.zip');
 define('EXCEL_FILE', __DIR__ . '/participants.xlsx');
 define('ARTICLES_ACCESS_TTL', 1800);   // اعتبار دسترسی: ۳۰ دقیقه
 
