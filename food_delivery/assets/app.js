@@ -168,9 +168,9 @@
             }
             if (button) {
                 if (name === tabId) {
-                    button.className = 'tab-btn px-4 py-2.5 text-xs sm:text-sm font-semibold border-b-2 border-emerald-600 text-emerald-700 whitespace-nowrap transition';
+                    button.className = 'tab-btn px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold border-b-2 border-emerald-600 text-emerald-700 whitespace-nowrap transition';
                 } else {
-                    button.className = 'tab-btn px-4 py-2.5 text-xs sm:text-sm font-medium border-b-2 border-transparent text-slate-600 hover:text-slate-900 whitespace-nowrap transition';
+                    button.className = 'tab-btn px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-medium border-b-2 border-transparent text-slate-600 hover:text-slate-900 whitespace-nowrap transition';
                 }
             }
         });
@@ -242,6 +242,7 @@
         var title = $('scanResultTitle');
         var subtitle = $('scanResultSubtitle');
         var grid = $('scanResultDetailsGrid');
+        box.classList.remove('hidden');
 
         if (result.status === 'ok') {
             box.className = 'bg-emerald-50 border-2 border-emerald-500 rounded-xl p-5 shadow-sm transition';
@@ -737,6 +738,22 @@
         });
     }
 
+    function closeUserMenu() {
+        var menu = $('userMenu');
+        var button = $('btnUserMenu');
+        if (menu) menu.classList.add('hidden');
+        if (button) button.setAttribute('aria-expanded', 'false');
+    }
+
+    function toggleUserMenu() {
+        var menu = $('userMenu');
+        var button = $('btnUserMenu');
+        if (!menu || !button) return;
+        var open = menu.classList.contains('hidden');
+        menu.classList.toggle('hidden', !open);
+        button.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
     function bindEvents() {
         var loginForm = $('mainLoginForm');
         if (loginForm) {
@@ -758,9 +775,27 @@
             });
         }
 
+        var userMenuBtn = $('btnUserMenu');
+        if (userMenuBtn) {
+            userMenuBtn.addEventListener('click', function (event) {
+                event.stopPropagation();
+                toggleUserMenu();
+            });
+            document.addEventListener('click', function (event) {
+                var menu = $('userMenu');
+                if (menu && !menu.classList.contains('hidden') && !menu.contains(event.target)) {
+                    closeUserMenu();
+                }
+            });
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') closeUserMenu();
+            });
+        }
+
         var logoutBtn = $('btnLogout');
         if (logoutBtn) {
             logoutBtn.addEventListener('click', function () {
+                closeUserMenu();
                 stopCamera();
                 api('logout', {}).catch(function () {}).then(function () {
                     location.reload();
@@ -771,6 +806,7 @@
         var changeBtn = $('btnChangePassword');
         if (changeBtn) {
             changeBtn.addEventListener('click', function () {
+                closeUserMenu();
                 $('passwordModal').classList.remove('hidden');
                 $('passwordError').classList.add('hidden');
                 $('currentPasswordInput').value = '';

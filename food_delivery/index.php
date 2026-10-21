@@ -1063,6 +1063,17 @@ $bootstrap = [
 function e(string $value): string {
     return htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
+
+function first_letter(string $value): string {
+    $value = trim($value);
+    if ($value === '') {
+        return '؟';
+    }
+    if (preg_match('/^./u', $value, $match)) {
+        return $match[0];
+    }
+    return substr($value, 0, 1);
+}
 ?>
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
@@ -1110,30 +1121,36 @@ function e(string $value): string {
 <?php else: ?>
     <div id="appContainer" class="min-h-screen flex flex-col">
         <header class="bg-white border-b border-slate-200 sticky top-0 z-40 no-print">
-            <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
-                <div class="flex items-center gap-2.5">
-                    <div class="w-9 h-9 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-bold text-sm">QR</div>
-                    <div>
-                        <h1 class="font-bold text-sm sm:text-base text-slate-900">سامانه تحویل غذا</h1>
-                        <p class="text-xs text-slate-500">کنترل سهمیه غذا و صدور کارت</p>
+            <div class="max-w-5xl mx-auto px-3 sm:px-4 py-2.5 sm:py-3 flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                    <div class="w-9 h-9 shrink-0 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-bold text-sm">QR</div>
+                    <div class="min-w-0">
+                        <h1 class="font-bold text-sm sm:text-base text-slate-900 leading-5 truncate">سامانه تحویل غذا</h1>
+                        <p class="hidden sm:block text-xs text-slate-500 leading-4 truncate">کنترل سهمیه غذا و صدور کارت</p>
                     </div>
                 </div>
-                <div class="flex items-center gap-2">
-                    <div class="flex items-center gap-2 bg-slate-100 border border-slate-200 rounded-lg px-2.5 py-1 text-xs">
-                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                        <span id="currentUserName" class="font-semibold text-slate-800"><?= e((string)$currentAdmin['full_name']) ?></span>
-                        <span id="currentUserRoleTag" class="text-[11px] px-1.5 py-0.2 rounded font-medium <?= $isSuperAdmin ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800' ?>"><?= $isSuperAdmin ? 'ادمین اصلی' : 'ادمین تحویل (فقط اسکنر)' ?></span>
+                <div class="relative shrink-0">
+                    <button type="button" id="btnUserMenu" aria-haspopup="true" aria-expanded="false" class="flex items-center gap-1.5 sm:gap-2 bg-slate-100 border border-slate-200 rounded-full pl-1.5 sm:pl-2 pr-2.5 sm:pr-3 py-1 sm:py-1.5 text-xs max-w-[42vw] sm:max-w-none">
+                        <span id="userAvatar" class="w-6 h-6 shrink-0 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[11px] font-bold"><?= e(first_letter((string)$currentAdmin['full_name'])) ?></span>
+                        <span id="currentUserName" class="font-semibold text-slate-800 truncate"><?= e((string)$currentAdmin['full_name']) ?></span>
+                        <svg class="w-3.5 h-3.5 shrink-0 text-slate-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06Z" clip-rule="evenodd"/></svg>
+                    </button>
+                    <div id="userMenu" class="hidden absolute left-0 mt-2 w-60 max-w-[80vw] bg-white border border-slate-200 rounded-xl shadow-lg p-1.5 z-50">
+                        <div class="px-2.5 py-2 mb-1 border-b border-slate-100">
+                            <p class="text-xs font-bold text-slate-800 truncate"><?= e((string)$currentAdmin['full_name']) ?></p>
+                            <span id="currentUserRoleTag" class="mt-1 inline-block text-[11px] px-1.5 py-0.5 rounded font-medium <?= $isSuperAdmin ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800' ?>"><?= $isSuperAdmin ? 'ادمین اصلی' : 'ادمین تحویل (فقط اسکنر)' ?></span>
+                        </div>
+                        <button type="button" id="btnChangePassword" class="w-full text-right px-2.5 py-2 rounded-lg text-xs font-medium text-slate-700 hover:bg-slate-100 transition">تغییر رمز عبور</button>
+                        <button type="button" id="btnLogout" class="w-full text-right px-2.5 py-2 rounded-lg text-xs font-medium text-rose-600 hover:bg-rose-50 transition">خروج از حساب</button>
                     </div>
-                    <button type="button" id="btnChangePassword" class="text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 text-slate-700 transition">تغییر رمز</button>
-                    <button type="button" id="btnLogout" class="text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 text-slate-700 transition">خروج از حساب</button>
                 </div>
             </div>
-            <nav class="max-w-5xl mx-auto px-4 flex gap-1 border-t border-slate-100 overflow-x-auto" id="mainNavTabs">
-                <button type="button" id="tabBtn_scanner" data-tab="scanner" class="tab-btn px-4 py-2.5 text-xs sm:text-sm font-semibold border-b-2 border-emerald-600 text-emerald-700 whitespace-nowrap transition">اسکنر تحویل غذا</button>
+            <nav class="max-w-5xl mx-auto px-1 sm:px-4 flex gap-1 border-t border-slate-100 overflow-x-auto no-scrollbar" id="mainNavTabs">
+                <button type="button" id="tabBtn_scanner" data-tab="scanner" class="tab-btn px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold border-b-2 border-emerald-600 text-emerald-700 whitespace-nowrap transition"><span class="sm:hidden">اسکنر</span><span class="hidden sm:inline">اسکنر تحویل غذا</span></button>
                 <?php if ($isSuperAdmin): ?>
-                    <button type="button" id="tabBtn_attendees" data-tab="attendees" class="tab-btn px-4 py-2.5 text-xs sm:text-sm font-medium border-b-2 border-transparent text-slate-600 hover:text-slate-900 whitespace-nowrap transition">شرکت‌کنندگان و اکسل</button>
-                    <button type="button" id="tabBtn_badges" data-tab="badges" class="tab-btn px-4 py-2.5 text-xs sm:text-sm font-medium border-b-2 border-transparent text-slate-600 hover:text-slate-900 whitespace-nowrap transition">چاپ کارت و خروجی ZIP</button>
-                    <button type="button" id="tabBtn_admins" data-tab="admins" class="tab-btn px-4 py-2.5 text-xs sm:text-sm font-medium border-b-2 border-transparent text-slate-600 hover:text-slate-900 whitespace-nowrap transition">ادمین‌های تحویل غذا</button>
+                    <button type="button" id="tabBtn_attendees" data-tab="attendees" class="tab-btn px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-medium border-b-2 border-transparent text-slate-600 hover:text-slate-900 whitespace-nowrap transition"><span class="sm:hidden">شرکت‌کنندگان</span><span class="hidden sm:inline">شرکت‌کنندگان و اکسل</span></button>
+                    <button type="button" id="tabBtn_badges" data-tab="badges" class="tab-btn px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-medium border-b-2 border-transparent text-slate-600 hover:text-slate-900 whitespace-nowrap transition"><span class="sm:hidden">کارت‌ها</span><span class="hidden sm:inline">چاپ کارت و خروجی ZIP</span></button>
+                    <button type="button" id="tabBtn_admins" data-tab="admins" class="tab-btn px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-medium border-b-2 border-transparent text-slate-600 hover:text-slate-900 whitespace-nowrap transition"><span class="sm:hidden">ادمین‌ها</span><span class="hidden sm:inline">ادمین‌های تحویل غذا</span></button>
                 <?php endif; ?>
             </nav>
         </header>
@@ -1195,13 +1212,13 @@ function e(string $value): string {
                     </div>
 
                     <div class="md:col-span-7 space-y-4">
-                        <div id="scanResultBox" class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm transition">
+                        <div id="scanResultBox" class="hidden bg-white border border-slate-200 rounded-xl p-5 shadow-sm transition">
                             <div class="flex items-start gap-3">
                                 <div id="scanResultIcon" class="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center text-2xl shrink-0">📡</div>
                                 <div class="flex-1">
-                                    <div id="scanResultBadge" class="inline-block text-[11px] font-semibold text-slate-500 mb-1">آماده برای اسکن</div>
-                                    <h3 id="scanResultTitle" class="text-base font-bold text-slate-800">کارت غذا را مقابل دوربین بگیرید</h3>
-                                    <p id="scanResultSubtitle" class="text-xs text-slate-500 mt-1">پس از خواندن بارکد، وضعیت بلافاصله و بدون نیاز به تاییدیه ثبت می‌شود.</p>
+                                    <div id="scanResultBadge" class="inline-block text-[11px] font-semibold text-slate-500 mb-1"></div>
+                                    <h3 id="scanResultTitle" class="text-base font-bold text-slate-800"></h3>
+                                    <p id="scanResultSubtitle" class="text-xs text-slate-500 mt-1"></p>
                                     <div id="scanResultDetailsGrid" class="hidden mt-4 pt-3 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                                         <div class="bg-white/80 p-2.5 rounded border border-inherit">
                                             <span class="text-slate-500 block text-[11px]">نام شخص:</span>
