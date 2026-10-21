@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'IRANSansFaNum';
+    src: url('fonts/IRANSansFaNum.woff') format('woff');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    font-family: 'IRANSansFaNum', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f8fafc;
+    color: #0f172a;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+}
+
+@keyframes scanLaser {
+    0% { top: 10%; opacity: 0.8; }
+    50% { top: 85%; opacity: 1; }
+    100% { top: 10%; opacity: 0.8; }
+}
+
+.laser-line {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: #059669;
+    box-shadow: 0 0 10px 2px rgba(5, 150, 105, 0.7);
+    animation: scanLaser 2s infinite ease-in-out;
+    pointer-events: none;
+}
+
+.progress-zero {
+    width: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+@media print {
+    body { background: #ffffff !important; }
+    .no-print { display: none !important; }
+    #printSheetContainer {
+        display: block !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .lanyard-print-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10mm !important;
+    }
+    .lanyard-card-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    .lanyard-card-image {
+        width: 85mm;
+        height: 122mm;
+        margin: 0 auto;
+        display: block;
+    }
+}
