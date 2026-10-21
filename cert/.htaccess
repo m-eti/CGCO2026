@@ -1,6 +1,6 @@
 Options -Indexes
 
-<FilesMatch "\.(xlsx|xls|csv|json|lock|env|log)$">
+<FilesMatch "\.(xlsx|xls|csv|json|lock|env|log|zip)$">
     <IfModule mod_authz_core.c>
         Require all denied
     </IfModule>
@@ -9,6 +9,18 @@ Options -Indexes
         Deny from all
     </IfModule>
 </FilesMatch>
+
+# دسترسی مستقیم به فایل مقالات (articles.zip) مسدود است؛
+# ارائه فایل تنها از طریق download-articles.php و پس از احراز هویت انجام می‌شود.
+<Files "articles.zip">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</Files>
 
 AddDefaultCharset UTF-8
 
