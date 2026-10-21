@@ -1325,6 +1325,7 @@ function first_letter(string $value): string {
                             <span class="text-xs font-semibold text-slate-700 block">خروجی عمده همه افراد به ترتیب:</span>
                             <button type="button" id="btnAllBadgesZip" class="w-full py-2 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold shadow-sm transition">دانلود فایل ZIP عکس همه کارت‌ها به ترتیب</button>
                             <button type="button" id="btnPrintBadges" class="w-full py-1.5 px-3 rounded-lg border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-medium transition">چاپ مستقیم در برگه A4</button>
+                            <p class="text-[11px] text-slate-400 leading-4">برای حذف تاریخ، نشانی و شمارهٔ صفحه از خروجی، در پنجرهٔ چاپ مرورگر گزینهٔ «Headers and footers» را غیرفعال کنید.</p>
                         </div>
                     </div>
                     <div class="md:col-span-7 bg-white border border-slate-200 rounded-xl p-4 shadow-sm flex flex-col items-center">

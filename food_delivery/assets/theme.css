@@ -48,9 +48,23 @@ body {
     display: none;
 }
 
+@page {
+    size: A4;
+    margin: 8mm;
+}
+
 @media print {
-    body { background: #ffffff !important; }
-    .no-print { display: none !important; }
+    html, body {
+        background: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+    }
+    #appContainer,
+    #toastContainer,
+    .no-print {
+        display: none !important;
+    }
     #printSheetContainer {
         display: block !important;
         width: 100% !important;
@@ -60,16 +74,19 @@ body {
     .lanyard-print-grid {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 10mm !important;
+        gap: 8mm 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
     .lanyard-card-item {
         break-inside: avoid;
         page-break-inside: avoid;
+        padding: 0 4mm !important;
     }
     .lanyard-card-image {
-        width: 85mm;
-        height: 122mm;
-        margin: 0 auto;
-        display: block;
+        width: 85mm !important;
+        height: 122mm !important;
+        margin: 0 auto !important;
+        display: block !important;
     }
 }
