@@ -1,0 +1,847 @@
+[
+  {
+    "name": "دکتر حسین ابراهیم‌پور",
+    "specialization": "هوش مصنوعی",
+    "affiliation": "دانشگاه کاشان"
+  },
+  {
+    "name": "دکتر امراله ابراهیمی",
+    "specialization": "روانپزشکی",
+    "affiliation": "دانشگاه علوم پزشکی اصفهان"
+  },
+  {
+    "name": "دکتر فاطمه ابناوی",
+    "specialization": "گفتاردرمانی",
+    "affiliation": "University of Ottawa"
+  },
+  {
+    "name": "دکتر سحر اتحاد محکم",
+    "specialization": "هنر",
+    "affiliation": "دانشگاه هنر اصفهان"
+  },
+  {
+    "name": "دکتر امیر احمدنژاد",
+    "specialization": "علوم قرآن و حدیث",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر عاطفه احمدی",
+    "specialization": "یادگیری",
+    "affiliation": "پژوهشگر مستقل"
+  },
+  {
+    "name": "دکتر علیرضا آرش پور",
+    "specialization": "حقوق",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر نسرین آرین",
+    "specialization": "هنر",
+    "affiliation": "دانشگاه هنر اصفهان"
+  },
+  {
+    "name": "دکتر محمدرضا اسدی یونسی",
+    "specialization": "روانشناسی",
+    "affiliation": "دانشگاه بیرجند"
+  },
+  {
+    "name": "دکتر سمانه اسعدی",
+    "specialization": "روانشناسی",
+    "affiliation": "دانشگاه یزد"
+  },
+  {
+    "name": "دکتر اعظم اسفیجانی",
+    "specialization": "تکنولوژی آموزشی",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر خلیل اسماعیل‌پور",
+    "specialization": "روانشناسی",
+    "affiliation": "دانشگاه تبریز"
+  },
+  {
+    "name": "دکتر فرامرز آسنجرانی",
+    "specialization": "مشاوره",
+    "affiliation": "دانشگاه اراک"
+  },
+  {
+    "name": "دکتر سید محسن اصغری نکاح",
+    "specialization": "روانشناسی کودکان با نیازهای ویژه",
+    "affiliation": "دانشگاه فردوسی مشهد"
+  },
+  {
+    "name": "دکتر احمدعلی آصفی",
+    "specialization": "تربیت بدنی",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر احسان آقابابایی",
+    "specialization": "جامعه‌شناسی",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر سید امیر آقایی",
+    "specialization": "مدیریت",
+    "affiliation": "پژوهشگر مستقل"
+  },
+  {
+    "name": "دکتر صغرا اکبری چرمهینی",
+    "specialization": "روانشناسی",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر محمد امیریوسفی",
+    "specialization": "آموزش زبان",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر امین بابادی",
+    "specialization": "هوش مصنوعی",
+    "affiliation": "Bugbear Entertainment, Finland"
+  },
+  {
+    "name": "دکتر اعظم باستان‌فرد",
+    "specialization": "گرافیک",
+    "affiliation": "دانشگاه صدا و سیما"
+  },
+  {
+    "name": "دکتر سجاد باغبان",
+    "specialization": "هنر",
+    "affiliation": "دانشگاه هنر اصفهان"
+  },
+  {
+    "name": "دکتر کبری بخشی‌زاده برج",
+    "specialization": "مدیریت بازرگانی",
+    "affiliation": "دانشگاه علامه طباطبایی"
+  },
+  {
+    "name": "دکتر حمیدرضا برادران",
+    "specialization": "هوش مصنوعی",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر حمید برقی",
+    "specialization": "جغرافیا",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر محمداحسان بصیری",
+    "specialization": "هوش مصنوعی",
+    "affiliation": "دانشگاه شهرکرد"
+  },
+  {
+    "name": "دکتر باقر بهرام شتربان",
+    "specialization": "چندرسانه‌ای",
+    "affiliation": "دانشگاه هنر اسلامی تبریز"
+  },
+  {
+    "name": "دکتر سید محمد بهشتیان",
+    "specialization": "روانشناسی",
+    "affiliation": "پژوهشگاه علوم انسانی و مطالعات فرهنگی"
+  },
+  {
+    "name": "دکتر افشین پرورده",
+    "specialization": "آمار",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر میترا پشوتنی‌زاده",
+    "specialization": "دانش‌شناسی",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر مهدی پناهی",
+    "specialization": "موسیقی",
+    "affiliation": "دانشگاه هنر اصفهان"
+  },
+  {
+    "name": "دکتر کاظم پورالوار",
+    "specialization": "چندرسانه‌ای",
+    "affiliation": "دانشگاه هنر اسلامی تبریز"
+  },
+  {
+    "name": "سعید پورروستایی اردکانی",
+    "specialization": "تکنولوژی آموزشی",
+    "affiliation": "University of Lincoln, England"
+  },
+  {
+    "name": "دکتر مرضیه پیراوی ونک",
+    "specialization": "فلسفه هنر",
+    "affiliation": "دانشگاه هنر اصفهان"
+  },
+  {
+    "name": "دکتر دارا تفضلی",
+    "specialization": "Education, Language, and Culture",
+    "affiliation": "University of Newcastle"
+  },
+  {
+    "name": "دکتر محمود تلخابی",
+    "specialization": "آموزش کودکان",
+    "affiliation": "دانشگاه فرهنگیان"
+  },
+  {
+    "name": "دکتر منوچهر توسلی",
+    "specialization": "حقوق",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر ماهگل توکلی",
+    "specialization": "روانشناسی شناختی",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر میمنه جعفری",
+    "specialization": "گفتاردرمانی",
+    "affiliation": "دانشگاه علوم پزشکی اصفهان"
+  },
+  {
+    "name": "دکتر غلامرضا چلبیانلو",
+    "specialization": "روانشناسی شناختی",
+    "affiliation": "دانشگاه شهید مدنی تبریز"
+  },
+  {
+    "name": "دکتر جواد حاتمی",
+    "specialization": "روانشناسی",
+    "affiliation": "دانشگاه تهران"
+  },
+  {
+    "name": "دکتر منصوره حاجی هادیان",
+    "specialization": "روایت‌گری",
+    "affiliation": "دانشگاه هنر اصفهان"
+  },
+  {
+    "name": "دکتر مهدی حامدی",
+    "specialization": "هنر",
+    "affiliation": "دانشگاه هنر اصفهان"
+  },
+  {
+    "name": "دکتر منصور حسامی کرمانی",
+    "specialization": "نقاشی",
+    "affiliation": "دانشگاه الزهرا (س)"
+  },
+  {
+    "name": "مهندس پوریا خالصی",
+    "specialization": "مدیریت صنعتی",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "مهندس پریا خانکه",
+    "specialization": "مهندسی پزشکی",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر آناهیتا خرمی بنارکی",
+    "specialization": "مغز و اعصاب",
+    "affiliation": "کلینیک مغز و شناخت"
+  },
+  {
+    "name": "دکتر سعید خزائی",
+    "specialization": "زبان انگلیسی",
+    "affiliation": "دانشگاه علوم پزشکی اصفهان"
+  },
+  {
+    "name": "دکتر قدرت‌اله خسروشاهی",
+    "specialization": "حقوق",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر داتیس خواجه‌ئیان",
+    "specialization": "مدیریت رسانه",
+    "affiliation": "دانشگاه تهران"
+  },
+  {
+    "name": "دکتر پریسا دارویی",
+    "specialization": "ارتباط تصویری",
+    "affiliation": "دانشگاه هنر اصفهان"
+  },
+  {
+    "name": "دکتر مرتضی درّی‌گیو",
+    "specialization": "هوش مصنوعی",
+    "affiliation": "مهندسی برق و کامپیوتر دانشگاه سمنان"
+  },
+  {
+    "name": "دکتر محمدرضا ذوقی پایدار",
+    "specialization": "روانشناسی",
+    "affiliation": "دانشگاه همدان"
+  },
+  {
+    "name": "دکتر علی رازی زاده",
+    "specialization": "فقه و فلسفه",
+    "affiliation": "دانشگاه قم"
+  },
+  {
+    "name": "دکتر جواد راستی",
+    "specialization": "بازی‌های جدی",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر حسن رجبی‌نژاد مقدم پاپکیاده",
+    "specialization": "هنر",
+    "affiliation": "دانشگاه هنر اصفهان"
+  },
+  {
+    "name": "دکتر چنگیز رحیمی",
+    "specialization": "روانشناسی بالینی",
+    "affiliation": "دانشگاه شیراز"
+  },
+  {
+    "name": "دکتر حمیدرضا رستمی",
+    "specialization": "کاردرمانی",
+    "affiliation": "دانشگاه علوم پزشکی اصفهان"
+  },
+  {
+    "name": "مهندس طه رسولی",
+    "specialization": "طراحی بازی",
+    "affiliation": "آواگیمز"
+  },
+  {
+    "name": "دکتر محمدمهدی رضاپور",
+    "specialization": "مهندسی کامپیوتر",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر سعید رضایی",
+    "specialization": "روانشناسی کودکان با نیازهای ویژه",
+    "affiliation": "دانشگاه علامه طباطبایی"
+  },
+  {
+    "name": "دکتر زهراالسادات رضاییان",
+    "specialization": "توانبخشی",
+    "affiliation": "دانشگاه علوم پزشکی اصفهان"
+  },
+  {
+    "name": "دکتر ریحانه رفیع‌زاده اخویان",
+    "specialization": "هنر",
+    "affiliation": "پژوهشگر مستقل"
+  },
+  {
+    "name": "دکتر هدا رودکی لواسانی",
+    "specialization": "مهندسی کامپیوتر",
+    "affiliation": "دانشگاه خواجه نصیرالدین طوسی"
+  },
+  {
+    "name": "دکتر فاطمه زرگر",
+    "specialization": "روانشناسی",
+    "affiliation": "دانشگاه علوم پزشکی اصفهان"
+  },
+  {
+    "name": "دکتر قاسم زعفریان",
+    "specialization": "کارآفرینی",
+    "affiliation": "University of Leeds"
+  },
+  {
+    "name": "دکتر بهمن زینلی",
+    "specialization": "تاریخ",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "مهندس حسام ساکیان محمدی",
+    "specialization": "چندرسانه‌ای",
+    "affiliation": "دانشگاه هنر اسلامی تبریز"
+  },
+  {
+    "name": "دکتر مژگان سپاه منصور",
+    "specialization": "روانشناسی",
+    "affiliation": "دانشگاه آزاد اسلامی واحد مرکز"
+  },
+  {
+    "name": "دکتر مرضیه‌السادات سجادی‌نژاد",
+    "specialization": "روانشناسی",
+    "affiliation": "دانشگاه اراک"
+  },
+  {
+    "name": "دکتر یونس سخاوت",
+    "specialization": "چندرسانه‌ای",
+    "affiliation": "دانشگاه هنر اسلامی تبریز"
+  },
+  {
+    "name": "دکتر فرهاد سراجی",
+    "specialization": "تکنولوژی آموزشی",
+    "affiliation": "دانشگاه تهران"
+  },
+  {
+    "name": "دکتر محسن سیفی",
+    "specialization": "بازی‌وارسازی",
+    "affiliation": ""
+  },
+  {
+    "name": "دکتر ایرج شاكری‌نیا",
+    "specialization": "روانشناسی",
+    "affiliation": "دانشگاه گیلان"
+  },
+  {
+    "name": "دکتر فرزانه شریفی",
+    "specialization": "علوم ارتباطات",
+    "affiliation": "دانشگاه بین‌المللی سوره"
+  },
+  {
+    "name": "دکتر محمدرضا شعرباف",
+    "specialization": "مهندسی کامپیوتر",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر لیدا شفقی",
+    "specialization": "علوم اعصاب",
+    "affiliation": "دانشگاه علوم پزشکی تهران"
+  },
+  {
+    "name": "دکتر زهره شفیع‌زادگان",
+    "specialization": "توانبخشی",
+    "affiliation": "دانشگاه علوم پزشکی اصفهان"
+  },
+  {
+    "name": "دکتر تارا صادقی",
+    "specialization": "فلسفه هنر",
+    "affiliation": "دانشگاه هنر اصفهان"
+  },
+  {
+    "name": "دکتر سید وحید صادقی",
+    "specialization": "حقوق",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر حمید صادقیان",
+    "specialization": "ارتباط تصویری",
+    "affiliation": "دانشگاه هنر اصفهان"
+  },
+  {
+    "name": "دکتر پرویز صباحی",
+    "specialization": "روانشناسی بالینی",
+    "affiliation": "دانشگاه سمنان"
+  },
+  {
+    "name": "دکتر هدایت‌ صحرایی",
+    "specialization": "مغز و اعصاب",
+    "affiliation": "دانشگاه علوم پزشکی بقیه الله (عج)"
+  },
+  {
+    "name": "دکتر رویا صدیقی",
+    "specialization": "مطالعات بازی",
+    "affiliation": "بنیاد ملی بازی‌های رایانه‌ای"
+  },
+  {
+    "name": "دکتر بابک صفاری",
+    "specialization": "اقتصاد",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر مجید صفاری‌نیا",
+    "specialization": "روانشناسی",
+    "affiliation": "دانشگاه پیام نور"
+  },
+  {
+    "name": "دکتر علی صفری",
+    "specialization": "مدیریت",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر محمدعلی صفورا",
+    "specialization": "انیمیشن و سینما",
+    "affiliation": "دانشگاه تربیت مدرس"
+  },
+  {
+    "name": "دکتر سیدكمال صولتی دهكردی",
+    "specialization": "روانپزشکی",
+    "affiliation": "دانشگاه علوم پزشكی شهركرد"
+  },
+  {
+    "name": "دکتر صدرالدین طاهری",
+    "specialization": "هنر",
+    "affiliation": "دانشگاه هنر اصفهان"
+  },
+  {
+    "name": "دکتر علی طاهری",
+    "specialization": "چندرسانه‌ای",
+    "affiliation": ""
+  },
+  {
+    "name": "دکتر سید محمد طاهری قمی",
+    "specialization": "ارتباط تصویری",
+    "affiliation": "دانشگاه هنر اصفهان"
+  },
+  {
+    "name": "دکتر محمدرضا عابدی",
+    "specialization": "مشاوره",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر محمد عاشوری",
+    "specialization": "روانشناسی کودکان با نیازهای ویژه",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر صبا عباسی‌نیا",
+    "specialization": "علوم شناختی",
+    "affiliation": "دانشگاه تبریز"
+  },
+  {
+    "name": "دکتر محمدجواد عبداللهی",
+    "specialization": "حقوق",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر حانیه عبدی",
+    "specialization": "بهداشت حرفه‌ای",
+    "affiliation": "دانشگاه علوم پزشکی تهران"
+  },
+  {
+    "name": "دکتر سهراب عبدی زرین",
+    "specialization": "مشاوره",
+    "affiliation": "دانشگاه قم"
+  },
+  {
+    "name": "دکتر علی عسگری",
+    "specialization": "روان‌سنجی",
+    "affiliation": "دانشگاه علوم توانبخشی و سلامت اجتماعی"
+  },
+  {
+    "name": "دکتر سیدامین عظیمی",
+    "specialization": "تکنولوژی آموزشی",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر پرستو علیخانی",
+    "specialization": "تکنولوژی آموزشی",
+    "affiliation": "دانشگاه شهید بهشتی"
+  },
+  {
+    "name": "دکتر بهنام علیزاده اشرفی",
+    "specialization": "چندرسانه‌ای",
+    "affiliation": "دانشگاه هنر اسلامی تبریز"
+  },
+  {
+    "name": "دکتر حامد علی‌یاری",
+    "specialization": "علوم اعصاب",
+    "affiliation": "University of Technology Kochi, Japan"
+  },
+  {
+    "name": "دکتر محمدرضا عمادی",
+    "specialization": "هنرهای تجسمی",
+    "affiliation": "دانشگاه هنر اصفهان"
+  },
+  {
+    "name": "دکتر مهران عمادی اندانی",
+    "specialization": "مهندسی پزشکی",
+    "affiliation": "University of Verona, Italy"
+  },
+  {
+    "name": "دکتر محمدهادی عیان بد",
+    "specialization": "موسیقی",
+    "affiliation": "دانشگاه هنر اصفهان"
+  },
+  {
+    "name": "دکتر مجید غیاث",
+    "specialization": "گردشگری",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر افسانه فاطمی",
+    "specialization": "مهندسی کامپیوتر",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر مجید فتحی‌زاده",
+    "specialization": "هنر",
+    "affiliation": "دانشگاه هنر اصفهان"
+  },
+  {
+    "name": "دکتر سالار فرامرزی",
+    "specialization": "روانشناسی کودکان با نیازهای ویژه",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر هادی فرهادی",
+    "specialization": "روانشناسی",
+    "affiliation": "دانشگاه آزاد اسلامی واحد اصفهان (خوراسگان)"
+  },
+  {
+    "name": "دکتر امیرمسعود فریدی‌زاد",
+    "specialization": "هنر",
+    "affiliation": "دانشگاه هنر اصفهان"
+  },
+  {
+    "name": "دکتر سیدمحسن قائم‌فرد",
+    "specialization": "حقوق",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر مهدیه قزوینی کر",
+    "specialization": "مهندسی کامپیوتر",
+    "affiliation": "دانشگاه شهید باهنر کرمان"
+  },
+  {
+    "name": "دکتر امیر قمرانی",
+    "specialization": "روانشناسی کودکان با نیازهای ویژه",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر محمدرضا قنبری",
+    "specialization": "جرم‌شناسی",
+    "affiliation": "دادگستری استان اصفهان"
+  },
+  {
+    "name": "دکتر عارفه کاظمی",
+    "specialization": "مهندسی کامپیوتر",
+    "affiliation": ""
+  },
+  {
+    "name": "دکتر مرجان کائدی",
+    "specialization": "مهندسی کامپیوتر",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر منصور کلاه کج",
+    "specialization": "هنر",
+    "affiliation": "دانشگاه هنر شوشتر"
+  },
+  {
+    "name": "دکتر رسول کمالی دولت‌آبادی",
+    "specialization": "هنر",
+    "affiliation": "دانشگاه هنر اصفهان"
+  },
+  {
+    "name": "دکتر مسعود کوثری",
+    "specialization": "ارتباطات اجتماعی",
+    "affiliation": "دانشگاه تهران"
+  },
+  {
+    "name": "دکتر مریم کهوند",
+    "specialization": "گرافیک",
+    "affiliation": "دانشگاه هنر تهران"
+  },
+  {
+    "name": "دکتر کامران کیانفر",
+    "specialization": "مهندسی صنایع",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر سیدعلیرضا گلپایگانی",
+    "specialization": "انیمیشن",
+    "affiliation": "دانشگاه هنر تهران"
+  },
+  {
+    "name": "دکتر محسن گودرزی",
+    "specialization": "علوم اجتماعی",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر شهرام لنجان‌نژادیان",
+    "specialization": "تربیت بدنی",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر حسین ماهوش محمدی",
+    "specialization": "گرافیک کامپیوتری",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر مجید محمدشفیعی",
+    "specialization": "مدیریت",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر مرتضی محمدی آستانی",
+    "specialization": "علوم تربیتی",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر امیرعباس محمدی راد",
+    "specialization": "هنر",
+    "affiliation": "دانشگاه هنر اصفهان"
+  },
+  {
+    "name": "دکتر رامین مدنی",
+    "specialization": "هنر",
+    "affiliation": "دانشگاه هنر اصفهان"
+  },
+  {
+    "name": "دکتر حسین مسعودنیا",
+    "specialization": "علوم سیاسی",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر مهدی مطیع",
+    "specialization": "فقه",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر رسول مظاهری کوهانستانی",
+    "specialization": "فقه و حقوق",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر فرناز معصوم زاده جوزدانی",
+    "specialization": "هنر",
+    "affiliation": "دانشگاه هنر اصفهان"
+  },
+  {
+    "name": "دکتر امیر مقامی",
+    "specialization": "حقوق",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر سید امیرحسن منجمی",
+    "specialization": "هوش مصنوعی",
+    "affiliation": "دانشگاه سنگاپور"
+  },
+  {
+    "name": "دکتر علی منصوری",
+    "specialization": "دانش‌شناسی",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر احمدرضا موحدی",
+    "specialization": "تربیت بدنی",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر سید محمدحسین موسوی نسب",
+    "specialization": "روانشناسی",
+    "affiliation": "دانشگاه شهید باهنر کرمان"
+  },
+  {
+    "name": "دکتر حسینعلی مهرابی",
+    "specialization": "روانشناسی",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر احمد مهرشاد",
+    "specialization": "علوم اجتماعی",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر بهروز مینایی",
+    "specialization": "مهندسی کامپیوتر",
+    "affiliation": "علم و صنعت تهران"
+  },
+  {
+    "name": "دکتر حسین نازک‌تبار",
+    "specialization": "جامعه‌شناسی",
+    "affiliation": "دانشگاه پیام نور مازندران"
+  },
+  {
+    "name": "دکتر اسماعیل ناصری",
+    "specialization": "روانشناسی",
+    "affiliation": "پژوهشگاه علوم انسانی و مطالعات فرهنگی"
+  },
+  {
+    "name": "دکتر مهسا نصری",
+    "specialization": "مهندسی هنری",
+    "affiliation": "Northeastern University, USA"
+  },
+  {
+    "name": "دکتر حامد نصیری",
+    "specialization": "مدیریت",
+    "affiliation": "معاون پژوهشی بنیاد ملّی بازی‌های رایانه‌ای"
+  },
+  {
+    "name": "دکتر شهروز نعمتی",
+    "specialization": "روانشناسی کودکان با نیازهای ویژه",
+    "affiliation": "دانشگاه تبریز"
+  },
+  {
+    "name": "دکتر اعظم نقوی",
+    "specialization": "مشاوره",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر گیتی نورالدین نژاد",
+    "specialization": "نقاشی",
+    "affiliation": "دانشگاه هنر اصفهان"
+  },
+  {
+    "name": "دکتر سید فخرالدین نوربهبهانی",
+    "specialization": "مهندسی کامپیوتر",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر جواد نیک‌پیام",
+    "specialization": "گیمیفیکیشن",
+    "affiliation": ""
+  },
+  {
+    "name": "دکتر علیرضا واعظ",
+    "specialization": "هنر",
+    "affiliation": "دانشگاه هنر اصفهان"
+  },
+  {
+    "name": "دکتر محسن وحدانی",
+    "specialization": "مدیریت ورزشی",
+    "affiliation": "دانشگاه اصفهان"
+  },
+  {
+    "name": "دکتر مجتبی وحیدی اصل",
+    "specialization": "مهندسی کامپیوتر",
+    "affiliation": "دانشگاه شهید بهشتی"
+  },
+  {
+    "name": "دکتر محمد یزدانی",
+    "specialization": "حقوق",
+    "affiliation": "پژوهشگر مستقل"
+  },
+  {
+    "name": "Dr. David Chandross",
+    "specialization": "یادگیری",
+    "affiliation": "Ontario Tech University"
+  },
+  {
+    "name": "Dr. Tobias Greitemeyer",
+    "specialization": "روانشناسی",
+    "affiliation": "Universität Innsbruck"
+  },
+  {
+    "name": "Dr. Casper Harteveld",
+    "specialization": "طراحی بازی",
+    "affiliation": "Northeastern University"
+  },
+  {
+    "name": "Dr. James Hutson",
+    "specialization": "واقعیت گسترده",
+    "affiliation": "Lindenwood University"
+  },
+  {
+    "name": "Dr. Choong Jae Im",
+    "specialization": "مهندسی کامپیوتر",
+    "affiliation": "University of Keimyung"
+  },
+  {
+    "name": "Dr. Yaewon Jin",
+    "specialization": "فرهنگ رسانه",
+    "affiliation": "Ewha Womans University: Seoul, KR"
+  },
+  {
+    "name": "Dr. Nicola Liberati",
+    "specialization": "روانشناسی",
+    "affiliation": "دانشگاه جیائو تانگ شانگهای"
+  },
+  {
+    "name": "Dr. Heide Lukosch",
+    "specialization": "واقعیت گسترده",
+    "affiliation": "University of Canterbury"
+  },
+  {
+    "name": "Dr. Georgios N.Yannakakis",
+    "specialization": "Informatics",
+    "affiliation": "University of Malta"
+  },
+  {
+    "name": "Dr. Stefan Piasecki",
+    "specialization": "بازی‌های جدی",
+    "affiliation": "University of Duisburg-Essen"
+  },
+  {
+    "name": "Dr. Sophie Roche",
+    "specialization": "جامعه‌شناسی",
+    "affiliation": "Heidelberg University"
+  },
+  {
+    "name": "Dr. Margarida Romero",
+    "specialization": "یادگیری",
+    "affiliation": "Associate Professor: Universitat Internacional de Catalunya, Full Professor: Université Côte d’Azur"
+  },
+  {
+    "name": "Dr. Noor Shaker",
+    "specialization": "مهندسی کامپیوتر",
+    "affiliation": "Aalborg University Copenhagen"
+  }
+]

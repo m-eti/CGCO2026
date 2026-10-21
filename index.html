@@ -137,6 +137,49 @@
 		height: 30px;
 		object-fit: contain;
 	}
+	/* organizing committee cards (loaded from committee-organizing.json) */
+	.committee-loading,
+	.committee-error {
+		display: block;
+		width: 100%;
+		text-align: center;
+		padding: 20px;
+		color: var(--navy-700);
+	}
+	#organizingCommittee .person img {
+		width: 175px;
+		height: 175px;
+		object-fit: cover;
+	}
+	@media only screen and (max-width: 768px) {
+		#organizingCommittee .person img {
+			width: 130px;
+			height: 130px;
+		}
+	}
+	/* scientific committee table (loaded from committee-scientific.json) */
+	.komitteh-elmi {
+		border-collapse: collapse;
+		width: 100%;
+	}
+	.komitteh-elmi td {
+		border: 1px solid #000;
+		padding: 2px 7px;
+		text-align: center;
+		vertical-align: middle;
+		font-size: 15px;
+	}
+	.komitteh-elmi td.sci-name {
+		width: 154pt;
+		font-family: "B Nazanin", "BNazanin", serif;
+		font-size: 17px;
+	}
+	.komitteh-elmi td.sci-spec {
+		width: 97pt;
+	}
+	.komitteh-elmi td.sci-affil {
+		width: 171.75pt;
+	}
 </style>
 </head>
 <body>
@@ -228,116 +271,8 @@
 					<!--a href="#commiteebox3" id="commitee" class="ajaxee BZar button green rounded ">کميته برگزاری</a>-->
 					<div class="sponsorBar"><strong>کمیته برگزاری</strong></div>
 						<br>
-							<div class="grid">
-								<div class="person">
-									<img class="pic" data-src="img/komiteh/1.jpg">
-									<div class="caption">
-										<p class="title"> رئیس کنفرانس </p>
-										<p class="name"> دکتر حسین هرسیج </p>
-										<span class="discription"> رئیس دانشگاه اصفهان </span>
-									</div>
-								</div>
-
-								<div class="person">
-									<img class="pic" data-src="img/komiteh/2.jpg">
-									<div class="caption">
-										<p class="title"> رئیس کنفرانس </p>
-										<p class="name"> سید صادق پژمان </p>
-										<span class="discription"> مدیرعامل بنیاد ملّی بازی‌های رایانه‌ای </span>
-									</div>
-								</div>
-								
-								<div class="person">
-									<img class="pic" data-src="img/komiteh/3.jpg">
-									<div class="caption">
-										<p class="title"> دبیر کنفرانس </p>
-										<p class="name"> دکتر جواد راستی </p>
-										<span class="discription"> عضو هیأت علمی دانشکده‌ی فنی مهندسی و مدیر مرکز نوآوری صنایع سرگرمی دانشگاه اصفهان </span>
-									</div>
-								</div>
-								
-								<div class="person">
-									<img class="pic" data-src="img/komiteh/4.png">
-									<div class="caption">
-										<p class="title"> مسئول هماهنگی با بنیاد </p>
-										<p class="name"> حامد نصیری </p>
-										<span class="discription"> نماینده‌ی بنیاد ملّی بازی‌های رایانه‌ای </span>
-									</div>
-								</div>
-								
-								<div class="person">
-									<img class="pic" data-src="img/komiteh/5.jpg">
-									<div class="caption">
-										<p class="title"> دبیر علمی بخش فنی </p>
-										<p class="name"> دکتر مجتبی وحیدی اصل </p>
-										<span class="discription"> عضو هیأت علمی دانشکده‌ی مهندسی کامپیوتر دانشگاه شهید بهشتی </span>
-									</div>
-								</div>
-								
-								
-								<div class="person">
-									<img class="pic" data-src="img/komiteh/6.jpg">
-									<div class="caption">
-										<p class="title"> دبیر علمی بخش علوم انسانی </p>
-										<p class="name"> دکتر امیر قمرانی </p>
-										<span class="discription"> عضو هیأت علمی دانشکده‌ی علوم تربیتی و روانشناسی دانشگاه اصفهان  </span>
-									</div>
-								</div>
-								
-								<div class="person">
-									<img class="pic" data-src="img/komiteh/7.jpg">
-									<div class="caption">
-										<p class="title"> دبیر علمی بخش هنر </p>
-										<p class="name"> دکتر پریسا دارویی </p>
-										<span class="discription"> عضو هیأت علمی دانشگاه هنر اصفهان </span>
-									</div>
-								</div>
-								
-								
-
-								<div class="person">
-									<img class="pic" data-src="img/komiteh/8.png">
-									<div class="caption">
-										<p class="title"> مسئول هماهنگی‌های بین‌المللی </p>
-										<p class="name"> امین بابادی </p>
-										<span class="discription"> پژوهشگر دانشگاه Aalto فنلاند  </span>
-									</div>
-								</div>
-
-								<div class="person">
-									<img class="pic" data-src="img/komiteh/9.png">
-									<div class="caption">
-										<p class="title"> مسئول هماهنگی‌های بین‌المللی </p>
-										<p class="name"> شقایق کلی </p>
-										<span class="discription"> کارشناس ارتباط صنعت و دانشگاه بنیاد ملی بازی‌های رایانه‌ای  </span>
-									</div>
-								</div>
-
-
-
-								<div class="person">
-									<img class="pic" data-src="img/komiteh/10.jpg">
-									<div class="caption">
-										<p class="title"> مسئول دبیرخانه و روابط عمومی </p>
-										<p class="name"> نسیبه صرامی </p>
-										<span class="discription"> مسئول دبیرخانه و روابط عمومی </span>
-									</div>
-								</div>
-
-
-
-
-								<div class="person">
-									<img class="pic" data-src="img/komiteh/11.jpg">
-									<div class="caption">
-										<p class="title"> مسئول دبیرخانه و روابط عمومی </p>
-										<p class="name"> حنانه یوسفی‌نکو </p>
-										<span class="discription"> مسئول دبیرخانه و روابط عمومی </span>
-									</div>
-								</div>
-
-
-
+							<div class="grid" id="organizingCommittee">
+								<div class="committee-loading">در حال بارگذاری اعضای کمیته برگزاری…</div>
 							</div>
 
 							<br><br><br><br>
@@ -348,8 +283,7 @@
 					
 					<div align="right" style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
 						<table class="komitteh-elmi" dir="rtl">
-							<tbody>
-								<tr>
+							<tbody id="scientificCommitteeBody"><tr class="sci-header">
 									<td style="width:154.0pt;border:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:20.4pt;">
 										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>نام و نام خانوادگی</span></p>
 									</td>
@@ -359,1262 +293,7 @@
 									<td style="width:171.75pt;border:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.4pt;">
 										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">سازمان</span></p>
 									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر احسان آقابابایی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">جامعه شناسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر امراله ابراهیمی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">روانپزشکی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه علوم پزشکی اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر فاطمه ابناوی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">گفتاردرمانی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="LTR" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">University of Ottawa</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر مریم اسماعیلی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">روانشناسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر محمد امیریوسفی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">زبان انگلیسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر مریم السادات ایزدی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">هنر</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر امین بابادی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">هوش مصنوعی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="LTR" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">Aalto University</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر اعظم باستان&zwnj;فرد</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">گرافیک</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه صدا و سیما</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر کبری بخشی&zwnj;زاده</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">مدیریت بازرگانی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه علامه طباطبایی</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکترمحمداحسان بصیری</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">هوش مصنوعی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه شهرکرد</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر منصوره بهرامی&zwnj;پور</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">روانشناسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه آزاد اسلامی اصفهان (خوراسگان)</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر علی بهلولی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">سخت&zwnj;افزار</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر مازیار پالهنگ</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">هوش مصنوعی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه صنعتی اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>مهدی پناهی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">موسیقی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر کاظم پورالوار</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">چندرسانه&zwnj;ای</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اسلامی تبریز</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر مرضیه پیراوی&zwnj;ونک</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">فلسفه هنر</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>مهدی ترمه&zwnj;باف</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">موسیقی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر دارا تفضلی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="LTR" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">Education, Language</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="LTR" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">University of Newcastle</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر محمود تلخابی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">فلسفه تعلیم و تربیت</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه فرهنگیان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر منوچهر توسلی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">حقوق</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر ماهگل توکلی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">روانشناسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر سعید جهانیان</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">مدیریت</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر منصوره حاج&zwnj;هادیان</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">روایت&zwnj;گری</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر حجت اله حمیدی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">کامپیوتر</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه خواجه نصیرالدین طوسی</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر آناهیتا خرمی بنارکی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">علوم اعصاب</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">کلینیک مغز و شناخت</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر سعید خزایی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">زبان انگلیسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه علوم پزشکی اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر قدرت&zwnj;الله خسروشاهی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">حقوق</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر پریسا دارویی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">ارتباط تصویری</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر مرتضی دری&zwnj;گیو</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">هوش مصنوعی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه سمنان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>مهندس مهیار دولتخواه</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">طراحی صنعتی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر حمید دهقان</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">جامعه&zwnj;شناسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر حسین دهقان&zwnj;زاده</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">تکنولوژی آموزشی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه تبریز</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر رضا راستی بروجنی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">هوش مصنوعی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>طه رسولی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">طراحی بازی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">آواگیمز</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر والی رضایی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">زبان انگلیسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر محمدحسین رضوانی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">مهندسی کامپیوتر</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه آزاد اسلامی واحد قزوین</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر عادل رفیعی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">زبان انگلیسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر حمیدرضا روحانی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">هنر</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر هدی رودکی لواسانی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">مهندسی کامپیوتر</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه خواجه نصیرالدین طوسی</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر نادر رهنما</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">تربیت بدنی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر بهمن زینلی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">تاریخ</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر یونس سخاوت</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">چندرسانه&zwnj;ای</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اسلامی تبریز</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر آرمین سلیمی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">مهندسی کامپیوتر</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه شهید بهشتی</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر علی شائمی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">مدیریت</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر ایرج شاکری&zwnj;نیا</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">روانشناسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه گیلان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر فرزانه شریفی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">مدیریت</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">بنیاد ملی بازی های رایانه&zwnj;ای</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر الهام شعبانی&zwnj;نیا</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">مهندسی کامپیوتر</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه صنعتی سیرجان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر زهره شفیع&zwnj;زادگان</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">توانبخشی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه علوم پزشکی اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر بیژن شفیعی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">کودکان استثنائی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">استادیار دانشگاه علوم پزشکی اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>الهه شمس</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">هنر</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر سعید صادقی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">روانشناسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">استانداری اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر حمید صادقیان</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">ارتباط تصویری</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر پرویز صباحی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">روانشناسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه سمنان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر هدایت صحرایی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">مغز و اعصاب</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه علوم پزشکی بقیه الله</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر محمدعلی صفورا</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">انیمیشن و سینما</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه تربیت مدرس</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر شیوا صمصام شریعت</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">طب اورژانس</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه علوم پزشكی اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر سیدکمال صولتی دهکردی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">روانپزشکی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه علوم پزشكی شهركرد</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>محمدرضا صیدی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">مطالعات بازی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">مرکز تحقیقات بازی&zwnj;های دیجیتال</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>علی طاهری</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="LTR" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">Digital Media Lab</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="LTR" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">Auckland University of Technology</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر محمد طاهری</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">هنر</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر محمدصادق طباطبایی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">حقوق</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر محمد عاشوری</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">روانشناسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر علی عسگری</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">روانشناسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه علوم توانبخشی و سلامت اجتماعی</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر مجتبی عطارزاده</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">علوم سیاسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر سیدامین عظیمی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">تکنولوژی آموزشی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر حامد علیاری</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">علوم اعصاب</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="LTR" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">University of Technology Kochi, Japan</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>مهندس سعید علیاری</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">طراحی صنعتی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر پرستو علیخانی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">تکنولوژی آموزشی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه شهید بهشتی</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر بهنام علیزاده اشرفی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">چندرسانه&zwnj;ای</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اسلامی تبریز</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر محمدرضا عمادی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">هنرهای تجسمی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:27.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر محمدهادی عیان&zwnj;بد</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:27.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">موسیقی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:27.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر فرخنده فاضل بخششی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">مطالعات بازی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">موسسه آموزش عالی اقبال لاهوری</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر افسانه فاطمی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">مهندسی کامپیوتر</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر مجید فدایی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">عکاسی و سینما</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر هادی فرهادی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">روانشناسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه آزاد اسلامی واحد اصفهان (خوراسگان)</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر سیدمحسن قائم&zwnj;فرد</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">حقوق</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر مهدیه قزوینی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">مهندسی کامپیوتر</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه شهید باهنر کرمان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر لیلا قسیسین</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">گفتاردرمانی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه علوم پزشکی اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر امیر قمرانی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">روانشناسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر محمدرضا قنبری</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">حقوق</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دادگستری استان اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر حسین کارشناس</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">هوش مصنوعی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر مرجان کائدی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">مهندسی کامپیوتر</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>شقایش کلی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">مطالعات بازی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">مرکز تحقیقات بازی&zwnj;های دیجیتال</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر رسول کمالی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">ارتباط تصویری</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر پریسا کیا</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">موسیقی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر سید علیرضا گلپایگانی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">انیمیشن</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر تهران</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر سلمان گلی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">نرم&zwnj;افزار</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه کاشان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر زهره لطیفی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">روانشناسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">پیام نور اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر شهرام لنجان&zwnj;نژادیان</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">تربیت بدنی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر حسین ماهوش محمدی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">کامپیوتر</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر رزیتا مؤیدفر</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">اقتصاد</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر علی محرابی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">روانشناسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر مجید محمدشفیعی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">مدیریت</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر بهار مختاریان</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">فلسفه</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر مائده مشرف</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">مهندسی کامپیوتر</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه شهید بهشتی</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر رسول مظاهری</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">فقه و حقوق</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر فرناز معصوم&zwnj;زاده</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">هنرهای تجسمی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر سید امیرحسن منجمی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">هوش مصنوعی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر غلامرضا منشئی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">روانشناسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه آزاد اسلامی واحد اصفهان (خوراسگان)</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر علی منصوری</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانش&zwnj;شناسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر احمدرضا موحدی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">تربیت بدنی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر سیدمحمدحسین موسوی&zwnj;نسب</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">روانشناسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه شهید باهنر کرمان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر مصطفی مهدیان</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">ریاضی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر حسینعلی مهرابی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">روانشناسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر مقداد مهرابی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">جامعه&zwnj;شناسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه تهران</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر امین مهنام</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">مهندسی پزشکی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان و&nbsp;</span><span dir="LTR" style="color:black;">Myant Inc, Toronto, CA</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر اسماعیل ناصری</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">روانشناسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">پژوهشگاه علوم انسانی و مطالعات فرهنگی</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر حامد نصیری</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">مدیریت</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">بنیاد ملّی بازی&zwnj;های رایانه&zwnj;ای</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر محمدرضا نیستانی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">علوم تربیتی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر جواد نیک&zwnj;پیام</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">مدیریت</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه تهران</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر محمدرضا نیلفروشان</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">گردشگری</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه هنر اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر محمدرضا نیلی احمدآبادی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">علوم تربیتی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر مجتبی وحیدی&zwnj;اصل</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">هوش مصنوعی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه شهید بهشتی</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:154.0pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>دکتر رضا همتی</span></p>
-									</td>
-									<td style="width:97.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">جامعه&zwnj;شناسی</span></p>
-									</td>
-									<td style="width:171.75pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">دانشگاه اصفهان</span></p>
-									</td>
-								</tr>
-							</tbody>
+								</tr></tbody>
 						</table>
 					</div>
 					<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span dir="RTL" style='font-family:"Arial",sans-serif;'>&nbsp;</span></p>
@@ -1629,56 +308,7 @@
 
 					<div class="scrolable-div">
 
-					<table class="partners" cellspacing="0" cellpadding="0" border="0" style="width: 730px;"><tbody>
-
-<tr>
-					<td>1. ابوالفضل اسلامی</td>
-						<td>2. نسیم اسماعیلیان
-						</td>
-						<td>3. سید مهران امیری
-						</td>
-						<td>4. مهدی بروجنی
-						</td>
-					</tr>
-					<tr>
-						<td>5. علی‌اصغر حیدری</td>
-						<td>6. علی دشتیان</td>
-						<td>7. مهدی رشیدی
-						</td>
-						<td>8. محمد رضاپوریان 
-						</td>
-					</tr>
-					<tr>
-						<td>9. اردلان سروری‌نژاد
-						</td>
-						<td>10. سید ابوالفضل شرافت
-						</td>
-						<td>11. سارا صادقیان
-						</td>
-						<td>12. مریم صالحی
-						</td>
-					</tr>
-					<tr>
-						<td>13. مجتبی صومی
-						</td>
-						<td>14. شمیمه صنیع‌ثالث
-						</td>
-						<td>15. طیبه عظیمی
-						</td>
-						<td>16. فائزه‌سادات عقیلی</td>
-					</tr>
-
-					<tr>
-						<td>17. فرشاد گوهری
-						</td>
-						<td>18. مهدی ماهری اصفهانی
-						</td>
-						<td>19. زهراسادات محسنی
-						</td>
-						<td>20. فاطمه هاشمی‌زاده</td>
-					</tr>					
-
-					</tbody>
+					<table class="partners" cellspacing="0" cellpadding="0" border="0" style="width: 730px;"><tbody id="executiveTeamBody"></tbody>
 					</table>
 
 
@@ -3772,6 +2402,166 @@ var navbar = document.getElementById("col");
 		if (!wasSeen()) {
 			window.setTimeout(openModal, 600);
 		}
+	})();
+</script>
+
+<script type="text/javascript">
+	(function () {
+		var grid = document.getElementById("organizingCommittee");
+		if (!grid || typeof fetch !== "function") return;
+
+		function buildCard(member) {
+			var person = document.createElement("div");
+			person.className = "person";
+
+			var pic = document.createElement("img");
+			pic.className = "pic";
+			pic.src = member.image_url || "";
+			pic.alt = member.name || "";
+			pic.loading = "lazy";
+			person.appendChild(pic);
+
+			var caption = document.createElement("div");
+			caption.className = "caption";
+
+			var title = document.createElement("p");
+			title.className = "title";
+			title.textContent = member.role || "";
+			caption.appendChild(title);
+
+			var name = document.createElement("p");
+			name.className = "name";
+			name.textContent = member.name || "";
+			caption.appendChild(name);
+
+			var position = document.createElement("span");
+			position.className = "discription";
+			position.textContent = member.position || "";
+			caption.appendChild(position);
+
+			person.appendChild(caption);
+			return person;
+		}
+
+		fetch("committee-organizing.json", { cache: "no-cache" })
+			.then(function (res) {
+				if (!res.ok) throw new Error("HTTP " + res.status);
+				return res.json();
+			})
+			.then(function (members) {
+				grid.innerHTML = "";
+				if (!Array.isArray(members) || members.length === 0) {
+					grid.innerHTML = '<div class="committee-error">لیست کمیته برگزاری در دسترس نیست.</div>';
+					return;
+				}
+				members.forEach(function (member) {
+					grid.appendChild(buildCard(member));
+				});
+			})
+			.catch(function () {
+				grid.innerHTML = '<div class="committee-error">بارگذاری لیست کمیته برگزاری ناموفق بود.</div>';
+			});
+	})();
+</script>
+
+<script type="text/javascript">
+	/* scientific committee table (committee-scientific.json) */
+	(function () {
+		var body = document.getElementById("scientificCommitteeBody");
+		if (!body || typeof fetch !== "function") return;
+
+		function cell(text, className) {
+			var td = document.createElement("td");
+			td.className = className;
+			td.textContent = text;
+			return td;
+		}
+
+		// keep the static header row, drop the previously generated rows
+		function clearRows() {
+			Array.prototype.slice.call(body.querySelectorAll("tr")).forEach(function (row) {
+				if (!row.classList.contains("sci-header")) {
+					body.removeChild(row);
+				}
+			});
+		}
+
+		fetch("committee-scientific.json", { cache: "no-cache" })
+			.then(function (res) {
+				if (!res.ok) throw new Error("HTTP " + res.status);
+				return res.json();
+			})
+			.then(function (members) {
+				clearRows();
+				if (!Array.isArray(members) || members.length === 0) {
+					var empty = document.createElement("tr");
+					var td = document.createElement("td");
+					td.colSpan = 3;
+					td.className = "committee-error";
+					td.textContent = "لیست کمیته علمی در دسترس نیست.";
+					empty.appendChild(td);
+					body.appendChild(empty);
+					return;
+				}
+				members.forEach(function (member) {
+					var tr = document.createElement("tr");
+					tr.appendChild(cell(member.name || "", "sci-name"));
+					tr.appendChild(cell(member.specialization || "", "sci-spec"));
+					tr.appendChild(cell(member.affiliation || "", "sci-affil"));
+					body.appendChild(tr);
+				});
+			})
+			.catch(function () {
+				body.innerHTML = '<tr><td colspan="3" class="committee-error">بارگذاری لیست کمیته علمی ناموفق بود.</td></tr>';
+			});
+	})();
+</script>
+
+<script type="text/javascript">
+	/* executive team table (committee-executive.json) */
+	(function () {
+		var body = document.getElementById("executiveTeamBody");
+		if (!body || typeof fetch !== "function") return;
+
+		function buildTable(names) {
+			body.innerHTML = "";
+			if (!names.length) {
+				var empty = document.createElement("tr");
+				var td = document.createElement("td");
+				td.colSpan = 4;
+				td.className = "committee-error";
+				td.textContent = "لیست همکاران اجرایی در دسترس نیست.";
+				empty.appendChild(td);
+				body.appendChild(empty);
+				return;
+			}
+			for (var i = 0; i < names.length; i += 4) {
+				var tr = document.createElement("tr");
+				for (var j = i; j < Math.min(i + 4, names.length); j++) {
+					var td = document.createElement("td");
+					td.textContent = (j + 1) + ". " + names[j];
+					tr.appendChild(td);
+				}
+				body.appendChild(tr);
+			}
+		}
+
+		fetch("committee-executive.json", { cache: "no-cache" })
+			.then(function (res) {
+				if (!res.ok) throw new Error("HTTP " + res.status);
+				return res.json();
+			})
+			.then(function (data) {
+				var names = Array.isArray(data) ? data : (data && Array.isArray(data.names) ? data.names : []);
+				buildTable(names.map(function (n) {
+					return typeof n === "string" ? n : (n && n.name) || "";
+				}).filter(function (n) {
+					return n.trim() !== "";
+				}));
+			})
+			.catch(function () {
+				body.innerHTML = '<tr><td colspan="4" class="committee-error">بارگذاری لیست همکاران اجرایی ناموفق بود.</td></tr>';
+			});
 	})();
 </script>
 
