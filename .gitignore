@@ -1,2 +1,1 @@
-food_delivery/*.sqlite-wal
-food_delivery/*.sqlite-shm
+food_delivery/*.sqlite*
