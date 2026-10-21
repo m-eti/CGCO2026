@@ -14,8 +14,8 @@ define('EXCEL_FILE', __DIR__ . '/participants.xlsx');
 define('ARTICLES_FILE', __DIR__ . '/assets/articles.zip');
 define('CUSTOM_FONT_PATH', 'assets/custom-font.ttf');
 define('CUSTOM_TEMPLATE_PATH', 'assets/certificate-template.png');
-define('SESSION_TTL', 1800);             // اعتبار نشست کاربر: ۳۰ دقیقه
-define('MAX_ATTEMPTS', 7);              // حداکثر تلاش ناموفق در هر بازه ۱۰ دقیقه‌ای
+define('SESSION_TTL', 1800);
+define('MAX_ATTEMPTS', 7);
 
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
@@ -824,7 +824,7 @@ $articlesAvailable = file_exists(ARTICLES_FILE);
                     <input type="tel" id="login_phone" name="phone" class="form-control"
                            placeholder="09120000000" maxlength="13" required autofocus
                            value="<?= htmlspecialchars($postedPhone, ENT_QUOTES, 'UTF-8') ?>">
-                    <div class="form-hint">شماره همراهی که هنگام ارسال مقاله ثبت کرده‌اید — نیازی به وارد کردن کد ملی نیست.</div>
+                    <div class="form-hint">شماره همراهی که هنگام ارسال مقاله ثبت کرده‌اید.</div>
                 </div>
 
                 <button type="submit" class="btn-primary">ورود</button>
