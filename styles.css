@@ -171,9 +171,9 @@
 		justify-content: center;
 	}
 	#col .button{
-		flex: 0 1 10.6%;
+		flex: 0 1 9.6%;
 		box-sizing: border-box;
-		padding: 15px 4px;
+		padding: 15px 3px;
 		white-space: nowrap;
 	}
 	.button{

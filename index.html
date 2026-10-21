@@ -224,12 +224,241 @@
 	.conference-table .sub-topic {
 		color: var(--navy-700);
 	}
+	/* main navigation: keep all items on a single row (desktop only) */
+	@media only screen and (min-width: 769px) {
+		#col .button {
+			flex: 0 1 9.6%;
+			box-sizing: border-box;
+			padding: 15px 3px;
+			white-space: nowrap;
+		}
+	}
 	/* speaker photos are absolutely positioned, keep the <picture> wrapper out of the flow */
 	.presenter picture {
 		display: block;
 	}
 	.presenter picture > img.pic {
 		top: 25px;
+	}
+	/* sessions schedule (loaded from sessions-schedule.html) */
+	.slot-banner {
+		background: var(--navy-800) !important;
+		color: #fff !important;
+	}
+	.session-title-bar {
+		background: var(--navy-800) !important;
+		color: #fff !important;
+		border-bottom: 1px solid var(--gold) !important;
+	}
+	.panel-title-bar {
+		background: #f0e3b8 !important;
+		color: var(--navy-900) !important;
+		border-bottom: 1px solid var(--gold) !important;
+	}
+	.session-meta-bar {
+		background: #fdfaf2 !important;
+		border-bottom: 1px solid var(--gold) !important;
+	}
+	.venue-tag {
+		background: #fdf6e0 !important;
+		border: 1px solid var(--gold) !important;
+		color: var(--navy-800) !important;
+	}
+	.committee-info {
+		color: #444 !important;
+	}
+	.papers-table thead tr {
+		background: var(--navy-800) !important;
+	}
+	.papers-table thead th {
+		color: #fff !important;
+		border: 1px solid var(--gold) !important;
+	}
+	.papers-table td {
+		border: 1px solid var(--gold) !important;
+	}
+	.papers-table tbody tr:nth-child(2n) td {
+		background: rgba(212, 181, 95, 0.12) !important;
+	}
+	.papers-table tbody td.col-time {
+		background: #fdfaf2 !important;
+	}
+	.paper-title {
+		color: var(--navy-800) !important;
+	}
+	.paper-title.en {
+		color: #444 !important;
+	}
+	.paper-authors {
+		color: #555 !important;
+	}
+	.author-badge {
+		color: var(--navy-800) !important;
+	}
+	.session-card {
+		border: 1px solid var(--gold) !important;
+	}
+	.panel-body {
+		background: #fffdf5 !important;
+	}
+	/* sessions schedule readability (sessions-schedule.html) */
+	#sessionsContent {
+		background: #fbf8ef;
+		border: 1px solid rgba(212, 181, 95, 0.45);
+		border-radius: 10px;
+		padding: 18px 16px 26px;
+	}
+	#sessionsContent .main-header {
+		text-align: center;
+		margin-bottom: 22px;
+	}
+	#sessionsContent .main-header p {
+		display: inline-block;
+		background: var(--navy-800);
+		color: #fff !important;
+		font-size: 15px !important;
+		font-weight: 700;
+		padding: 9px 22px;
+		border: 1px solid var(--gold);
+		border-radius: 22px;
+	}
+	#sessionsContent .slot-section {
+		margin-bottom: 48px;
+	}
+	#sessionsContent .slot-section:last-child {
+		margin-bottom: 0;
+	}
+	/* each time range gets its own strong header block */
+	#sessionsContent .slot-banner {
+		background: var(--navy-800) !important;
+		color: var(--gold-light) !important;
+		border: 2px solid var(--gold);
+		border-right-width: 6px;
+		border-radius: 8px !important;
+		padding: 13px 18px !important;
+		font-size: 17px !important;
+		font-weight: 800;
+		letter-spacing: .3px;
+		margin-bottom: 20px !important;
+		box-shadow: 0 3px 10px rgba(5, 4, 26, .18);
+	}
+	#sessionsContent .session-card {
+		background: #fff !important;
+		border: 1px solid var(--gold) !important;
+		border-radius: 10px !important;
+		box-shadow: 0 2px 10px rgba(5, 4, 26, 0.08) !important;
+		margin-bottom: 22px !important;
+		overflow: hidden;
+	}
+	#sessionsContent .session-card:last-child {
+		margin-bottom: 0 !important;
+	}
+	#sessionsContent .session-title-bar {
+		background: var(--navy-800) !important;
+		color: #fff !important;
+		font-size: 15.5px !important;
+		padding: 12px 16px !important;
+		border-bottom: 2px solid var(--gold) !important;
+		border-right: 5px solid var(--gold);
+	}
+	#sessionsContent .session-meta-bar {
+		background: #fdfaf2 !important;
+		border-bottom: 1px solid var(--gold) !important;
+		padding: 10px 14px !important;
+	}
+	#sessionsContent .venue-tag {
+		background: var(--navy-800) !important;
+		color: #fff !important;
+		border: 1px solid var(--gold) !important;
+		border-radius: 20px !important;
+		padding: 4px 14px !important;
+		font-size: 12.5px;
+		white-space: nowrap;
+	}
+	#sessionsContent .committee-info {
+		color: #555 !important;
+		font-size: 12.5px !important;
+		line-height: 1.9;
+	}
+	#sessionsContent .committee-info strong {
+		color: var(--navy-800);
+	}
+	#sessionsContent .papers-table {
+		font-size: 13.5px !important;
+	}
+	#sessionsContent .papers-table thead th {
+		padding: 10px 12px !important;
+		font-size: 13px;
+	}
+	#sessionsContent .papers-table td {
+		padding: 10px 12px !important;
+		line-height: 1.85;
+	}
+	#sessionsContent .paper-title {
+		color: var(--navy-800) !important;
+		font-size: 14px !important;
+		line-height: 1.8;
+	}
+	#sessionsContent .paper-title.en {
+		color: #4a4a55 !important;
+		font-style: italic;
+	}
+	#sessionsContent .paper-authors {
+		color: #666 !important;
+		font-size: 12.5px !important;
+	}
+	#sessionsContent .author-badge {
+		color: var(--gold-dark) !important;
+	}
+	#sessionsContent .papers-table tbody tr:nth-child(2n) td {
+		background: rgba(212, 181, 95, 0.1) !important;
+	}
+	#sessionsContent .papers-table tbody tr td.col-time {
+		background: #f7f1de !important;
+		color: var(--navy-800) !important;
+		font-weight: 700;
+	}
+	#sessionsContent .papers-table tbody tr:hover td {
+		background: rgba(212, 181, 95, 0.22) !important;
+	}
+	/* other accepted papers (loaded from other-papers.html) */
+	.category-header-bar {
+		background: var(--navy-800) !important;
+		color: #fff !important;
+		border-bottom: 1px solid var(--gold) !important;
+	}
+	.category-count-badge {
+		background: rgba(212, 181, 95, 0.28) !important;
+		color: var(--navy-800) !important;
+	}
+	.category-card {
+		border: 1px solid var(--gold) !important;
+	}
+	.other-papers .papers-table thead tr,
+	#otherPapersContent .papers-table thead tr {
+		background: var(--navy-800) !important;
+	}
+	#otherPapersContent .papers-table thead th {
+		color: #fff !important;
+		border: 1px solid var(--gold) !important;
+	}
+	#otherPapersContent .papers-table td {
+		border: 1px solid var(--gold) !important;
+	}
+	#otherPapersContent .papers-table td.col-idx {
+		background: #fdfaf2 !important;
+	}
+	#otherPapersContent .papers-table tbody tr.paper-row:nth-child(2n) td {
+		background: rgba(212, 181, 95, 0.12) !important;
+	}
+	#otherPapersContent .col-title {
+		color: var(--navy-800) !important;
+	}
+	#otherPapersContent .col-title.en {
+		color: #444 !important;
+	}
+	#otherPapersContent .col-authors {
+		color: #555 !important;
 	}
 </style>
 </head>
@@ -264,7 +493,8 @@
 				
 				<a href="#keyspeechbox" id="keyspeech" class="ajaxee BZar button blue medium ">سخنرانان کلیدی</a>
 				
-				<a href="#artlistbox" id="search" class="ajaxee BZar button blue medium ">مقالات</a>
+				<a href="#artlistbox" id="search" class="ajaxee BZar button blue medium ">برنامه نشست‌ها</a>
+				<a href="#otherarticlesbox" id="otherarticles" class="ajaxee BZar button blue medium ">سایر مقالات</a>
 				
 				
 					<a href="#albumbox" id="album" class="ajaxee BZar button blue medium " >آلبوم عکس</a>
@@ -878,936 +1108,28 @@
 			</div>	
 
 				<div id="artlistbox" class="hidden BZar">
-					<div class="sponsorBar"><strong>لیست ارائه&zwnj;های آنلاین
-					</strong></div>
+					<div class="sponsorBar"><strong>برنامه نشست‌ها</strong></div>
 					<br>
-					<div class="scrolable-div conf-articles">
-						<table style="border-collapse:collapse;border:none;">
-							<tbody>
-								<tr>
-									<td colspan="5" style="width:1047.7pt;border:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.8pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>نشست روانشناسی و یادگیری (14:30 تا 17)</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td colspan="5" style="width:1047.7pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:  34.95pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>کمیته ناظر: دکتر امیر قمرانی (دانشگاه اصفهان)، دکتر اعظم اسفیجانی (دانشگاه اصفهان)، دکتر امین عظیمی (دانشگاه اصفهان)، دکتر امرالله ابراهیمی (دانشگاه علوم پزشکی اصفهان)، دکتر پرویز صباحی (دانشگاه سمنان)، دکتر سیدکمال صولتی دهکردی (دانشگاه شهرکرد)، دکتر عاطفه احمدی (مرکز جامع توتیا)، دکتر سالار فرامرزی (دانشگاه اصفهان)، دکتر غلامرضا منشئی (دانشگاه آزاد اصفهان)</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:34.95pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:31.2pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/بررسی اثربخشی بازی‌ رایانه‌ای لِگو بر خلاقیت نوآموزان دختر مقطع پیش‌دبستانی.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:757.6pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  31.2pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>بررسی اثربخشی بازی‌ رایانه‌ای لِگو بر خلاقیت نوآموزان دختر مقطع پیش‌دبستانی</span></p>
-									</td>
-									<td style="width:5.0cm;border-top:none;border-left:none;border-bottom:  solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  31.2pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>معصومه رسولی</span></p>
-									</td>
-									<td style="width:35.45pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  31.2pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>14:30</span></p>
-									</td>
-									<td rowspan="8" style="width:77.95pt;border-top:none;border-left:  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  31.2pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style="font-size:11px;"><a href="https://b2n.ir/psych">https://b2n.ir/psych</a></span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:34.95pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/بوموبر_بازی_واقعیت_افزوده_آموزش_جغرافیا_برای_کودکان%.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:757.6pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>بوموبر؛ بازی جدی واقعیت افزوده‌ی آموزش جغرافیا برای کودکان</span></p>
-									</td>
-									<td style="width:5.0cm;border-top:none;border-left:none;border-bottom:  solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>ویرا رنجبر قاسمی، نیما سیاوش آبکنار، مرضیه داوری دولت&zwnj;آبادی، یونس سخاوت</span></p>
-									</td>
-									<td style="width:35.45pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>14:45</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:34.95pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/An Investigation into the Applicability of Robot-AR-Aided LMOOCs for Language for Nursing Purposes Teaching and Learning.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:757.6pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  15.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'>An Investigation into the Applicability of Robot-AR-Aided LMOOCs for Language for Nursing Purposes Teaching and Learning</span></p>
-									</td>
-									<td style="width:5.0cm;border-top:none;border-left:none;border-bottom:  solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  15.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>سعید خزائی، علی درخشان،</span></p>
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>محبوبه مقامی، سید محمدصادق مدنی</span></p>
-									</td>
-									<td style="width:35.45pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  15.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>15</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:34.95pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:48.15pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/بررسی_رابطه_شایستگی_حرفه_ای_معلمان_در_اجرای_بازی_های_رایانه_ای_و%.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:757.6pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  48.15pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>بررسی رابطه شایستگی حرفه&zwnj;ای معلمان در اجرای بازی&zwnj;های رایانه&zwnj;ای و افزایش توجه در دانش&zwnj;آموزان بیش&zwnj;فعال بر اساس استاندارد&nbsp;</span><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'>&nbsp;TPACK</span></p>
-									</td>
-									<td style="width:5.0cm;border-top:none;border-left:none;border-bottom:  solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  48.15pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:  -.1pt;margin-bottom:.0001pt;margin-left:0cm;text-align:  center;font-size:12px;font-family:"Times New Roman",serif;'><span style='font-family:"Tahoma",sans-serif;'>افسانه پودینه، نرگس میرانی سرگزی، ناهید کشته&zwnj;گر</span></p>
-									</td>
-									<td style="width:35.45pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  48.15pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>15:15</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:34.95pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/ذهن_های خشمگین طراحی و تولید یک بازی رایانه_ای بر اساس تئوری تخلیه هیجانی و بررسی اثر آن بر مدیریت و کاهش خشم.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:757.6pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'>&raquo;</span><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>ذهن&zwnj;های خشمگین&raquo;؛ طراحی و تولید یک بازی رایانه&zwnj;ای بر اساس تئوری تخلیه هیجانی و بررسی اثر آن بر مدیریت و کاهش خشم</span></p>
-									</td>
-									<td style="width:5.0cm;border-top:none;border-left:none;border-bottom:  solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>شهریار درهمی، عباس موسیوند،</span></p>
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>مهدی پورجعفر</span></p>
-									</td>
-									<td style="width:35.45pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>16</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:34.95pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:38.95pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/%مقایسه اضطراب و کیفیت خواب در کودکان معتاد به بازی های رایانه ای و کودکان عادی دبستانی شهر اصفهان.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:757.6pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  38.95pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>مقایسه اضطراب و کیفیت خواب در کودکان معتاد به بازی&zwnj;های رایانه&zwnj;ای و کودکان عادی دبستانی شهر اصفهان</span></p>
-									</td>
-									<td style="width:5.0cm;border-top:none;border-left:none;border-bottom:  solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  38.95pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>هادی فرهادی، معصومه زارعان،</span></p>
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>محسن میرزایی</span></p>
-									</td>
-									<td style="width:35.45pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  38.95pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>16:15</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:34.95pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:38.85pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/تأثیر بازی‌های رایانه‌ای مبتنی بر پلتفرم واقعیت مجازی بر افزایش سطح تعاملات اجتماعی دانش‌آموزان افسرده.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:757.6pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  38.85pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>تاثیر بازی&zwnj;های رایانه&zwnj;ای مبتنی بر پلت&zwnj;فرم واقعیت مجازی بر افزایش سطح تعاملات اجتماعی دانش&zwnj;آموزان افسرده</span></p>
-									</td>
-									<td style="width:5.0cm;border-top:none;border-left:none;border-bottom:  solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  38.85pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>میثم افضلی، فاطمه محمودی سردره، نرگس اثنا عشری</span></p>
-									</td>
-									<td style="width:35.45pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  38.85pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>16:30</span></p>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:right;'><span style='font-size:12px;line-height:107%;font-family:"Arial",sans-serif;'>&nbsp;</span></p>
-						<p><span dir="RTL" style='font-size:12px;line-height:107%;font-family:"Arial",sans-serif;'><br>&nbsp;</span></p>
-						<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span dir="RTL" style='font-size:12px;line-height:107%;font-family:"Arial",sans-serif;'>&nbsp;</span></p>
-						<table style="border-collapse:collapse;border:none;">
-							<tbody>
-								<tr>
-									<td colspan="5" style="width:502.7pt;border:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.8pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>نشست پزشکی و توانبخشی (14:30 تا 15:45)</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td colspan="5" style="width:502.7pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:  34.95pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>کمیته ناظر: دکتر زهراسادات رضاییان (دانشگاه علوم پزشکی اصفهان)، دکتر لیلا قسیسین (دانشگاه علوم پزشکی اصفهان)،</span></p>
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>دکتر مهران عمادی اندانی (دانشگاه&nbsp;</span><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'>Verona</span><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>)</span><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>، فاطمه ابناوی (دانشگاه&nbsp;</span><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'>Ottawa</span><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>)</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:42.05pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:31.9pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/Parak, a video game for speech rehabilitation.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:283.05pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  31.9pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'>Parak the Pigeon-post; a Videogame for Children Speech Rehabilitation</span></p>
-									</td>
-									<td style="width:75.8pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  31.9pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>فائزه برگی، علی دهستانی،</span></p>
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>سمیرا پودراتچی، یونس سخاوت</span></p>
-									</td>
-									<td style="width:30.95pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  31.9pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>14:30</span></p>
-									</td>
-									<td rowspan="5" style="width:70.85pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  31.9pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style="font-size:11px;"><a href="https://b2n.ir/rehab">https://b2n.ir/rehab</a></span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:42.05pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/طراحی بازی رایانه_ای فیزیکی مبتنی بر زاویه_سنجی برای توان_بخشی آسیب_دیدگی_های شانه%.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:283.05pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>طراحی بازی رایانه&zwnj;ای فیزیکی مبتنی بر زاویه&zwnj;سنجی برای توان&zwnj;بخشی آسیب&zwnj;دیدگی&zwnj;های شانه</span></p>
-									</td>
-									<td style="width:75.8pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:  -.1pt;margin-bottom:.0001pt;margin-left:0cm;text-align:  center;font-size:12px;font-family:"Times New Roman",serif;'><span style='font-family:"Tahoma",sans-serif;'>زهرا نخعی، مریم صالحی، جواد راستی</span></p>
-									</td>
-									<td style="width:30.95pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>14:45</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:42.05pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:32.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:  -.1pt;margin-bottom:.0001pt;margin-left:0cm;text-align:  center;font-size:12px;font-family:"Times New Roman",serif;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/dido  بازی جدی مبتنی بر توانبخشی با هدف بهبود مشکل بینایی عدم هماهنگی حرکت چشم.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:283.05pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  32.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:  -.1pt;margin-bottom:.0001pt;margin-left:0cm;text-align:  center;font-size:12px;font-family:"Times New Roman",serif;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'>dido</span><span style='font-family:"Tahoma",sans-serif;'>؛ بازی جدی مبتنی بر توان&zwnj;بخشی باهدف بهبود مشکل بینایی عدم هماهنگی حرکت چشم</span></p>
-									</td>
-									<td style="width:75.8pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  32.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>مهسا عبیدی شاه&zwnj;تپه، یونس سخاوت</span></p>
-									</td>
-									<td style="width:30.95pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  32.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>15</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:42.05pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:28.85pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/طراحی_و_ساخت_بسته_سخت_افزاری_و_نرم_افزاری_آموزش_احیای_قلبی_ریوی%.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:283.05pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  28.85pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>طراحی و ساخت سخت&zwnj;&zwnj;افزار و بازی رایانه&zwnj;ای آموزش احیای قلبی-ریوی</span></p>
-									</td>
-									<td style="width:75.8pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  28.85pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:  -.1pt;margin-bottom:.0001pt;margin-left:0cm;text-align:  center;font-size:12px;font-family:"Times New Roman",serif;'><span style='font-family:"Tahoma",sans-serif;'>بهار شمسائی، الهام شعاعی، جواد راستی</span></p>
-									</td>
-									<td style="width:30.95pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  28.85pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>15:15</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:42.05pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/%بازی_رایانه_ای_«بهگفت»؛_بهبود_اختلال_تولیدی_در_گفتاردرمانی_کودکان.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:283.05pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>بازی رایانه‌ای &laquo;بهگفت&raquo;؛ بهبود اختلال تولیدی در گفتاردرمانی کودکان</span></p>
-									</td>
-									<td style="width:75.8pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>صبا فریدی، جواد راستی</span></p>
-									</td>
-									<td style="width:30.95pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>15:30</span></p>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:right;'><span style='font-size:12px;line-height:107%;font-family:"Arial",sans-serif;'>&nbsp;</span></p>
-						<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span dir="RTL" style='font-size:12px;line-height:107%;font-family:"Arial",sans-serif;'>&nbsp;</span></p>
-						<table style="border-collapse:collapse;border:none;">
-							<tbody>
-								<tr>
-									<td colspan="5" style="width:502.7pt;border:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.8pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>نشست علوم انسانی (14:30 تا 16:15)</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td colspan="5" style="width:502.7pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:  34.95pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>کمیته ناظر: دکتر آرش شاهین (دانشگاه اصفهان)، دکتر احسان آقابابایی (دانشگاه اصفهان)، دکتر حامد نصیری (بنیاد ملی بازی&zwnj;های رایانه&zwnj;ای)، دکتر قدرت&zwnj;الله خسروشاهی (دانشگاه اصفهان)، دکتر کبری بخشی&zwnj;زاده (دانشگاه علامه طباطبایی)، دکتر محمدرضا قنبری (دادگستری اصفهان)</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:34.95pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:33.15pt;">
-										<p style='margin-top:0cm;margin-right:-.1pt;margin-bottom:.0001pt;margin-left:-.1pt;text-align:center;font-size:12px;font-family:"Times New Roman",serif;'><span style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/انگیزش کاربر و تاثیر آن بر نگرش به¬ بازی¬های خدماتی و تمایل به خرید آنلاین در شبکه¬های اجتماعی و وبسایت¬ها.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:264.8pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  33.15pt;">
-										<p style='margin-top:0cm;margin-right:-.1pt;margin-bottom:.0001pt;margin-left:-.1pt;text-align:center;font-size:12px;font-family:"Times New Roman",serif;'><span dir="RTL" style='font-family:"Tahoma",sans-serif;'>انگیزش کاربر و تاثیر آن بر نگرش به بازی‌های خدماتی و تمایل به خرید آنلاین در شبکه‌های اجتماعی و وبسایت‌ها</span></p>
-									</td>
-									<td style="width:93.65pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  33.15pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:  -.1pt;margin-bottom:.0001pt;margin-left:0cm;text-align:  center;font-size:12px;font-family:"Times New Roman",serif;'><span style='font-family:"Tahoma",sans-serif;'>ریحانه&zwnj;السادات طبائیان، مجید محمدشفیعی</span></p>
-									</td>
-									<td style="width:30.2pt;border-top:none;border-left:none;border-bottom:  solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  33.15pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>14:30</span></p>
-									</td>
-									<td rowspan="7" style="width:79.1pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  33.15pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style="font-size:11px;"><a href="https://b2n.ir/humanity">https://b2n.ir/humanity</a></span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:34.95pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/%تحلیل فقهی- حقوقی خریدوفروش اکانت بازی‌های مجازی.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:264.8pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>تحلیل فقهی- حقوقی خرید و فروش اکانت بازی&zwnj;های مجازی</span></p>
-									</td>
-									<td style="width:93.65pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>مرتضی وصالی ناصح</span></p>
-									</td>
-									<td style="width:30.2pt;border-top:none;border-left:none;border-bottom:  solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>14:45</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:34.95pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:32.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/مدل_مفهومي_عوامل_مؤثر_در_پذيرش_بومی‌سازی_بازي‌هاي_رايانه‌اي.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:264.8pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  32.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>مدل مفهومی عوامل مؤثر در پذيرش بومی&zwnj;سازی بازی&zwnj;های رايانه&zwnj;ای</span></p>
-									</td>
-									<td style="width:93.65pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  32.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:  -.1pt;margin-bottom:.0001pt;margin-left:0cm;text-align:  center;font-size:12px;font-family:"Times New Roman",serif;'><span style='font-family:"Tahoma",sans-serif;'>محمدرضا رضائیان دلوئی</span></p>
-									</td>
-									<td style="width:30.2pt;border-top:none;border-left:none;border-bottom:  solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  32.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>15</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:34.95pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:28.85pt;">
-										<p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:-.1pt;text-align:center;font-size:12px;font-family:"Times New Roman",serif;'><span style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/آموزش حقوق محیط زیست به کودک در بستر بازی‌های رایانه‌ای%.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:264.8pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  28.85pt;">
-										<p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:-.1pt;text-align:center;font-size:12px;font-family:"Times New Roman",serif;'><span dir="RTL" style='font-family:"Tahoma",sans-serif;'>آموزش حقوق محیط زیست به کودک در بستر بازی&zwnj;های رایانه&zwnj;ای</span></p>
-									</td>
-									<td style="width:93.65pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  28.85pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:  -.1pt;margin-bottom:.0001pt;margin-left:0cm;text-align:  center;font-size:12px;font-family:"Times New Roman",serif;'><span style='font-family:"Tahoma",sans-serif;'>علی مشهدی، آرش ملکی</span></p>
-									</td>
-									<td style="width:30.2pt;border-top:none;border-left:none;border-bottom:  solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  28.85pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>15:15</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:34.95pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/تأثیر گیمیفیکیشن بر قصد خرید بازی¬های دیجیتال با نقش میانجی اعتماد به فروشنده مطالعه وب¬سایت¬های فروش بازی¬های دیجیتال.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:264.8pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>تأثیر گیمیفیکیشن بر قصد خرید بازی‌های دیجیتال با نقش میانجی اعتماد به فروشنده: مطالعه وب‌سایت‌های فروش بازی‌های دیجیتال</span></p>
-									</td>
-									<td style="width:93.65pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:12.0pt;margin-right:-.1pt;margin-bottom:.0001pt;margin-left:0cm;text-align:center;font-size:12px;font-family:"Times New Roman",serif;'><span style='font-family:"Tahoma",sans-serif;'>الهام محسنی، مجید محمدشفیعی</span></p>
-									</td>
-									<td style="width:30.2pt;border-top:none;border-left:none;border-bottom:  solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>15:30</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:34.95pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/شناخت شاخص های بومی سواد بازیهای رایانه ای مصاحبه عمیق با کارشناسان.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:264.8pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>شناخت شاخص</span><span dir="LTR" style='font-size:12px;font-family:"Tahoma",sans-serif;'>&lrm;</span><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>های بومی سواد بازی&zwnj;های</span><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'>&nbsp;</span><span dir="LTR" style='font-size:12px;font-family:"Tahoma",sans-serif;'>&lrm;</span><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>رایانه&zwnj;ای: مصاحبه عمیق با کارشناسان</span></p>
-									</td>
-									<td style="width:93.65pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:1.0cm;margin-bottom:  .0001pt;margin-left:1.0cm;text-align:center;font-size:12px;font-family:"Times New Roman",serif;margin:0cm;'><span style='font-family:"Tahoma",sans-serif;'>محمدحسن یادگاری، &zwnj;فاطمه حاجی&zwnj;کاظم&zwnj;تهرانی</span></p>
-									</td>
-									<td style="width:30.2pt;border-top:none;border-left:none;border-bottom:  solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>15:45</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:34.95pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/نقش_بازی_های_رایانه_ای_در_بزهکاری_وبزه_دیدگی_اطفالمطالعه_موردی؛.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:264.8pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>نقش بازی&zwnj;های رایانه&zwnj;ای در بزه&zwnj;کاری و بزه&zwnj;دیدگی اطفال (مطالعه موردی: دبستان&zwnj;های شهرستان کلیبر)</span></p>
-									</td>
-									<td style="width:93.65pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:  -.1pt;margin-bottom:.0001pt;margin-left:0cm;text-align:  center;font-size:12px;font-family:"Times New Roman",serif;'><span style='font-family:"Tahoma",sans-serif;'>بابک پورقهرمانی، رشید نوبخت</span></p>
-									</td>
-									<td style="width:30.2pt;border-top:none;border-left:none;border-bottom:  solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>16</span></p>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span dir="RTL" style='font-size:12px;line-height:107%;font-family:"Arial",sans-serif;'>&nbsp;</span></p>
-						<table style="border-collapse:collapse;border:none;">
-							<tbody>
-								<tr>
-									<td colspan="5" style="width:502.7pt;border:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.8pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>نشست فنی و مهندسی (14:30 تا 17)</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td colspan="5" style="width:502.7pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:  34.95pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>کمیته ناظر: دکتر مجتبی وحیدی&zwnj;اصل (دانشگاه شهید بهشتی)، دکتر سیدامیرحسن منجمی (دانشگاه اصفهان)، دکتر محمداحسان بصیری (دانشگاه شهرکرد)، دکتر بهنام علیزاده اشرفی (دانشگاه هنر اسلامی تبریز)، دکتر حسین کارشناس (دانشگاه اصفهان)، دکتر امین بابادی (دانشگاه&nbsp;</span><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'>Aalto</span><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>)</span></p>
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>&nbsp;</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:42.05pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:32.25pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/سیستم توصیه_گر پالایش همکارانه جهت پیشنهاد بازی های رایانه ای�.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:248.5pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  32.25pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>سیستم توصیه&zwnj;گر پالایش همکارانه جهت پیشنهاد بازی</span><span dir="LTR" style='font-size:12px;font-family:"Tahoma",sans-serif;'>&lrm;</span><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>های رایانه&zwnj;ای</span></p>
-									</td>
-									<td style="width:100.3pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  32.25pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:  -.1pt;margin-bottom:.0001pt;margin-left:0cm;text-align:  center;font-size:12px;font-family:"Times New Roman",serif;'><span style='font-family:"Tahoma",sans-serif;'>رضا آینه&zwnj;وند، چیترا دادخواه</span></p>
-									</td>
-									<td style="width:30.85pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  32.25pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>14:30</span></p>
-									</td>
-									<td rowspan="7" style="width:81.0pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  32.25pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="https://b2n.ir/techeng">https://b2n.ir/techeng</a></span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:42.05pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/Generating Game Map Layouts for Formally Specified Nonlinear Narratives.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:248.5pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>Generating Game Map Layouts for Formally Specified Nonlinear Narratives</span></p>
-									</td>
-									<td style="width:100.3pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>سعید امیری چیمه، حسن حقیقی، مجتبی وحیدی&zwnj;اصل</span></p>
-									</td>
-									<td style="width:30.85pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>14:45</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:42.05pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:32.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:  -.1pt;margin-bottom:.0001pt;margin-left:0cm;text-align:  center;font-size:12px;font-family:"Times New Roman",serif;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/استفاده از الگوریتم k-برش برای تحلیل بازی‌ برخط چند‌نفره .pdf">PDF</a></span></p>
-									</td>
-									<td style="width:248.5pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  32.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:  -.1pt;margin-bottom:.0001pt;margin-left:0cm;text-align:  center;font-size:12px;font-family:"Times New Roman",serif;'><span style='font-family:"Tahoma",sans-serif;'>استفاده از الگوریتم&nbsp;</span><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'>k</span><span style='font-family:"Tahoma",sans-serif;'>-برش برای تحلیل بازی&zwnj; برخط چند&zwnj;نفره</span></p>
-									</td>
-									<td style="width:100.3pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  32.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:1.0cm;text-align:center;font-size:12px;font-family:"Times New Roman",serif;'><span style='font-family:"Tahoma",sans-serif;'>محمدرضا محمدنژاد، مرتضی دُرّی&zwnj;گیو، فرزین یغمایی</span></p>
-									</td>
-									<td style="width:30.85pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  32.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>15</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:42.05pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:28.85pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/یک عامل نقاد پیشرفته برای یادگیری عامل در محیط بازی فوتبال گوگل.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:248.5pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  28.85pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>یک عامل نقاد پیشرفته برای یادگیری عامل در محیط بازی فوتبال گوگل</span></p>
-									</td>
-									<td style="width:100.3pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  28.85pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:  -.1pt;margin-bottom:.0001pt;margin-left:0cm;text-align:  center;font-size:12px;font-family:"Times New Roman",serif;'><span style='font-family:"Tahoma",sans-serif;'>شقایق صفاری، مرتضی دٌرّی&zwnj;گیو، فرزین یغمایی</span></p>
-									</td>
-									<td style="width:30.85pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  28.85pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>15:15</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:42.05pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/کنترل بازی¬های رایانه‌ای به کمک ردیابی نقاط نشانگر آناتومیک بدن؛ تجربه‌ی غوطه‌وری واقعی در فضای مجازی.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:248.5pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>کنترل بازی&zwnj;های رایانه&zwnj;ای به کمک ردیابی نقاط نشانگر آناتومیک بدن؛ تجربه&zwnj;ی غوطه&zwnj;وری واقعی در فضای مجازی</span></p>
-									</td>
-									<td style="width:100.3pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin:0cm;text-align:center;font-size:13px;font-family:"Times New Roman",serif;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>یزدان قنواتی، مریم صالحی، جواد راستی</span></p>
-									</td>
-									<td style="width:30.85pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>16</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:42.05pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:  -.1pt;margin-bottom:.0001pt;margin-left:0cm;text-align:  center;font-size:12px;font-family:"Times New Roman",serif;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/بهبود عملکرد شبکه عصبی عمیق در تولید خودکار محتوای بازی‌های رایانه‌ای.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:248.5pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:  -.1pt;margin-bottom:.0001pt;margin-left:0cm;text-align:  center;font-size:12px;font-family:"Times New Roman",serif;'><span style='font-family:"Tahoma",sans-serif;'>بهبود عملکرد شبکه عصبی عمیق در تولید خودکار محتوای بازی&zwnj;های رایانه&zwnj;ای</span></p>
-									</td>
-									<td style="width:100.3pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>سهیل قدرتی، مرتضی دُرّی&zwnj;گیو</span></p>
-									</td>
-									<td style="width:30.85pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>16:15</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:42.05pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/طراحی و توسعه یک بازی هدفمند برای شناسایی نامتغیرهای برنامه.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:248.5pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>طراحی و توسعه یک بازی هدفمند برای شناسایی نامتغیرهای برنامه</span></p>
-									</td>
-									<td style="width:100.3pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:  -.1pt;margin-bottom:.0001pt;margin-left:0cm;text-align:  center;font-size:12px;font-family:"Times New Roman",serif;'><span style='font-family:"Tahoma",sans-serif;'>فاطمه تقی&zwnj;زاده کفشگرکلائی، شیما سیف&zwnj;&zwnj;الهی، مجتبی وحیدی&zwnj;اصل</span></p>
-									</td>
-									<td style="width:30.85pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>16:30</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:42.05pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:46.05pt;">
-										<p style='margin-top:0cm;margin-right:0cm;margin-bottom:6.0pt;margin-left:0cm;text-align:center;font-size:19px;font-family:"Times New Roman",serif;'><span style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/Main_Interactive_Affordances_in_MMOGs_and_Players'_Experiences_Case.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:248.5pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p style='margin-top:0cm;margin-right:0cm;margin-bottom:6.0pt;margin-left:0cm;text-align:center;font-size:19px;font-family:"Times New Roman",serif;'><span style='font-size:11px;font-family:"Tahoma",sans-serif;'>Main Interactive Affordances in MMOGs and Players&apos; Experiences: Case Study of World of Warcraft Players&rsquo; Experiences</span></p>
-									</td>
-									<td style="width:100.3pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>مقداد مهرابی</span></p>
-									</td>
-									<td style="width:30.85pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>16:45</span></p>
-									</td>
-									<td style="width:81.0pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>&nbsp;</span></p>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:right;'><span style='font-size:12px;line-height:107%;font-family:"Arial",sans-serif;'>&nbsp;</span></p>
-						<p><span dir="RTL" style='font-size:12px;line-height:107%;font-family:"Arial",sans-serif;'><br>&nbsp;</span></p>
-						<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span dir="RTL" style='font-size:12px;line-height:107%;font-family:"Arial",sans-serif;'>&nbsp;</span></p>
-						<table style="border-collapse:collapse;border:none;">
-							<tbody>
-								<tr>
-									<td colspan="5" style="width:502.7pt;border:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.8pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>نشست هنر (14:30 تا 15:45)</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td colspan="5" style="width:502.7pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:  34.95pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>کمیته ناظر: دکتر پریسا دارویی (دانشگاه هنر اصفهان)، دکتر محمد طاهری (دانشگاه هنر اصفهان)، دکتر رسول کمالی (دانشگاه هنر اصفهان)، مهندس مهیار دولتخواه (دانشگاه هنر اصفهان)، دکتر یونس سخاوت (دانشگاه هنر اسلامی تبریز)</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:42.05pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:46.1pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/%بررسی_نمودهای_گروتسک_بر_شخصیت_پردازی_و_روایت_بازی_های_هوشمند_معاصر.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:274.0pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.1pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>بررسی نمودهای گروتسک بر شخصیت&zwnj;پردازی و روایت بازی&zwnj;های هوشمند معاصر کودکان در ایران با تکیه بر نظریه میخاییل باختین</span></p>
-									</td>
-									<td style="width:86.0pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.1pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:  -.1pt;margin-bottom:.0001pt;margin-left:0cm;text-align:  center;font-size:12px;font-family:"Times New Roman",serif;'><span style='font-family:"Tahoma",sans-serif;'>صدیقه ادراکی، حسین عابددوست، زیبا کاظم پور</span></p>
-									</td>
-									<td style="width:30.95pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.1pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>14:30</span></p>
-									</td>
-									<td rowspan="5" style="width:69.7pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.1pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style="font-size:11px;"><a href="https://b2n.ir/artist">https://b2n.ir/artist</a></span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:42.05pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:  -.1pt;margin-bottom:.0001pt;margin-left:0cm;text-align:  center;font-size:12px;font-family:"Times New Roman",serif;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/تبیین تجربه بازیکنان بازی‌های ویدیویی در مواجهه با رابط‌های نرم‌افزاری و سخت‌افزاری (مطالعه موردی فرزندان مورتا).pdf">PDF</a></span></p>
-									</td>
-									<td style="width:274.0pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:  -.1pt;margin-bottom:.0001pt;margin-left:0cm;text-align:  center;font-size:12px;font-family:"Times New Roman",serif;'><span style='font-family:"Tahoma",sans-serif;'>تبیین تجربه بازیکنان بازی&zwnj;های ویدیویی در مواجهه با رابط&zwnj;های نرم&zwnj;افزاری و سخت&zwnj;افزاری (مطالعه موردی: فرزندان مورتا)</span></p>
-									</td>
-									<td style="width:86.0pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:  -.1pt;margin-bottom:.0001pt;margin-left:0cm;text-align:  center;font-size:12px;font-family:"Times New Roman",serif;'><span style='font-family:"Tahoma",sans-serif;'>ریحانه رفیع&zwnj;زاده اخویان، میترا معنوی&zwnj;راد</span></p>
-									</td>
-									<td style="width:30.95pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>14:45</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:42.05pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:32.75pt;">
-										<p style='margin-top:0cm;margin-right:0cm;margin-bottom:6.0pt;margin-left:0cm;text-align:center;font-size:32px;font-family:"Times New Roman",serif;'><span style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/Writerly Experience in Video Games.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:274.0pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  32.75pt;">
-										<p style='margin-top:0cm;margin-right:0cm;margin-bottom:6.0pt;margin-left:0cm;text-align:center;font-size:32px;font-family:"Times New Roman",serif;'><span style='font-size:11px;font-family:"Tahoma",sans-serif;'>Writerly Experience in Video Games </br> A Classification of Video Games from Barthesian Perspective</span></p>
-									</td>
-									<td style="width:86.0pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  32.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>سجاد زارعی برزکی، حامد حبیب&zwnj;زاده</span></p>
-									</td>
-									<td style="width:30.95pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  32.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>15</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:42.05pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:28.85pt;">
-										<p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:-.1pt;text-align:center;font-size:12px;font-family:"Times New Roman",serif;'><span style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/بررسی رابطه میزان استفاده بازی های رایانه دانشجویان ارتباط تصویری و سبک های یادگیری از منظر دیوید کُلب (2).pdf">PDF</a></span></p>
-									</td>
-									<td style="width:274.0pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  28.85pt;">
-										<p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:-.1pt;text-align:center;font-size:12px;font-family:"Times New Roman",serif;'><span dir="RTL" style='font-family:"Tahoma",sans-serif;'>بررسی رابطه میزان استفاده بازی&zwnj;های رایانه دانشجویان ارتباط تصویری و سبک&zwnj;های یادگیری از منظر دیوید کُلب</span></p>
-									</td>
-									<td style="width:86.0pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  28.85pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>سحر اتحادمحکم، گیتا مصباح</span></p>
-									</td>
-									<td style="width:30.95pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  28.85pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>15:15</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:42.05pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/ایجاد_تجربه_کنفرانس_از_راه_دور_با_استفاده_از_واقعیت_مجازی%.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:274.0pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>ایجاد تجربه کنفرانس از راه دور با استفاده از واقعیت &zwnj;مجازی</span></p>
-									</td>
-									<td style="width:86.0pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:  -.1pt;margin-bottom:.0001pt;margin-left:0cm;text-align:  center;font-size:12px;font-family:"Times New Roman",serif;'><span style='font-family:"Tahoma",sans-serif;'>احسان اخلاقی، مجتبی وحیدی&zwnj;اصل، فائزه آقازاده&zwnj;پر</span></p>
-									</td>
-									<td style="width:30.95pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  46.05pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>15:30</span></p>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:right;'><span style='font-size:12px;line-height:107%;font-family:"Arial",sans-serif;'>&nbsp;</span></p>
-						<table style="border-collapse:collapse;border:none;">
-							<tbody>
-								<tr>
-									<td colspan="5" style="width:502.7pt;border:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.8pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>نشست موسیقی (16 تا 17)</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td colspan="5" style="width:502.7pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:  34.95pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>کمیته ناظر: دکتر پریسا دارویی (دانشگاه هنر اصفهان)، دکتر مجید تحریری (دانشگاه هنر تهران)، دکتر حمید عسگری رابری (دانشگاه هنر تهران)، دکتر محمدهادی عیان&zwnj;بد (دانشگاه هنر اصفهان)</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:42.05pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/مروری بر چالش‌های طراحی موسیقی متن در بازی‌های رایانه‌ای .pdf">PDF</a></span></p>
-									</td>
-									<td style="width:267.85pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  15.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>مروری بر چالش&zwnj;های طراحی موسیقی متن در بازی&zwnj;های رایانه&zwnj;ای</span></p>
-									</td>
-									<td style="width:88.75pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  15.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:  -.1pt;margin-bottom:.0001pt;margin-left:0cm;text-align:  center;font-size:12px;font-family:"Times New Roman",serif;'><span style='font-family:"Tahoma",sans-serif;'>محمدرضا آزاده</span><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'>&zwnj;</span><span style='font-family:"Tahoma",sans-serif;'>فر، سیدمصطفی اصل</span><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'>&zwnj;</span><span style='font-family:"Tahoma",sans-serif;'>مند</span></p>
-									</td>
-									<td style="width:31.0pt;border-top:none;border-left:none;border-bottom:  solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  15.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>16</span></p>
-									</td>
-									<td rowspan="4" style="width:73.05pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  15.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style="font-size:11px;"><a href="https://b2n.ir/musicc">https://b2n.ir/musicc</a></span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:42.05pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/تحليل زيباشناختي روش_هاي آهنگسازي در موسيقي متن بازيهاي يارانه_اي%.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:267.85pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>تحليل زيباشناختي روش&zwnj;های آهنگسازی در موسيقي متن بازی&zwnj;هاي يارانه&zwnj;ای</span></p>
-									</td>
-									<td style="width:88.75pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>مهدی ترمه&zwnj;باف</span></p>
-									</td>
-									<td style="width:31.0pt;border-top:none;border-left:none;border-bottom:  solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  33.6pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>16:15</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:42.05pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:32.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/طراحی الگوی بازی رایانه‌ای فا می‌ لا با تمرکز بر رشد.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:267.85pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  32.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>طراحی الگوی بازی رایانه‌ای</span><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'>&quot;</span><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>فا می&zwnj; لا</span><span dir="LTR" style='font-size:11px;font-family:"Tahoma",sans-serif;'>&quot;&nbsp;</span><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>با تمرکز بر رشد گام به گام کودکان در آموزش موسیقی</span></p>
-									</td>
-									<td style="width:88.75pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  32.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>مهدی پناهی</span></p>
-									</td>
-									<td style="width:31.0pt;border-top:none;border-left:none;border-bottom:  solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  32.75pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>16:30</span></p>
-									</td>
-								</tr>
-								<tr>
-									<td style="width:42.05pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:28.85pt;">
-										<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style='font-size:11px;font-family:"Tahoma",sans-serif;'><a href="./papers/Music and the Empathy of the Player Towards.pdf">PDF</a></span></p>
-									</td>
-									<td style="width:267.85pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  28.85pt;">
-										<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style='font-size:11px;font-family:"Tahoma",sans-serif;'>Music and the Empathy of the Player Towards the Character in Video Games</span></p>
-									</td>
-									<td style="width:88.75pt;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  28.85pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>سید مصطفی اصل&zwnj;مند</span></p>
-									</td>
-									<td style="width:31.0pt;border-top:none;border-left:none;border-bottom:  solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:  28.85pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:12px;font-family:"Tahoma",sans-serif;'>16:45</span></p>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:right;'><span dir="LTR" style="font-size:11px;line-height:107%;">&nbsp;</span></p>
-						<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:right;'><span dir="LTR" style="font-size:11px;line-height:107%;">&nbsp;</span></p>
-							<p>&nbsp;</p>
-						</div>
-	<br>
-	<div class="sponsorBar"><strong>سایر مقالات
-					</strong></div>
-					<br>
-					<div class="scrolable-div conf-articles">
-
-						<table style="margin-left: auto; margin-right: auto;" width="784">
-							<tbody>
-							<tr>
-							<td class="diffrent-table-background" colspan="2" width="784">
-							<p><strong>روانشناسی و یادگیری</strong></p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/به‌کارگیری بازی‌های جدی چندوجهی در توان‌بخشی شناختی.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>به&zwnj;کارگیری بازی&zwnj;های جدی چندوجهی در توان&zwnj;بخشی شناختی (منیژه فیروزی)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/چگونه_گیم¬های_ماجراجویانه_و_اکشن_عملکرد_شناختی_گیمرها_را_بهبود_می.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>چگونه گیم&zwnj;های ماجراجویانه و اکشن عملکرد شناختی گیمرها را بهبود &zwnj;می&zwnj;دهند؟ (منیژه فیروزی)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/استفاده_از_بازی_رایانه_ای_ترديکو_برای_بهبود_مهارت_های_ارتباطی%.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>استفاده از بازی رایانه&zwnj;ای &laquo;ترديکو&raquo; برای بهبود مهارت&zwnj;های ارتباطی (مهسا عبیدی شاه&zwnj;تپه، یونس سخاوت)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/امکان‌سنجی اثرگذاری بازی‌های رایانه‌ای بر اختلال سوگیری افراد افسرده به همراه تولید یک بازی رایانه‌ای دیالوگ محور%.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>امکان&zwnj;سنجی اثرگذاری بازی&zwnj;های رایانه&zwnj;ای بر اختلال سوگیری افراد افسرده به همراه تولید یک بازی رایانه&zwnj;ای دیالوگ&zwnj;محور (مهدی پور جعفر، یزدان موحدی، بهنام علیزاده اشرفی، صمد روحی)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/ترازچین طراحی یک بازی آموزشی به‌منظور آموزش غیرمستقیم ریاضیات به دانش‌آموزان%.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>ترازچین: طراحی یک بازی آموزشی به&zwnj;منظور آموزش غیرمستقیم ریاضیات به دانش&zwnj;آموزان (زهرا انصاری پویا، سید محمد مهدی مدرسی، یونس سخاوت)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/%مقایسه پرخاشگری و انزوا طلبی در کودکان معتاد به بازی های رایانه ای و کودکان عادی دبستانی شهر اصفهان.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>مقایسه پرخاشگری و انزواطلبی در کودکان معتاد به بازی&zwnj;های رایانه&zwnj;ای و کودکان عادی دبستانی شهر اصفهان (هادی فرهادی، معصومه زارعان، محسن میرزایی)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/اثربخشی_درمان_مبتنی_بر_مهرورزی_مادران_بر_اعتیاد_به_بازی_های_رایانه%.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>اثربخشی درمان مبتنی بر مهرورزی مادران بر اعتیاد به بازی&zwnj;های رایانه&zwnj;ای، ارتباط با والدین و پرخاشگری کودکان پیش&zwnj;دبستانی&nbsp;(الهه عباسی طورانی، هادی فرهادی)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/بررسی_تاثیر_توانبخشی_شناختی_CRT_مبتنی_بر_بازی_های_رایانه_ای_بر_اجزای.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>بررسی تاثیر توانبخشی شناختی(CRT)&nbsp;&nbsp;مبتنی بر بازی&zwnj;های رایانه&zwnj;ای بر اجزای شناخت در دانش&zwnj;آموزان با اختلال اضطراب اجتماعی (نرگس میرانی سرگزی، فاطمه زارعی کردشولی، فاطمه محمودی سردره)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-							<a href="./papers/نظریه‌ها_و_اصول_یادگیری_پشتیبان_آموزش_مبتنی_بر_بازی‌های_دیجیتال%.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>نظریه&zwnj;ها و اصول یادگیری پشتیبان آموزش مبتنی بر بازی&zwnj;های دیجیتال (حسین دهقانزاده)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/Game based learning and prosocial behaviors Empirical Evidence-Based Study.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>Game based learning and prosocial behaviors: Empirical Evidence-Based Study (Hossein Dehghanzadeh)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/اثربخشی بازتوانی شناختی نرم‌افزار کاپتان لاگ بر بهبود نارسایی شناختی نوجوانان مبتلا به اختلال اضطراب فراگیر.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>اثربخشی بازتوانی شناختی نرم&zwnj;افزار کاپتان لاگ بر بهبود نارسایی شناختی نوجوانان مبتلا به اختلال اضطراب فراگیر (یسنا فرخ&zwnj;سیری، مهدیه عزیزی، محسن سعیدمنش)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/Effects of digital game-based learning on problem solving Empirical Evidence-Based Study.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>Effects of digital game-based learning on problem solving: Empirical Evidence-Based Study (Hossein Dehghanzadeh)</p>
-							</td>
-							</tr>
-							<tr>
-							<td class="diffrent-table-background" colspan="2" width="784">
-							<p>حقوق</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/حفاظت از حق بر حریم خصوصی کودکان و حفاظت از داده ها در بازی های آنلاین با تاکید بر قوانین اتحادیه اروپا.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>حفاظت از حق بر حریم خصوصی کودکان و حفاظت از داده&zwnj;ها در بازی&zwnj;های آنلاین با تاکید بر قوانین اتحادیه اروپا (نیلوفر ملک&zwnj;حسینی)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/لزوم_توجه_به_حقوق_کودکان_در_برخورداری_و_حفظ_محیط_زیست_سالم_در_بازی‌های.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>لزوم توجه به حقوق کودکان در برخورداری و حفظ محیط زیست سالم در بازی&zwnj;های رایانه&zwnj;ای (محمد امینی، محمود جلالی کروه، داوود نصر)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/روش¬های حل و فصل اختلافات بین¬المللی%.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>روش&zwnj;های حل و فصل اختلافات بین&zwnj;المللی سازندگان و کاربران بازی&zwnj;های رایانه&zwnj;ای (منوچهر توسّلی نائینی، محمّد ناصری)</p>
-							</td>
-							</tr>
-							<tr>
-							<td class="diffrent-table-background" colspan="2" width="784">
-							<p>مدیریت</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/The_relationship_between_different_concepts_in_the_field_of_games.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>The relationship between different concepts in the field of games (Rasool Bakhtiari)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/Thematic Analysis of Serious Game Research Trends in Iran and in the World .pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>Thematic Analysis of Serious Game Research</p>
-							<p>Trends in Iran and in the World (Rasool Bakhtiari)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/نقش بازی وارسازی بر تغییر رفتار کارکنان در یک سازمان%.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>نقش بازی&zwnj;وارسازی بر تغییر رفتار کارکنان در یک سازمان (صبا امیری)</p>
-							</td>
-							</tr>
-							<tr>
-							<td class="diffrent-table-background" colspan="2" width="784">
-							<p>هنر</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/مصورسازی_هوشمند_دادههای_بازیهای_ویدیویی%.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>مصورسازی هوشمند داده&zwnj;های بازی&zwnj;های ویدیویی بر اساس پلتفرم (حنانه خواجه&zwnj;ای، عرفان غلامی آهنگران، فاطمه باقری تودشکی، یونس سخاوت)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/بُرد_گراف_مصورسازی_تعاملی_داده_های_مربوط_به_بازی_های_رومیزی.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>بُرد گراف؛ مصورسازی تعاملی داده&zwnj;های مربوط به بازی&zwnj;های رومیزی (مائده محمدخانلو، یونس سخاوت)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/بررسی میزان محبوبیت بازی‌های رایانه‌ای براساس نظرمنتقدین با هدف شناخت بازی برتر.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>بررسی میزان محبوبیت بازی&zwnj;های رایانه&zwnj;ای براساس نظر منتقدین با هدف شناخت بازی برتر (میثم اکبری، رویاسادات حسنی، مائده محمدخانلو، یونس سخاوت)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/مصورسازی اطلاعات کمپین‌های بازی‌های تبلیغاتی جهت تحلیل بهتر بازی‌های تبلیغاتی.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>مصورسازی داده&zwnj;های کمپین&zwnj;های تبلیغاتی جهت تحلیل بهتر بازی&zwnj;های تبلیغاتی (محمدکثیری، مهدی خاقانی، یونس سخاوت)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/طراحی هنری بازی عیار تنها با تأکید بر فرهنگ و ادبیات تاریخی ایرانی.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>طراحی هنری بازی عیار تنها با تأکید بر فرهنگ و ادبیات تاریخی ایرانی (مریم انصاری، امیرحسین بابایی، سعید لطفی، یونس سخاوت)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/%تحلیل_بینامتنی_بازی_آنسوی_باران_و_دره_یادبود_با_تکیه_بر_مینیمالیسم.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>تحلیل بینامتنی بازی آنسوی باران و دره یادبود با تکیه بر مینیمالیسم (امیرحسین پرمهر یابنده، حسین عابددوست، زیبا کاظم&zwnj;پور)</p>
-							</td>
-							</tr>
-							<tr>
-							<td class="diffrent-table-background" colspan="2" width="784">
-							<p>فنی و مهندسی</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/%استفاده_از_موشن_کپچر_برای_شناسایی_حالات_احساسی_صورت.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>استفاده از موشن کپچر برای شناسایی حالات احساسی صورت (آوا سادات طباطبائی، مجتبی حجابی، مجید سعیدپور، علی فراهانی ولاشجردی، یونس سخاوت)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/چالش‌ها و فرصت‌های استفاده‌ از بلاک‌چین برای جعبه‌های غنیمت در بازی‌های رایانه‌ای.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>چالش&zwnj;ها و فرصت&zwnj;های استفاده&zwnj; از بلاک&zwnj;چین برای جعبه&zwnj;های غنیمت در بازی&zwnj;های رایانه&zwnj;ای (محمدجواد عباسی، مرتضی دری&zwnj;گیو)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/بازی‌های متاورسی بر بسترهای بلاک چین.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>بازی&zwnj;های متاورسی بر بسترهای بلاک&zwnj;چین (بهنام علیزاده اشرفی، محمد قلی&zwnj;زاده، سید فاطمه رضازاد، علیرضا چائی)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/بهبود تولید مراحل بازی Super Mario Bros با استفاده از الگوریتم‌های نمونه‌برداری در زبان برنامه‌سازی احتمالاتي فيگارو.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>بهبود تولید مراحل بازی&nbsp;Super Mario Bros&nbsp;با استفاده از الگوریتم&zwnj;های نمونه&zwnj;برداری در زبان برنامه&zwnj;سازی احتمالاتي فيگارو (زهرا امیرجان، مرتضی&nbsp;دُرّی&zwnj;گیو)</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/مروری بر روش‌های پیش‌بینی ریزش بازیکنان در بازی‌های رایانه‌ای.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>مروری بر روش&zwnj;های پیش&zwnj;بینی ریزش بازیکنان در بازی&zwnj;های رایانه&zwnj;ای (فاطمه وطنی، مرتضی دٌرّی&zwnj;گیو)</p>
-							</td>
-							</tr>
-							<tr>
-							<td class="diffrent-table-background" colspan="2" width="784">
-							<p>پزشکی</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/A Systematic Review of Video Games for Speech Rehabilitation.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>A Systematic Review of Video Games for Speech Rehabilitation&nbsp;(Faezeh Bargi, Behnam Alizadehashrafi)</p>
-							</td>
-							</tr>
-							<tr>
-							<td class="diffrent-table-background" colspan="2" width="784">
-							<p>دانش&zwnj;شناسی</p>
-							</td>
-							</tr>
-							<tr>
-							<td width="35">
-								<a href="./papers/بازی¬وارسازی؛_رویکردی_نو_در_کتابخانه‌های_دانشگاهی.pdf">PDF</a>
-							</td>
-							<td width="749">
-							<p>بازی&zwnj;وارسازی؛ رویکردی نو در کتابخانه&zwnj;های دانشگاهی (اعظم آقایی میرک&zwnj;آباد، زویا آبام)</p>
-							</td>
-							</tr>
-							</tbody>
-							</table>
-
+					<div class="scrolable-div" id="sessionsContent">
+						<div class="committee-loading">در حال بارگذاری برنامه نشست‌ها…</div>
 					</div>
+					<br><br>
+
 				</div>
+
+
+				<div id="otherarticlesbox" class="hidden BZar">
+					<div class="sponsorBar"><strong>سایر مقالات</strong></div>
+					<br>
+					<div class="scrolable-div" id="otherPapersContent">
+						<div class="committee-loading">در حال بارگذاری سایر مقالات…</div>
+					</div>
+					<br><br>
+
+				</div>
+
+
+
 				<div id="sponserbox" class="hidden BZar">
 					<div class="sponsorBar"><strong>حامیان کنفرانس</strong></div>
                     
@@ -2235,6 +1557,46 @@ var navbar = document.getElementById("col");
 			})
 			.catch(function () {
 				box.innerHTML = '<div class="committee-error">بارگذاری برنامه کنفرانس ناموفق بود.</div>';
+			});
+	})();
+</script>
+
+<script type="text/javascript">
+	/* sessions schedule (sessions-schedule.html) */
+	(function () {
+		var box = document.getElementById("sessionsContent");
+		if (!box || typeof fetch !== "function") return;
+
+		fetch("sessions-schedule.html", { cache: "no-cache" })
+			.then(function (res) {
+				if (!res.ok) throw new Error("HTTP " + res.status);
+				return res.text();
+			})
+			.then(function (html) {
+				box.innerHTML = html;
+			})
+			.catch(function () {
+				box.innerHTML = '<div class="committee-error">بارگذاری برنامه نشست‌ها ناموفق بود.</div>';
+			});
+	})();
+</script>
+
+<script type="text/javascript">
+	/* other accepted papers (other-papers.html) */
+	(function () {
+		var box = document.getElementById("otherPapersContent");
+		if (!box || typeof fetch !== "function") return;
+
+		fetch("other-papers.html", { cache: "no-cache" })
+			.then(function (res) {
+				if (!res.ok) throw new Error("HTTP " + res.status);
+				return res.text();
+			})
+			.then(function (html) {
+				box.innerHTML = html;
+			})
+			.catch(function () {
+				box.innerHTML = '<div class="committee-error">بارگذاری سایر مقالات ناموفق بود.</div>';
 			});
 	})();
 </script>
