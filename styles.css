@@ -166,9 +166,18 @@
 		width: 100%;
 		margin: 0px auto;
 		text-align:center;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	#col .button{
+		flex: 0 1 10.6%;
+		box-sizing: border-box;
+		padding: 15px 4px;
+		white-space: nowrap;
 	}
 	.button{
-	margin:2px;
+		margin:2px;
 	}
 	
 	.hidden{
