@@ -42,6 +42,101 @@
 		padding: 20px;
 		color: var(--navy-700);
 	}
+	/* venue popup */
+	.venue-modal {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 1000001;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 20px;
+		background: rgba(5, 4, 26, 0.72);
+		font-family: "IRANSansFaNum", Tahoma, sans-serif;
+	}
+	.venue-modal[hidden] {
+		display: none;
+	}
+	.venue-modal__box {
+		position: relative;
+		width: 100%;
+		max-width: 460px;
+		box-sizing: border-box;
+		background: #fff;
+		border: 1px solid rgba(212, 181, 95, 0.5);
+		border-top: 4px solid var(--gold);
+		border-radius: 10px;
+		box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+		padding: 22px 24px 20px;
+	}
+	.venue-modal__close {
+		position: absolute;
+		top: 8px;
+		left: 10px;
+		width: 30px;
+		height: 30px;
+		padding: 0;
+		border: none;
+		border-radius: 50%;
+		background: transparent;
+		color: var(--navy-700);
+		font-size: 25px;
+		line-height: 1;
+		cursor: pointer;
+		transition: background 0.15s ease, color 0.15s ease;
+	}
+	.venue-modal__close:hover {
+		background: rgba(212, 181, 95, 0.22);
+		color: var(--navy-900);
+	}
+	.venue-modal__title {
+		margin: 0 0 10px;
+		font-size: 17px;
+		color: var(--navy-800);
+	}
+	.venue-modal__text {
+		margin: 0 0 16px;
+		font-size: 14px;
+		line-height: 1.9;
+		color: #333;
+	}
+	.venue-modal__links {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.venue-modal__links li {
+		margin: 0 0 8px;
+	}
+	.venue-modal__links li:last-child {
+		margin-bottom: 0;
+	}
+	.venue-modal__links a {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 8px 12px;
+		border: 1px solid rgba(212, 181, 95, 0.35);
+		border-radius: 6px;
+		background: #fdfaf2;
+		color: var(--navy-800);
+		font-size: 14px;
+		text-decoration: none;
+		transition: border-color 0.15s ease, background 0.15s ease;
+	}
+	.venue-modal__links a:hover {
+		border-color: var(--gold);
+		background: #fff8e6;
+	}
+	.venue-modal__links img {
+		display: block;
+		width: 30px;
+		height: 30px;
+		object-fit: contain;
+	}
 </style>
 </head>
 <body>
@@ -3609,6 +3704,74 @@ var navbar = document.getElementById("col");
 			.catch(function () {
 				grid.innerHTML = '<div class="sponsor-error">بارگذاری لیست حامیان ناموفق بود.</div>';
 			});
+	})();
+</script>
+
+<div id="venueModal" class="venue-modal" hidden role="dialog" aria-modal="true" aria-labelledby="venueModalTitle">
+	<div class="venue-modal__box">
+		<button type="button" id="venueModalClose" class="venue-modal__close" aria-label="بستن">&times;</button>
+		<h3 class="venue-modal__title" id="venueModalTitle">محل برگزاری کنفرانس</h3>
+		<p class="venue-modal__text">دانشگاه اصفهان، ساختمان مرکزی (شهید جمهور)، مجموعه تالارهای پیامبر اعظم (ص)</p>
+		<ul class="venue-modal__links">
+			<li><a href="https://maps.app.goo.gl/PExQkc8HjjWfheDr6" target="_blank" rel="noopener noreferrer"><img src="img/maps/google-maps.webp" width="30" height="30" alt="" />گوگل مپ</a></li>
+			<li><a href="https://nshn.ir/ac_bZ9NeGxaiB4" target="_blank" rel="noopener noreferrer"><img src="img/maps/neshan.webp" width="30" height="30" alt="" />نشان</a></li>
+			<li><a href="https://balad.ir/p/PHmxv1BMwg8Lc9" target="_blank" rel="noopener noreferrer"><img src="img/maps/balad.webp" width="30" height="30" alt="" />بلد</a></li>
+		</ul>
+	</div>
+</div>
+
+<script type="text/javascript">
+	(function () {
+		var STORAGE_KEY = "cgco_venue_modal_seen";
+		var REPEAT_AFTER = 10 * 60 * 1000;
+
+		var modal = document.getElementById("venueModal");
+		if (!modal) return;
+		var closeBtn = document.getElementById("venueModalClose");
+		var lastFocus = null;
+
+		function wasSeen() {
+			try {
+				var stamp = parseInt(window.localStorage.getItem(STORAGE_KEY), 10);
+				return isFinite(stamp) && (Date.now() - stamp) < REPEAT_AFTER;
+			} catch (e) {
+				return false;
+			}
+		}
+
+		function remember() {
+			try {
+				window.localStorage.setItem(STORAGE_KEY, String(Date.now()));
+			} catch (e) {}
+		}
+
+		function openModal() {
+			lastFocus = document.activeElement;
+			modal.hidden = false;
+			document.body.style.overflow = "hidden";
+			if (closeBtn) closeBtn.focus();
+		}
+
+		function closeModal() {
+			if (modal.hidden) return;
+			modal.hidden = true;
+			document.body.style.overflow = "";
+			remember();
+			if (lastFocus && lastFocus.focus) lastFocus.focus();
+		}
+
+		if (closeBtn) closeBtn.addEventListener("click", closeModal);
+		modal.addEventListener("click", function (e) {
+			if (e.target === modal) closeModal();
+		});
+		document.addEventListener("keydown", function (e) {
+			if (e.key === "Escape" || e.keyCode === 27) closeModal();
+		});
+
+		// only shown on the first visit (or once a week), never while browsing sections
+		if (!wasSeen()) {
+			window.setTimeout(openModal, 600);
+		}
 	})();
 </script>
 
