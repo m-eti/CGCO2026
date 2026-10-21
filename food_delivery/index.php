@@ -6,24 +6,107 @@
 
 declare(strict_types=1);
 
-const APP_TITLE = 'سامانه مدیریت تحویل غذا';
 const SESSION_COOKIE = 'fd_admin_sid';
-const SESSION_IDLE_TIMEOUT = 7200;
-const SESSION_ABSOLUTE_TIMEOUT = 28800;
-const LOGIN_FAIL_LIMIT = 5;
-const LOGIN_FAIL_WINDOW = 900;
-const LOGIN_LOCK_TIME = 900;
-const IP_FAIL_LIMIT = 30;
-const SCAN_LIMIT = 45;
-const SCAN_WINDOW = 60;
-const SUPER_ADMIN_USERNAME = 'admin';
-const SUPER_ADMIN_PASSWORD = 'admin';
-const SUPER_ADMIN_NAME = 'مدیر سیستم';
 const QR_PREFIX = 'CONF2026';
-const DB_FILE = __DIR__ . '/food_delivery.sqlite';
-const MAX_UPLOAD_BYTES = 2097152;
-const MIN_PASSWORD_LENGTH = 5;
-const MIN_STAFF_PASSWORD_LENGTH = 6;
+
+function parse_env_file(string $path): array {
+    $values = [];
+    if (!is_readable($path)) {
+        return $values;
+    }
+    $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    if ($lines === false) {
+        return $values;
+    }
+    foreach ($lines as $line) {
+        $line = trim($line);
+        if ($line === '' || str_starts_with($line, '#')) {
+            continue;
+        }
+        if (str_starts_with($line, 'export ')) {
+            $line = trim(substr($line, 7));
+        }
+        $pos = strpos($line, '=');
+        if ($pos === false) {
+            continue;
+        }
+        $key = trim(substr($line, 0, $pos));
+        $value = trim(substr($line, $pos + 1));
+        if (strlen($value) > 1 && $value[0] === '"' && str_ends_with($value, '"')) {
+            $value = str_replace('\\"', '"', substr($value, 1, -1));
+        } elseif (strlen($value) > 1 && $value[0] === "'" && str_ends_with($value, "'")) {
+            $value = substr($value, 1, -1);
+        }
+        if ($key !== '') {
+            $values[$key] = $value;
+        }
+    }
+    return $values;
+}
+
+function env_values(): array {
+    static $values = null;
+    if ($values === null) {
+        $values = parse_env_file(__DIR__ . '/.env');
+    }
+    return $values;
+}
+
+function cfg(string $key, string $default = ''): string {
+    $values = env_values();
+    if (!isset($values[$key])) {
+        return $default;
+    }
+    $value = trim((string)$values[$key]);
+    return $value === '' ? $default : $value;
+}
+
+function cfg_int(string $key, int $default): int {
+    $value = cfg($key, '');
+    return is_numeric($value) ? (int)$value : $default;
+}
+
+function env_file_path(): string {
+    return __DIR__ . '/.env';
+}
+
+function env_set(string $key, string $value): bool {
+    $path = env_file_path();
+    if (!is_writable(__DIR__)) {
+        return false;
+    }
+    $value = str_replace(["\r", "\n"], ' ', $value);
+    $lines = is_readable($path) ? file($path, FILE_IGNORE_NEW_LINES) : [];
+    if ($lines === false) {
+        $lines = [];
+    }
+    $pattern = '/^\s*(export\s+)?' . preg_quote($key, '/') . '\s*=/';
+    $found = false;
+    foreach ($lines as $index => $line) {
+        if (preg_match($pattern, (string)$line)) {
+            $lines[$index] = $key . '=' . $value;
+            $found = true;
+            break;
+        }
+    }
+    if (!$found) {
+        $lines[] = $key . '=' . $value;
+    }
+    $written = file_put_contents($path, implode(PHP_EOL, $lines) . PHP_EOL, LOCK_EX);
+    return $written !== false;
+}
+
+function app_title(): string {
+    return cfg('APP_TITLE', 'سامانه مدیریت تحویل غذا');
+}
+
+function db_file(): string {
+    $name = cfg('DB_FILE', 'food_delivery.sqlite');
+    if ($name === '' || $name[0] === '/' || preg_match('#^[A-Za-z]:[\\/]#', $name)) {
+        return $name;
+    }
+    return __DIR__ . '/' . $name;
+}
 
 header('X-Content-Type-Options: nosniff');
 header('X-Frame-Options: DENY');
@@ -79,7 +162,7 @@ session_set_cookie_params([
 ini_set('session.use_strict_mode', '1');
 ini_set('session.use_only_cookies', '1');
 ini_set('session.use_trans_sid', '0');
-ini_set('session.gc_maxlifetime', (string) SESSION_ABSOLUTE_TIMEOUT);
+ini_set('session.gc_maxlifetime', (string) cfg_int('SESSION_ABSOLUTE_TIMEOUT', 28800));
 ini_set('session.cookie_httponly', '1');
 session_start();
 
@@ -95,7 +178,7 @@ function db(): PDO {
     if ($pdo instanceof PDO) {
         return $pdo;
     }
-    $pdo = new PDO('sqlite:' . DB_FILE, null, null, [
+    $pdo = new PDO('sqlite:' . db_file(), null, null, [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         PDO::ATTR_EMULATE_PREPARES => false,
@@ -211,31 +294,55 @@ function set_setting(string $key, string $value): void {
     $stmt->execute([$key, $value]);
 }
 
-function ensure_seed_data(): void {
-    if (get_setting('super_admin_seeded') === '1') {
-        return;
-    }
+function apply_admin_credentials(string $username, string $password, string $fullName): void {
     $pdo = db();
-    $conflicts = $pdo->query("SELECT id FROM admins WHERE LOWER(username) = LOWER('" . SUPER_ADMIN_USERNAME . "') AND role <> 'super_admin'")->fetchAll();
-    foreach ($conflicts as $row) {
+    $conflicts = $pdo->prepare("SELECT id FROM admins WHERE LOWER(username) = LOWER(?) AND role <> 'super_admin'");
+    $conflicts->execute([$username]);
+    foreach ($conflicts->fetchAll() as $row) {
         $rename = $pdo->prepare('UPDATE admins SET username = ? WHERE id = ?');
-        $rename->execute([SUPER_ADMIN_USERNAME . '_' . (int)$row['id'], (int)$row['id']]);
+        $rename->execute([$username . '_' . (int)$row['id'], (int)$row['id']]);
     }
     $stmt = $pdo->prepare("SELECT id FROM admins WHERE role = 'super_admin' LIMIT 1");
     $stmt->execute();
     $id = $stmt->fetchColumn();
-    $hash = password_hash(SUPER_ADMIN_PASSWORD, PASSWORD_DEFAULT);
+    $hash = password_hash($password, PASSWORD_DEFAULT);
     if ($id) {
-        $upd = $pdo->prepare('UPDATE admins SET username = ?, password_hash = ?, full_name = ?, role = \'super_admin\' WHERE id = ?');
-        $upd->execute([SUPER_ADMIN_USERNAME, $hash, SUPER_ADMIN_NAME, (int)$id]);
+        $upd = $pdo->prepare("UPDATE admins SET username = ?, password_hash = ?, full_name = ?, role = 'super_admin' WHERE id = ?");
+        $upd->execute([$username, $hash, $fullName, (int)$id]);
     } else {
-        $ins = $pdo->prepare('INSERT INTO admins (username, password_hash, full_name, role, created_at) VALUES (?, ?, ?, \'super_admin\', ?)');
-        $ins->execute([SUPER_ADMIN_USERNAME, $hash, SUPER_ADMIN_NAME, date('Y-m-d H:i:s')]);
+        $ins = $pdo->prepare("INSERT INTO admins (username, password_hash, full_name, role, created_at) VALUES (?, ?, ?, 'super_admin', ?)");
+        $ins->execute([$username, $hash, $fullName, date('Y-m-d H:i:s')]);
     }
+}
+
+function admin_fingerprint(string $username, string $password, string $fullName): string {
+    return hash('sha256', $username . "\0" . $password . "\0" . $fullName);
+}
+
+function sync_admin_from_env(): void {
+    $username = cfg('ADMIN_USERNAME', 'admin');
+    $password = cfg('ADMIN_PASSWORD', 'admin');
+    $fullName = cfg('ADMIN_NAME', 'مدیر سیستم');
+    $fingerprint = admin_fingerprint($username, $password, $fullName);
+    $stored = get_setting('admin_env_fingerprint');
+    if ($stored === $fingerprint) {
+        return;
+    }
+    $env = env_values();
+    if ($stored === null && get_setting('super_admin_seeded') === '1' && !isset($env['ADMIN_USERNAME'])) {
+        set_setting('admin_env_fingerprint', $fingerprint);
+        return;
+    }
+    apply_admin_credentials($username, $password, $fullName);
     set_setting('super_admin_seeded', '1');
+    set_setting('admin_env_fingerprint', $fingerprint);
 }
 
 function qr_secret(): string {
+    $fromEnv = cfg('HMAC_SECRET', '');
+    if ($fromEnv !== '') {
+        return $fromEnv;
+    }
     $secret = get_setting('qr_secret');
     if ($secret === null || strlen($secret) < 32) {
         $secret = bin2hex(random_bytes(32));
@@ -291,11 +398,11 @@ function current_admin(): ?array {
         return null;
     }
     $now = time();
-    if ((int)($admin['login_at'] ?? 0) + SESSION_ABSOLUTE_TIMEOUT < $now) {
+    if ((int)($admin['login_at'] ?? 0) + cfg_int('SESSION_ABSOLUTE_TIMEOUT', 28800) < $now) {
         destroy_session();
         return null;
     }
-    if ((int)($admin['seen_at'] ?? 0) + SESSION_IDLE_TIMEOUT < $now) {
+    if ((int)($admin['seen_at'] ?? 0) + cfg_int('SESSION_IDLE_TIMEOUT', 7200) < $now) {
         destroy_session();
         return null;
     }
@@ -353,13 +460,13 @@ function throttle_lock_seconds(string $ident): int {
 function throttle_fail(string $ident, int $limit): void {
     $now = time();
     $row = throttle_state($ident);
-    if (!$row || ($now - (int)$row['first_at']) > LOGIN_FAIL_WINDOW) {
+    if (!$row || ($now - (int)$row['first_at']) > cfg_int('LOGIN_FAIL_WINDOW', 900)) {
         $stmt = db()->prepare('INSERT INTO login_attempts (ident, fails, first_at, locked_until) VALUES (?, 1, ?, 0) ON CONFLICT(ident) DO UPDATE SET fails = 1, first_at = excluded.first_at, locked_until = 0');
         $stmt->execute([$ident, $now]);
         return;
     }
     $fails = (int)$row['fails'] + 1;
-    $lockedUntil = $fails >= $limit ? $now + LOGIN_LOCK_TIME : 0;
+    $lockedUntil = $fails >= $limit ? $now + cfg_int('LOGIN_LOCK_TIME', 900) : 0;
     $stmt = db()->prepare('UPDATE login_attempts SET fails = ?, locked_until = ? WHERE ident = ?');
     $stmt->execute([$fails, $lockedUntil, $ident]);
 }
@@ -663,7 +770,7 @@ function xlsx_read_names(string $path): array {
 }
 
 init_database();
-ensure_seed_data();
+sync_admin_from_env();
 migrate_attendee_codes();
 $currentAdmin = current_admin();
 $isSuperAdmin = $currentAdmin !== null && $currentAdmin['role'] === 'super_admin';
@@ -697,8 +804,8 @@ if ($apiAction !== '') {
                     $valid = false;
                 }
                 if (!$valid) {
-                    throttle_fail($userIdent, LOGIN_FAIL_LIMIT);
-                    throttle_fail($ipIdent, IP_FAIL_LIMIT);
+                    throttle_fail($userIdent, cfg_int('LOGIN_FAIL_LIMIT', 5));
+                    throttle_fail($ipIdent, cfg_int('IP_FAIL_LIMIT', 30));
                     usleep(300000);
                     json_out(['ok' => false, 'error' => 'نام کاربری یا رمز عبور اشتباه است.'], 401);
                 }
@@ -762,12 +869,12 @@ if ($apiAction !== '') {
                 }
                 $windowStart = (int)($_SESSION['scan_window'] ?? 0);
                 $scans = (int)($_SESSION['scan_count'] ?? 0);
-                if ($windowStart < time() - SCAN_WINDOW) {
+                if ($windowStart < time() - cfg_int('SCAN_WINDOW', 60)) {
                     $windowStart = time();
                     $scans = 0;
                 }
                 $scans++;
-                if ($scans > SCAN_LIMIT) {
+                if ($scans > cfg_int('SCAN_LIMIT', 45)) {
                     json_out(['ok' => false, 'error' => 'تعداد درخواست‌ها بیش از حد مجاز است.'], 429);
                 }
                 $_SESSION['scan_count'] = $scans;
@@ -894,7 +1001,7 @@ if ($apiAction !== '') {
                 if (empty($_FILES['file']) || !is_uploaded_file($_FILES['file']['tmp_name'])) {
                     json_out(['ok' => false, 'error' => 'فایلی ارسال نشده است.'], 400);
                 }
-                if ((int)($_FILES['file']['size'] ?? 0) > MAX_UPLOAD_BYTES) {
+                if ((int)($_FILES['file']['size'] ?? 0) > cfg_int('MAX_UPLOAD_BYTES', 2097152)) {
                     json_out(['ok' => false, 'error' => 'حجم فایل بیش از حد مجاز است.'], 400);
                 }
                 $names = xlsx_read_names((string)$_FILES['file']['tmp_name']);
@@ -990,7 +1097,7 @@ if ($apiAction !== '') {
                 if (!preg_match('/^[A-Za-z0-9._-]{3,32}$/', $username)) {
                     json_out(['ok' => false, 'error' => 'نام کاربری باید ۳ تا ۳۲ حرف انگلیسی، عدد یا _ - . باشد.'], 400);
                 }
-                if (u_len($password) < MIN_STAFF_PASSWORD_LENGTH) {
+                if (u_len($password) < cfg_int('MIN_STAFF_PASSWORD_LENGTH', 6)) {
                     json_out(['ok' => false, 'error' => 'رمز عبور باید حداقل ۶ کاراکتر باشد.'], 400);
                 }
                 $check = db()->prepare('SELECT id FROM admins WHERE LOWER(username) = LOWER(?) LIMIT 1');
@@ -1021,7 +1128,7 @@ if ($apiAction !== '') {
                 $current = (string)($body['current_password'] ?? '');
                 $next = (string)($body['new_password'] ?? '');
                 $confirm = (string)($body['confirm_password'] ?? '');
-                if (u_len($next) < MIN_PASSWORD_LENGTH) {
+                if (u_len($next) < cfg_int('MIN_PASSWORD_LENGTH', 5)) {
                     json_out(['ok' => false, 'error' => 'رمز عبور جدید باید حداقل ۶ کاراکتر باشد.'], 400);
                 }
                 if ($next !== $confirm) {
@@ -1035,7 +1142,15 @@ if ($apiAction !== '') {
                 }
                 $upd = db()->prepare('UPDATE admins SET password_hash = ? WHERE id = ?');
                 $upd->execute([password_hash($next, PASSWORD_DEFAULT), (int)$currentAdmin['id']]);
-                json_out(['ok' => true]);
+                $envUpdated = env_set('ADMIN_PASSWORD', $next);
+                if ($envUpdated) {
+                    set_setting('admin_env_fingerprint', admin_fingerprint(
+                        cfg('ADMIN_USERNAME', 'admin'),
+                        $next,
+                        cfg('ADMIN_NAME', 'مدیر سیستم')
+                    ));
+                }
+                json_out(['ok' => true, 'env_updated' => $envUpdated]);
 
             default:
                 json_out(['ok' => false, 'error' => 'درخواست نامعتبر است.'], 404);
@@ -1083,7 +1198,7 @@ function first_letter(string $value): string {
     <meta name="csrf-token" content="<?= e((string)$_SESSION['csrf_token']) ?>">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="robots" content="noindex, nofollow">
-    <title><?= e(APP_TITLE) ?></title>
+    <title><?= e(app_title()) ?></title>
     <link rel="icon" href="data:,">
     <link rel="preload" href="assets/fonts/IRANSansFaNum.woff" as="font" type="font/woff" crossorigin>
     <link rel="stylesheet" href="assets/app.css">
@@ -1099,7 +1214,7 @@ function first_letter(string $value): string {
         <div class="bg-white border border-slate-200 rounded-2xl max-w-sm w-full p-6 sm:p-7 shadow-sm space-y-4">
             <div class="text-center space-y-1">
                 <div class="w-12 h-12 rounded-xl bg-emerald-600 flex items-center justify-center text-white font-bold text-lg mx-auto shadow-sm">QR</div>
-                <h2 class="text-base font-bold text-slate-900 pt-1"><?= e(APP_TITLE) ?></h2>
+                <h2 class="text-base font-bold text-slate-900 pt-1"><?= e(app_title()) ?></h2>
                 <p class="text-xs text-slate-500">جهت دسترسی به سیستم، لطفاً وارد حساب خود شوید.</p>
             </div>
             <form id="mainLoginForm" class="space-y-3 pt-1" novalidate>

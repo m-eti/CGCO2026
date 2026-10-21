@@ -830,9 +830,13 @@
                     current_password: $('currentPasswordInput').value,
                     new_password: $('newPasswordInput').value,
                     confirm_password: $('confirmPasswordInput').value
-                }).then(function () {
+                }).then(function (data) {
                     $('passwordModal').classList.add('hidden');
-                    toast('رمز عبور با موفقیت تغییر کرد.', 'ok');
+                    if (data && data.env_updated === false) {
+                        toast('رمز عبور تغییر کرد، ولی فایل .env قابل به‌روزرسانی نبود.', 'warn');
+                    } else {
+                        toast('رمز عبور با موفقیت تغییر کرد.', 'ok');
+                    }
                 }).catch(function (err) {
                     errorBox.textContent = err.message || 'تغییر رمز ناموفق بود.';
                     errorBox.classList.remove('hidden');
