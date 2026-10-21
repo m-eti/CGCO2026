@@ -267,7 +267,8 @@
         }
 
         title.textContent = result.status === 'ok' ? 'تأیید شد: تحویل غذا ثبت گردید'
-            : (result.status === 'already_delivered' ? 'خطا: قبلاً غذا دریافت کرده است!' : 'کد نامعتبر است');
+            : (result.status === 'already_delivered' ? 'خطا: قبلاً غذا دریافت کرده است!'
+                : (result.status === 'not_found' ? 'فرد در سیستم یافت نشد' : 'کد نامعتبر است'));
         subtitle.textContent = result.message || '';
 
         if (result.attendee) {
