@@ -224,6 +224,13 @@
 	.conference-table .sub-topic {
 		color: var(--navy-700);
 	}
+	/* speaker photos are absolutely positioned, keep the <picture> wrapper out of the flow */
+	.presenter picture {
+		display: block;
+	}
+	.presenter picture > img.pic {
+		top: 25px;
+	}
 </style>
 </head>
 <body>
@@ -255,7 +262,7 @@
                 <a href="#schedulebox" id="schdedule" class="ajaxee BZar button blue medium " >برنامه کنفرانس</a>
 			
 				
-				<a href="#keyspeechbox" id="keyspeech" class="ajaxee BZar button blue medium ">سخنرانان کلیدی و پنل‌ها</a>
+				<a href="#keyspeechbox" id="keyspeech" class="ajaxee BZar button blue medium ">سخنرانان کلیدی</a>
 				
 				<a href="#artlistbox" id="search" class="ajaxee BZar button blue medium ">مقالات</a>
 				
@@ -378,185 +385,140 @@
 
 			
 <div id="keyspeechbox" class="BZar hidden" style="padding: 2% 20%;" >
-				<div class="sponsorBar"><strong>سخنرانان کلیدی و پنل‌ها</strong></div>
+				<div class="sponsorBar"><strong>سخنرانان کلیدی</strong></div>
 				<br>
 
 				<div class="scrolable-div conf-articles">
 
-					<div class="presenter">
-						<img class="pic" data-src="img/presenters/1.jpg">
-						<img class="pic" data-src="img/presenters/2.jpg">
+										<div class="presenter">
+						<picture>
+							<source srcset="img/presenters/hutson.webp" type="image/webp" />
+							<img class="pic" data-src="img/presenters/hutson.jpg" width="400" height="400" alt="دکتر جیمز هاتسون">
+						</picture>
 						<div class="caption">
-							<div class="name"> دکتر Cody Mejeur  و Mahli-Ann Butt </div>
-							<p>
-								دکتر Cody Mejeur استادیار مطالعات بازی دانشگاه ایالتی Buffalo نیویورک و Mahli-Ann Butt دانشجوی دکتری رسانه و ارتباطات دانشگاه سیدنی نتایج آخرین تحقیقات خود را در هشتمین کنفرانس بین‌المللی «بازی‌های رایانه‌ای؛ فرصت‌ها و چالش‌ها» ارائه می‌کنند.
-								<br><br>
-								دکتر میر روی استفاده از بازی‌ها برای نظریه‌پردازی روایت به‌عنوان یک فرآیند مجسم و بازی‌وار تحقیق می‌کند که چگونگی درک ما از خود، واقعیت‌ها و تفاوت‌هایمان را می‌سازد و مقالاتی در زمینه مورد آموزش بازی‌ها، جنسیت در بازی‌ها، تنوع در بازی‌ها و روایت بازی های ویدیویی و تجربیات بازیکن از وی به چاپ رسیده است. مالی‌آن بات دانشجوی دکتری دپارتمان‌ رسیانه و ارتباطات و نیز دپارتمان مطالعات جنیست و فرهنگ دانشگاه سیدنی استرالیا است و روی تز دکتری خود با عنوان Gaming Lifeworlds: Videogames in Culture کار می‌کند.
-								<b> 
-									چکیده این سخنرانی به شرح زیر است:
-									 </b>
-									 <p style="direction: ltr;text-align: justify; font-family: tahoma !important;">
-									 Featuring Digital Games Research Association (DiGRA) Diversity Officers past and present, Mahli-Ann Butt and Cody Mejeur (respectively), this talk explores the challenges of diversity work in game studies, including insights, best practices, and emerging trends in diversity work drawn from their experiences and collaborative research on the topic. They will share the major projects and lessons learned during their time as DiGRA Diversity Officers, as well as current trends in diversity, inclusion, and social justice work in game studies and games. Major points will include the need for proactive and community-based approaches for building inclusive and equitable scholarly organizations, and the importance of compensating diversity workers for their organizational and affective labor that is often unrecognized. After the talk there will be time for questions and discussion of these topics.
-									</p>
-															</p>
+							<div class="name"> دکتر جیمز هاتسون </div>
+							<p><b>سخنرانی کلیدی آنلاین دکتر جیمز هاتسون در هشتمین کنفرانس بین‌المللی «بازی‌های رایانه‌ای؛ فرصت‌ها و چالش‌ها»</b></p>
+<p>یکی از سخنرانان کلیدی هشتمین کنفرانس بین‌المللی «بازی‌های رایانه‌ای؛ فرصت‌ها و چالش‌ها»، دکتر جیمز هاتسون (James Hutson) از دانشگاه لیندن‌وود آمریکا است.</p><p>دکتر هاتسون استاد ارشد و رئیس دپارتمان تاریخ هنر، هوش مصنوعی و فرهنگ بصری دانشگاه لیندن‌وود است. فعالیت‌های علمی او بر پیوند میان هوش مصنوعی، واقعیت‌های گسترده، بازی‌وارسازی، آموزش و فرهنگ بصری تمرکز دارد. وی در پژوهش‌های خود به کاربرد فناوری‌های نوظهور در طراحی تجربه‌های تعاملی و یادگیری شخصی‌سازی‌شده می‌پردازد و از نویسندگان مقالاتی درباره جهان‌های بازی سازگارشونده و هم‌آفرینی انسان و هوش مصنوعی در توسعه بازی‌های ویدئویی است.</p>							<p><b>عنوان سخنرانی ایشان در این کنفرانس به شرح زیر است:</b></p>
+<p>«بازاندیشی در کاربرد هوش مصنوعی در بازی‌ها برای آینده آموزش: جهان‌های مولد پایدار و هم‌آفرینی انسان و هوش مصنوعی»</p><p style="direction: ltr; text-align: justify; font-family: tahoma !important;">Rethinking Game AI for Learning Futures: Persistent Generative Worlds and Human–AI Co-Creation</p>							<p><b>چکیده فارسی</b></p>
+<p>در این سخنرانی، دکتر جیمز هاتسون نقش هوش مصنوعی مولد را در تحول طراحی بازی و توسعه تجربه‌های آموزشی بررسی می‌کند. او سیر توسعه هوش مصنوعی بازی را از نرم‌افزار ۱٫۰ و سامانه‌های قاعده‌محور، به نرم‌افزار 2.0 مبتنی بر یادگیری ماشین و سپس نرم‌افزار 3.0 مبتنی بر مدل‌های زبانی بزرگ و موتورهای مولد توضیح می‌دهد. در این مرحله جدید، هوش مصنوعی می‌تواند در تولید کد، تصویر، دیالوگ، مأموریت و محیط بازی مشارکت کند و جهان‌هایی پویا و سازگار با تصمیم‌ها و توانایی‌های بازیکن پدید آورد.</p><p>این سخنرانی همچنین به کاربرد جهان‌های مولد پایدار و شبیه‌سازی‌های تطبیقی در آموزش‌های پزشکی، پرستاری، انتظامی و نظامی می‌پردازد. هاتسون تأکید می‌کند که هوش مصنوعی جایگزین طراح بازی نیست؛ بلکه به طراح کمک می‌کند ایده‌هایش را سریع‌تر و در مقیاسی بزرگ‌تر اجرا کند. حریم خصوصی داده‌ها، شفافیت، کاهش سوگیری، نظارت انسانی و رابط‌های مغز و رایانه نیز از دیگر موضوعات این سخنرانی‌اند.</p>							<p><b>English Abstract</b></p>
+<p style="direction: ltr; text-align: justify; font-family: tahoma !important;">This keynote examines how generative AI is transforming game design and expanding the possibilities of educational experiences. Dr. James Hutson traces the evolution of game AI from Software 1.0 and rule-based systems to machine-learning-driven Software 2.0 and generative Software 3.0, powered by large language models and other AI engines. In this new paradigm, AI can assist in generating code, visual assets, dialogue, quests, and game environments, enabling dynamic worlds that adapt to players’ decisions, abilities, and styles of play.</p><p style="direction: ltr; text-align: justify; font-family: tahoma !important;">The presentation also considers the educational potential of persistent generative worlds and adaptive simulations in areas such as medicine, nursing, law enforcement, and military training. Hutson emphasizes that AI does not replace the game designer; rather, it serves as a collaborative tool that extends human creativity and enables smaller teams to develop more complex experiences. Data privacy, transparency, bias mitigation, human oversight, and brain–computer interfaces are also discussed.</p>							<p><a href="https://www.lindenwood.edu/about/directories/faculty-staff-directory/details/jhutson/" target="_blank" rel="noopener noreferrer">صفحه رسمی دکتر جیمز هاتسون در دانشگاه لیندن‌وود</a> &nbsp;|&nbsp; <a href="https://www.linkedin.com/in/jameshutsonphd" target="_blank" rel="noopener noreferrer">صفحه لینکدین دکتر جیمز هاتسون</a></p>
 						</div>
 					</div>
 
-
 					<div class="presenter">
-						<img class="pic" data-src="img/presenters/3.jpg">
-						<img class="pic" data-src="img/presenters/4.jpg">
+						<picture>
+							<source srcset="img/presenters/bosman.webp" type="image/webp" />
+							<img class="pic" data-src="img/presenters/bosman.jpg" width="400" height="400" alt="دکتر فرانک باسمن">
+						</picture>
 						<div class="caption">
-							<div class="name"> دکتر Stephanie Rennick و دکتر Seán Roberts </div>
-							<p>
-								دکتر Stephanie Rennick پژوهشگر فلسفه SCHOOL OF HUMANITIES دانشگاه Glasgow و دکتر Seán Roberts عضو هیأت علمی School of English, Communication and Philosophy دانشگاه Cardiff نتایج آخرین تحقیقات خود را در هشتمین کنفرانس بین‌المللی «بازی‌های رایانه‌ای؛ فرصت‌ها و چالش‌ها» ارائه می‌کنند.
-								
-								<br><br>
-
-								تحقیقات دکتر رنیک روی استعاره‌ها، بازی‌های ویدیویی، سفر در زمان و حلقه‌های علّی متمرکز است و دکتر رابرتز روی ابزارهای دیجیتال به هدف تست تئوری‌های علّی در مورد پیشرفت زبان‌ها کار می‌کند. این دو محقق، نتایج پژوهش اخیر خود با عنوانImproving video game conversations with trope-informed design را روز چهارشنبه ۴ اسفند ۱۴۰۵ از ساعت ۱۹:۳۰ در پیش‌رویداد آنلاین کنفرانس بازی‌های رایانه‌ای ارائه خواهند کرد.
-								
-								<b> چکیده این ارائه به شرح زیر است: </b>
-								<p style="direction: ltr;text-align: justify; font-family: tahoma !important;">
-								One of the challenges for designers of role-playing video games is creating non-player characters that have realistic conversations. There are now many tropes about how this can fail. We suggest that these tropes offer an opportunity to identify key areas for improving immersion. We demonstrate how politeness theory from linguistics can help us understand when and why conversations with NPCs disrupt player immersion. Based on these insights we propose alternative designs to improve immersion. We call this approach Trope-Informed Design: tropes are tools that can make or break a player’s experience. Considering how and when to perpetuate, subvert, or transcend tropes can help guide designers in improving their game mechanics.
-							</p></p>
-						</div>
-					</div>
-					
-					
-
-						<div class="presenter">
-						<img class="pic" data-src="img/presenters/5.jpg">
-						<div class="caption">
-							<div class="name"> دکتر حامد علیاری </div>
-							<p>
-								دکتر حامد علی‌یاری عضو مرکز Human-Engaged Computing و استادیار Kochi University of Technology ژاپن یکی از سخنرانان کلیدی هشتمین کنفرانس بین‌المللی «بازی‌های رایانه‌ای؛ فرصت‌ها و چالش‌ها» است. دکتر علی‌یاری فارغ‌التحصیل مهندسی برق دانشگاه تهران و از مؤسسین NeuroGame Research Lab و NeuroEon است و پژوهش‌های زیادی روی اثر بازی‌های رایانه‌ای بر مغز انسان انجام داده است. این پژوهشگر که از همراهان همیشگی کنفرانس بازی‌های رایانه‌ای بوده است، روز پنجشنبه ۵ اسفند ۱۴۰۵ ساعت ۹:۳۰ در کنفرانس ما به‌صورت آنلاین در مورد آخرین دستاوردهای خود در NeuroEon سخن خواهد گفت.								<b> چکیده سخنرانی ایشان به شرح زیر است: </b>
-								<p style="direction: ltr;text-align: justify; font-family: tahoma !important;">
-									<b>Title:</b> NeuroEon: A Novel Scheme of Cognitive Training with AI and VR for Cognitive Purposes in Older Adults
-
-									<br><br>
- 
-									<b>Abstract:</b> Aging is not only accompanied by increased risk of developing physical impairments and diseases, but also by an inevitable decline in the level of cognitive skills including memory function, attention, processing speed, problem solving, etc. This cognitive decline occurs with a higher pace as people age, resulting in a faster and deeper deterioration in older adults’ cognitive skills. The resulting symptoms are often not treated (as they are unobservable) until they accompany a severe issue or disease diagnosis, ranging from forgetfulness, stressfulness, high blood pressure and depression to MCI, Dementia, MS, Parkinson’s …, at which time treatments are typically inadequate to address the declines. A possible solution is using computerized cognitive training to either slow decline or enhance cognitive abilities. However, as exciting as the promise of such cognitive training, the growing commercial industry has been criticized due to the mixed results across research studies on the topic. The key limitation is the extent to which training of tasks traditionally used in cognitive assessment transfer to real-world activities that challenge cognition.  The introduction of video games to cognitive training, as well as virtual reality (VR), provide opportunity to embed challenges that better mimic reality due to the immersion and can result in more motivating training. Further using AI enables personalization of challenges, and potentially greater effectiveness. In NeuroEon, we have designed and developed a unique AI for introducing the best customized cognitive enhancement solution for older adults providing prescriptions from a range of carefully designed VR-based cognitive training games. The results of our studies indicate great performance.
-									</p>
-															</p>
-						</div>
-					</div>
-					
-					
-
-					<div class="presenter">
-						<img class="pic" data-src="img/presenters/6.jpg">
-						<div class="caption">
-							<div class="name"> دکتر پروانه محمدخانی </div>
-							<p>
-								دکتر محمدخانی از اعضای هیأت مدیره انجمن روانشناسی ایران و یکی از برجسته‌ترین روانشناسان بالینی کشور در حوزه‌ی سلامت روان، ذهن‌آگاهی، طرح‌واره درمانی و درمان‌های شناختی-رفتاری است که در سطح بین‌المللی نیز پژوهشگری برجسته و شناخته‌شده به شمار می‌رود. روز پنجشنبه 5 اسفند 1400 ساعت 10:15 در کنفرانس بازی‌های رایانه‌ای به‌صورت آنلاین پای صحبت‌های دکتر محمدخانی در مورد نقش بازی و لذت در سلامت روان و شادکامی خواهیم نشست.								<b> چکیده سخنرانی ایشان به شرح زیر است: </b>
-								
-								تاکید بر نقش مثبت بازی در فرایند تحول برای رشد اجتماعی و تحول عاطفی کودک در کارهای پپازه دیده شده است. بازی تنوعی از کارکردها را برای کودک به ارمغان می آورد .از جمله به کودک در دستیابی به درگیرشدن در انواع فعالیت ها کمک می کند. در روانشناسی بالینی جدا از کاربرد بازی در ارزبابی بالینی و درمان کودکان، کوششهای اخیر به استفاده از بازیهای کامپیوتری و فضای واقعیت مجازی برای درمان اختلالات روانی از جمله ختلالات فوبیا و استرس پس از ضربه و همینطور طیف اوتیسم و اسکیزوفرنیا اختصاص یافته است. سالها روانشناسان بالینی بر کاهش رنج بشر از طریق شناخت و درمان اختلالات روانی متمرکز بود. در نتیجه سلامت روان به معنای عدم وجود اختلال به جای وجود ویژگی ها و صفات مثبت تعریف شد.
-
-								<br><br>
-								جنبش روانشناسی مثبت توسط مارتین سلیگمن تعریف سلامت روان را گسترش داد و شکوفایی از طریق شناخت ویژگی های مثبت مورد توجه قرار گرفت. از عوامل رشد روانشناسی بالینی مثبت، دعوت از متخصصین بالینی برای درک مفهوم بهزیستی بود و بنابراین این پرسش مطرح شد که " چگونه می توان "شادکامی را به صورت یک سیاست عمومی درآورد و چگونه می توان شاخصی ملی برای بهزیستی تهیه کرد؟ "در پاسخ به این پرسش تاکید بر هیجان های مثبت و نه منفی در زندگی انسان و استفاده از آن اهمیت یافت. در این راستا مطالعات نشان دادند که اگرچه پاسخ های جنگ و گریز، هنگام برخورد با ترس یا خشم، به بقای اجداد ما در موقعیت های تهدید کننده کمک کرده است اما دامنه تفکر-عملی که مطابق با تجربه هیجان های مثبت باشد در درازمدت و در طول زمان خصلت سازگارانه دارد هیجان های مثبت خزانه تفکر-عمل را گسترش می دهد و با گذشت زمان منابع تقویتی و شخصی گوناگونی ساخته و پرداخته می شود(فردریکسون، مثل منابع جسمی(هماهنگِی، سلامتی قلبی-عروقی و قوام عضلانی)؛ منابع اجتماعی( نظیر دوستی ها، مهارتها و حمایت های اجتماعی)؛ منابع فکری و ذهنی (مانند دانش و توانایی حل مسئله) و منابع روانشناختی( از قبیل خلاقیت، خوش بینی و تاب آوری).
-
-															</p>
+							<div class="name"> دکتر فرانک باسمن </div>
+							<p><b>سخنرانی کلیدی آنلاین دکتر فرانک باسمن در هشتمین کنفرانس بین‌المللی «بازی‌های رایانه‌ای؛ فرصت‌ها و چالش‌ها»</b></p>
+<p>یکی از سخنرانان کلیدی هشتمین کنفرانس بین‌المللی «بازی‌های رایانه‌ای؛ فرصت‌ها و چالش‌ها»، دکتر فرانک جی. باسمن (Frank G. Bosman) از دانشگاه تیلبورخ هلند است.</p><p>دکتر باسمن استادیار دانشکده الهیات کاتولیک دانشگاه تیلبورخ و متخصص الهیات فرهنگی است. پژوهش‌های او بر پیوند میان دین، الهیات و فرهنگ عامه، به‌ویژه بازنمایی مفاهیم و سنت‌های دینی در بازی‌های ویدئویی، تمرکز دارد. او نویسنده کتاب Gaming and the Divine: A New Systematic Theology of Video Games و مقالات متعددی درباره دین و بازی‌های دیجیتال است. مقاله پژوهشی او درباره بازنمایی اسماعیلیان نزاری در مجموعه Assassin’s Creed در سال ۲۰۱۶ در نشریه Heidelberg Journal of Religions on the Internet منتشر شده است.</p>							<p><b>عنوان سخنرانی ایشان در این کنفرانس به شرح زیر است:</b></p>
+<p>«بازنمایی اسماعیلیان نزاری در مجموعه بازی‌های Assassin’s Creed: از افسانه‌های قرون‌وسطایی تا فرهنگ معاصر»</p><p style="direction: ltr; text-align: justify; font-family: tahoma !important;">The Portrayal of the Nizari Isma’ilis in the Assassin’s Creed Game Series: From Medieval Legends to Contemporary Culture</p>							<p><b>چکیده فارسی</b></p>
+<p>در این سخنرانی، دکتر فرانک باسمن بازنمایی اسماعیلیان نزاری در مجموعه Assassin’s Creed را بررسی می‌کند و نشان می‌دهد که تصویر رایج «حشاشین» چگونه از آمیزش تاریخ، افسانه و فرهنگ عامه شکل گرفته است. او با رویکرد «باستان‌شناسی ادبی»، مسیر انتقال این روایت‌ها را از وقایع‌نگاران جنگ‌های صلیبی و سفرنامه مارکو پولو تا شرق‌شناسی قرن نوزدهم و بازی‌های ویدئویی معاصر دنبال می‌کند.</p><p>باسمن سپس توضیح می‌دهد که عناصری مانند باغ بهشت، مواد مخدر، آموزش‌های ویژه و پرش مرگبار چگونه در مجموعه Assassin’s Creed به شخصیت‌ها، روایت و گیم‌پلی راه یافته‌اند. شخصیت المعلّم، قابلیت «دید عقابی» و شعار «هیچ‌چیز حقیقت ندارد؛ همه‌چیز مجاز است» از نمونه‌های اصلی مورد بررسی‌اند. این سخنرانی نشان می‌دهد که یوبی‌سافت، با وجود بهره‌گیری از برخی افسانه‌های تاریخی، تصویری نسبتاً متوازن‌تر از اسماعیلیان نزاری ارائه و بخشی از کلیشه‌های شرق‌شناسانه درباره آنان را اصلاح کرده است.</p>							<p><b>English Abstract</b></p>
+<p style="direction: ltr; text-align: justify; font-family: tahoma !important;">This keynote examines the portrayal of the Nizari Isma’ilis in the Assassin’s Creed series and traces how the popular image of the “Assassins” emerged through the interaction of history, legend, and contemporary culture. Using a literary-archaeological approach, Dr. Frank Bosman follows these narratives from Christian chronicles of the Crusades and Marco Polo’s travel account to nineteenth-century Orientalist interpretations and modern video games.</p><p style="direction: ltr; text-align: justify; font-family: tahoma !important;">The presentation explores how motifs such as the garden of paradise, drug use, specialized training, and the leap of faith were incorporated into the characters, narrative, and gameplay of Assassin’s Creed. Particular attention is given to Al Mualim, Eagle Vision, and the maxim “Nothing is true; everything is permitted.” Bosman argues that although Ubisoft draws on several historical legends, the series offers a comparatively balanced portrayal of the Nizari Isma’ilis and partially corrects long-standing Orientalist stereotypes surrounding the so-called “Assassins.”</p>							<p><a href="https://www.tilburguniversity.edu/staff/f-g-bosman" target="_blank" rel="noopener noreferrer">صفحه رسمی دکتر فرانک باسمن در دانشگاه تیلبورخ</a> &nbsp;|&nbsp; <a href="https://www.linkedin.com/in/frankgbosman" target="_blank" rel="noopener noreferrer">صفحه لینکدین دکتر فرانک باسمن</a></p>
 						</div>
 					</div>
 
-
-
 					<div class="presenter">
-						<img class="pic" data-src="img/presenters/7.jpg">
+						<picture>
+							<source srcset="img/presenters/guardiola.webp" type="image/webp" />
+							<img class="pic" data-src="img/presenters/guardiola.jpg" width="400" height="400" alt="پروفسور امانوئل گاردیولا">
+						</picture>
 						<div class="caption">
-							<div class="name"> دکتر Antonios Liapis </div>
-							<p>
-								دکتر لیاپیس فارغ‌التحصیل مهندسی کامپیوتر از دانشگاه IT کپنهاگ دانمارک است که در پروژه‌های بازی‌سازی زیادی سهیم بوده و تمرکز تحقیقاتی او روی ابزارهای هوش محاسباتی در طراحی بازی‌هاست. این پژوهشگر برجسته که اچ‌ایندکس 26 را در کارنامه‌ی خود دارد، روز پنجشنبه 5 اسفند 1400 ساعت 11:15 در کنفرانس ما به‌صورت آنلاین در مورد Games and Emotion: how AI can bridge the gap between design and experience سخنرانی خواهد کرد.								<b>چکیده‌ی سخنرانی ایشان به شرح زیر است: </b>
-								<p style="direction: ltr;text-align: justify; font-family: tahoma !important;">This talk discusses how game design builds on different facets of creative work (e.g. levels, rules, visuals, sounds) to create a holistic, interactive experience for the players. How games influence players' emotions and affective states can be captured in many different ways. However, identifying which aspects of games impact players' emotional responses is challenging. This talk elaborates on how artificial intelligence can be used to model, predict, and explain the impact of different facets of games on players' emotions, reviewing several research projects undertaken at the Institute of Digital Games, University of Malta.</p>
-															</p>
+							<div class="name"> پروفسور امانوئل گاردیولا </div>
+							<p><b>سخنرانی کلیدی آنلاین پروفسور امانوئل گاردیولا در هشتمین کنفرانس بین‌المللی «بازی‌های رایانه‌ای؛ فرصت‌ها و چالش‌ها»</b></p>
+<p>یکی از سخنرانان کلیدی هشتمین کنفرانس بین‌المللی «بازی‌های رایانه‌ای؛ فرصت‌ها و چالش‌ها»، پروفسور امانوئل گاردیولا (Emmanuel Guardiola) از مؤسسه Cologne Game Lab در دانشگاه علوم کاربردی کلن آلمان است.</p><p>پروفسور گاردیولا دارای دکتری علوم رایانه و استاد طراحی بازی در Cologne Game Lab است. او پیش از ورود به دانشگاه، پانزده سال در صنعت بازی فعالیت کرد و در تولید بیش از ۳۰ عنوان، از جمله آثاری از مجموعه‌های Far Cry، Prince of Persia، Rainbow Six، Ghost Recon و Life Is Strange مشارکت داشت. پژوهش‌های او بر طراحی تجربه‌های بازی و کاربرد آن‌ها در آموزش، سلامت، روان‌شناسی و اهداف بشردوستانه متمرکز است. گاردیولا همچنین بنیان‌گذار Humanitarian Game Network و از مدیران پروژه‌های پژوهشی Antura and the Letters و ISEDA است.</p>							<p><b>عنوان سخنرانی ایشان در این کنفرانس به شرح زیر است:</b></p>
+<p>«بازی‌های اثرگذار؛ از آموزش کودکان پناه‌جو تا مقابله با خشونت خانگی»</p><p style="direction: ltr; text-align: justify; font-family: tahoma !important;">Games for Impact: From Educating Refugee Children to Combating Domestic Violence</p>							<p><b>چکیده فارسی</b></p>
+<p>در این سخنرانی، پروفسور امانوئل گاردیولا ظرفیت بازی‌های ویدئویی برای ایجاد تأثیرات مثبت و سنجش‌پذیر در آموزش و جامعه را بررسی می‌کند. او ابتدا پروژه Antura and the Letters را معرفی می‌کند؛ بازی‌ای آموزشی که برای یادگیری مستقل خواندن زبان عربی و حمایت از بهزیستی روانی کودکان پناه‌جوی سوری ساخته شد. ارزیابی این پروژه با مشارکت بیش از ۶۰۰ کودک در اردن، نتایج مثبتی در زمینه سوادآموزی و وضعیت روانی ـ اجتماعی آنان نشان داد. این بازی بعدها برای پاسخ به نیازهای آموزشی کودکان آسیب‌دیده از بحران‌های دیگر، از جمله جنگ اوکراین، توسعه یافت.</p><p>بخش اصلی سخنرانی به شبیه‌ساز مصاحبه با قربانی در پروژه اروپایی ISEDA اختصاص دارد. این بازی جدی با استفاده از سناریوهای تعاملی، شخصیت‌های سه‌بعدی، ضبط حرکات و گفت‌وگوهای چندشاخه، مأموران پلیس را برای مصاحبه با قربانیان خشونت خانگی و خشونت مبتنی بر جنسیت آموزش می‌دهد. گاردیولا تأکید می‌کند که ادعای اثرگذاری یک بازی کافی نیست و سنجش معتبر نتایج باید از ابتدای فرایند طراحی در نظر گرفته شود. او در پایان از بازی‌سازان دعوت می‌کند بخشی از توان و خلاقیت خود را به پروژه‌هایی اختصاص دهند که به مسائل واقعی انسان‌ها پاسخ می‌دهند.</p>							<p><b>English Abstract</b></p>
+<p style="direction: ltr; text-align: justify; font-family: tahoma !important;">This keynote explores the potential of video games to create positive and measurable impact in education and society. Professor Emmanuel Guardiola first introduces Antura and the Letters, an educational game designed to support independent Arabic literacy and psychosocial well-being among Syrian refugee children. An impact evaluation involving more than 600 children in Jordan reported positive outcomes in literacy and psychosocial well-being. The project was later expanded to address the educational needs of children affected by other crises, including the war in Ukraine.</p><p style="direction: ltr; text-align: justify; font-family: tahoma !important;">The main part of the presentation focuses on the Victim Interview Simulator developed within the European ISEDA project. Using interactive scenarios, 3D characters, performance capture, and branching dialogue, this serious game trains police officers to interview survivors of domestic and gender-based violence, recognize risk indicators, and respond to victims’ psychological and emotional states. Guardiola emphasizes that claiming a game has impact is not enough: reliable evaluation must be incorporated from the beginning of the design process. He concludes by encouraging game developers to apply part of their creativity and expertise to projects that address real human needs.</p>							<p><a href="https://colognegamelab.de/about/faculty-staff/professors/prof-dr-emmanuel-guardiola/" target="_blank" rel="noopener noreferrer">صفحه رسمی پروفسور امانوئل گاردیولا در Cologne Game Lab</a> &nbsp;|&nbsp; <a href="https://www.linkedin.com/in/emmanuelguardiola" target="_blank" rel="noopener noreferrer">صفحه لینکدین پروفسور امانوئل گاردیولا</a> &nbsp;|&nbsp; <a href="https://colognegamelab.de/research/research-projects/the-antura-initiative/" target="_blank" rel="noopener noreferrer">پروژه Antura Initiative</a> &nbsp;|&nbsp; <a href="https://colognegamelab.de/research/research-projects/iseda2022-2025/" target="_blank" rel="noopener noreferrer">پروژه ISEDA و شبیه‌ساز مصاحبه با قربانی</a> &nbsp;|&nbsp; <a href="https://colognegamelab.de/research/research-projects/humanitarian-game-network/" target="_blank" rel="noopener noreferrer">Humanitarian Game Network</a></p>
 						</div>
 					</div>
-					
-					
-
 
 					<div class="presenter">
-						<img class="pic" data-src="img/presenters/8.jpg">
+						<picture>
+							<source srcset="img/presenters/harteveld.webp" type="image/webp" />
+							<img class="pic" data-src="img/presenters/harteveld.jpg" width="400" height="400" alt="دکتر کاسپر هارتفلد">
+						</picture>
 						<div class="caption">
-							<div class="name"> دکتر Dion Hoe-Lian Goh </div>
-							<p>
-
-								دکتر دیون گوا فارغ‌التحصیل علوم کامپیوتر دانشگاه Texas A&M و یکی از پژوهشگران برجسته حوزه‌ی بازی‌های رایانه‌ای و فضای مجازی به ویژه گیمیفیکشین با اچ‌ایندکس ۴۲ است. روز پنجشنبه ۵ اسفند ۱۴۰۵ ساعت ۱۲:۱۵ به‌صورت آنلاین میزبان دکتر گوا خواهیم بود که در مورد  User Experience of Games for Crowdsourced Human Computation سخنرانی خواهد کرد.
-								<b>
-									چکیده‌ی سخنرانی ایشان به شرح زیر است:
-									 </b>
-								<p style="direction: ltr;text-align: justify; font-family: tahoma !important;">Human computation harnesses human brainpower to solve problems that computers cannot yet easily solve, while crowdsourcing taps upon the expertise of online users to perform tasks. When combined, crowdsourced human computation has the potential to draw upon large numbers of online users to solve computationally difficult problems.
-								<br><br>
-								Motivating participation in crowdsourced human computation is a challenging issue and this talk deals with how games could be employed for this purpose. The talk will first present a typology of games for human computation. The main focus of the talk will be a discussion of a series of studies that investigate various aspects of user experience pertaining to such games. Finally, design lessons drawn are presented, together with opportunities for future work.
-								</p>
-															</p>
+							<div class="name"> دکتر کاسپر هارتفلد </div>
+							<p><b>سخنرانی کلیدی آنلاین دکتر کاسپر هارتفلد در هشتمین کنفرانس بین‌المللی «بازی‌های رایانه‌ای؛ فرصت‌ها و چالش‌ها»</b></p>
+<p>یکی از سخنرانان کلیدی هشتمین کنفرانس بین‌المللی «بازی‌های رایانه‌ای؛ فرصت‌ها و چالش‌ها»، دکتر کاسپر هارتفلد (Casper Harteveld) از دانشگاه نورث‌ایسترن آمریکا است.</p><p>دکتر هارتفلد استاد طراحی بازی و معاون برنامه‌های تحصیلات تکمیلی و ابتکارهای راهبردی در کالج هنر، رسانه و طراحی دانشگاه نورث‌ایسترن است. پژوهش‌های او بر طراحی و ارزیابی بازی‌های جدی، یادگیری مبتنی بر بازی، واقعیت‌های گسترده و تعامل انسان و هوش مصنوعی تمرکز دارد. او مدیر آزمایشگاه میان‌رشته‌ای Ghostlab و مدیر مؤسس مؤسسه فناوری‌های تجربی EXCITE است و در پروژه‌های خود از طراحی، مهندسی، علوم رایانه و علوم اجتماعی برای پاسخ‌گویی به مسائل حوزه‌های آموزش، سلامت و پایداری بهره می‌گیرد.</p>							<p><b>عنوان سخنرانی ایشان در این کنفرانس به شرح زیر است:</b></p>
+<p>«بازی‌هایی برای تغییر واقعی: از طراحی بازی‌های جدی تا گسترش دسترسی به فناوری‌های یادگیری تعاملی»</p><p style="direction: ltr; text-align: justify; font-family: tahoma !important;">Games for Real Change: From Serious Game Design to Expanding Access to Interactive Learning Technologies</p>							<p><b>چکیده فارسی</b></p>
+<p>در این سخنرانی، دکتر کاسپر هارتفلد مسیر نزدیک به دو دهه فعالیت خود در طراحی بازی‌هایی را مرور می‌کند که برای ایجاد تغییرات واقعی در آموزش و جامعه ساخته شده‌اند. او ابتدا Levee Patroller را معرفی می‌کند؛ یک بازی سه‌بعدی برای آموزش بازرسی سیل‌بندها که به کاربران می‌آموزد آسیب‌های سازه‌ای و خطرهای احتمالی سیل را شناسایی و گزارش کنند. نتایج ارزیابی، بهبود دانش و مهارت کاربران را نشان داد، اما هزینه توسعه و دشواری اجرای گسترده پروژه، مسئله دسترس‌پذیری و تداوم استفاده از بازی‌های جدی را برجسته کرد. این تجربه بعدها در پروژه GeoExplorer برای آموزش مهندسی عمران در دانشگاه‌های مختلف گسترش یافت.</p><p>هارتفلد همچنین بستر StudyCrafter را معرفی می‌کند؛ ابزاری برای ساخت، اشتراک‌گذاری و بازاستفاده از بازی‌های جدی، پژوهش‌های تعاملی و روایت‌های شاخه‌ای، بدون نیاز به توسعه همه اجزا از ابتدا. بخش دیگری از سخنرانی به کاربرد واقعیت مجازی و افزوده در آموزش فرایندهای صنعتی و تولید پیشرفته اختصاص دارد. پیام اصلی سخنرانی آن است که موفقیت بازی‌های جدی تنها به طراحی یک تجربه اثربخش وابسته نیست؛ بلکه امکان بازاستفاده، گسترش، اجرای عملی و ارزیابی مستمر نیز برای ایجاد تغییر پایدار اهمیت دارد.</p>							<p><b>English Abstract</b></p>
+<p style="direction: ltr; text-align: justify; font-family: tahoma !important;">This keynote reflects on nearly two decades of designing games intended to create real change in education and society. Dr. Casper Harteveld begins with Levee Patroller, a 3D serious game that trains users to identify and report structural damage and potential flood risks. Evaluations showed improvements in participants’ knowledge and inspection skills, while the project also exposed persistent challenges involving development costs, implementation, scalability, and long-term use. This work later informed GeoExplorer, which expanded game-based civil engineering education across multiple universities.</p><p style="direction: ltr; text-align: justify; font-family: tahoma !important;">Harteveld also introduces StudyCrafter, a platform that enables users to create, share, and reuse serious games, interactive studies, and branching narratives without developing every component from the ground up. The presentation further examines virtual and augmented reality applications for advanced manufacturing and industrial training. Its central message is that realizing the potential of games for meaningful change requires more than effective experience design: serious games must also be reusable, scalable, practically deployable, and continuously evaluated.</p>							<p><a href="https://www.linkedin.com/in/casperharteveld/" target="_blank" rel="noopener noreferrer">صفحه لینکدین  دکتر کاسپر هارتفلد</a> &nbsp;|&nbsp; <a href="https://camd.northeastern.edu/people/casper-harteveld/" target="_blank" rel="noopener noreferrer">صفحه رسمی دکتر کاسپر هارتفلد در دانشگاه نورث‌ایسترن</a> &nbsp;|&nbsp; <a href="https://studycrafter.com/" target="_blank" rel="noopener noreferrer">وب‌سایت StudyCrafter</a> &nbsp;|&nbsp; <a href="https://camd.northeastern.edu/center-for-design/research-projects-2/design-games/" target="_blank" rel="noopener noreferrer">معرفی پروژه StudyCrafter در دانشگاه نورث‌ایسترن</a></p>
 						</div>
-					</div>				
-
+					</div>
 
 					<div class="presenter">
-						<img class="pic" data-src="img/presenters/9.jpg">
+						<picture>
+							<source srcset="img/presenters/majewski.webp" type="image/webp" />
+							<img class="pic" data-src="img/presenters/majewski.jpg" width="400" height="400" alt="دکتر جیکوب مایوسکی">
+						</picture>
 						<div class="caption">
-							<div class="name"> دکتر Thomas Apperley </div>
-							<p>
-
-								دکتر Thomas Apperley پژوهشگر مرکز Centre of Excellence in Game Culture Studies  دانشگاهTampere  فنلاند یکی از سخنرانان کلیدی هشتمین کنفرانس بین‌المللی «بازی‌های رایانه‌ای؛ فرصت‌ها و چالش‌ها» است. دکتر اپرلی فارغ‌التحصیل دانشگاه ملبورن است و در زمینه‌ی بازی‌های دیجیتال و فناوری‌های بازی‌گونه با تأکید بر تأثیر آن‌ها بر فرهنگ، به‌ویژه حوزه‌هایی مانند سیاست اجتماعی، آموزش و پرورش و شمول اجتماعی تحقیق می‌کند. روز پنجشنبه ۵ اسفند ۱۴۰۵ ساعت ۱۸:۳۰ به‌صورت آنلاین میزبان دکتر اپرلی خواهیم بود که در موردModeling the Gamer: The Gendered Dynamics of Fashion and Affective Labor in Game Cultures  سخنرانی خواهد کرد.
-								<b>
-									چکیده‌ی سخنرانی ایشان به شرح زیر است:
-									 </b>
-								<p style="direction: ltr;text-align: justify; font-family: tahoma !important;">This exploratory talk will consider the role that fashion, and fashion photography has in including women in gaming cultures. This inclusion has often framed women in game cultures as objects to be looked at, yet fashion and clothes also provides people with intimate ways of expressing their sense of connection to and feeling of belonging in game cultures. The role of clothing and fashion in gaming culture has taken on additional significance in the contemporary image-rich social media environment as part of the affective labor of crowdfunding, influencers, streaming and esports. In this environment gaming fashion becomes deeply contested, as while it provides people with access to connections, community and commerce, others seek to reassert a misogynist visual regime to judge women gamers by their 
-								</p>
-															</p>
+							<div class="name"> دکتر جیکوب مایوسکی </div>
+							<p><b>سخنرانی کلیدی آنلاین دکتر جیکوب مایوسکی در هشتمین کنفرانس بین‌المللی «بازی‌های رایانه‌ای؛ فرصت‌ها و چالش‌ها»</b></p>
+<p>یکی از سخنرانان کلیدی هشتمین کنفرانس بین‌المللی «بازی‌های رایانه‌ای؛ فرصت‌ها و چالش‌ها»، دکتر جیکوب مایوسکی (Jakub Majewski) از دانشگاه کازیمیر کبیر لهستان است.</p><p>دکتر مایوسکی استادیار گروه مطالعات بازی و فرهنگ دیجیتال دانشگاه کازیمیر کبیر در بیدگوشچ است. او نزدیک به دو دهه در صنعت بازی فعالیت کرده و در تولید حدود چهل بازی، در نقش‌هایی چون نویسنده، طراح، تهیه‌کننده، مدیر پروژه و مدیر خلاق مشارکت داشته است. حوزه‌های پژوهشی او روایت و جهان‌سازی در بازی‌ها، بازی‌های نقش‌آفرینی، بازنمایی تاریخ و میراث فرهنگی و تاریخ صنعت بازی لهستان را دربرمی‌گیرد. پیوند تجربه دانشگاهی و حرفه‌ای، زمینه اصلی تحلیل او از فرصت‌ها و چالش‌های توسعه صنعت بازی است.</p>							<p><b>عنوان سخنرانی ایشان در این کنفرانس به شرح زیر است:</b></p>
+<p>«درس‌هایی از تجربه لهستان برای توسعه صنعت بازی‌های ویدیویی ایران»</p><p style="direction: ltr; text-align: justify; font-family: tahoma !important;">Lessons from Poland for Developing Iran’s Video Game Industry</p>							<p><b>چکیده فارسی</b></p>
+<p>این سخنرانی با مرور رشد سریع صنعت بازی لهستان، به بررسی درس‌هایی می‌پردازد که می‌توانند با درنظرگرفتن تفاوت‌های تاریخی، اقتصادی، فناورانه و سیاسی، برای توسعه پایدار صنعت بازی ایران سودمند باشند. دکتر مایوسکی توضیح می‌دهد که موفقیت لهستان پیش از گسترش حمایت‌های دولتی و منابع اتحادیه اروپا آغاز شد؛ بنابراین حمایت مالی زمانی اثربخش است که توان تجاری و استقلال استودیوها را تقویت کند، نه اینکه جایگزین سازوکار بازار شود.</p><p>او جمعیت جوان و خلاق، بازار داخلی، هویت فرهنگی متمایز و میراث غنی تاریخی و ادبی ایران را از مهم‌ترین ظرفیت‌های این صنعت می‌داند. آثاری چون Children of Morta و The Tale of Bistun نشان می‌دهند که بازی‌سازان ایرانی می‌توانند با اتکا به روایت‌ها و هویت فرهنگی خود در بازار جهانی حضور یابند. در عین حال، برای بسیاری از استودیوها، تمرکز بر بازی‌های کوچک‌تر، خلاقانه و متمایز، انتخاب بازارهای تخصصی و مدیریت محتاطانه ریسک، واقع‌بینانه‌تر از رقابت مستقیم با تولیدات بسیار پرهزینه است.</p><p>بخش پایانی سخنرانی به تحریم‌ها، محدودیت دسترسی به ابزارها و پلتفرم‌های جهانی، نقش ناشران و توزیع‌کنندگان داخلی و ظرفیت بازی‌های موبایلی می‌پردازد. مایوسکی همچنین هوش مصنوعی را، با وجود نگرانی‌های مرتبط با خلاقیت و محتوای تکراری، ابزاری بالقوه برای تسریع ایده‌پردازی، مدیریت پروژه، برنامه‌نویسی و ترجمه می‌داند. پیام اصلی او ضرورت ایجاد صنعتی انعطاف‌پذیر، مستقل و از نظر مالی تاب‌آور است که بتواند از ظرفیت‌های فرهنگی و انسانی ایران برای حضور پایدار در بازارهای داخلی و بین‌المللی استفاده کند.</p>							<p><b>English Abstract</b></p>
+<p style="direction: ltr; text-align: justify; font-family: tahoma !important;">This keynote examines the rapid growth of Poland’s video game industry and considers which lessons may support the sustainable development of Iran’s game sector, while acknowledging the countries’ different historical, economic, technological, and political circumstances. Dr. Jakub Majewski argues that Poland’s expansion began before broad access to government and European Union funding. Public support is therefore most effective when it strengthens studios’ commercial capacity and independence rather than replacing market mechanisms.</p><p style="direction: ltr; text-align: justify; font-family: tahoma !important;">Majewski identifies Iran’s young creative population, substantial domestic market, distinctive cultural identity, and rich historical and literary heritage as major assets. Games such as Children of Morta and The Tale of Bistun demonstrate the potential for Iranian developers to reach international audiences through culturally distinctive work. For many studios, however, smaller and more original projects, carefully selected niches, and prudent risk management offer a more realistic path than direct competition with high-budget global productions.</p><p style="direction: ltr; text-align: justify; font-family: tahoma !important;">The presentation also addresses sanctions, restricted access to international tools and distribution platforms, the importance of domestic publishers and distributors, and the revenue potential of mobile games. Finally, it considers artificial intelligence as a means of accelerating ideation, project management, programming, and translation, while recognizing concerns about repetitive content and reduced creativity. The keynote ultimately calls for a flexible, independent, and financially resilient industry capable of transforming Iran’s cultural and human resources into sustained domestic and international success.</p>							<p><a href="https://www.linkedin.com/in/jakubmajewski/" target="_blank" rel="noopener noreferrer">صفحه لینکدین دکتر جیکوب مایوسکی</a> &nbsp;|&nbsp; <a href="https://badaniagier.ukw.edu.pl/jednostka/katedra-badania-gier/pracownicy-kat-badania-gier" target="_blank" rel="noopener noreferrer">صفحه رسمی گروه مطالعات بازی و فرهنگ دیجیتال دانشگاه کازیمیر کبیر</a> &nbsp;|&nbsp; <a href="https://www.bloomsbury.com/us/author/jakub-majewski/" target="_blank" rel="noopener noreferrer">معرفی دکتر جیکوب مایوسکی در انتشارات Bloomsbury</a> &nbsp;|&nbsp; <a href="https://www.majewscy.net/jakub/" target="_blank" rel="noopener noreferrer">وب‌سایت شخصی و آرشیو صنعت بازی لهستان</a></p>
 						</div>
-					</div>				
+					</div>
 
+					<div class="presenter">
+						<picture>
+							<source srcset="img/presenters/maratab.webp" type="image/webp" />
+							<img class="pic" data-src="img/presenters/maratab.jpg" width="400" height="400" alt="دکتر حمیدرضا مراتب">
+						</picture>
+						<div class="caption">
+							<div class="name"> دکتر حمیدرضا مراتب </div>
+							<p><b>دانشیار گروه مهندسی پزشکی و مدیر مرکز نوآوری هوش مصنوعی و تحول دیجیتال دانشگاه اصفهان</b></p>
+<p>دکتر حمیدرضا مراتب، دانشیار گروه مهندسی پزشکی دانشگاه اصفهان، مدیر مرکز نوآوری و فناوری‌های هوش مصنوعی این دانشگاه و عضو بُرد تخصصی هوش مصنوعی وزارت بهداشت، درمان و آموزش پزشکی است. وی دکتری مهندسی پزشکی خود را از دانشگاه پلی‌تکنیک تورین ایتالیا دریافت کرده و در ادامه با حضور در دانشگاه‌های استنفورد آمریکا و آلبورگ دانمارک، به‌عنوان پژوهشگر، تحقیقات خود را ادامه داده است. همچنین، به‌عنوان پژوهشگر ارشد در دانشگاه پلی‌تکنیک کاتالونیا (UPC) در اسپانیا فعالیت می‌کند. حوزه‌های اصلی فعالیت پژوهشی او شامل هوش مصنوعی، یادگیری ماشین، داده‌کاوی پزشکی، پردازش سیگنال‌های زیستی و انفورماتیک سلامت است. وی سابقه دریافت گرانت‌ها و حمایت‌های پژوهشی بین‌المللی و مشارکت در پروژه‌ها و همکاری‌های علمی مشترک با دانشگاه‌ها و مراکز پژوهشی کشورهای مختلف را دارد. او عضو هیئت تحریریه شماری از مجلات علمی بین‌المللی است و تاکنون بیش از پانصد مقاله علمی را برای نشریات بین‌المللی داوری کرده است. دکتر مراتب در حال حاضر عضو ارشد مؤسسه مهندسان برق و الکترونیک (IEEE)، همکار ارشد شبکه مطالعات بار جهانی بیماری‌ها (GBD)، عضو انجمن دانش‌آموختگان ماری کوری (MCAA) و عضو انجمن سیستم‌های اطلاعاتی و مدیریتی سلامت (HIMSS) است.</p>							<p><b>عنوان سخنرانی:</b></p>
+<p style="direction: ltr; text-align: justify; font-family: tahoma !important;">“Causal AI for Game + Neuroscience: From Brain Signals to Counterfactual, Explainable, and Adaptive Serious Games.”</p>							<p><b>چکیده</b></p>
+<p style="direction: ltr; text-align: justify; font-family: tahoma !important;">Serious games are becoming a practical laboratory for causal AI because they generate rich behavioral traces while also supporting real-time sensing through EEG, fNIRS, and other physiological signals. In parallel, causal AI has advanced from association-based prediction toward structural causal models, counterfactual reasoning, causal discovery, and interpretable intervention analysis. I will show how causal methods can turn game telemetry and neural signals into actionable evidence for adaptive difficulty, personalization, and trustworthy decision support, while also improving robustness under confounding, distribution shift, and latent variables. Proof-of-concept materials include EEG-driven adaptation in serious games, BCI-controlled gaming, multimodal affect modeling, and causal-inference pipelines for neurocognitive assessment and self-adaptive game ecosystems. The central message is that causal AI makes game + neuroscience not just intelligent, but explainable, testable, and intervention-ready.</p>						</div>
+					</div>
+
+					<div class="presenter">
+						<picture>
+							<source srcset="img/presenters/rakanizadeh.webp" type="image/webp" />
+							<img class="pic" data-src="img/presenters/rakanizadeh.jpg" width="400" height="400" alt="دکتر رسول رکنی‌زاده">
+						</picture>
+						<div class="caption">
+							<div class="name"> دکتر رسول رکنی‌زاده </div>
+<p>رییس دانشگاه اصفهان و استاد تمام فیزیک این دانشگاه و از پژوهشگران برجسته حوزه فیزیک کوانتومی است. وی مدیریت گروه اپتیک کوانتومی دانشگاه اصفهان را بر عهده داشته و حوزه‌های اصلی فعالیت پژوهشی او شامل مکانیک کوانتومی، اپتیک کوانتومی، اطلاعات کوانتومی، مبانی مکانیک کوانتومی و فیزیک ریاضی است. پژوهش‌های او طیف گسترده‌ای از موضوعات نظری و بنیادی کوانتوم، از ساختارهای هندسی مکانیک کوانتومی تا سامانه‌های اپتومکانیکی و پدیده‌های درهم‌تنیدگی را دربر می‌گیرد.</p>							<p><b>عنوان سخنرانی:</b></p>
+<p>از جهان کوانتومی تا جهان‌ بازی‌ها</p>							<p><b>چکیده</b></p>
+<p>مکانیک کوانتومی تصویری از جهان ارائه می‌کند که با شهود کلاسیک ما تفاوتی بنیادین دارد؛ جهانی که در آن مفاهیمی چون برهم‌نهی، عدم‌قطعیت، اندازه‌گیری و درهم‌تنیدگی نقش اساسی ایفا می‌کنند. در سوی دیگر، بازی‌های ویدئویی نیز جهان‌هایی قانون‌مند و تعاملی می‌سازند که رفتار آنها بر پایه مجموعه‌ای از قواعد، وضعیت‌ها و انتخاب‌ها شکل می‌گیرد.</p><p>این سخنرانی به بررسی پیوند میان این دو جهان می‌پردازد و این پرسش را مطرح می‌کند که آیا مفاهیم و ساختارهای کوانتومی می‌توانند فراتر از موضوع یا استعاره، به بخشی از منطق و قواعد یک جهان تعاملی تبدیل شوند. همچنین ظرفیت بازی‌ها و محیط‌های تعاملی برای بازنمایی، تجربه و حتی بازاندیشی برخی مفاهیم بنیادین کوانتومی مورد توجه قرار خواهد گرفت؛ مسیری که می‌تواند زمینه‌ای تازه برای گفت‌وگو میان فیزیک، علوم کامپیوتر و طراحی بازی فراهم کند.</p>						</div>
+					</div>
+
+					<div class="presenter">
+						<picture>
+							<source srcset="img/presenters/shafaqi.webp" type="image/webp" />
+							<img class="pic" data-src="img/presenters/shafaqi.jpg" width="400" height="400" alt="دکتر لیدا شفقی">
+						</picture>
+						<div class="caption">
+							<div class="name"> دکتر لیدا شفقی </div>
+<p>دکترای تخصصی (یا متخصص) علوم اعصاب از دپارتمان علوم اعصاب و مطالعات اعتیاد، دانشکده فناوری‌های نوین پزشکی، دانشگاه علوم پزشکی تهران است. فعالیت‌های پژوهشی او بر حوزه‌هایی چون علوم اعصاب شناختی، تصویربرداری عصبی، شبکه‌ها و ارتباطات مغزی، روان‌داروشناسی و کاربرد روش‌های هوش مصنوعی در تحلیل داده‌های عصبی متمرکز است. پژوهش‌های او موضوعاتی از عملکردهای شناختی و شبکه‌های مغزی تا کاربرد fMRI و روش‌های محاسباتی در مطالعه اختلالات عصبی و شناختی را دربر می‌گیرد.</p>							<p><b>عنوان سخنرانی:</b></p>
+<p>جریان بازاندیش در تجربه بازی: تمرکز بر فرآیندهای ناظر بر شناخت و تجربه</p>							<p><b>چکیده</b></p>
+<p>جریان بازاندیش در تجربه بازی، تلاشی است برای یک صورت‌بندی مفهومی به منظور توصیف حالتی که در آن فرد بازیکن، هم‌زمان با درگیری عمیق در فضای بازی و مولفه‌های مرتبط با آن، نسبت به فرآیندهای شناختی، راهبردهای تصمیم‌گیری، واکنش‌های هیجانی و شیوه مواجهه خود با چالش‌های بازی آگاهی فعال پیدا می‌کند. این مفهوم با تکیه بر متون فراشناخت، خودتنظیمی، خودآگاهی هیجانی و بازی‌های بازاندیشانه، تلاش می‌کند تجربه بازی را نه فقط در سطح غرق‌شدگی، لذت یا عملکرد، بلکه در سطح فرایندهای ناظر بر بازی نیز بررسی کند. از این منظر، تمرکز بر سازوکارهای سلسله‌مراتبیِ ناظر بر تجربه بازی و شناخت آن‌ها، در کنار خود تجربه اصیل بازی و مؤلفه‌های درون‌زا آن، می‌تواند راهگشای فهم گستره اثرات بازی باشد؛ اینکه بازی تا چه اندازه می‌تواند بر یادگیری، خودآگاهی، تنظیم هیجان، بازنگری راهبردها و رشد شناختی-هیجانی اثر بگذارد، و چگونه می‌توان از این ظرفیت در طراحی بازی‌های آموزشی، درمانی، شناختی و تجربه‌محور بهره گرفت. پیشتر این مفاهیم در ارتباط با تکالیف شناختی و نیز در شرایطی مانند ارزیابی‌ها و درمان‌های روانشناختی مبتنی بر تداعی آزاد و یا تقویت شناختی-عملکردی مورد بررسی قرار گرفته است؛ اما با این دیدگاه که چطور در جریان بسیار پویای بازی‌ها این امر می‌تواند شکل بگیرد و متغیری اثرگذار باشد، کمتر مورد بررسی جامع و عمیق قرار گرفته است.</p>						</div>
+					</div>
+
+					<div class="presenter">
+						<picture>
+							<source srcset="img/presenters/qamrani.webp" type="image/webp" />
+							<img class="pic" data-src="img/presenters/qamrani.jpg" width="400" height="400" alt="دکتر امیر قمرانی">
+						</picture>
+						<div class="caption">
+							<div class="name"> دکتر امیر قمرانی </div>
+<p>دانشیار گروه روان‌شناسی و آموزش افراد با نیازهای خاص در دانشکده علوم تربیتی و روان‌شناسی دانشگاه اصفهان و دبیر بخش علوم انسانی ادوار مختلف کنفرانس بازی‌های رایانه‌ای است. وی دکتری خود را در رشته روان‌شناسی از دانشگاه اصفهان دریافت کرده و حوزه اصلی فعالیت‌های علمی و پژوهشی او شامل روان‌شناسی و آموزش کودکان با نیازهای خاص، کارکردهای اجرایی، مسائل رفتاری و مداخلات آموزشی و روان‌شناختی است. وی در زمینه آموزش و توانبخشی افراد با نیازهای ویژه و طراحی و ارزیابی مداخلات روان‌شناختی و آموزشی، پژوهش‌های متعددی منتشر کرده است.</p>							<p><b>عنوان سخنرانی:</b></p>
+<p>ای بی‌خبر ز لَذَّتِ شُربِ مُدامِ ما : كاوشي در تجارب زيسته گيمرهاي حرفه‌اي نسل آلفا</p>							<p><b>چکیده</b></p>
+<p>برای بسیاری از گیمرهای نسل آلفا، بازی‌های ویدئویی تنها یک سرگرمی نیستند؛ بخشی از جهان زیسته آنان‌اند، جهانی با قواعد، هیجان‌ها، روابط، شکست‌ها، پیروزی‌ها و معناهای خاص خود. از بیرون، این تجربه گاه تنها در قالب «زمان صرف‌شده پای بازی» دیده می‌شود؛ اما از درون، می‌تواند تجربه‌ای از تعلق، مهارت، رقابت، دوستی، هویت و خودبیانگری باشد.</p><p>این سخنرانی تلاشی است برای نزدیک‌شدن به جهان گیمرهای حرفه‌ای نسل آلفا از دریچه تجربه زیسته خود آنان؛ برای شنیدن آنچه معمولاً در توصیف‌های بیرونی از بازی نادیده می‌ماند. کاوش در این تجربه‌ها می‌تواند تصویری عمیق‌تر از نسبت نسل جدید با جهان‌های دیجیتال ارائه دهد و زمینه‌ای برای بازاندیشی در نگاه‌های تربیتی، روان‌شناختی و اجتماعی ما به بازی‌های ویدئویی فراهم کند.</p>						</div>
+					</div>
 
 				</div>
 
-				<div class="sponsorBar"><strong>پنل AppLab: Digital Innovation in Education Research and Practice</strong></div>
-				<br>
-
-				<div class="panelists">
-					<img class="pic" data-src="img/presenters/panels/1.jpg">
-
-					<p class="detail">
-						در این پنل که روز جمعه ۶ اسفند ۱۴۰۵ ساعت ۱۱ به‌صورت آنلاین به میزبانی دکتر کاظم پورالوار عضو هیأت علمی دانشکده چندرسانه‌ای دانشگاه هنر اسلامی تبریز برگزار می‌شود، دکتر Claudio Aguayo مشاور ارشد نوآوری دیجیتال و عضو هیأت علمی دانشگاه تکنولوژی اوکلند (AUT) و علی طاهری مسئول تحقیقات رسانه‌های دیجیتال در AppLab و دانشجوی دکتری دانشگاه  AUTحضور خواهند داشت و در مورد آنچه در AppLab می‌گذرد گفتگو خواهند کرد.
-						<br>
-						در این آزمایشگاه تحقیق، طراحی، توسعه و ارائه راه‌حل‌های دیجیتالی برای طیف وسیعی از زمینه‌ها و شرایط آموزشی انجام می‌شود که شامل ارائه دوره و پشتیبانی برنامه‌های آکادمیک، خدمات مبتنی بر رشته در دانشکده‌ها و بخش‌های مختلف دانشگاه فناوری اوکلند و همکاری با شرکای خارج دانشگاه، چه ملی وچه بین‌المللی، در پروژه‌های تحقیق و توسعه است. پژوهشگران این آزمایشگاه با انجمن‌ها، سازمان‌های غیردولتی، مدارس، مؤسسات و شرکای صنعتی به روش‌های بین‌رشته‌ای تعامل دارند تا راه‌حل‌های اثبات‌شده به صورت آکادمیک را برای چالش‌های واقعی زندگی توسعه دهند. آن‌ها از نزدیک با دانشجویان کارشناسی و کارشناسی ارشد همکاری می‌کنند و به آنها فرصتی برای کار بر روی پروژه‌های واقعی می‌دهند تا توانایی‌های دیجیتال خود را با پشتیبانی یک تیم طراحی و توسعه آگاه و باتجربه به کار بگیرند و مهارت‌های خود را ارتقا دهند. اعضاء AppLab به ایجاد تحول دیجیتال معنادار در آموزش به عنوان راهی برای کمک به دنیای در حال تغییر معتقد هستند.	
-					</p>
-				</div>
-
-
-				<br><br>
-				<div class="sponsorBar"><strong>پنل Exergames; the novel intersection of sports and video games </strong></div>
-				<br>
-
-				<div class="panelists">
-					<img class="pic" data-src="img/presenters/panels/2.jpg">
-
-					<p class="detail">
-						در این پنل، متخصصینی از سنگاپور، هلند و ایران حضور خواهند داشت و در مورد ابعاد مختلف بازی‌های رایانه‌ای-ورزشی به گفتگو خواهند پرداخت.
-					<br>
-					میزبان این پنل که جمعه 6 اسفند 1400 ساعت 12 به‌صورت آنلاین برگزار می‌شود، مهندس حسام ساکیان محمدی عضو هیأت علمی دانشکده چندرسانه‌ای دانشگاه هنر اسلامی تبریز و عضو هیأت مدیره شرکت چندرسانه ای فناوران جوان رایکا است که با بازی تیزران موفق به کسب جایزه‌ی بازی‌های جدی سال 1399 شد. مهمانان این پنل، René Luigies مدیر کنفرانس Games for Health Europe و پروفسور Theng Yin Leng مدیر مرکز Healthy and Sustainable Cities  دانشگاه Nanyang سنگاپور (با اچ‌ایندکس 37) هستند و در این پنل در مورد فرصت‌های پدیدآمده به واسطه‌ی اکسرگیم‌ها و چالش‌های طراحی، اعتبارسنجی و تجاری‌سازی آن‌ها گفتگو خواهند کرد.
-					</p>
-				</div>	
-				
-
-				<br><br>
-				<div class="sponsorBar"><strong>کارگاه طراحی داده‌پیشران در بازی‌های دیجیتال</strong></div>
-				<br>				
-				
-				<div class="panelists">
-					<img class="pic" data-src="img/presenters/panels/3.jpg">
-
-					<p class="detail">
-						در این کارگاه که با همراهی بنیاد ملّی بازی‌های رایانه‌ای و مرکز تحقیقات بازی‌های دیجیتال (دایرک) روز پنجشنبه ۵ اسفند ۱۴۰۵ از ساعت ۱۸ تا ۲۱ برگزار می‌شود، سه نفر از متخصصین حوزه‌ی مطالعات و طراحی بازی در مورد شاخص‌های عملکردی بازی، الگوی داده‌ها و طراحی بازی‌های دیجیتال بر اساس داده‌ها به گفتگو خواهند پرداخت. محمدرضا صیدی عضو مرکز تحقیقات بازی‌های دیجیتال و دانشجوی دکتری دانشگاه اومئو به تعریف و توصیف شاخص‌های عملکردی بازی خواهد پرداخت. شقایق کلی عضو مرکز تحقیقات بازی‌های دیجیتال و دانشجوی مهندسی کامپیوتر دانشگاه ورونا در مورد الگوی داده‌های سخن می‌گوید و شهره اسماعیلی گیم دیزاینر کاریزما گیم‌ استودیو در مورد چگونگی استفاده‌ی طراحان بازی از داده‌ها برای طراحی بهینه صحبت خواهد کرد. 
-					</p>
-				</div>					
-				
 			</div>
 
-			<div id="albumbox" class="BZar hidden">
+<div id="albumbox" class="BZar hidden">
 
 				<div class="sponsorBar"><strong> تصاویر </strong></div>	<br>			
 					<center>
