@@ -180,6 +180,50 @@
 	.komitteh-elmi td.sci-affil {
 		width: 171.75pt;
 	}
+	/* conference schedule (loaded from conference-schedule.html) */
+	.conference-table {
+		border-collapse: collapse;
+		width: 100%;
+		text-align: center;
+	}
+	.conference-table th {
+		background: var(--navy-800) !important;
+		color: #fff !important;
+		border: 1px solid var(--gold) !important;
+		padding: 8px;
+		font-weight: 700;
+	}
+	.conference-table td {
+		border: 1px solid var(--gold) !important;
+		padding: 7px 10px;
+		vertical-align: middle;
+	}
+	/* keep the first body row on the zebra stripe instead of the navy header colour */
+	.conf-articles .conference-table tbody tr:first-child td {
+		background: var(--gold-soft) !important;
+		color: inherit;
+	}
+	.conference-table tr.sched-break td {
+		background: rgba(212, 181, 95, 0.45) !important;
+		color: var(--navy-900);
+		font-weight: 700;
+	}
+	.conference-table td.bg-poster {
+		background: var(--navy-700) !important;
+		color: #fff !important;
+	}
+	.schedule-title {
+		color: var(--navy-800);
+	}
+	.schedule-subtitle {
+		color: var(--gold-dark);
+	}
+	.conference-table .en-sub {
+		color: #555;
+	}
+	.conference-table .sub-topic {
+		color: var(--navy-700);
+	}
 </style>
 </head>
 <body>
@@ -325,367 +369,15 @@
 
             <div id="schedulebox" class="hidden BZar">
 				<div class="sponsorBar"><strong>برنامه کنفرانس</strong></div> <br>
-				<div class="scrolable-div conf-articles color-effect">
-					<div align="center" style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
-						<div align="right" style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
-							<div align="right" style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
-								<table dir="rtl" style="border-collapse:collapse;border:none;">
-									<tbody>
-										<tr>
-											<td colspan="3" style="width:115.3pt;border:solid #BFBFBF 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><strong><span style='font-family:"B Zar";'>زمان</span></strong></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border:solid #BFBFBF 1.0pt;border-right:  none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><strong><span style='font-family:"B Zar";'>برنامه</span></strong></p>
-											</td>
-											<td colspan="2" style="width:191.95pt;border:solid #BFBFBF 1.0pt;border-right:  none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><strong><span style='font-family:"B Zar";'>سامانه</span></strong></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="7" style="width:632.6pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:15.0pt;text-align:  center;vertical-align:baseline;'><strong><span style='font-family:"B Zar";'>برنامه&zwnj;ی پیش&zwnj;رویداد - چهارشنبه ۴ اسفند ۱۴۰۵</span></strong></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="3" style="width:115.3pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="LTR" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span dir="RTL" style='font-family:"B Zar";'>18:30 تا 19:30</span></p>
-											</td>
-											<td colspan="3" style="width:326.0pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style="color:#0563C1;text-decoration:underline;"><span style='font-family:"B Zar";'><a href="https://cgco2022.ui.ac.ir/fa/news.php?rid=95">سخنرانی کلیدی دکتر<span style='font-family:"Calibri",sans-serif;'>&nbsp;</span><span dir="LTR" style='font-family:"Calibri",sans-serif;'>Cody Mejeur</span> با موضوع</a></span></span></p>
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style="color:#0563C1;text-decoration:underline;"><strong><span dir="LTR"><a href="https://cgco2022.ui.ac.ir/fa/news.php?rid=95">Diversity Work(ers) in Game Studies</a></span></strong></span></p>
-											</td>
-											<td rowspan="2" style="width:191.3pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="LTR" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><a href="https://www.aparat.com/uicvgame/live">https://www.aparat.com/uicvgame/live</a></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="3" style="width:115.3pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="LTR" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span dir="RTL" style='font-family:"B Zar";'>19:30 تا 20:30</span></p>
-											</td>
-											<td colspan="3" style="width:326.0pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style="color:#0563C1;text-decoration:underline;"><span style='font-family:"B Zar";'><a href="https://cgco2022.ui.ac.ir/fa/news.php?rid=88">سخنرانی کلیدی دکتر<span dir="LTR" style='font-family:"Calibri",sans-serif;'>Stephanie Rennick&nbsp;</span><span style='font-family:"Calibri",sans-serif;'>&nbsp;</span>با موضوع</a></span></span></p>
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style="color:#0563C1;text-decoration:underline;"><strong><span dir="LTR"><a href="https://cgco2022.ui.ac.ir/fa/news.php?rid=88">Improving video game conversations with trope-informed design</a></span></strong></span></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="7" style="width:632.6pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><strong><span style='font-family:"B Zar";'>برنامه&zwnj;ی روز اول&nbsp;</span></strong><strong><span style='font-family:"Times New Roman",serif;'>&ndash;</span></strong><strong><span style='font-family:"B Zar";'>&nbsp;پنجشنبه 5 اسفند 1400</span></strong></p>
-											</td>
-										</tr>
-										<tr>
-											<td class="diffrent-table-background" rowspan="7" style="width:34.3pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>افتتاحیه</span></p>
-											</td>
-											<td colspan="2" style="width:81.0pt;border-top:none;border-left:solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>8:30 تا 8:40</span></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>قرائت قرآن، سرود ملی، خوشامدگویی مجری</span></p>
-											</td>
-											<td colspan="2" rowspan="11" style="width:191.95pt;border-top:none;border-left:solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><a href="https://www.aparat.com/uicvgame/live"><span dir="LTR">https://www.aparat.com/uicvgame/live</span></a></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="2" style="width:81.0pt;border-top:none;border-left:solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>8:40 تا 8:45</span></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>پخش کلیپ &laquo;آنچه گذشت...&raquo;</span></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="2" style="width:81.0pt;border-top:none;border-left:solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>8:45 تا 9</span></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>سخنرانی دکتر جواد راستی مدیر مرکز نوآوری صنایع سرگرمی دانشگاه اصفهان و دبیر کنفرانس</span></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="2" style="width:81.0pt;border-top:none;border-left:solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>9 تا 9:10</span></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>پخش کلیپ کنفرانس</span></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="2" style="width:81.0pt;border-top:none;border-left:solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>9:10 تا 9:15</span></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>سخنرانی جناب آقای دکتر حسین هرسیج رییس دانشگاه اصفهان</span></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="2" style="width:81.0pt;border-top:none;border-left:solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>9:15 تا 9:20</span></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>پخش کلیپ معرفی مرکز نوآوری صنایع سرگرمی</span></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="2" style="width:81.0pt;border-top:none;border-left:solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>9:20 تا 9:30</span></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>معرفی برنامه&zwnj;ها</span></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="3" style="width:115.3pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>9:30 تا 10:15</span></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style="color:#0563C1;text-decoration:underline;"><span style='font-family:"Arial",sans-serif;'><a href="https://cgco2022.ui.ac.ir/fa/news.php?rid=75"><span style='font-family:"B Zar";'>سخنرانی کلیدی دکتر حامد علیاری با موضوع</span></a></span></span></p>
-												<p dir="LTR" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:8.0pt;line-height:15.0pt;margin:0cm;text-align:center;vertical-align:baseline;'><span style="color:#0563C1;text-decoration:underline;"><strong><span style='font-size:15px;font-family:"Calibri",sans-serif;'><a href="https://cgco2022.ui.ac.ir/fa/news.php?rid=75">NeuroEon: A Novel Scheme of Cognitive Training with AI and VR for Cognitive Purposes in Older Adults</a></span></strong></span></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="3" style="width:115.3pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>10:15 تا 11:15</span></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'><a href="https://cgco2022.ui.ac.ir/fa/news.php?rid=76">سخنرانی کلیدی دکتر پروانه محمدخانی با موضوع</a></span></p>
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style="color:#0563C1;text-decoration:underline;"><strong><span style='font-family:"B Zar";'><a href="https://cgco2022.ui.ac.ir/fa/news.php?rid=76">نقش بازی و لذت در سلامت روان و شادکامی&nbsp;</a></span></strong></span></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="3" style="width:115.3pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>11:15 تا 12:15</span></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style="color:#0563C1;text-decoration:underline;"><strong><span style='font-family:"Arial",sans-serif;'><a href="https://cgco2022.ui.ac.ir/fa/news.php?rid=73"><span style='font-family:"B Zar";font-weight:normal;'>سخنرانی کلیدی دکتر&nbsp;</span><span dir="LTR" style='font-family:"Calibri",sans-serif;font-weight:normal;'>Antonios Liapis</span><span style='font-family:"B Zar";font-weight:normal;'>&nbsp;</span><span style='font-family:"B Zar";font-weight:normal;'>با موضوع</span></a></span></strong></span></p>
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style="color:#0563C1;text-decoration:underline;"><strong><span dir="LTR"><a href="https://cgco2022.ui.ac.ir/fa/news.php?rid=73">Games and Emotion: how AI can bridge the gap between design and experience<span dir="RTL" style='font-family:"Arial",sans-serif;font-weight:normal;'>&nbsp;</span></a></span></strong></span></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="3" style="width:115.3pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>12:15 تا 13:15</span></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'><a href="https://cgco2022.ui.ac.ir/fa/news.php?rid=74">سخنرانی کلیدی دکتر <span dir="LTR" style='font-family:"Calibri",sans-serif;'>Dion Hoe-Lian Goh</span><span style='font-family:"Calibri",sans-serif;'>&nbsp;</span> با موضوع</a></span></p>
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style="color:#0563C1;text-decoration:underline;"><strong><span dir="LTR"><a href="https://cgco2022.ui.ac.ir/fa/news.php?rid=74">User Experience of Games for Crowdsourced Human Computation<span dir="RTL">&nbsp;</span><span dir="RTL" style='font-family:"Arial",sans-serif;font-weight:normal;'>&nbsp;</span></a></span></strong></span></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="3" style="width:115.3pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>13:15 تا 14:30</span></p>
-											</td>
-											<td colspan="4" style="width:517.3pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>ناهار و نماز</span></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="3" rowspan="2" style="width:115.3pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:  4.65pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>14:30 تا 17</span></p>
-											</td>
-											<td class="diffrent-table-background" rowspan="6" style="width:122.15pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  4.65pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>نشست&zwnj;های ارائه&zwnj;ی آنلاین مقالات</span></p>
-											</td>
-											<td style="width:203.2pt;border-top:none;border-left:solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  4.65pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>روانشناسی و یادگیری</span></p>
-											</td>
-											<td colspan="2" style="width:191.95pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  4.65pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><a href="https://b2n.ir/psych"><span dir="LTR">https://b2n.ir/psych</span></a></p>
-											</td>
-										</tr>
-										<tr>
-											<td style="width:203.2pt;border-top:none;border-left:solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  4.65pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>فنی و مهندسی</span></p>
-											</td>
-											<td colspan="2" style="width:191.95pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  4.65pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><a href="https://b2n.ir/techeng"><span dir="LTR">https://b2n.ir/techeng</span></a></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="3" rowspan="2" style="width:115.3pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:  4.65pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>14:30 تا 15:45</span></p>
-											</td>
-											<td style="width:203.2pt;border-top:none;border-left:solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  4.65pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-size:16px;font-family:"B Mitra";color:#363636;border:none windowtext 1.0pt;padding:0cm;'>پزشکی و توانبخشی</span></p>
-											</td>
-											<td colspan="2" style="width:191.95pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  4.65pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><a href="https://b2n.ir/rehab"><span dir="LTR">https://b2n.ir/rehab</span></a></p>
-											</td>
-										</tr>
-										<tr>
-											<td style="width:203.2pt;border-top:none;border-left:solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  4.65pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-size:16px;font-family:"B Mitra";color:#363636;border:none windowtext 1.0pt;padding:0cm;'>هنر</span></p>
-											</td>
-											<td colspan="2" style="width:191.95pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  4.65pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><a href="https://b2n.ir/artist"><span dir="LTR">https://b2n.ir/artist</span></a></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="3" style="width:115.3pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:  4.65pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>14:30 تا 16:15</span></p>
-											</td>
-											<td style="width:203.2pt;border-top:none;border-left:solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  4.65pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-size:16px;font-family:"B Mitra";color:#363636;border:none windowtext 1.0pt;padding:0cm;'>علوم انسانی</span></p>
-											</td>
-											<td colspan="2" style="width:191.95pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  4.65pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><a href="https://b2n.ir/humanity"><span dir="LTR">https://b2n.ir/humanity</span></a></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="3" style="width:115.3pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:  4.65pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>16 تا 17</span></p>
-											</td>
-											<td style="width:203.2pt;border-top:none;border-left:solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  4.65pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-size:16px;font-family:"B Mitra";color:#363636;border:none windowtext 1.0pt;padding:0cm;'>موسیقی</span></p>
-											</td>
-											<td colspan="2" style="width:191.95pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  4.65pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><a href="https://b2n.ir/musicc"><span dir="LTR">https://b2n.ir/musicc</span></a></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="3" style="width:115.3pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:  4.65pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>18 تا 21</span></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  4.65pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><a href="https://cgco2022.ui.ac.ir/fa/news.php?rid=79"><span style='font-family:"B Zar";'>کارگاه طراحی داده&zwnj;پیشران در بازی&zwnj;های دیجیتال</span></a></p>
-											</td>
-											<td colspan="2" style="width:191.95pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  4.65pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><a href="https://b2n.ir/worksh"><span dir="LTR">https://b2n.ir/worksh</span></a></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="3" style="width:115.3pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>18:30 تا 19:30</span></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'><a href="https://cgco2022.ui.ac.ir/fa/news.php?rid=93"><span style='font-family:  "Arial",sans-serif;color:windowtext;text-decoration:none;'>&nbsp;</span>سخنرانی کلیدی دکتر <span dir="LTR" style='font-family:"Calibri",sans-serif;'>Thomas Apperley</span> با موضوع</a></span></p>
-												<p dir="LTR" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style="color:#0563C1;text-decoration:underline;"><strong><span><a href="https://cgco2022.ui.ac.ir/fa/news.php?rid=93">Modeling the Gamer: The Gendered Dynamics of Fashion and Affective Labor in Game &nbsp;Cultures&nbsp;</a></span></strong></span></p>
-											</td>
-											<td colspan="2" rowspan="2" style="width:191.95pt;border-top:none;border-left:solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><a href="https://www.aparat.com/uicvgame/live"><span dir="LTR">https://www.aparat.com/uicvgame/live</span></a></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="3" style="width:115.3pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>1</span><span style='font-family:"B Zar";'>9:30 تا 20:30</span></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style="color:#0563C1;text-decoration:underline;"><span style='font-family:"B Zar";'><a href="https://cgco2022.ui.ac.ir/fa/news.php?rid=91">سخنرانی کلیدی دکتر <span dir="LTR" style='font-family:"Calibri",sans-serif;'>Constance Steinkuehler</span> با موضوع</a></span></span></p>
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style="color:#0563C1;text-decoration:underline;"><strong><span dir="LTR"><a href="https://cgco2022.ui.ac.ir/fa/news.php?rid=91">Enriching Esports: Four Years of Research Findings on NASEF <span dir="RTL">&nbsp;</span><span dir="RTL" style='font-family:"B Zar";'>&nbsp;</span></a></span></strong></span></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="7" style="width:632.6pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><strong><span style='font-family:"B Zar";'>برنامه&zwnj;ی روز دوم&nbsp;</span></strong><strong><span style='font-family:"Times New Roman",serif;'>&ndash;</span></strong><strong><span style='font-family:"B Zar";'>&nbsp;جمعه 6</span></strong><strong><span style='font-family:"Arial",sans-serif;'>&nbsp;</span></strong><strong><span style='font-family:"B Zar";'>اسفند 1400</span></strong></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="3" style="width:115.3pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>11 تا 12</span></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style="color:#0563C1;text-decoration:underline;"><span style='font-family:"B Zar";'><a href="https://cgco2022.ui.ac.ir/fa/news.php?rid=77">پنل تخصصی فنی با موضوع <span dir="LTR" style='font-family:"Calibri",sans-serif;'>AppLab: Digital Innovation in Education Research and Practice</span></a></span></span></p>
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style="color:#0563C1;text-decoration:underline;"><strong><span style='font-family:"B Zar";'><a href="https://cgco2022.ui.ac.ir/fa/news.php?rid=77">با حضور دکتر <span dir="LTR" style='font-family:"Calibri",sans-serif;'>Claudio Aguayo</span> و دکتر علی طاهری به میزبانی دکتر کاظم پورالوار</a></span></strong></span></p>
-											</td>
-											<td colspan="2" rowspan="9" style="width:191.95pt;border-top:none;border-left:solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><a href="https://www.aparat.com/uicvgame/live"><span dir="LTR">https://www.aparat.com/uicvgame/live</span></a></p>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="3" style="width:115.3pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>12 تا 13</span></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style="color:#0563C1;text-decoration:underline;"><span style='font-family:"Arial",sans-serif;'><a href="https://cgco2022.ui.ac.ir/fa/news.php?rid=78"><span style='font-family:"B Zar";'>پنل تخصصی&nbsp;</span><span dir="LTR" style='font-family:"Calibri",sans-serif;'>Exergames; the novel intersection of sports and video games</span></a></span></span></p>
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style="color:#0563C1;text-decoration:underline;"><strong><span style='font-family:"B Zar";'><a href="https://cgco2022.ui.ac.ir/fa/news.php?rid=78">با حضور <span dir="LTR" style='font-family:"Calibri",sans-serif;'>Ren&eacute; Luigies</span> و پروفسور<span style='font-family:"Calibri",sans-serif;'>&nbsp;</span><span dir="LTR" style='font-family:"Calibri",sans-serif;'>Theng Yin Leng&nbsp;</span><span style='font-family:"Calibri",sans-serif;'>&nbsp;</span> به میزبانی مهندس حسام ساکیان محمدی&nbsp;</a></span></strong></span></p>
-											</td>
-										</tr>
-										<tr>
-											<td class="diffrent-table-background" colspan="2" rowspan="7" style="width:51.5pt;border:solid #BFBFBF 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>اختتامیه</span></p>
-											</td>
-											<td style="width:63.8pt;border-top:none;border-left:solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>12 تا 12:15</span></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>قرائت قرآن، سرود ملی، خوشامدگویی مجری</span></p>
-											</td>
-										</tr>
-										<tr>
-											<td style="width:63.8pt;border-top:none;border-left:solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>12:15 تا 12:25</span></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>ارائه&zwnj;ی گزارش برگزاری کنفرانس توسط دکتر جواد راستی دبیر کنفرانس</span></p>
-											</td>
-										</tr>
-										<tr>
-											<td style="width:63.8pt;border-top:none;border-left:solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>12:25 تا 12:30</span></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>پخش کلیپ حاشیه&zwnj;ها</span></p>
-											</td>
-										</tr>
-										<tr>
-											<td style="width:63.8pt;border-top:none;border-left:solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>12:30 تا 12:35</span></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>تقدیر از کادر اجرایی</span></p>
-											</td>
-										</tr>
-										<tr>
-											<td style="width:63.8pt;border-top:none;border-left:solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>12:35 تا 12:40</span></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>رونمایی از تالار مجازی کنفرانس</span></p>
-											</td>
-										</tr>
-										<tr>
-											<td style="width:63.8pt;border-top:none;border-left:solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>12:40 تا 12:50</span></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>معرفی مقالات برتر کنفرانس</span></p>
-											</td>
-										</tr>
-										<tr>
-											<td style="width:63.8pt;border-top:none;border-left:solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>12:50 تا 13</span></p>
-											</td>
-											<td colspan="2" style="width:325.35pt;border-top:none;border-left:  solid #BFBFBF 1.0pt;border-bottom:solid #BFBFBF 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:  6.2pt;">
-												<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0cm;margin-bottom:0cm;line-height:normal;text-align:  center;'><span style='font-family:"B Zar";'>اعلام برندگان جوایز مقالات برتر بازی&zwnj;های شناختی آماده&zwnj;ی تجاری&zwnj;سازی (ستاد توسعه&zwnj;ی علوم و فناوری&zwnj;های شناختی) و حوزه نگاه مبتنی بر شواهد (بنیاد ملّی بازی&zwnj;های رایانه&zwnj;ای)</span></p>
-											</td>
-										</tr>
-										<tr>
-											<td style="border:none;"><br></td>
-											<td style="border:none;"><br></td>
-											<td style="border:none;"><br></td>
-											<td style="border:none;"><br></td>
-											<td style="border:none;"><br></td>
-											<td style="border:none;"><br></td>
-											<td style="border:none;"><br></td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:12.0pt;margin-bottom:0cm;line-height:107%;text-align:center;'><strong><span style='font-size:19px;line-height:107%;font-family:"B Zar";'>&nbsp;</span></strong></p>
-						</div>
-						<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:12.0pt;margin-bottom:0cm;line-height:107%;text-align:center;'><strong><span style='font-size:19px;line-height:107%;font-family:"B Zar";'>&nbsp;</span></strong></p>
-					</div>
-					<p dir="RTL" style='margin-right:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-top:12.0pt;margin-bottom:0cm;line-height:107%;text-align:center;'><strong><span style='font-size:19px;line-height:107%;font-family:"B Zar";'>&nbsp;</span></strong></p>
+				<div class="scrolable-div conf-articles color-effect" id="scheduleContent">
+					<div class="committee-loading">در حال بارگذاری برنامه کنفرانس…</div>
 				</div>
 				<br><br>
 
-				</div>
-
+			</div>
 
 			
-
-
-			<div id="keyspeechbox" class="BZar hidden" style="padding: 2% 20%;" >
+<div id="keyspeechbox" class="BZar hidden" style="padding: 2% 20%;" >
 				<div class="sponsorBar"><strong>سخنرانان کلیدی و پنل‌ها</strong></div>
 				<br>
 
@@ -2561,6 +2253,26 @@ var navbar = document.getElementById("col");
 			})
 			.catch(function () {
 				body.innerHTML = '<tr><td colspan="4" class="committee-error">بارگذاری لیست همکاران اجرایی ناموفق بود.</td></tr>';
+			});
+	})();
+</script>
+
+<script type="text/javascript">
+	/* conference schedule (conference-schedule.html) */
+	(function () {
+		var box = document.getElementById("scheduleContent");
+		if (!box || typeof fetch !== "function") return;
+
+		fetch("conference-schedule.html", { cache: "no-cache" })
+			.then(function (res) {
+				if (!res.ok) throw new Error("HTTP " + res.status);
+				return res.text();
+			})
+			.then(function (html) {
+				box.innerHTML = html;
+			})
+			.catch(function () {
+				box.innerHTML = '<div class="committee-error">بارگذاری برنامه کنفرانس ناموفق بود.</div>';
 			});
 	})();
 </script>
