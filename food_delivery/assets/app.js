@@ -17,7 +17,7 @@
     var cameraStream = null;
     var cameraFacing = 'environment';
     var scanFrameId = null;
-    var lastScan = { code: '', time: 0 };
+    var lastScan = { uid: '', time: 0 };
     var qrLibPromise = null;
     var jsQrPromise = null;
     var currentTab = 'scanner';
@@ -212,10 +212,11 @@
             var dup = item.status === 'already_delivered';
             var color = ok ? 'bg-emerald-100 text-emerald-800' : (dup ? 'bg-rose-100 text-rose-800' : 'bg-amber-100 text-amber-800');
             var label = ok ? 'تحویل شد' : (dup ? 'تکراری' : 'نامعتبر');
+            var displayName = escapeHtml(item.full_name || item.uid || '');
             return '<div class="flex items-center justify-between py-1.5 px-2 bg-slate-50 rounded border border-slate-100 text-xs">' +
                 '<div class="flex items-center gap-2">' +
                 '<span class="text-[10px] font-bold px-1.5 py-0.2 rounded ' + color + '">' + label + '</span>' +
-                '<span class="font-semibold text-slate-800">' + escapeHtml(item.full_name || item.code || '') + '</span>' +
+                '<span class="font-semibold text-slate-800">' + displayName + '</span>' +
                 '</div>' +
                 '<div class="flex items-center gap-2 text-[11px] text-slate-400">' +
                 '<span>' + escapeHtml(item.admin_name || '') + '</span>' +
@@ -272,6 +273,7 @@
                 : (result.status === 'not_found' ? 'فرد در سیستم یافت نشد' : 'کد نامعتبر است'));
         subtitle.textContent = result.message || '';
 
+        $('scanDetailUserId').textContent = (result.attendee && result.attendee.id) ? String(result.attendee.id) : '---';
         if (result.attendee) {
             grid.classList.remove('hidden');
             $('scanDetailAttendee').textContent = result.attendee.full_name || '---';
@@ -285,8 +287,8 @@
 
     function submitScan(raw, source) {
         var now = Date.now();
-        if (raw === lastScan.code && (now - lastScan.time) < 2000) return;
-        lastScan = { code: raw, time: now };
+        if (raw === lastScan.uid && (now - lastScan.time) < 2000) return;
+        lastScan = { uid: raw, time: now };
         api('scan', { qr: raw, source: source }).then(function (data) {
             var result = data.result || {};
             showScanResult(result);
@@ -393,8 +395,7 @@
                 : '<span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-medium text-[11px]">غذا نگرفته</span>';
             return '<tr class="hover:bg-slate-50 transition">' +
                 '<td class="py-2 px-3 font-mono text-slate-400">' + (index + 1) + '</td>' +
-                '<td class="py-2 px-3"><span class="font-semibold text-slate-900 block">' + escapeHtml(item.full_name) + '</span>' +
-                '<span class="font-mono text-[11px] text-slate-400" dir="ltr">' + escapeHtml(item.code || '') + '</span></td>' +
+                '<td class="py-2 px-3"><span class="font-semibold text-slate-900 block">' + escapeHtml(item.full_name) + '</span></td>' +
                 '<td class="py-2 px-3 text-center">' + tag + '</td>' +
                 '<td class="py-2 px-3 text-slate-700">' + escapeHtml(item.delivered_by_name || '---') + '</td>' +
                 '<td class="py-2 px-3 text-slate-500 font-mono text-[11px]" dir="ltr">' + escapeHtml(item.delivered_at ? String(item.delivered_at).slice(-8) : '---') + '</td>' +
@@ -486,7 +487,7 @@
         ctx.fillStyle = '#64748b';
         ctx.textAlign = 'center';
         ctx.font = '13px IRANSansFaNum, sans-serif';
-        ctx.fillText(attendee.full_name + '  (' + attendee.code + ')', 250, 520);
+        ctx.fillText(attendee.full_name + '  (' + attendee.id + ')', 250, 520);
 
         ctx.fillStyle = '#ecfdf5';
         ctx.strokeStyle = '#059669';
@@ -880,7 +881,7 @@
                 var input = $('manualCodeInput');
                 var value = input.value.trim();
                 if (!value) return;
-                lastScan = { code: '', time: 0 };
+                lastScan = { uid: '', time: 0 };
                 submitScan(value, 'manual');
                 input.value = '';
             });

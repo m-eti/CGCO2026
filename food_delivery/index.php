@@ -7,7 +7,7 @@
 declare(strict_types=1);
 
 const SESSION_COOKIE = 'fd_admin_sid';
-const QR_PREFIX = 'CONF2026';
+const QR_PAYLOAD_SEPARATOR = '|';
 
 function parse_env_file(string $path): array {
     $values = [];
@@ -210,13 +210,13 @@ function init_database(): void {
     )');
     $pdo->exec('CREATE TABLE IF NOT EXISTS attendees (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        code TEXT UNIQUE NOT NULL,
         full_name TEXT NOT NULL,
         received_food INTEGER NOT NULL DEFAULT 0,
         delivered_by_id INTEGER DEFAULT NULL,
         delivered_by_name TEXT DEFAULT NULL,
         delivered_at TEXT DEFAULT NULL,
-        created_at TEXT NOT NULL
+        created_at TEXT NOT NULL,
+        updated_at TEXT DEFAULT NULL
     )');
     $pdo->exec('CREATE TABLE IF NOT EXISTS settings (
         key TEXT PRIMARY KEY,
@@ -230,14 +230,13 @@ function init_database(): void {
     )');
     $pdo->exec('CREATE TABLE IF NOT EXISTS scan_log (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        code TEXT DEFAULT NULL,
+        uid TEXT DEFAULT NULL,
         full_name TEXT DEFAULT NULL,
         status TEXT NOT NULL,
         admin_id INTEGER DEFAULT NULL,
         admin_name TEXT DEFAULT NULL,
         created_at TEXT NOT NULL
     )');
-    $pdo->exec('CREATE INDEX IF NOT EXISTS idx_attendees_code ON attendees(code)');
     $pdo->exec('CREATE INDEX IF NOT EXISTS idx_attendees_delivery ON attendees(delivered_by_id, received_food)');
     $pdo->exec('CREATE INDEX IF NOT EXISTS idx_scan_log_created ON scan_log(created_at DESC)');
 
@@ -253,33 +252,37 @@ function init_database(): void {
     }
 }
 
-function migrate_attendee_codes(): void {
-    if (get_setting('attendee_codes_randomized') === '1') {
-        return;
-    }
+function drop_legacy_columns(): void {
     $pdo = db();
-    $rows = $pdo->query('SELECT id, code FROM attendees ORDER BY id ASC')->fetchAll();
-    $taken = [];
-    foreach ($rows as $row) {
-        $taken[strtolower((string)$row['code'])] = true;
+    $attendeeCols = table_columns('attendees');
+    if (in_array('code', $attendeeCols, true)) {
+        $pdo->exec('BEGIN');
+        $pdo->exec('ALTER TABLE attendees RENAME TO attendees_old');
+        $pdo->exec('CREATE TABLE attendees (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            full_name TEXT NOT NULL,
+            received_food INTEGER NOT NULL DEFAULT 0,
+            delivered_by_id INTEGER DEFAULT NULL,
+            delivered_by_name TEXT DEFAULT NULL,
+            delivered_at TEXT DEFAULT NULL,
+            created_at TEXT NOT NULL,
+            updated_at TEXT DEFAULT NULL
+        )');
+        $pdo->exec('INSERT INTO attendees (id, full_name, received_food, delivered_by_id, delivered_by_name, delivered_at, created_at, updated_at)
+                    SELECT id, full_name, received_food, delivered_by_id, delivered_by_name, delivered_at, created_at, updated_at FROM attendees_old');
+        $pdo->exec('DROP TABLE attendees_old');
+        $pdo->exec('CREATE INDEX IF NOT EXISTS idx_attendees_delivery ON attendees(delivered_by_id, received_food)');
+        $pdo->exec("UPDATE sqlite_sequence SET seq = (SELECT COALESCE(MAX(id), 0) FROM attendees) WHERE name = 'attendees'");
+        $pdo->exec('COMMIT');
     }
-    $update = $pdo->prepare('UPDATE attendees SET code = ? WHERE id = ?');
-    foreach ($rows as $row) {
-        $code = '';
-        for ($attempt = 0; $attempt < 30; $attempt++) {
-            $candidate = random_code();
-            if (!isset($taken[$candidate])) {
-                $code = $candidate;
-                $taken[$candidate] = true;
-                break;
-            }
-        }
-        if ($code === '') {
-            continue;
-        }
-        $update->execute([$code, (int)$row['id']]);
+    $scanCols = table_columns('scan_log');
+    if (in_array('code', $scanCols, true)) {
+        $pdo->exec('ALTER TABLE scan_log RENAME COLUMN code TO uid');
     }
-    set_setting('attendee_codes_randomized', '1');
+    $settingsCols = table_columns('settings');
+    if (in_array('attendee_codes_randomized', $settingsCols, true)) {
+        $pdo->exec("DELETE FROM settings WHERE key = 'attendee_codes_randomized'");
+    }
 }
 
 function get_setting(string $key, ?string $default = null): ?string {
@@ -351,41 +354,38 @@ function qr_secret(): string {
     return $secret;
 }
 
-function qr_payload(string $code): string {
-    $clean = strtolower(trim($code));
-    $sig = substr(hash_hmac('sha256', strtoupper($clean), qr_secret()), 0, 8);
-    return QR_PREFIX . '|' . $clean . '|' . $sig;
+function qr_payload(int $userId): string {
+    $sig = strtoupper(substr(hash_hmac('sha256', (string)$userId, qr_secret()), 0, 8));
+    return (string)$userId . QR_PAYLOAD_SEPARATOR . $sig;
 }
 
-function verify_qr_payload(string $raw, bool $requireSignature): string {
+function verify_qr_payload(string $raw): int {
     $raw = trim($raw);
     if ($raw === '') {
-        throw new RuntimeException('کد خالی است.');
+        throw new RuntimeException('شناسه خالی است.');
     }
-    if (str_starts_with(strtoupper($raw), QR_PREFIX . '|')) {
-        $parts = explode('|', $raw);
-        if (count($parts) !== 3) {
-            throw new RuntimeException('قالب کد QR نامعتبر است.');
-        }
-        $code = strtolower(trim($parts[1]));
-        $sig = strtoupper(trim($parts[2]));
-        $expected = strtoupper(substr(hash_hmac('sha256', strtoupper($code), qr_secret()), 0, 8));
-        if (!hash_equals($expected, $sig)) {
-            throw new RuntimeException('امضای امنیتی کد QR نامعتبر است.');
-        }
-        if (!is_valid_code($code)) {
-            throw new RuntimeException('شناسه کارت معتبر نیست.');
-        }
-        return $code;
+    if (str_contains($raw, 'CONF2026')) {
+        throw new RuntimeException('قالب کد QR قدیمی است؛ کارت را با نسخهٔ جدید تولید کنید.');
     }
-    if ($requireSignature) {
-        throw new RuntimeException('کد QR امضا نشده و قابل قبول نیست.');
+    $parts = explode(QR_PAYLOAD_SEPARATOR, $raw);
+    if (count($parts) !== 2) {
+        throw new RuntimeException('قالب شناسه کاربر و امضا نامعتبر است.');
     }
-    $manual = strtolower($raw);
-    if (!is_valid_code($manual)) {
-        throw new RuntimeException('شناسه کارت معتبر نیست (۵ حرف یا رقم).');
+    $userIdText = trim($parts[0]);
+    $sig = strtoupper(trim($parts[1]));
+    if (!is_valid_user_id($userIdText)) {
+        throw new RuntimeException('شناسه کاربر معتبر نیست.');
     }
-    return $manual;
+    $userId = (int)$userIdText;
+    $expected = strtoupper(substr(hash_hmac('sha256', (string)$userId, qr_secret()), 0, 8));
+    if (!hash_equals($expected, $sig)) {
+        throw new RuntimeException('امضای امنیتی نامعتبر است.');
+    }
+    return $userId;
+}
+
+function is_valid_user_id(string $userId): bool {
+    return (bool)preg_match('/^[1-9][0-9]*$/', $userId);
 }
 
 function normalize_username(string $username): string {
@@ -494,12 +494,11 @@ function stats_for(?int $adminId): array {
 }
 
 function attendees_payload(): array {
-    $rows = db()->query('SELECT id, code, full_name, received_food, delivered_by_name, delivered_at FROM attendees ORDER BY id ASC')->fetchAll();
+    $rows = db()->query('SELECT id, full_name, received_food, delivered_by_name, delivered_at FROM attendees ORDER BY id ASC')->fetchAll();
     $out = [];
     foreach ($rows as $row) {
         $out[] = [
             'id' => (int)$row['id'],
-            'code' => (string)$row['code'],
             'full_name' => (string)$row['full_name'],
             'received_food' => (int)$row['received_food'],
             'delivered_by_name' => $row['delivered_by_name'] !== null ? (string)$row['delivered_by_name'] : null,
@@ -530,16 +529,16 @@ function admins_payload(): array {
 
 function recent_scans_payload(bool $superAdmin, int $adminId): array {
     if ($superAdmin) {
-        $rows = db()->query('SELECT code, full_name, status, admin_name, created_at FROM scan_log ORDER BY id DESC LIMIT 8')->fetchAll();
+        $rows = db()->query('SELECT uid, full_name, status, admin_name, created_at FROM scan_log ORDER BY id DESC LIMIT 8')->fetchAll();
     } else {
-        $stmt = db()->prepare('SELECT code, full_name, status, admin_name, created_at FROM scan_log WHERE admin_id = ? ORDER BY id DESC LIMIT 8');
+        $stmt = db()->prepare('SELECT uid, full_name, status, admin_name, created_at FROM scan_log WHERE admin_id = ? ORDER BY id DESC LIMIT 8');
         $stmt->execute([$adminId]);
         $rows = $stmt->fetchAll();
     }
     $out = [];
     foreach ($rows as $row) {
         $out[] = [
-            'code' => $row['code'] !== null ? (string)$row['code'] : '',
+            'uid' => $row['uid'] !== null ? (string)$row['uid'] : '',
             'full_name' => (string)$row['full_name'],
             'status' => (string)$row['status'],
             'admin_name' => $row['admin_name'] !== null ? (string)$row['admin_name'] : '',
@@ -549,46 +548,16 @@ function recent_scans_payload(bool $superAdmin, int $adminId): array {
     return $out;
 }
 
-function log_scan(string $status, ?string $code, ?string $fullName, ?array $admin): void {
-    $stmt = db()->prepare('INSERT INTO scan_log (code, full_name, status, admin_id, admin_name, created_at) VALUES (?, ?, ?, ?, ?, ?)');
+function log_scan(string $status, ?string $uid, ?string $fullName, ?array $admin): void {
+    $stmt = db()->prepare('INSERT INTO scan_log (uid, full_name, status, admin_id, admin_name, created_at) VALUES (?, ?, ?, ?, ?, ?)');
     $stmt->execute([
-        $code,
+        $uid,
         $fullName,
         $status,
         $admin['id'] ?? null,
         $admin['full_name'] ?? null,
         date('Y-m-d H:i:s'),
     ]);
-}
-
-function random_code(int $length = 5): string {
-    $alphabet = 'abcdefghijklmnopqrstuvwxyz0123456789';
-    $max = strlen($alphabet) - 1;
-    $code = '';
-    for ($i = 0; $i < $length; $i++) {
-        $code .= $alphabet[random_int(0, $max)];
-    }
-    return $code;
-}
-
-function code_exists(string $code): bool {
-    $stmt = db()->prepare('SELECT 1 FROM attendees WHERE LOWER(code) = LOWER(?) LIMIT 1');
-    $stmt->execute([$code]);
-    return $stmt->fetchColumn() !== false;
-}
-
-function generate_unique_code(): string {
-    for ($attempt = 0; $attempt < 30; $attempt++) {
-        $code = random_code();
-        if (!code_exists($code)) {
-            return $code;
-        }
-    }
-    throw new RuntimeException('تولید شناسه یکتا ناموفق بود.');
-}
-
-function is_valid_code(string $code): bool {
-    return (bool)preg_match('/^[a-z0-9]{5}$/', $code);
 }
 
 function json_out(array $payload, int $status = 200): void {
@@ -771,7 +740,7 @@ function xlsx_read_names(string $path): array {
 
 init_database();
 sync_admin_from_env();
-migrate_attendee_codes();
+drop_legacy_columns();
 $currentAdmin = current_admin();
 $isSuperAdmin = $currentAdmin !== null && $currentAdmin['role'] === 'super_admin';
 
@@ -881,9 +850,8 @@ if ($apiAction !== '') {
                 $_SESSION['scan_window'] = $windowStart;
                 $body = read_json_body();
                 $raw = (string)($body['qr'] ?? '');
-                $source = (string)($body['source'] ?? 'camera');
                 try {
-                    $code = verify_qr_payload($raw, $source === 'camera');
+                    $userId = verify_qr_payload($raw);
                 } catch (RuntimeException $e) {
                     log_scan('invalid', null, null, $currentAdmin);
                     json_out(['ok' => true, 'result' => [
@@ -891,24 +859,23 @@ if ($apiAction !== '') {
                         'message' => $e->getMessage(),
                     ], 'stats' => stats_for((int)$currentAdmin['id']), 'recent_scans' => recent_scans_payload($isSuperAdmin, (int)$currentAdmin['id'])]);
                 }
-                $stmt = db()->prepare('SELECT * FROM attendees WHERE code = ? LIMIT 1');
-                $stmt->execute([$code]);
+                $stmt = db()->prepare('SELECT * FROM attendees WHERE id = ? LIMIT 1');
+                $stmt->execute([$userId]);
                 $attendee = $stmt->fetch();
                 if (!$attendee) {
-                    log_scan('not_found', $code, null, $currentAdmin);
+                    log_scan('not_found', (string)$userId, null, $currentAdmin);
                     json_out(['ok' => true, 'result' => [
                         'status' => 'not_found',
-                        'message' => 'کد (' . $code . ') در لیست ثبت نشده است.',
+                        'message' => 'کاربر (' . $userId . ') در سیستم یافت نشد.',
                     ], 'stats' => stats_for((int)$currentAdmin['id']), 'recent_scans' => recent_scans_payload($isSuperAdmin, (int)$currentAdmin['id'])]);
                 }
                 if ((int)$attendee['received_food'] === 1) {
-                    log_scan('already_delivered', $code, (string)$attendee['full_name'], $currentAdmin);
+                    log_scan('already_delivered', (string)$userId, (string)$attendee['full_name'], $currentAdmin);
                     json_out(['ok' => true, 'result' => [
                         'status' => 'already_delivered',
                         'message' => 'این فرد قبلاً غذا دریافت کرده است.',
                         'attendee' => [
                             'id' => (int)$attendee['id'],
-                            'code' => (string)$attendee['code'],
                             'full_name' => (string)$attendee['full_name'],
                         ],
                         'delivered_by_name' => $attendee['delivered_by_name'] !== null ? (string)$attendee['delivered_by_name'] : 'نامشخص',
@@ -918,13 +885,12 @@ if ($apiAction !== '') {
                 $nowTime = date('Y-m-d H:i:s');
                 $upd = db()->prepare('UPDATE attendees SET received_food = 1, delivered_by_id = ?, delivered_by_name = ?, delivered_at = ?, updated_at = ? WHERE id = ? AND received_food = 0');
                 $upd->execute([(int)$currentAdmin['id'], (string)$currentAdmin['full_name'], $nowTime, $nowTime, (int)$attendee['id']]);
-                log_scan('ok', $code, (string)$attendee['full_name'], $currentAdmin);
+                log_scan('ok', (string)$userId, (string)$attendee['full_name'], $currentAdmin);
                 json_out(['ok' => true, 'result' => [
                     'status' => 'ok',
                     'message' => 'تحویل غذا با موفقیت ثبت شد.',
                     'attendee' => [
                         'id' => (int)$attendee['id'],
-                        'code' => (string)$attendee['code'],
                         'full_name' => (string)$attendee['full_name'],
                     ],
                     'delivered_by_name' => (string)$currentAdmin['full_name'],
@@ -936,10 +902,10 @@ if ($apiAction !== '') {
                 if (!$isSuperAdmin) {
                     json_out(['ok' => false, 'error' => 'دسترسی غیرمجاز است.'], 403);
                 }
-                $rows = db()->query('SELECT id, code FROM attendees ORDER BY id ASC')->fetchAll();
+                $rows = db()->query('SELECT id FROM attendees ORDER BY id ASC')->fetchAll();
                 $payloads = [];
                 foreach ($rows as $row) {
-                    $payloads[(int)$row['id']] = qr_payload((string)$row['code']);
+                    $payloads[(int)$row['id']] = qr_payload((int)$row['id']);
                 }
                 json_out(['ok' => true, 'payloads' => $payloads]);
 
@@ -953,12 +919,11 @@ if ($apiAction !== '') {
                 if ($fullName === '' || u_len($fullName) > 120) {
                     json_out(['ok' => false, 'error' => 'نام و نام خانوادگی را وارد کنید.'], 400);
                 }
-                $code = generate_unique_code();
-                $stmt = db()->prepare('INSERT INTO attendees (code, full_name, received_food, created_at) VALUES (?, ?, 0, ?)');
-                $stmt->execute([$code, $fullName, date('Y-m-d H:i:s')]);
+                $stmt = db()->prepare('INSERT INTO attendees (full_name, received_food, created_at) VALUES (?, 0, ?)');
+                $stmt->execute([$fullName, date('Y-m-d H:i:s')]);
+                $newId = (int)db()->lastInsertId();
                 json_out(['ok' => true, 'attendee' => [
-                    'id' => (int)db()->lastInsertId(),
-                    'code' => $code,
+                    'id' => $newId,
                     'full_name' => $fullName,
                     'received_food' => 0,
                     'delivered_by_name' => null,
@@ -1009,31 +974,15 @@ if ($apiAction !== '') {
                     json_out(['ok' => false, 'error' => 'نامی در فایل یافت نشد.'], 400);
                 }
                 $pdo = db();
-                $taken = [];
-                foreach ($pdo->query('SELECT LOWER(code) AS c FROM attendees') as $row) {
-                    $taken[(string)$row['c']] = true;
-                }
                 $pdo->beginTransaction();
-                $insert = $pdo->prepare('INSERT INTO attendees (code, full_name, received_food, created_at) VALUES (?, ?, 0, ?)');
+                $insert = $pdo->prepare('INSERT INTO attendees (full_name, received_food, created_at) VALUES (?, 0, ?)');
                 $added = 0;
                 foreach ($names as $name) {
                     $name = trim(preg_replace('/\s+/u', ' ', $name) ?? '');
                     if ($name === '' || u_len($name) > 120) {
                         continue;
                     }
-                    $code = '';
-                    for ($attempt = 0; $attempt < 30; $attempt++) {
-                        $candidate = random_code();
-                        if (!isset($taken[$candidate])) {
-                            $code = $candidate;
-                            $taken[$candidate] = true;
-                            break;
-                        }
-                    }
-                    if ($code === '') {
-                        continue;
-                    }
-                    $insert->execute([$code, $name, date('Y-m-d H:i:s')]);
+                    $insert->execute([$name, date('Y-m-d H:i:s')]);
                     $added++;
                 }
                 $pdo->commit();
@@ -1044,12 +993,12 @@ if ($apiAction !== '') {
                 if (!$isSuperAdmin) {
                     json_out(['ok' => false, 'error' => 'دسترسی غیرمجاز است.'], 403);
                 }
-                $rows = [['ردیف', 'کد کارت', 'نام و نام خانوادگی', 'وضعیت غذا', 'تحویل‌دهنده', 'زمان تحویل']];
-                $items = db()->query('SELECT code, full_name, received_food, delivered_by_name, delivered_at FROM attendees ORDER BY id ASC')->fetchAll();
+                $rows = [['ردیف', 'شناسه', 'نام و نام خانوادگی', 'وضعیت غذا', 'تحویل‌دهنده', 'زمان تحویل']];
+                $items = db()->query('SELECT id, full_name, received_food, delivered_by_name, delivered_at FROM attendees ORDER BY id ASC')->fetchAll();
                 foreach ($items as $i => $item) {
                     $rows[] = [
                         $i + 1,
-                        (string)$item['code'],
+                        (string)$item['id'],
                         (string)$item['full_name'],
                         (int)$item['received_food'] === 1 ? 'تحویل شده' : 'غذا نگرفته',
                         $item['delivered_by_name'] !== null ? (string)$item['delivered_by_name'] : '---',
@@ -1321,7 +1270,7 @@ function first_letter(string $value): string {
                         </div>
 
                         <form id="manualScanForm" class="pt-2 border-t border-slate-100 flex gap-2">
-                            <input type="text" id="manualCodeInput" placeholder="ورود دستی کد کارت..." dir="ltr" autocomplete="off" class="flex-1 bg-slate-50 border border-slate-200 focus:border-emerald-500 rounded-lg px-2.5 py-1.5 text-xs outline-none">
+                            <input type="text" id="manualCodeInput" placeholder="شناسه کاربر | امضا، مثلاً 7|3F9A1B2C4D5E6F78" dir="ltr" autocomplete="off" class="flex-1 bg-slate-50 border border-slate-200 focus:border-emerald-500 rounded-lg px-2.5 py-1.5 text-xs outline-none">
                             <button type="submit" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs font-medium">ثبت</button>
                         </form>
                     </div>
@@ -1343,6 +1292,10 @@ function first_letter(string $value): string {
                                             <span id="scanDetailAdminLabel" class="text-slate-500 block text-[11px]">تحویل توسط:</span>
                                             <strong id="scanDetailAdminName" class="text-slate-900 mt-0.5 block">---</strong>
                                             <span id="scanDetailTime" class="text-slate-500 text-[11px] block mt-0.5" dir="ltr">---</span>
+                                        </div>
+                                        <div class="bg-white/80 p-2.5 rounded border border-inherit">
+                                            <span class="text-slate-500 block text-[11px]">شناسه کاربر:</span>
+                                            <strong id="scanDetailUserId" class="text-slate-900 mt-0.5 block text-sm" dir="ltr">---</strong>
                                         </div>
                                     </div>
                                 </div>
@@ -1427,7 +1380,7 @@ function first_letter(string $value): string {
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
                     <div class="md:col-span-5 bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-3">
                         <h3 class="text-sm font-bold text-slate-800">صدور و چاپ کارت گردنی</h3>
-                        <p class="text-xs text-slate-500">کارت‌ها شامل کد QR، نام و شناسه با فونت ریز زیر QR و کوپن تحویل غذا هستند.</p>
+                        <p class="text-xs text-slate-500">کارت‌ها شامل امضای QR بر شناسه کاربر، نام و کوپن تحویل غذا هستند.</p>
                         <div>
                             <label for="badgeAttendeeSelect" class="block text-xs text-slate-600 mb-1">انتخاب فرد برای پیش‌نمایش تکی:</label>
                             <select id="badgeAttendeeSelect" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs outline-none"></select>
