@@ -15,8 +15,8 @@
 <style type="text/css">
 	.sponsors-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-		gap: 20px 16px;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 24px 20px;
 		max-width: 1100px;
 		margin: 24px auto 0;
 		padding: 0 12px;
@@ -30,7 +30,7 @@
 	.sponsors-grid img {
 		display: block;
 		max-width: 100%;
-		max-height: 72px;
+		max-height: 110px;
 		width: auto;
 		height: auto;
 		object-fit: contain;
@@ -224,13 +224,18 @@
 	.conference-table .sub-topic {
 		color: var(--navy-700);
 	}
-	/* main navigation: keep all items on a single row (desktop only) */
+	/* main navigation: compact buttons sized to their text, wrapping into
+	   tidy rows when the labels no longer fit one line (desktop only) */
 	@media only screen and (min-width: 769px) {
 		#col .button {
-			flex: 0 1 9.6%;
+			flex: 0 1 auto;
+			width: auto;
 			box-sizing: border-box;
-			padding: 15px 3px;
+			padding: 12px 10px;
+			font-size: 13px;
+			margin: 3px;
 			white-space: nowrap;
+			border-radius: 4px;
 		}
 	}
 	/* speaker photos are absolutely positioned, keep the <picture> wrapper out of the flow */
@@ -485,13 +490,13 @@
 
 		<div id="col" class="nav">
 			<div id="buttonContainer">
-				<a href="#introbox" id="intro" class="ajaxee BZar button blue medium ">صفحه‌ی اصلی</a>
+				<a href="#introbox" id="intro" class="ajaxee BZar button blue medium orange">صفحه‌ی اصلی</a>
 				   
 				<a href="#commiteebox" id="commitee" class="ajaxee BZar button blue medium ">کميته‌ها</a>
                 <a href="#schedulebox" id="schdedule" class="ajaxee BZar button blue medium " >برنامه کنفرانس</a>
 			
 				
-				<a href="#keyspeechbox" id="keyspeech" class="ajaxee BZar button blue medium ">سخنرانان کلیدی</a>
+				<a href="#keyspeechbox" id="keyspeech" class="ajaxee BZar button blue medium ">سخنرانان کلیدی و پنل‌ها</a>
 				
 				<a href="#artlistbox" id="search" class="ajaxee BZar button blue medium ">برنامه نشست‌ها</a>
 				<a href="#otherarticlesbox" id="otherarticles" class="ajaxee BZar button blue medium ">سایر مقالات</a>
@@ -504,6 +509,8 @@
 				
 				<a href="https://www.aparat.com/cgco" target="_blank" class="BZar button blue medium ">تالار مجازی</a>
 				
+				<a href="https://cgco2026.ui.ac.ir" target="_blank" rel="noopener noreferrer" class="BZar button blue medium ">سایت کنفرانس</a>
+
 				<a href="cert/" target="_blank" class="BZar button blue medium last">ورود کاربران</a>
 			</div>
 		</div>
@@ -615,7 +622,7 @@
 
 			
 <div id="keyspeechbox" class="BZar hidden" style="padding: 2% 20%;" >
-				<div class="sponsorBar"><strong>سخنرانان کلیدی</strong></div>
+				<div class="sponsorBar"><strong>سخنرانان کلیدی و پنل‌ها</strong></div>
 				<br>
 
 				<div class="scrolable-div conf-articles">
@@ -742,23 +749,92 @@
 <p>دانشیار گروه روان‌شناسی و آموزش افراد با نیازهای خاص در دانشکده علوم تربیتی و روان‌شناسی دانشگاه اصفهان و دبیر بخش علوم انسانی ادوار مختلف کنفرانس بازی‌های رایانه‌ای است. وی دکتری خود را در رشته روان‌شناسی از دانشگاه اصفهان دریافت کرده و حوزه اصلی فعالیت‌های علمی و پژوهشی او شامل روان‌شناسی و آموزش کودکان با نیازهای خاص، کارکردهای اجرایی، مسائل رفتاری و مداخلات آموزشی و روان‌شناختی است. وی در زمینه آموزش و توانبخشی افراد با نیازهای ویژه و طراحی و ارزیابی مداخلات روان‌شناختی و آموزشی، پژوهش‌های متعددی منتشر کرده است.</p>							<p><b>عنوان سخنرانی:</b></p>
 <p>ای بی‌خبر ز لَذَّتِ شُربِ مُدامِ ما : كاوشي در تجارب زيسته گيمرهاي حرفه‌اي نسل آلفا</p>							<p><b>چکیده</b></p>
 <p>برای بسیاری از گیمرهای نسل آلفا، بازی‌های ویدئویی تنها یک سرگرمی نیستند؛ بخشی از جهان زیسته آنان‌اند، جهانی با قواعد، هیجان‌ها، روابط، شکست‌ها، پیروزی‌ها و معناهای خاص خود. از بیرون، این تجربه گاه تنها در قالب «زمان صرف‌شده پای بازی» دیده می‌شود؛ اما از درون، می‌تواند تجربه‌ای از تعلق، مهارت، رقابت، دوستی، هویت و خودبیانگری باشد.</p><p>این سخنرانی تلاشی است برای نزدیک‌شدن به جهان گیمرهای حرفه‌ای نسل آلفا از دریچه تجربه زیسته خود آنان؛ برای شنیدن آنچه معمولاً در توصیف‌های بیرونی از بازی نادیده می‌ماند. کاوش در این تجربه‌ها می‌تواند تصویری عمیق‌تر از نسبت نسل جدید با جهان‌های دیجیتال ارائه دهد و زمینه‌ای برای بازاندیشی در نگاه‌های تربیتی، روان‌شناختی و اجتماعی ما به بازی‌های ویدئویی فراهم کند.</p>						</div>
+						</div>
+
+						<h2 class="panel-section-title">پنل‌ها</h2>
+
+						<div class="panel-card">
+							<div class="panel-head">
+								<span class="panel-badge">پنل تخصصی</span>
+								<h3 class="panel-title">پنل الگو و تحلیل روا‌نشناختی مصرف بازی‌های رایانه‌ای کودکان و نوجوانان  کشور</h3>
+								<div class="panel-meta"><span>سالن خاتم</span><span class="sep">|</span><span><bdi dir="ltr">۱۴:۴۵</bdi> تا <bdi dir="ltr">۱۶</bdi></span></div>
+							</div>
+							<div class="panel-body">
+								<p class="panel-lead">مرکز پژوهشی روان‌سنجی هوشبهر، نخستین و تنها مرکز پژوهشی تخصصی در حوزه روان‌سنجی با مجوز قطعی وزارت علوم، تحقیقات و فناوری و تأییدیه دانش‌بنیان در کشور است  که در زمینه پژوهش‌های کاربردی و بنیادین روان‌سنجی و طراحی، توسعه و استانداردسازی آزمون‌ها و ابزارهای سنجش شناختی، روان‌شناختی و آموزشی فعالیت می‌کند. این مرکز همچنین به‌عنوان مرکز منتخب معاونت علمی، فناوری و اقتصاد دانش‌بنیان ریاست جمهوری و ستاد توسعه علوم و فناوری‌های شناختی، در ارزیابی و اعتباربخشی ابزارهای نوین ارتقای شناختی و توان‌بخشی شناختی تعیین است.</p>
+								<p class="panel-lead">در هشتمین کنفرانس بین‌المللی بازی‌های رایانه‌ای؛ فرصت‌ها و چالش‌ها در پنل الگو و تحلیل روا‌نشناختی مصرف بازی‌های رایانه‌ای کودکان و نوجوانان  کشور میزبان رییس و کارشناسان این مرکز هستیم:</p>
+								<div class="panel-members" id="panelMembersRavan"></div>
+								<p class="panel-lead">برخی از پروژه‌های این مرکز به قرار زیر است:</p>
+								<div class="panel-projects">
+									<h4 class="panel-subhead">محورهای ارزیابی‌شده به غیر از بازی برای گروه نوجوانان:</h4>
+									<p>۱. ویژگی‌های جمعیت‌شناختی و خانوادگی: سن، جنسیت، مقطع و پایه تحصیلی، محل سکونت، شغل و سطح تحصیلات والدین.</p>
+									<p>۲. دسترسی به اینترنت و الگوی استفاده: میزان و مدت استفاده از اینترنت، روش‌های اتصال، ابزارهای مورد استفاده و هزینه‌های دسترسی.</p>
+									<p>۳. شیوه‌های دسترسی، انتخاب و تماشای محتوا: نحوه انتخاب محتوای مورد علاقه، منابع معرفی و کشف محتوا، تماشای انفرادی یا گروهی و همراهی دوستان و خانواده.</p>
+									<p>۴. میزان استفاده از رسانه‌ها، شبکه‌های اجتماعی و پلتفرم‌ها: استفاده از تلویزیون، ماهواره، شبکه‌های خانگی، سینما، تئاتر، شبکه‌های اجتماعی، پلتفرم‌های نمایش محتوا و سایت‌های دانلود.</p>
+									<p>۵. الگوی مصرف محتوای دیجیتال و قالب‌های رسانه‌ای: میزان استفاده از ویدئوهای کوتاه و بلند، موسیقی، پیام‌های صوتی، پادکست، متن و محتوای متنی شبکه‌های اجتماعی.</p>
+									<p>۶. انگیزه‌ها و اهداف استفاده از شبکه‌های اجتماعی: ارتباط با دیگران، کسب اطلاعات و اخبار، اهداف آموزشی، سرگرمی، خرید آنلاین، کسب درآمد، تماشای فیلم و سریال و مطالعه و تحقیق.</p>
+									<p>۷. علایق و ترجیحات ژانری و محتوایی: علاقه به انواع فیلم و سریال، از جمله ژانرهای جنایی، ترسناک، اکشن، عاشقانه، درام، کمدی، علمی‌تخیلی، معمایی، تاریخی، مستند، انیمیشن و انیمه؛ همچنین علاقه به برنامه‌های آموزشی، مسابقه‌ای و سایر قالب‌های تصویری.</p>
+									<p>۸. عوامل مؤثر بر انتخاب فیلم و سریال: ژانر، بازیگران و کارگردانان، کشور و سال ساخت، معرفی دوستان، تبلیغات، امتیازها و نقدهای منتشرشده و مشاهده تریلر.</p>
+									<p>۹.ترجیحات مربوط به زبان و منشأ تولید محتوا: علاقه به محصولات داخلی و خارجی، کشورهای تولیدکننده و شیوه ارائه زبانی شامل زبان اصلی، زیرنویس و دوبله.</p>
+									<p>۱۰. معیارهای انتخاب و ارزیابی پلتفرم‌های نمایش خانگی: تنوع و به‌روز بودن محتوا، کیفیت و سرعت پخش، امکانات دانلود و تماشای آفلاین، امکان استفاده از چند دستگاه، خدمات پشتیبانی و ویژگی‌های طراحی و رابط کاربری.</p>
+									<p>۱۱. رفتارهای تعاملی پس از مصرف محتوا: گفت‌وگو درباره فیلم و سریال با دوستان، جست‌وجوی اطلاعات تکمیلی، پسندیدن، نظرگذاری، معرفی و اشتراک‌گذاری محتوا، ذخیره‌سازی و سایر واکنش‌های پس از مشاهده.</p>
+									<p>۱۲.علایق موسیقایی و سایر ترجیحات رسانه‌ای:بررسی علایق مرتبط با موسیقی و دیگر حوزه‌های محتوایی مندرج در پرسشنامه.</p>
+									<h4 class="panel-subhead">محورهای ارزیابی‌شده به غیر از بازی برای کودکان:</h4>
+									<p>۱. ویژگی‌های جمعیت‌شناختی و خانوادگی: نسبت پاسخ‌دهنده با کودک، تعداد اعضای خانواده و کودکان، محل سکونت، شغل و سطح تحصیلات والدین.</p>
+									<p>۲. دسترسی کودکان به اینترنت و میزان استفاده: ابزارهای دسترسی به اینترنت، از جمله تلفن همراه، رایانه، تبلت و تلویزیون هوشمند، و میانگین مدت استفاده روزانه از اینترنت.</p>
+									<p>۳. نظارت و مدیریت والدین بر استفاده از اینترنت:محدودیت‌های زمانی، فیلتر محتوا، کنترل واژه‌های جست‌وجو، استفاده از ابزارهای کنترل والدین و نظارت بر مشاهده محتوای آنلاین.</p>
+									<p>۴. شرایط تماشا و شیوه انتخاب محتوا: تماشای انفرادی یا همراه والدین، خواهر و برادر، دوستان و اقوام؛ همچنین نقش جست‌وجوی اینترنتی، شبکه‌های اجتماعی، معرفی دیگران و پیشنهادهای خانوادگی و آموزشی در انتخاب محتوا.</p>
+									<p>۵. عوامل مؤثر بر انتخاب و تماشای محتوای رسانه‌ای: تأثیر تبلیغات، معرفی دوستان، شبکه‌های اجتماعی، شخصیت‌های معروف، ژانر، کشور و شرکت سازنده، زمان تولید، دوبله، جوایز و نقدهای کارشناسی.</p>
+									<p>۶. میزان استفاده از پلتفرم‌ها و رسانه‌های نمایش محتوا: استفاده از سرویس‌های نمایش خانگی، سایت‌های اشتراک و دانلود ویدئو، شبکه‌های تلویزیونی کودک، شبکه‌های اجتماعی و سایر بسترهای دسترسی به محتوای آنلاین.</p>
+									<p>۷. علایق و ترجیحات کودکان در انواع محتوای تصویری و سرگرمی: فیلم و سریال انیمیشن و غیرانیمیشن، برنامه‌های سرگرمی، نمایش‌های کودکانه، آنباکسینگ و معرفی اسباب‌بازی، تماشای بازی با اسباب‌بازی و تماشای ویدئوهای بازی گیمرها.</p>
+									<p>۸. ترجیحات ژانری و روایی فیلم، سریال و انیمیشن: علاقه به ژانرهایی مانند معمایی و ماجراجویی، کمدی، اکشن و قهرمان‌محور، فانتزی و رمانتیک، علمی‌تخیلی، ترسناک و هیجان‌انگیز، اجتماعی و تاریخی؛ همچنین ترجیح انواع شخصیت‌ها و سبک‌های انیمیشن.</p>
+									<p>۹. ترجیحات زبانی و جغرافیایی محتوا:علاقه به انیمیشن‌های تولیدشده در کشورهای مختلف و ترجیح زبان اصلی، زیرنویس فارسی یا انگلیسی، دوبله فارسی و دوبله به زبان‌ها یا گویش‌های محلی.</p>
+									<p>۱۰. علایق آموزشی، علمی و مهارت‌آموزی: علاقه به محتوای درسی و کمک‌درسی، موسیقی و آواز، کاردستی، نقاشی، خلاقیت، آموزش بازی، زبان خارجی، آشپزی، آزمایش‌های علمی، نجوم، شناخت بدن انسان و حیوانات، مهارت‌های زندگی و حرکات ورزشی.</p>
+									<p>۱۱. علایق علمی، طبیعت‌محور و فرهنگی: علاقه به مستندهای حیوانات و طبیعت، برنامه‌های علمی داستانی، مسابقات علمی، اقوام، آثار باستانی و گردشگری.</p>
+									<p>۱۲. ترجیحات مربوط به برنامه‌ها و شخصیت‌های رسانه‌ای کودک: میزان علاقه به برنامه‌ها و مجموعه‌های مشخص کودکانه و شخصیت‌ها یا مجریان شناخته‌شده.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="panel-card">
+							<div class="panel-head">
+								<span class="panel-badge">پنل تخصصی</span>
+								<h3 class="panel-title">پنل چالش‌های تجاری‌سازی بازی‌های جدی</h3>
+								<div class="panel-meta"><span>سالن مبین</span><span class="sep">|</span><span><bdi dir="ltr">۱۶:۱۵</bdi> تا <bdi dir="ltr">۱۷:۴۵</bdi></span></div>
+							</div>
+							<div class="panel-body">
+								<p class="panel-lead">در حاشیه هشتمین کنفرانس بین‌المللی بازی‌های رایانه‌ای؛ فرصت‌ها و چالش‌ها میزبان جمعی از مدیران و متخصصین توسعه و تجاری‌سازی فناوری‌های نرم و بازی‌های رایانه‌ای هستیم و با آن‌ها در مورد چالش‌های تجاری‌سازی بازی‌های جدی به گفتگو می‌نشینیم.</p>
+								<p class="panel-lead">مهمانان این پنل عبارتند از:</p>
+								<div class="panel-members" id="panelMembersTejarati"></div>
+							</div>
+						</div>
+
+						<div class="panel-card">
+							<div class="panel-head">
+								<span class="panel-badge">پنل تخصصی</span>
+								<h3 class="panel-title">پنل درس‌هایی از صنعت بازی‌سازی فنلاند برای صنعت بازی‌سازی ایران</h3>
+							</div>
+							<div class="panel-body">
+								<p class="panel-lead">در هشتمین کنفرانس بین‌المللی بازی‌های رایانه‌ای؛ فرصت‌ها و چالش‌ها در یک پنل جذاب میزبان بازی‌سازان ایرانی مقیم فنلاند هستیم تا برای ما از مسیری که طی کرده‌اند و چالش‌ها و فرصت‌های آن و درس‌هایی که صنعت بازی‌سازی فنلاند می‌تواند برای صنعت بازی‌سازی ایران داشته باشد بگویند.</p>
+								<p class="panel-lead">مهمانان این پنل عبارتند از:</p>
+								<div class="panel-members" id="panelMembersFinland"></div>
+							</div>
+						</div>
+
 					</div>
 
 				</div>
-
-			</div>
 
 <div id="albumbox" class="BZar hidden">
 
 				<div class="sponsorBar"><strong> تصاویر </strong></div>	<br>			
 					<center>
-						<a href="#commiteebox1" id="com" class="ajaxee BZar button blue rounded " style="width: 19%" > کنفرانس سال ۱۳۹۴ </a>
-						<a href="#commiteebox3" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۵ </a>
-						<a href="#commiteebox4" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۶ </a>
-						<a href="#commiteebox5" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۷ </a>
-						<a href="#commiteebox6" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۸ </a>
-						<a href="#commiteebox7" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۹ </a>
 						<a href="#commiteebox8" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۴۰۰ </a>
+						<a href="#commiteebox7" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۹ </a>
+						<a href="#commiteebox6" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۸ </a>
+						<a href="#commiteebox5" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۷ </a>
+						<a href="#commiteebox4" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۶ </a>
+						<a href="#commiteebox3" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۵ </a>
+						<a href="#commiteebox1" id="com" class="ajaxee BZar button blue rounded " style="width: 19%" > کنفرانس سال ۱۳۹۴ </a>
 						<a href="#commiteebox2" id="com" class="ajaxee BZar button blue rounded "  style="width: 19%" > مرکز نوآوری صنایع سرگرمی </a>
 					</center>
 				</div>
@@ -767,14 +843,14 @@
 				
 				<center>
 				<br>
-				<a href="#commiteebox1" id="com" class="ajaxee BZar button blue rounded " style="width: 19%" > کنفرانس سال ۱۳۹۴ </a>
-				<a href="#commiteebox3" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۵ </a>
-				<a href="#commiteebox4" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۶ </a>
-				<a href="#commiteebox5" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۷ </a>
-				<a href="#commiteebox6" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۸ </a>
-				<a href="#commiteebox7" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۹ </a>
-				<a href="#commiteebox8" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۴۰۰ </a>
-				<a href="#commiteebox2" id="com" class="ajaxee BZar button blue rounded "  style="width: 19%" > مرکز نوآوری صنایع سرگرمی </a>
+						<a href="#commiteebox8" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۴۰۰ </a>
+						<a href="#commiteebox7" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۹ </a>
+						<a href="#commiteebox6" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۸ </a>
+						<a href="#commiteebox5" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۷ </a>
+						<a href="#commiteebox4" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۶ </a>
+						<a href="#commiteebox3" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۵ </a>
+						<a href="#commiteebox1" id="com" class="ajaxee BZar button blue rounded " style="width: 19%" > کنفرانس سال ۱۳۹۴ </a>
+						<a href="#commiteebox2" id="com" class="ajaxee BZar button blue rounded "  style="width: 19%" > مرکز نوآوری صنایع سرگرمی </a>
 						<br><br><br>
 						<div class="sponsorBar"><strong>تصاویر کنفرانس 1394 </strong></div> <br>
 
@@ -806,14 +882,14 @@
 				
 				<center>
 				<br>
-				<a href="#commiteebox1" id="com" class="ajaxee BZar button blue rounded " style="width: 19%" > کنفرانس سال ۱۳۹۴ </a>
-				<a href="#commiteebox3" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۵ </a>
-				<a href="#commiteebox4" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۶ </a>
-				<a href="#commiteebox5" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۷ </a>
-				<a href="#commiteebox6" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۸ </a>
-				<a href="#commiteebox7" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۹ </a>
-				<a href="#commiteebox8" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۴۰۰ </a>
-				<a href="#commiteebox2" id="com" class="ajaxee BZar button blue rounded "  style="width: 19%" > مرکز نوآوری صنایع سرگرمی </a>
+						<a href="#commiteebox8" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۴۰۰ </a>
+						<a href="#commiteebox7" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۹ </a>
+						<a href="#commiteebox6" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۸ </a>
+						<a href="#commiteebox5" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۷ </a>
+						<a href="#commiteebox4" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۶ </a>
+						<a href="#commiteebox3" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۵ </a>
+						<a href="#commiteebox1" id="com" class="ajaxee BZar button blue rounded " style="width: 19%" > کنفرانس سال ۱۳۹۴ </a>
+						<a href="#commiteebox2" id="com" class="ajaxee BZar button blue rounded "  style="width: 19%" > مرکز نوآوری صنایع سرگرمی </a>
 						<br><br><br>
 						<div class="sponsorBar"><strong>تصاویر مرکز نوآوری صنایع سرگرمی</strong></div> <br>
 
@@ -848,14 +924,14 @@
 				
 				<center>
 				<br>
-				<a href="#commiteebox1" id="com" class="ajaxee BZar button blue rounded " style="width: 19%" > کنفرانس سال ۱۳۹۴ </a>
-				<a href="#commiteebox3" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۵ </a>
-				<a href="#commiteebox4" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۶ </a>
-				<a href="#commiteebox5" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۷ </a>
-				<a href="#commiteebox6" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۸ </a>
-				<a href="#commiteebox7" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۹ </a>
-				<a href="#commiteebox8" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۴۰۰ </a>
-				<a href="#commiteebox2" id="com" class="ajaxee BZar button blue rounded "  style="width: 19%" > مرکز نوآوری صنایع سرگرمی </a>
+						<a href="#commiteebox8" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۴۰۰ </a>
+						<a href="#commiteebox7" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۹ </a>
+						<a href="#commiteebox6" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۸ </a>
+						<a href="#commiteebox5" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۷ </a>
+						<a href="#commiteebox4" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۶ </a>
+						<a href="#commiteebox3" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۵ </a>
+						<a href="#commiteebox1" id="com" class="ajaxee BZar button blue rounded " style="width: 19%" > کنفرانس سال ۱۳۹۴ </a>
+						<a href="#commiteebox2" id="com" class="ajaxee BZar button blue rounded "  style="width: 19%" > مرکز نوآوری صنایع سرگرمی </a>
 						<br><br><br>
 						<div class="sponsorBar"><strong>تصاویر کنفرانس ۱۳۹۵ </strong></div> <br>
 
@@ -889,14 +965,14 @@
 				
 				<center>
 				<br>
-				<a href="#commiteebox1" id="com" class="ajaxee BZar button blue rounded " style="width: 19%" > کنفرانس سال ۱۳۹۴ </a>
-				<a href="#commiteebox3" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۵ </a>
-				<a href="#commiteebox4" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۶ </a>
-				<a href="#commiteebox5" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۷ </a>
-				<a href="#commiteebox6" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۸ </a>
-				<a href="#commiteebox7" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۹ </a>
-				<a href="#commiteebox8" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۴۰۰ </a>
-				<a href="#commiteebox2" id="com" class="ajaxee BZar button blue rounded "  style="width: 19%" > مرکز نوآوری صنایع سرگرمی </a>
+						<a href="#commiteebox8" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۴۰۰ </a>
+						<a href="#commiteebox7" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۹ </a>
+						<a href="#commiteebox6" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۸ </a>
+						<a href="#commiteebox5" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۷ </a>
+						<a href="#commiteebox4" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۶ </a>
+						<a href="#commiteebox3" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۵ </a>
+						<a href="#commiteebox1" id="com" class="ajaxee BZar button blue rounded " style="width: 19%" > کنفرانس سال ۱۳۹۴ </a>
+						<a href="#commiteebox2" id="com" class="ajaxee BZar button blue rounded "  style="width: 19%" > مرکز نوآوری صنایع سرگرمی </a>
 						<br><br><br>
 						<div class="sponsorBar"><strong>گالری کنفرانس ۱۳۹۶ </strong></div> <br>
 
@@ -932,14 +1008,14 @@
 				
 				<center>
 				<br>
-				<a href="#commiteebox1" id="com" class="ajaxee BZar button blue rounded " style="width: 19%" > کنفرانس سال ۱۳۹۴ </a>
-				<a href="#commiteebox3" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۵ </a>
-				<a href="#commiteebox4" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۶ </a>
-				<a href="#commiteebox5" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۷ </a>
-				<a href="#commiteebox6" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۸ </a>
-				<a href="#commiteebox7" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۹ </a>
-				<a href="#commiteebox8" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۴۰۰ </a>
-				<a href="#commiteebox2" id="com" class="ajaxee BZar button blue rounded "  style="width: 19%" > مرکز نوآوری صنایع سرگرمی </a>
+						<a href="#commiteebox8" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۴۰۰ </a>
+						<a href="#commiteebox7" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۹ </a>
+						<a href="#commiteebox6" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۸ </a>
+						<a href="#commiteebox5" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۷ </a>
+						<a href="#commiteebox4" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۶ </a>
+						<a href="#commiteebox3" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۵ </a>
+						<a href="#commiteebox1" id="com" class="ajaxee BZar button blue rounded " style="width: 19%" > کنفرانس سال ۱۳۹۴ </a>
+						<a href="#commiteebox2" id="com" class="ajaxee BZar button blue rounded "  style="width: 19%" > مرکز نوآوری صنایع سرگرمی </a>
 				
 						<br><br><br>
 
@@ -975,14 +1051,14 @@
 				
 				<center>
 				<br>
-				<a href="#commiteebox1" id="com" class="ajaxee BZar button blue rounded " style="width: 19%" > کنفرانس سال ۱۳۹۴ </a>
-				<a href="#commiteebox3" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۵ </a>
-				<a href="#commiteebox4" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۶ </a>
-				<a href="#commiteebox5" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۷ </a>
-				<a href="#commiteebox6" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۸ </a>
-				<a href="#commiteebox7" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۹ </a>
-				<a href="#commiteebox8" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۴۰۰ </a>
-				<a href="#commiteebox2" id="com" class="ajaxee BZar button blue rounded "  style="width: 19%" > مرکز نوآوری صنایع سرگرمی </a>
+						<a href="#commiteebox8" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۴۰۰ </a>
+						<a href="#commiteebox7" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۹ </a>
+						<a href="#commiteebox6" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۸ </a>
+						<a href="#commiteebox5" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۷ </a>
+						<a href="#commiteebox4" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۶ </a>
+						<a href="#commiteebox3" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۵ </a>
+						<a href="#commiteebox1" id="com" class="ajaxee BZar button blue rounded " style="width: 19%" > کنفرانس سال ۱۳۹۴ </a>
+						<a href="#commiteebox2" id="com" class="ajaxee BZar button blue rounded "  style="width: 19%" > مرکز نوآوری صنایع سرگرمی </a>
 				
 						<br><br><br>
 
@@ -1019,14 +1095,14 @@
 				
 				<center>
 				<br>
-				<a href="#commiteebox1" id="com" class="ajaxee BZar button blue rounded " style="width: 19%" > کنفرانس سال ۱۳۹۴ </a>
-				<a href="#commiteebox3" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۵ </a>
-				<a href="#commiteebox4" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۶ </a>
-				<a href="#commiteebox5" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۷ </a>
-				<a href="#commiteebox6" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۸ </a>
-				<a href="#commiteebox7" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۹ </a>
-				<a href="#commiteebox8" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۴۰۰ </a>
-				<a href="#commiteebox2" id="com" class="ajaxee BZar button blue rounded "  style="width: 19%" > مرکز نوآوری صنایع سرگرمی </a>
+						<a href="#commiteebox8" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۴۰۰ </a>
+						<a href="#commiteebox7" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۹ </a>
+						<a href="#commiteebox6" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۸ </a>
+						<a href="#commiteebox5" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۷ </a>
+						<a href="#commiteebox4" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۶ </a>
+						<a href="#commiteebox3" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۵ </a>
+						<a href="#commiteebox1" id="com" class="ajaxee BZar button blue rounded " style="width: 19%" > کنفرانس سال ۱۳۹۴ </a>
+						<a href="#commiteebox2" id="com" class="ajaxee BZar button blue rounded "  style="width: 19%" > مرکز نوآوری صنایع سرگرمی </a>
 				
 						<br><br><br>
 
@@ -1065,14 +1141,14 @@
 				
 				<center>
 				<br>
-				<a href="#commiteebox1" id="com" class="ajaxee BZar button blue rounded " style="width: 19%" > کنفرانس سال ۱۳۹۴ </a>
-				<a href="#commiteebox3" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۵ </a>
-				<a href="#commiteebox4" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۶ </a>
-				<a href="#commiteebox5" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۷ </a>
-				<a href="#commiteebox6" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۸ </a>
-				<a href="#commiteebox7" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۹ </a>
-				<a href="#commiteebox8" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۴۰۰ </a>
-				<a href="#commiteebox2" id="com" class="ajaxee BZar button blue rounded "  style="width: 19%" > مرکز نوآوری صنایع سرگرمی </a>
+						<a href="#commiteebox8" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۴۰۰ </a>
+						<a href="#commiteebox7" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۹ </a>
+						<a href="#commiteebox6" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۸ </a>
+						<a href="#commiteebox5" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۷ </a>
+						<a href="#commiteebox4" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۶ </a>
+						<a href="#commiteebox3" id="com" class="ajaxee BZar button blue rounded " style="width: 19%"> کنفرانس سال ۱۳۹۵ </a>
+						<a href="#commiteebox1" id="com" class="ajaxee BZar button blue rounded " style="width: 19%" > کنفرانس سال ۱۳۹۴ </a>
+						<a href="#commiteebox2" id="com" class="ajaxee BZar button blue rounded "  style="width: 19%" > مرکز نوآوری صنایع سرگرمی </a>
 					
 						<br><br><br>
 
@@ -1150,7 +1226,7 @@
 
 	<div id="footer">
     <div id="footerNote">
-		کنفرانس بین‌المللی بازی‌های رایانه‌ای
+		کنفرانس بازی‌های رایانه‌ای دانشگاه اصفهان
 	</div>
 	<div style="clear:both"></div>
 	</div>
@@ -1218,8 +1294,12 @@ var navbar = document.getElementById("col");
 			});
 			if($("#introbox").height() <$("#col").height() )
 				$("#introbox").height($("#col").height() );
-			$(".ajaxee").click(function(){
+			$(".ajaxee").click(function(e){
+				/* Safari/iOS performs a full page reload for bare "#hash" links;
+				   always keep the in-page section switch client-side */
+				e.preventDefault();
 				var attri = $(this).attr("href");
+				if (window.history && history.pushState) history.pushState(null, "", attri);
 				$(attri).find('img[data-src]').each(function() {
 					this.src = this.getAttribute('data-src');
 					this.removeAttribute('data-src');
@@ -1499,21 +1579,29 @@ var navbar = document.getElementById("col");
 		var body = document.getElementById("executiveTeamBody");
 		if (!body || typeof fetch !== "function") return;
 
+		var executiveNames = [];
+
+		// fewer names per row on narrow screens so long names stay on one line
+		function namesPerRow() {
+			return window.innerWidth <= 600 ? 2 : 3;
+		}
+
 		function buildTable(names) {
+			var perRow = namesPerRow();
 			body.innerHTML = "";
 			if (!names.length) {
 				var empty = document.createElement("tr");
 				var td = document.createElement("td");
-				td.colSpan = 4;
+				td.colSpan = perRow;
 				td.className = "committee-error";
 				td.textContent = "لیست همکاران اجرایی در دسترس نیست.";
 				empty.appendChild(td);
 				body.appendChild(empty);
 				return;
 			}
-			for (var i = 0; i < names.length; i += 4) {
+			for (var i = 0; i < names.length; i += perRow) {
 				var tr = document.createElement("tr");
-				for (var j = i; j < Math.min(i + 4, names.length); j++) {
+				for (var j = i; j < Math.min(i + perRow, names.length); j++) {
 					var td = document.createElement("td");
 					td.textContent = (j + 1) + ". " + names[j];
 					tr.appendChild(td);
@@ -1529,15 +1617,24 @@ var navbar = document.getElementById("col");
 			})
 			.then(function (data) {
 				var names = Array.isArray(data) ? data : (data && Array.isArray(data.names) ? data.names : []);
-				buildTable(names.map(function (n) {
+				executiveNames = names.map(function (n) {
 					return typeof n === "string" ? n : (n && n.name) || "";
 				}).filter(function (n) {
 					return n.trim() !== "";
-				}));
+				});
+				buildTable(executiveNames);
 			})
 			.catch(function () {
-				body.innerHTML = '<tr><td colspan="4" class="committee-error">بارگذاری لیست همکاران اجرایی ناموفق بود.</td></tr>';
+				body.innerHTML = '<tr><td colspan="3" class="committee-error">بارگذاری لیست همکاران اجرایی ناموفق بود.</td></tr>';
 			});
+
+		var resizeTimer = null;
+		window.addEventListener("resize", function () {
+			if (resizeTimer) clearTimeout(resizeTimer);
+			resizeTimer = setTimeout(function () {
+				if (executiveNames.length) buildTable(executiveNames);
+			}, 150);
+		});
 	})();
 </script>
 
@@ -1598,8 +1695,85 @@ var navbar = document.getElementById("col");
 			.catch(function () {
 				box.innerHTML = '<div class="committee-error">بارگذاری سایر مقالات ناموفق بود.</div>';
 			});
-	})();
-</script>
+		})();
+	</script>
 
-</body>
+	<script type="text/javascript">
+		/* panel member chips (photos extracted from panels.docx -> img/presenters/panel-*.webp) */
+		(function () {
+			var imgBase = "img/presenters/panel-";
+
+			var panels = [
+				{
+					target: "panelMembersRavan",
+					members: [
+						{ slug: "asgari", name: "دکتر علی عسگری", role: "دانشیار و رئیس مرکز" },
+						{ slug: "siahpoosh", name: "معصومه سیاهپوش", role: "مدیر داخلی و مدیر گروه سنجش رشد کودک" },
+						{ slug: "pourmohammad", name: "سمیرا پورمحمد", role: "کارشناس ارشد مرکز" },
+						{ slug: "mohammadian", name: "دکتر سمیه محمدیان", role: "روانسنج و عضو شورای پژوهش مرکز" }
+					]
+				},
+				{
+					target: "panelMembersTejarati",
+					members: [
+						{ slug: "sejadati-niri", name: "دکتر سیدمحمدحسین سجادی نیری", role: "رییس محترم هیئت مدیره انجمن سرمایه‌گذاری خطرپذیر کشور" },
+						{ slug: "haji-mirzaei", name: "مهندس محمد حاجی میرزایی", role: "مدیرعامل بنیاد ملّی بازی‌های رایانه‌ای" },
+						{ slug: "reisi", name: "دکتر احسان رییسی", role: "مدیر مرکز رشد علوم انسانی، فناوری‌های نرم و صنایع خلاق دانشگاه اصفهان" },
+						{ slug: "noorbebahani", name: "دکتر فخرالدین نوربهبهانی", role: "استادیار دانشکده مهندسی کامپیوتر دانشگاه اصفهان" },
+						{ slug: "ahmadi", name: "دکتر عاطفه احمدی", role: "مدیر پروژه‌های بازی‌های جدی" },
+						{ slug: "sharafat", name: "ابوالفضل شرافت", role: "میزبان پنل — مدیر محصول استودیو بازی‌سازی پاپاتا", host: true }
+					]
+				},
+				{
+					target: "panelMembersFinland",
+					members: [
+						{ slug: "babadi", name: "امین بابادی", role: "Senior Game Programmer at Bugbear Entertainment" },
+						{ slug: "tavakoli", name: "سینا توکلی", role: "Principal Engineer, Team Lead at Rovio" },
+						{ slug: "hamdarsi", name: "مهدی همدرسی", role: "Senior full-stack developer at Rovio" }
+					]
+				}
+			];
+
+			panels.forEach(function (panel) {
+				var box = document.getElementById(panel.target);
+				if (!box) return;
+
+				panel.members.forEach(function (m) {
+					var chip = document.createElement("div");
+					chip.className = "panelist" + (m.host ? " host" : "");
+
+					var avatar = document.createElement("img");
+					avatar.className = "panelist-avatar";
+					avatar.width = 92;
+					avatar.height = 92;
+					avatar.alt = m.name;
+					avatar.src = imgBase + m.slug + ".webp";
+					avatar.onerror = function () {
+						var monogram = document.createElement("span");
+						monogram.className = "panelist-monogram";
+						monogram.textContent = m.name.charAt(0);
+						avatar.replaceWith(monogram);
+					};
+					chip.appendChild(avatar);
+
+					var name = document.createElement("span");
+					name.className = "panelist-name";
+					name.textContent = m.name;
+					chip.appendChild(name);
+
+					if (m.role) {
+						var role = document.createElement("span");
+						role.className = "panelist-role";
+						role.textContent = m.role;
+						if (/^[A-Za-z]/.test(m.role)) role.dir = "ltr";
+						chip.appendChild(role);
+					}
+
+					box.appendChild(chip);
+				});
+			});
+		})();
+		</script>
+
+	</body>
 </html>

@@ -264,7 +264,7 @@
 		padding: 35px 0;
 		padding-top: 255px;
 		background-image: url(img/wave-footer-new.svg);
-		background-size: cover;
+		background-size: 100% auto;
 		background-repeat: no-repeat;
 		background-position: center top;
 		z-index: -1;
@@ -340,10 +340,6 @@
 	.ax{
 		margin-top: 0%;
 	}
-
-	#footer {
-        padding-top: 100px;
-    }
 
 	.conf-articles table {
 		border-radius: 3px;
@@ -440,6 +436,25 @@
 		border: 1px solid #ededed;
 	}
 
+	/* equal-width cells, one name per line */
+	table.partners {
+		table-layout: fixed;
+	}
+
+	table.partners td {
+		text-align: center;
+		padding: 6px 4px;
+		white-space: nowrap;
+		overflow: hidden;
+		width: 33.333%;
+	}
+
+	@media only screen and (max-width: 600px) {
+		table.partners td {
+			width: 50%;
+		}
+	}
+
 	.presenter {
 		display: block !important;
 		box-shadow: 0 0 3px #cacaca;
@@ -505,6 +520,7 @@
 	.last.button.orange {
 		color: var(--navy-900) !important;
 		background-color: var(--gold);
+		background-image: linear-gradient(180deg, #ecdb9e 0%, #d4b55f 100%);
 		border-color: var(--gold-light);
 		font-weight: bold;
 	}
@@ -527,6 +543,180 @@
 		background: #d3d3d3;
 	}
 
+	/* ─── panel cards (بخش سخنرانان کلیدی و پنل‌ها) ─── */
+	.panel-section-title {
+		text-align: center;
+		color: var(--navy-900);
+		font-size: 20px;
+		font-weight: bold;
+		margin: 10px 0 25px;
+		position: relative;
+		padding-bottom: 12px;
+	}
+
+	.panel-section-title::after {
+		content: "";
+		display: block;
+		width: 90px;
+		height: 3px;
+		background: linear-gradient(90deg, transparent, var(--gold), transparent);
+		margin: 8px auto 0;
+	}
+
+	.panel-card {
+		border: 1px solid var(--gold-dark);
+		border-radius: 10px;
+		overflow: hidden;
+		margin-bottom: 45px;
+		box-shadow: 0 2px 10px rgba(11, 11, 34, 0.12);
+		background: #fff;
+	}
+
+	.panel-card .panel-head {
+		background: linear-gradient(180deg, var(--navy-900), var(--navy-800, #161638));
+		padding: 18px 25px 15px;
+		text-align: center;
+		border-bottom: 3px solid var(--gold);
+	}
+
+	.panel-card .panel-badge {
+		display: inline-block;
+		background: var(--gold);
+		color: var(--navy-900);
+		font-size: 12px;
+		font-weight: bold;
+		padding: 2px 16px;
+		border-radius: 20px;
+		margin-bottom: 10px;
+	}
+
+	.panel-card .panel-title {
+		color: #fdfaf2;
+		font-size: 17px;
+		font-weight: bold;
+		line-height: 1.9;
+		margin: 0;
+	}
+
+	.panel-card .panel-meta {
+		margin-top: 8px;
+		font-size: 13px;
+		color: var(--gold-light);
+	}
+
+	.panel-card .panel-meta .sep {
+		margin: 0 8px;
+		color: rgba(236, 219, 158, 0.5);
+	}
+
+	.panel-card .panel-desc {
+		margin: 0;
+		padding: 16px 25px 0;
+		text-align: center;
+		font-size: 14px;
+		line-height: 2;
+		color: #333;
+	}
+
+	.panel-card .panel-body {
+		padding: 18px 30px 26px;
+	}
+
+	.panel-card .panel-lead {
+		text-align: justify;
+		font-size: 14px;
+		line-height: 2.1;
+		color: #333;
+		margin: 0 0 14px;
+	}
+
+	.panel-card .panel-projects {
+		background: #fdfaf2;
+		border: 1px solid #ecdb9e;
+		border-radius: 8px;
+		padding: 6px 22px 16px;
+		margin-top: 8px;
+	}
+
+	.panel-card .panel-subhead {
+		color: var(--navy-900);
+		font-size: 15px;
+		font-weight: bold;
+		text-align: center;
+		margin: 16px 0 10px;
+	}
+
+	.panel-card .panel-projects p {
+		font-size: 13px;
+		line-height: 2;
+		color: #444;
+		margin: 0 0 8px;
+		text-align: justify;
+	}
+
+	.panel-card .panel-members {
+		padding: 22px 20px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 18px 28px;
+	}
+
+	.panelist {
+		width: 185px;
+		text-align: center;
+	}
+
+	.panelist .panelist-avatar {
+		width: 92px;
+		height: 92px;
+		border-radius: 50%;
+		border: 2px solid var(--gold);
+		background: #fdfaf2;
+		object-fit: cover;
+		display: block;
+		margin: 0 auto 8px;
+	}
+
+	.panelist .panelist-monogram {
+		width: 92px;
+		height: 92px;
+		border-radius: 50%;
+		border: 2px solid var(--gold);
+		background: linear-gradient(180deg, #fdfaf2, #f3ecd2);
+		color: var(--gold-dark);
+		font-size: 34px;
+		font-weight: bold;
+		line-height: 88px;
+		display: block;
+		margin: 0 auto 8px;
+	}
+
+	.panelist .panelist-name {
+		display: block;
+		font-size: 13px;
+		font-weight: bold;
+		color: var(--navy-900);
+		line-height: 1.7;
+	}
+
+	.panelist .panelist-role {
+		display: block;
+		font-size: 11.5px;
+		color: #666;
+		line-height: 1.8;
+		margin-top: 2px;
+	}
+
+	.panelist .panelist-role:dir(ltr),
+	.panelist .panelist-role[dir="ltr"] {
+		direction: ltr;
+	}
+
+	.panelist.host .panelist-avatar,
+	.panelist.host .panelist-monogram {
+		border-color: var(--navy-900);
+	}
 
 	.diffrent-table-background {
 		background: var(--navy-800) !important;

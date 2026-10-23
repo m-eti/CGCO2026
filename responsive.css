@@ -187,7 +187,9 @@ table {
 
     /* dropdown menu that opens over the page at the current scroll position */
     #col.open {
-        display: block;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         position: fixed;
         top: 58px;
         right: 0;
@@ -214,11 +216,13 @@ table {
         }
     }
 
+    /* dropdown items: two compact columns so the menu stays short */
     #col .button {
-        flex: 0 1 100%;
-        padding: 12px 6px;
-        font-size: 14px;
+        flex: 0 1 46%;
+        padding: 12px 4px;
+        font-size: 13px;
         border-radius: 3px;
+        text-align: center;
     }
 
     #col.open .button {
@@ -272,6 +276,36 @@ table {
         line-height: 26px;
     }
 
+    /* panel cards */
+    .panel-card .panel-title {
+        font-size: 15px;
+    }
+
+    .panel-card .panel-members {
+        gap: 14px 12px;
+        padding: 18px 10px;
+    }
+
+    .panelist {
+        width: 140px;
+    }
+
+    .panel-card .panel-body {
+        padding: 14px 16px 20px;
+    }
+
+    .panel-card .panel-projects {
+        padding: 2px 12px 12px;
+    }
+
+    .panelist .panelist-avatar,
+    .panelist .panelist-monogram {
+        width: 76px;
+        height: 76px;
+        font-size: 28px;
+        line-height: 72px;
+    }
+
     #intronav {
         width: 100%;
     }
@@ -298,14 +332,24 @@ table {
     .BZar table {
         border-spacing: 10px;
     }
+
+    /* executive team: equal boxes, no wrapped names on phones */
+    table.partners {
+        width: 100% !important;
+    }
+
+    table.partners td {
+        font-size: 12px;
+        padding: 5px 2px;
+    }
 }
 
 /* ============ phones ============ */
 @media only screen and (max-width: 480px) {
     #col .button {
-        flex: 0 1 100%;
+        flex: 0 1 46%;
         margin: 4px 0;
-        padding: 12px 6px;
+        padding: 12px 4px;
         font-size: 13px;
     }
 
