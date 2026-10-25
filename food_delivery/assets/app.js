@@ -504,13 +504,11 @@
         var ctx = canvas.getContext('2d');
         ctx.textAlign = 'center';
 
-        ctx.fillStyle = '#fdf8ec';
+        ctx.fillStyle = '#ffffff';
         ctx.fillRect(0, 0, CARD_W, CARD_H);
         ctx.strokeStyle = '#e3d2a6';
         ctx.lineWidth = 8;
-        ctx.beginPath();
-        ctx.roundRect(20, 20, CARD_W - 40, CARD_H - 40, 26);
-        ctx.stroke();
+        ctx.strokeRect(20, 20, CARD_W - 40, CARD_H - 40);
 
         var payload = state.payloads[attendee.id] || attendee.qr_payload || '';
         var qrValue = GUIDE_BASE_URL + '?q=' + encodeURIComponent(payload);
@@ -518,24 +516,21 @@
         ctx.fillStyle = '#ffffff';
         ctx.strokeStyle = '#ecdfc0';
         ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.roundRect(170, 200, 380, 380, 22);
-        ctx.fill();
-        ctx.stroke();
-        ctx.drawImage(makeQr(qrValue, 340), 190, 220, 340, 340);
+        ctx.strokeRect(140, 150, 440, 440);
+        ctx.drawImage(makeQr(qrValue, 400), 160, 170, 400, 400);
 
         ctx.fillStyle = '#a08c5d';
-        ctx.font = '20px IRANSansFaNum, sans-serif';
-        ctx.fillText(GUIDE_HOST, 360, 614);
+        ctx.font = '28px IRANSansFaNum, sans-serif';
+        ctx.fillText(GUIDE_HOST, 360, 650);
 
         ctx.fillStyle = '#5c4a1e';
-        ctx.font = 'bold 40px IRANSansFaNum, sans-serif';
-        ctx.fillText('دفترچه راهنمای آنلاین', 360, 672);
+        ctx.font = 'bold 56px IRANSansFaNum, sans-serif';
+        ctx.fillText('دفترچه راهنمای آنلاین', 360, 724);
 
-        var nameSize = fitFontSize(ctx, attendee.full_name, 600, 24);
+        var nameSize = fitFontSize(ctx, attendee.full_name, 620, 28);
         ctx.fillStyle = '#8a7548';
         ctx.font = nameSize + 'px IRANSansFaNum, sans-serif';
-        ctx.fillText(attendee.full_name, 360, 764);
+        ctx.fillText(attendee.full_name, 360, 896);
     }
 
     function updateBadgePreview(force) {
