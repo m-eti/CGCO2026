@@ -1190,7 +1190,7 @@ function first_letter(string $value): string {
                     <div class="w-9 h-9 shrink-0 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-bold text-sm">QR</div>
                     <div class="min-w-0">
                         <h1 class="font-bold text-sm sm:text-base text-slate-900 leading-5 truncate">سامانه تحویل غذا</h1>
-                        <p class="hidden sm:block text-xs text-slate-500 leading-4 truncate">کنترل سهمیه غذا و صدور کارت</p>
+                        <p class="hidden sm:block text-xs text-slate-500 leading-4 truncate">کنترل سهمیه غذا و صدور کوپن</p>
                     </div>
                 </div>
                 <div class="relative shrink-0">
@@ -1213,7 +1213,7 @@ function first_letter(string $value): string {
                 <button type="button" id="tabBtn_scanner" data-tab="scanner" class="tab-btn px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold border-b-2 border-emerald-600 text-emerald-700 whitespace-nowrap transition"><span class="sm:hidden">اسکنر</span><span class="hidden sm:inline">اسکنر تحویل غذا</span></button>
                 <?php if ($isSuperAdmin): ?>
                     <button type="button" id="tabBtn_attendees" data-tab="attendees" class="tab-btn px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-medium border-b-2 border-transparent text-slate-600 hover:text-slate-900 whitespace-nowrap transition"><span class="sm:hidden">شرکت‌کنندگان</span><span class="hidden sm:inline">شرکت‌کنندگان و اکسل</span></button>
-                    <button type="button" id="tabBtn_badges" data-tab="badges" class="tab-btn px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-medium border-b-2 border-transparent text-slate-600 hover:text-slate-900 whitespace-nowrap transition"><span class="sm:hidden">کارت‌ها</span><span class="hidden sm:inline">چاپ کارت و خروجی ZIP</span></button>
+                    <button type="button" id="tabBtn_badges" data-tab="badges" class="tab-btn px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-medium border-b-2 border-transparent text-slate-600 hover:text-slate-900 whitespace-nowrap transition"><span class="sm:hidden">کوپن‌ها</span><span class="hidden sm:inline">چاپ کوپن و خروجی ZIP</span></button>
                     <button type="button" id="tabBtn_admins" data-tab="admins" class="tab-btn px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-medium border-b-2 border-transparent text-slate-600 hover:text-slate-900 whitespace-nowrap transition"><span class="sm:hidden">ادمین‌ها</span><span class="hidden sm:inline">ادمین‌های تحویل غذا</span></button>
                 <?php endif; ?>
             </nav>
@@ -1319,7 +1319,6 @@ function first_letter(string $value): string {
                     <div class="flex flex-wrap items-center justify-between gap-2">
                         <div>
                             <h2 class="text-sm font-bold text-slate-800">لیست افراد و آپلود اکسل</h2>
-                            <p class="text-xs text-slate-500">تنها ورودی فایل اکسل ستون نام افراد است؛ کدها خودکار ایجاد می‌شوند.</p>
                         </div>
                         <div class="flex flex-wrap items-center gap-2">
                             <label for="excelUploadInput" class="cursor-pointer px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-xs transition shadow-sm">آپلود فایل اکسل (فقط نام افراد)</label>
@@ -1379,26 +1378,24 @@ function first_letter(string $value): string {
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
                     <div class="md:col-span-5 bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-3">
-                        <h3 class="text-sm font-bold text-slate-800">صدور و چاپ کارت گردنی</h3>
-                        <p class="text-xs text-slate-500">کارت‌ها شامل امضای QR بر شناسه کاربر، نام و کوپن تحویل غذا هستند.</p>
+                        <h3 class="text-sm font-bold text-slate-800">صدور و چاپ کوپن غذا</h3>
                         <div>
                             <label for="badgeAttendeeSelect" class="block text-xs text-slate-600 mb-1">انتخاب فرد برای پیش‌نمایش تکی:</label>
                             <select id="badgeAttendeeSelect" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs outline-none"></select>
                         </div>
                         <div class="pt-2 border-t border-slate-100 space-y-2">
                             <span class="text-xs font-semibold text-slate-700 block">دانلود تکی:</span>
-                            <button type="button" id="btnSingleBadge" class="w-full py-1.5 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs font-medium transition text-center">دانلود تصویر کارت (PNG)</button>
+                            <button type="button" id="btnSingleBadge" class="w-full py-1.5 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs font-medium transition text-center">دانلود تصویر کوپن (PNG)</button>
                         </div>
                         <div class="pt-2 border-t border-slate-100 space-y-2">
                             <span class="text-xs font-semibold text-slate-700 block">خروجی عمده همه افراد به ترتیب:</span>
-                            <button type="button" id="btnAllBadgesZip" class="w-full py-2 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold shadow-sm transition">دانلود فایل ZIP عکس همه کارت‌ها به ترتیب</button>
+                            <button type="button" id="btnAllBadgesZip" class="w-full py-2 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold shadow-sm transition">دانلود فایل ZIP عکس همه کوپن‌ها به ترتیب</button>
                             <button type="button" id="btnPrintBadges" class="w-full py-1.5 px-3 rounded-lg border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-medium transition">چاپ مستقیم در برگه A4</button>
-                            <p class="text-[11px] text-slate-400 leading-4">برای حذف تاریخ، نشانی و شمارهٔ صفحه از خروجی، در پنجرهٔ چاپ مرورگر گزینهٔ «Headers and footers» را غیرفعال کنید.</p>
                         </div>
                     </div>
                     <div class="md:col-span-7 bg-white border border-slate-200 rounded-xl p-4 shadow-sm flex flex-col items-center">
-                        <span class="text-xs font-bold text-slate-700 mb-3" id="badgePreviewIndexTag">پیش‌نمایش پشت کارت گردنی</span>
-                        <canvas id="singleBadgeCanvas" width="500" height="720" class="w-full max-w-[280px] h-auto border border-slate-200 rounded-lg shadow-sm"></canvas>
+                        <span class="text-xs font-bold text-slate-700 mb-3" id="badgePreviewIndexTag">پیش‌نمایش کوپن غذا</span>
+                        <canvas id="singleBadgeCanvas" width="720" height="960" class="w-full max-w-[280px] h-auto border border-slate-200 rounded-lg shadow-sm"></canvas>
                     </div>
                 </div>
             </section>
@@ -1407,7 +1404,6 @@ function first_letter(string $value): string {
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
                     <div class="md:col-span-5 bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-3">
                         <h3 class="text-sm font-bold text-slate-800">تعریف ادمین تحویل غذا</h3>
-                        <p class="text-xs text-slate-500">ادمین تحویل فقط به بخش اسکنر دسترسی دارد.</p>
                         <form id="addAdminForm" class="space-y-2.5">
                             <div>
                                 <label for="newAdminFullName" class="block text-xs text-slate-600 mb-0.5">نام و نام خانوادگی *</label>

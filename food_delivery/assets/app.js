@@ -400,7 +400,7 @@
                 '<td class="py-2 px-3 text-slate-700">' + escapeHtml(item.delivered_by_name || '---') + '</td>' +
                 '<td class="py-2 px-3 text-slate-500 font-mono text-[11px]" dir="ltr">' + escapeHtml(item.delivered_at ? String(item.delivered_at).slice(-8) : '---') + '</td>' +
                 '<td class="py-2 px-3 text-center"><div class="flex items-center justify-center gap-1">' +
-                '<button type="button" data-action="badge" data-id="' + item.id + '" class="px-2 py-0.5 rounded border border-slate-300 hover:bg-slate-100 text-slate-700 text-[11px]">کارت</button>' +
+                '<button type="button" data-action="badge" data-id="' + item.id + '" class="px-2 py-0.5 rounded border border-slate-300 hover:bg-slate-100 text-slate-700 text-[11px]">کوپن</button>' +
                 '<button type="button" data-action="delete" data-id="' + item.id + '" class="px-2 py-0.5 rounded border border-rose-200 text-rose-600 hover:bg-rose-50 text-[11px]">حذف</button>' +
                 '</div></td></tr>';
         }).join('');
@@ -452,53 +452,118 @@
         });
     }
 
-    function drawBadge(canvas, attendee) {
-        var ctx = canvas.getContext('2d');
-        var qrCanvas = document.createElement('canvas');
-        var payload = state.payloads[attendee.id] || attendee.qr_payload || '';
-        if (typeof QRious === 'function') {
+    var GUIDE_URL = 'https://cgco.uicvgame.ir/';
+    var GUIDE_HOST = 'cgco.uicvgame.ir';
+    var CARD_W = 720;  // 6 سانتی‌متر با مقیاس 120px بر سانتی‌متر (~300DPI)
+    var CARD_H = 960;  // 8 سانتی‌متر
+
+    var guideQrCanvas = null;
+    function getGuideQr() {
+        if (!guideQrCanvas) {
+            guideQrCanvas = document.createElement('canvas');
             new QRious({
-                element: qrCanvas,
-                value: payload,
-                size: 320,
-                level: 'H',
+                element: guideQrCanvas,
+                value: GUIDE_URL,
+                size: 260,
+                level: 'M',
                 background: '#ffffff',
-                foreground: '#0f172a',
-                padding: 12
+                foreground: '#2e2a22',
+                padding: 0
             });
         }
-        canvas.width = 500;
-        canvas.height = 720;
-        ctx.fillStyle = '#ffffff';
-        ctx.fillRect(0, 0, 500, 720);
-        ctx.strokeStyle = '#cbd5e1';
-        ctx.lineWidth = 3;
-        ctx.strokeRect(10, 10, 480, 700);
+        return guideQrCanvas;
+    }
 
-        ctx.fillStyle = '#f8fafc';
-        ctx.strokeStyle = '#e2e8f0';
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.roundRect(90, 175, 320, 320, 16);
-        ctx.fill();
-        ctx.stroke();
-        ctx.drawImage(qrCanvas, 105, 190, 290, 290);
+    function makePayloadQr(value) {
+        var c = document.createElement('canvas');
+        if (typeof QRious === 'function') {
+            new QRious({
+                element: c,
+                value: value,
+                size: 260,
+                level: 'H',
+                background: '#ffffff',
+                foreground: '#2e2a22',
+                padding: 0
+            });
+        }
+        return c;
+    }
 
-        ctx.fillStyle = '#64748b';
+    function fitFontSize(ctx, text, maxWidth, baseSize) {
+        var size = baseSize;
+        ctx.font = size + 'px IRANSansFaNum, sans-serif';
+        while (ctx.measureText(text).width > maxWidth && size > 11) {
+            size -= 1;
+            ctx.font = size + 'px IRANSansFaNum, sans-serif';
+        }
+        return size;
+    }
+
+    function drawBadge(canvas, attendee) {
+        canvas.width = CARD_W;
+        canvas.height = CARD_H;
+        var ctx = canvas.getContext('2d');
         ctx.textAlign = 'center';
-        ctx.font = '13px IRANSansFaNum, sans-serif';
-        ctx.fillText(attendee.full_name + '  (' + attendee.id + ')', 250, 520);
 
-        ctx.fillStyle = '#ecfdf5';
-        ctx.strokeStyle = '#059669';
+        ctx.fillStyle = '#fdf8ec';
+        ctx.fillRect(0, 0, CARD_W, CARD_H);
+        ctx.strokeStyle = '#e3d2a6';
+        ctx.lineWidth = 8;
+        ctx.beginPath();
+        ctx.roundRect(20, 20, CARD_W - 40, CARD_H - 40, 26);
+        ctx.stroke();
+
+        var payload = state.payloads[attendee.id] || attendee.qr_payload || '';
+
+        // بخش بالا: QR دفترچه راهنمای آنلاین
+        ctx.fillStyle = '#ffffff';
+        ctx.strokeStyle = '#ecdfc0';
         ctx.lineWidth = 2;
         ctx.beginPath();
-        ctx.roundRect(40, 550, 420, 95, 16);
+        ctx.roundRect(210, 64, 300, 300, 20);
         ctx.fill();
         ctx.stroke();
-        ctx.fillStyle = '#065f46';
-        ctx.font = 'bold 24px IRANSansFaNum, sans-serif';
-        ctx.fillText('کوپن تحویل غذا', 250, 608);
+        ctx.drawImage(getGuideQr(), 230, 84, 260, 260);
+
+        ctx.fillStyle = '#a08c5d';
+        ctx.font = '21px IRANSansFaNum, sans-serif';
+        ctx.fillText(GUIDE_HOST, 360, 404);
+
+        ctx.fillStyle = '#5c4a1e';
+        ctx.font = 'bold 31px IRANSansFaNum, sans-serif';
+        ctx.fillText('دفترچه راهنمای آنلاین', 360, 446);
+
+        // خط جداکنندهٔ نقطه‌چین (محل جداسازی دو بخش)
+        ctx.strokeStyle = '#d9c69a';
+        ctx.lineWidth = 3;
+        ctx.setLineDash([16, 14]);
+        ctx.beginPath();
+        ctx.moveTo(70, 480);
+        ctx.lineTo(650, 480);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // بخش پایین: ژتون غذا
+        var qrCanvas = makePayloadQr(payload);
+        ctx.fillStyle = '#ffffff';
+        ctx.strokeStyle = '#ecdfc0';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.roundRect(210, 512, 300, 300, 20);
+        ctx.fill();
+        ctx.stroke();
+        ctx.drawImage(qrCanvas, 230, 532, 260, 260);
+
+        var identity = attendee.full_name + ' (' + attendee.id + ')';
+        var idSize = fitFontSize(ctx, identity, 600, 19);
+        ctx.fillStyle = '#8a7548';
+        ctx.font = idSize + 'px IRANSansFaNum, sans-serif';
+        ctx.fillText(identity, 360, 840);
+
+        ctx.fillStyle = '#5c4a1e';
+        ctx.font = 'bold 31px IRANSansFaNum, sans-serif';
+        ctx.fillText('ژتون دریافت ناهار', 360, 900);
     }
 
     function updateBadgePreview(force) {
@@ -512,7 +577,7 @@
         }
         var attendee = state.attendees[index];
         if (!force && !state.payloads[attendee.id]) return;
-        $('badgePreviewIndexTag').textContent = 'کارت ' + attendee.full_name;
+        $('badgePreviewIndexTag').textContent = 'کوپن ' + attendee.full_name;
         ensureQrLib().then(function () {
             if (document.fonts && document.fonts.load) {
                 return document.fonts.load('bold 30px IRANSansFaNum').catch(function () {});
@@ -645,7 +710,7 @@
             downloadBlob(new Blob([bytes], { type: 'image/png' }), String(index + 1).padStart(3, '0') + '_' + safe + '.png');
             toast('فایل PNG دانلود شد.', 'ok');
         }).catch(function (err) {
-            toast(err.message || 'خطا در ساخت تصویر کارت.', 'error');
+            toast(err.message || 'خطا در ساخت تصویر کوپن.', 'error');
         });
     }
 
@@ -677,10 +742,10 @@
                 drawBadge(work, attendee);
                 canvasToBytes(work).then(function (bytes) {
                     var safe = attendee.full_name.replace(/[\\/:*?"<>|\s]+/g, '_');
-                    files.push({ name: 'Badges/' + String(index + 1).padStart(3, '0') + '_' + safe + '.png', data: bytes });
+                    files.push({ name: 'Coupons/' + String(index + 1).padStart(3, '0') + '_' + safe + '.png', data: bytes });
                     index++;
                     var pct = Math.round((index / total) * 100);
-                    if (text) text.textContent = 'تولید کارت ' + index + ' از ' + total + '...';
+                    if (text) text.textContent = 'تولید کوپن ' + index + ' از ' + total + '...';
                     if (percent) percent.textContent = pct + '%';
                     if (fill) fill.style.width = pct + '%';
                     setTimeout(step, 0);

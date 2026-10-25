@@ -73,19 +73,19 @@ body {
     }
     .lanyard-print-grid {
         display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 8mm 0 !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 6mm 4mm !important;
         margin: 0 !important;
         padding: 0 !important;
     }
     .lanyard-card-item {
         break-inside: avoid;
         page-break-inside: avoid;
-        padding: 0 4mm !important;
+        padding: 0 !important;
     }
     .lanyard-card-image {
-        width: 85mm !important;
-        height: 122mm !important;
+        width: 60mm !important;   /* 6 سانتی‌متر */
+        height: 80mm !important;  /* 8 سانتی‌متر */
         margin: 0 auto !important;
         display: block !important;
     }
