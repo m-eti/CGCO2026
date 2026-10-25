@@ -285,11 +285,26 @@
         }
     }
 
+    // محتوای QR می‌تواند لینک دفترچه (مثل https://cgco.uicvgame.ir/?q=1%7CABC) یا مستقیم شناسه|امضا باشد
+    function extractScanPayload(raw) {
+        var text = String(raw || '').trim();
+        var qIndex = text.indexOf('?q=');
+        if (qIndex === -1) return text;
+        var value = text.substring(qIndex + 3);
+        var amp = value.indexOf('&');
+        if (amp !== -1) value = value.substring(0, amp);
+        var hash = value.indexOf('#');
+        if (hash !== -1) value = value.substring(0, hash);
+        try { value = decodeURIComponent(value); } catch (e) {}
+        return value.trim();
+    }
+
     function submitScan(raw, source) {
         var now = Date.now();
-        if (raw === lastScan.uid && (now - lastScan.time) < 2000) return;
-        lastScan = { uid: raw, time: now };
-        api('scan', { qr: raw, source: source }).then(function (data) {
+        var payload = extractScanPayload(raw);
+        if (payload === lastScan.uid && (now - lastScan.time) < 2000) return;
+        lastScan = { uid: payload, time: now };
+        api('scan', { qr: payload, source: source }).then(function (data) {
             var result = data.result || {};
             showScanResult(result);
             applyStats(data);
@@ -400,7 +415,7 @@
                 '<td class="py-2 px-3 text-slate-700">' + escapeHtml(item.delivered_by_name || '---') + '</td>' +
                 '<td class="py-2 px-3 text-slate-500 font-mono text-[11px]" dir="ltr">' + escapeHtml(item.delivered_at ? String(item.delivered_at).slice(-8) : '---') + '</td>' +
                 '<td class="py-2 px-3 text-center"><div class="flex items-center justify-center gap-1">' +
-                '<button type="button" data-action="badge" data-id="' + item.id + '" class="px-2 py-0.5 rounded border border-slate-300 hover:bg-slate-100 text-slate-700 text-[11px]">کوپن</button>' +
+                '<button type="button" data-action="badge" data-id="' + item.id + '" class="px-2 py-0.5 rounded border border-slate-300 hover:bg-slate-100 text-slate-700 text-[11px]">ژتون</button>' +
                 '<button type="button" data-action="delete" data-id="' + item.id + '" class="px-2 py-0.5 rounded border border-rose-200 text-rose-600 hover:bg-rose-50 text-[11px]">حذف</button>' +
                 '</div></td></tr>';
         }).join('');
@@ -452,35 +467,18 @@
         });
     }
 
-    var GUIDE_URL = 'https://cgco.uicvgame.ir/';
+    var GUIDE_BASE_URL = 'https://cgco.uicvgame.ir/';
     var GUIDE_HOST = 'cgco.uicvgame.ir';
     var CARD_W = 720;  // 6 سانتی‌متر با مقیاس 120px بر سانتی‌متر (~300DPI)
     var CARD_H = 960;  // 8 سانتی‌متر
 
-    var guideQrCanvas = null;
-    function getGuideQr() {
-        if (!guideQrCanvas) {
-            guideQrCanvas = document.createElement('canvas');
-            new QRious({
-                element: guideQrCanvas,
-                value: GUIDE_URL,
-                size: 260,
-                level: 'M',
-                background: '#ffffff',
-                foreground: '#2e2a22',
-                padding: 0
-            });
-        }
-        return guideQrCanvas;
-    }
-
-    function makePayloadQr(value) {
+    function makeQr(value, size) {
         var c = document.createElement('canvas');
         if (typeof QRious === 'function') {
             new QRious({
                 element: c,
                 value: value,
-                size: 260,
+                size: size,
                 level: 'H',
                 background: '#ffffff',
                 foreground: '#2e2a22',
@@ -515,55 +513,29 @@
         ctx.stroke();
 
         var payload = state.payloads[attendee.id] || attendee.qr_payload || '';
+        var qrValue = GUIDE_BASE_URL + '?q=' + encodeURIComponent(payload);
 
-        // بخش بالا: QR دفترچه راهنمای آنلاین
         ctx.fillStyle = '#ffffff';
         ctx.strokeStyle = '#ecdfc0';
         ctx.lineWidth = 2;
         ctx.beginPath();
-        ctx.roundRect(210, 64, 300, 300, 20);
+        ctx.roundRect(170, 200, 380, 380, 22);
         ctx.fill();
         ctx.stroke();
-        ctx.drawImage(getGuideQr(), 230, 84, 260, 260);
+        ctx.drawImage(makeQr(qrValue, 340), 190, 220, 340, 340);
 
         ctx.fillStyle = '#a08c5d';
-        ctx.font = '21px IRANSansFaNum, sans-serif';
-        ctx.fillText(GUIDE_HOST, 360, 404);
+        ctx.font = '20px IRANSansFaNum, sans-serif';
+        ctx.fillText(GUIDE_HOST, 360, 614);
 
         ctx.fillStyle = '#5c4a1e';
-        ctx.font = 'bold 31px IRANSansFaNum, sans-serif';
-        ctx.fillText('دفترچه راهنمای آنلاین', 360, 446);
+        ctx.font = 'bold 40px IRANSansFaNum, sans-serif';
+        ctx.fillText('دفترچه راهنمای آنلاین', 360, 672);
 
-        // خط جداکنندهٔ نقطه‌چین (محل جداسازی دو بخش)
-        ctx.strokeStyle = '#d9c69a';
-        ctx.lineWidth = 3;
-        ctx.setLineDash([16, 14]);
-        ctx.beginPath();
-        ctx.moveTo(70, 480);
-        ctx.lineTo(650, 480);
-        ctx.stroke();
-        ctx.setLineDash([]);
-
-        // بخش پایین: ژتون غذا
-        var qrCanvas = makePayloadQr(payload);
-        ctx.fillStyle = '#ffffff';
-        ctx.strokeStyle = '#ecdfc0';
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.roundRect(210, 512, 300, 300, 20);
-        ctx.fill();
-        ctx.stroke();
-        ctx.drawImage(qrCanvas, 230, 532, 260, 260);
-
-        var identity = attendee.full_name + ' (' + attendee.id + ')';
-        var idSize = fitFontSize(ctx, identity, 600, 19);
+        var nameSize = fitFontSize(ctx, attendee.full_name, 600, 24);
         ctx.fillStyle = '#8a7548';
-        ctx.font = idSize + 'px IRANSansFaNum, sans-serif';
-        ctx.fillText(identity, 360, 840);
-
-        ctx.fillStyle = '#5c4a1e';
-        ctx.font = 'bold 31px IRANSansFaNum, sans-serif';
-        ctx.fillText('ژتون دریافت ناهار', 360, 900);
+        ctx.font = nameSize + 'px IRANSansFaNum, sans-serif';
+        ctx.fillText(attendee.full_name, 360, 764);
     }
 
     function updateBadgePreview(force) {
@@ -577,7 +549,7 @@
         }
         var attendee = state.attendees[index];
         if (!force && !state.payloads[attendee.id]) return;
-        $('badgePreviewIndexTag').textContent = 'کوپن ' + attendee.full_name;
+        $('badgePreviewIndexTag').textContent = 'ژتون ' + attendee.full_name;
         ensureQrLib().then(function () {
             if (document.fonts && document.fonts.load) {
                 return document.fonts.load('bold 30px IRANSansFaNum').catch(function () {});
@@ -710,7 +682,7 @@
             downloadBlob(new Blob([bytes], { type: 'image/png' }), String(index + 1).padStart(3, '0') + '_' + safe + '.png');
             toast('فایل PNG دانلود شد.', 'ok');
         }).catch(function (err) {
-            toast(err.message || 'خطا در ساخت تصویر کوپن.', 'error');
+            toast(err.message || 'خطا در ساخت تصویر ژتون.', 'error');
         });
     }
 
@@ -745,7 +717,7 @@
                     files.push({ name: 'Coupons/' + String(index + 1).padStart(3, '0') + '_' + safe + '.png', data: bytes });
                     index++;
                     var pct = Math.round((index / total) * 100);
-                    if (text) text.textContent = 'تولید کوپن ' + index + ' از ' + total + '...';
+                    if (text) text.textContent = 'تولید ژتون ' + index + ' از ' + total + '...';
                     if (percent) percent.textContent = pct + '%';
                     if (fill) fill.style.width = pct + '%';
                     setTimeout(step, 0);
