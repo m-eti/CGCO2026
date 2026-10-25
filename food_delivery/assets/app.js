@@ -209,9 +209,10 @@
         }
         container.innerHTML = items.map(function (item) {
             var ok = item.status === 'ok';
+            var manual = item.status === 'manual';
             var dup = item.status === 'already_delivered';
-            var color = ok ? 'bg-emerald-100 text-emerald-800' : (dup ? 'bg-rose-100 text-rose-800' : 'bg-amber-100 text-amber-800');
-            var label = ok ? 'تحویل شد' : (dup ? 'تکراری' : 'نامعتبر');
+            var color = (ok || manual) ? 'bg-emerald-100 text-emerald-800' : (dup ? 'bg-rose-100 text-rose-800' : 'bg-amber-100 text-amber-800');
+            var label = ok ? 'تحویل شد' : (manual ? 'دستی' : (dup ? 'تکراری' : 'نامعتبر'));
             var displayName = escapeHtml(item.full_name || item.uid || '');
             return '<div class="flex items-center justify-between py-1.5 px-2 bg-slate-50 rounded border border-slate-100 text-xs">' +
                 '<div class="flex items-center gap-2">' +
@@ -315,11 +316,60 @@
         });
     }
 
+    var manualSearchTimer = null;
+
+    function renderManualDeliverResults(results) {
+        var box = $('manualDeliverResults');
+        if (!box) return;
+        if (!results.length) {
+            box.innerHTML = '<div class="text-xs text-slate-400 text-center py-2">موردی یافت نشد.</div>';
+            return;
+        }
+        box.innerHTML = results.map(function (item) {
+            if (Number(item.received_food) === 1) {
+                return '<div class="flex items-center justify-between py-1.5 px-2 bg-slate-50 rounded border border-slate-100 text-xs">' +
+                    '<span class="font-semibold text-slate-700">' + escapeHtml(item.full_name) + '</span>' +
+                    '<span class="text-[11px] text-emerald-700 font-medium">دریافت کرده' + (item.delivered_at ? ' (' + escapeHtml(item.delivered_at) + ')' : '') + '</span></div>';
+            }
+            return '<div class="flex items-center justify-between py-1.5 px-2 bg-white rounded border border-amber-200 text-xs">' +
+                '<span class="font-semibold text-slate-800">' + escapeHtml(item.full_name) + '</span>' +
+                '<button type="button" data-action="manual-deliver" data-id="' + item.id + '" class="px-2.5 py-1 rounded bg-amber-600 hover:bg-amber-700 text-white text-[11px] font-semibold">ثبت تحویل</button></div>';
+        }).join('');
+    }
+
+    function manualDeliverSearch() {
+        var input = $('manualDeliverSearch');
+        if (!input) return;
+        var q = input.value.trim();
+        if (!q) {
+            renderManualDeliverResults([]);
+            return;
+        }
+        api('attendee_search', { q: q }).then(function (data) {
+            renderManualDeliverResults(data.results || []);
+        }).catch(function (err) {
+            toast(err.message || 'خطا در جستجو.', 'error');
+        });
+    }
+
+    function manualDeliver(id) {
+        api('manual_deliver', { id: id }).then(function (data) {
+            showScanResult(data.result || {});
+            applyStats(data);
+            playSound('ok');
+            manualDeliverSearch();
+        }).catch(function (err) {
+            toast(err.message || 'ثبت تحویل ناموفق بود.', 'error');
+            playSound('error');
+        });
+    }
+
     function stopCamera() {
         if (scanFrameId) {
             cancelAnimationFrame(scanFrameId);
             scanFrameId = null;
         }
+        releaseWakeLock();
         if (cameraStream) {
             cameraStream.getTracks().forEach(function (track) { track.stop(); });
             cameraStream = null;
@@ -338,11 +388,30 @@
         if (controls) controls.classList.add('hidden');
     }
 
+    var wakeLock = null;
+
+    function requestWakeLock() {
+        if (!('wakeLock' in navigator) || wakeLock) return;
+        try {
+            navigator.wakeLock.request('screen').then(function (lock) {
+                wakeLock = lock;
+                wakeLock.addEventListener('release', function () { wakeLock = null; });
+            }).catch(function () {});
+        } catch (e) {}
+    }
+
+    function releaseWakeLock() {
+        if (wakeLock) {
+            try { wakeLock.release(); } catch (e) {}
+            wakeLock = null;
+        }
+    }
+
     function scanLoop() {
         var video = $('qrVideo');
         var canvas = $('qrScanCanvas');
         if (!video || !cameraStream) return;
-        if (video.readyState >= 2 && typeof jsQR === 'function') {
+        if (video.readyState >= 2 && !video.paused && !document.hidden && typeof jsQR === 'function') {
             if (video.videoWidth) {
                 canvas.width = video.videoWidth;
                 canvas.height = video.videoHeight;
@@ -378,6 +447,7 @@
                 $('scannerOverlayFrame').classList.remove('hidden');
                 $('cameraPlaceholder').classList.add('hidden');
                 $('cameraActiveControls').classList.remove('hidden');
+                requestWakeLock();
                 scanLoop();
             });
         }).catch(function () {
@@ -444,8 +514,8 @@
         var select = $('badgeAttendeeSelect');
         if (!select) return;
         var current = select.value;
-        select.innerHTML = state.attendees.map(function (item, index) {
-            return '<option value="' + item.id + '">' + String(index + 1).padStart(3, '0') + ' — ' + escapeHtml(item.full_name) + '</option>';
+        select.innerHTML = state.attendees.map(function (item) {
+            return '<option value="' + item.id + '">' + String(item.id).padStart(3, '0') + ' — ' + escapeHtml(item.full_name) + '</option>';
         }).join('');
         if (current && state.attendees.some(function (item) { return String(item.id) === String(current); })) {
             select.value = current;
@@ -458,12 +528,17 @@
         }
         return api('badge_payloads', {}).then(function (data) {
             state.payloads = data.payloads || {};
-        }).catch(function () {});
+            if (!state.payloads || !Object.keys(state.payloads).length) {
+                throw new Error('اطلاعات ژتون‌ها از سرور دریافت نشد.');
+            }
+        });
     }
 
     function loadBadgePayloads() {
         ensurePayloads().then(function () {
             updateBadgePreview();
+        }).catch(function (err) {
+            toast(err.message || 'خطا در دریافت اطلاعات ژتون‌ها.', 'error');
         });
     }
 
@@ -511,6 +586,9 @@
         ctx.strokeRect(20, 20, CARD_W - 40, CARD_H - 40);
 
         var payload = state.payloads[attendee.id] || attendee.qr_payload || '';
+        if (!payload) {
+            throw new Error('امضای ژتون «' + attendee.full_name + '» یافت نشد؛ تولید ژتون متوقف شد.');
+        }
         var qrValue = GUIDE_BASE_URL + '?q=' + encodeURIComponent(payload);
 
         ctx.fillStyle = '#ffffff';
@@ -548,8 +626,8 @@
             }
         }).then(function () {
             drawBadge(canvas, attendee);
-        }).catch(function () {
-            drawBadge(canvas, attendee);
+        }).catch(function (err) {
+            toast(err.message || 'خطا در ترسیم ژتون.', 'error');
         });
     }
 
@@ -671,7 +749,7 @@
             return canvasToBytes(work);
         }).then(function (bytes) {
             var safe = attendee.full_name.replace(/[\\/:*?"<>|\s]+/g, '_');
-            downloadBlob(new Blob([bytes], { type: 'image/png' }), String(index + 1).padStart(3, '0') + '_' + safe + '.png');
+            downloadBlob(new Blob([bytes], { type: 'image/png' }), String(attendee.id).padStart(3, '0') + '_' + safe + '.png');
             toast('فایل PNG دانلود شد.', 'ok');
         }).catch(function (err) {
             toast(err.message || 'خطا در ساخت تصویر ژتون.', 'error');
@@ -706,7 +784,7 @@
                 drawBadge(work, attendee);
                 canvasToBytes(work).then(function (bytes) {
                     var safe = attendee.full_name.replace(/[\\/:*?"<>|\s]+/g, '_');
-                    files.push({ name: 'Coupons/' + String(index + 1).padStart(3, '0') + '_' + safe + '.png', data: bytes });
+                    files.push({ name: 'Coupons/' + String(attendee.id).padStart(3, '0') + '_' + safe + '.png', data: bytes });
                     index++;
                     var pct = Math.round((index / total) * 100);
                     if (text) text.textContent = 'تولید ژتون ' + index + ' از ' + total + '...';
@@ -724,21 +802,43 @@
 
     function printBadges() {
         if (!state.attendees.length) return;
+        var box = $('zipProgressBarBox');
+        var text = $('zipProgressText');
+        var percent = $('zipProgressPercent');
+        var fill = $('zipProgressFill');
+        if (box) box.classList.remove('hidden');
+
         ensureQrLib().then(function () {
             return ensurePayloads();
         }).then(function () {
             var container = $('printSheetContainer');
             var work = document.createElement('canvas');
-            var limit = Math.min(state.attendees.length, 60);
+            var total = state.attendees.length;
+            var index = 0;
             var html = '<div class="lanyard-print-grid">';
-            for (var i = 0; i < limit; i++) {
-                drawBadge(work, state.attendees[i]);
+
+            function step() {
+                if (index >= total) {
+                    container.innerHTML = html + '</div>';
+                    if (text) text.textContent = 'در حال باز کردن پنجرهٔ چاپ...';
+                    window.print();
+                    if (box) setTimeout(function () { box.classList.add('hidden'); }, 900);
+                    toast('چاپ ' + total + ' ژتون آماده شد.', 'ok');
+                    return;
+                }
+                var attendee = state.attendees[index];
+                drawBadge(work, attendee);
                 html += '<div class="lanyard-card-item p-1 text-center"><img src="' + work.toDataURL('image/png') + '" class="lanyard-card-image" alt="card"></div>';
+                index++;
+                var pct = Math.round((index / total) * 100);
+                if (text) text.textContent = 'آماده‌سازی ژتون ' + index + ' از ' + total + ' برای چاپ...';
+                if (percent) percent.textContent = pct + '%';
+                if (fill) fill.style.width = pct + '%';
+                setTimeout(step, 0);
             }
-            html += '</div>';
-            container.innerHTML = html;
-            window.print();
+            step();
         }).catch(function (err) {
+            if (box) box.classList.add('hidden');
             toast(err.message || 'خطا در آماده‌سازی چاپ.', 'error');
         });
     }
@@ -762,7 +862,7 @@
             renderStats();
             renderAttendeesTable();
             populateBadgeSelect();
-            toast(data.added + ' نفر از فایل اکسل با موفقیت اضافه شدند.', 'ok');
+            toast(data.added + ' نفر اضافه شد' + (data.skipped ? '، ' + data.skipped + ' نفر تکراری رد شد' : '') + '.', 'ok');
         }).catch(function (err) {
             toast(err.message || 'خطا در خواندن فایل اکسل.', 'error');
         });
@@ -916,6 +1016,34 @@
             });
         }
 
+        var manualDeliverToggle = $('btnToggleManualDeliver');
+        if (manualDeliverToggle) {
+            manualDeliverToggle.addEventListener('click', function () {
+                var panel = $('manualDeliverPanel');
+                if (!panel) return;
+                panel.classList.toggle('hidden');
+                if (!panel.classList.contains('hidden')) {
+                    var search = $('manualDeliverSearch');
+                    if (search) search.focus();
+                }
+            });
+        }
+        var manualDeliverInput = $('manualDeliverSearch');
+        if (manualDeliverInput) {
+            manualDeliverInput.addEventListener('input', function () {
+                if (manualSearchTimer) clearTimeout(manualSearchTimer);
+                manualSearchTimer = setTimeout(manualDeliverSearch, 300);
+            });
+        }
+        var manualDeliverResults = $('manualDeliverResults');
+        if (manualDeliverResults) {
+            manualDeliverResults.addEventListener('click', function (event) {
+                var button = event.target.closest('button[data-action="manual-deliver"]');
+                if (!button) return;
+                manualDeliver(parseInt(button.getAttribute('data-id'), 10));
+            });
+        }
+
         var searchInput = $('attendeeSearchInput');
         if (searchInput) searchInput.addEventListener('input', renderAttendeesTable);
 
@@ -1020,6 +1148,7 @@
         var deleteAll = $('btnDeleteAllAttendees');
         if (deleteAll) {
             deleteAll.addEventListener('click', function () {
+                if (!window.confirm('حذف همه افراد، کارت‌های چاپ‌شدهٔ فعلی را باطل می‌کند. مطمئن هستید؟')) return;
                 api('delete_all_attendees', {}).then(function (data) {
                     state.attendees = data.attendees || [];
                     state.stats = data.stats || state.stats;
@@ -1091,6 +1220,17 @@
         }
 
         window.addEventListener('beforeunload', stopCamera);
+
+        document.addEventListener('visibilitychange', function () {
+            if (document.hidden) return;
+            if (cameraStream) {
+                var video = $('qrVideo');
+                if (video && video.paused) {
+                    video.play().catch(function () {});
+                }
+                requestWakeLock();
+            }
+        });
     }
 
     function init() {

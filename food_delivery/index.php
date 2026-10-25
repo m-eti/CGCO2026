@@ -66,6 +66,8 @@ function cfg_int(string $key, int $default): int {
     return is_numeric($value) ? (int)$value : $default;
 }
 
+date_default_timezone_set(cfg('APP_TIMEZONE', 'Asia/Tehran'));
+
 function env_file_path(): string {
     return __DIR__ . '/.env';
 }
@@ -885,10 +887,85 @@ if ($apiAction !== '') {
                 $nowTime = date('Y-m-d H:i:s');
                 $upd = db()->prepare('UPDATE attendees SET received_food = 1, delivered_by_id = ?, delivered_by_name = ?, delivered_at = ?, updated_at = ? WHERE id = ? AND received_food = 0');
                 $upd->execute([(int)$currentAdmin['id'], (string)$currentAdmin['full_name'], $nowTime, $nowTime, (int)$attendee['id']]);
+                if ($upd->rowCount() === 0) {
+                    $stmt = db()->prepare('SELECT delivered_by_name, delivered_at FROM attendees WHERE id = ? LIMIT 1');
+                    $stmt->execute([(int)$attendee['id']]);
+                    $fresh = $stmt->fetch() ?: $attendee;
+                    log_scan('already_delivered', (string)$userId, (string)$attendee['full_name'], $currentAdmin);
+                    json_out(['ok' => true, 'result' => [
+                        'status' => 'already_delivered',
+                        'message' => 'این فرد هم‌اکنون توسط ایستگاه دیگری ثبت شد.',
+                        'attendee' => [
+                            'id' => (int)$attendee['id'],
+                            'full_name' => (string)$attendee['full_name'],
+                        ],
+                        'delivered_by_name' => $fresh['delivered_by_name'] !== null ? (string)$fresh['delivered_by_name'] : 'نامشخص',
+                        'delivered_at' => $fresh['delivered_at'] !== null ? substr((string)$fresh['delivered_at'], -8) : '---',
+                    ], 'stats' => stats_for((int)$currentAdmin['id']), 'recent_scans' => recent_scans_payload($isSuperAdmin, (int)$currentAdmin['id'])]);
+                }
                 log_scan('ok', (string)$userId, (string)$attendee['full_name'], $currentAdmin);
                 json_out(['ok' => true, 'result' => [
                     'status' => 'ok',
                     'message' => 'تحویل غذا با موفقیت ثبت شد.',
+                    'attendee' => [
+                        'id' => (int)$attendee['id'],
+                        'full_name' => (string)$attendee['full_name'],
+                    ],
+                    'delivered_by_name' => (string)$currentAdmin['full_name'],
+                    'delivered_at' => substr($nowTime, -8),
+                ], 'stats' => stats_for((int)$currentAdmin['id']), 'recent_scans' => recent_scans_payload($isSuperAdmin, (int)$currentAdmin['id'])]);
+
+            case 'attendee_search':
+                require_csrf();
+                if ($currentAdmin === null) {
+                    json_out(['ok' => false, 'error' => 'ابتدا وارد سامانه شوید.'], 403);
+                }
+                $body = read_json_body();
+                $q = trim(preg_replace('/\s+/u', ' ', (string)($body['q'] ?? '')) ?? '');
+                if (u_len($q) < 2) {
+                    json_out(['ok' => true, 'results' => []]);
+                }
+                $stmt = db()->prepare('SELECT id, full_name, received_food, delivered_by_name, delivered_at FROM attendees
+                    WHERE full_name LIKE ? ORDER BY received_food ASC, id ASC LIMIT 8');
+                $stmt->execute(['%' . $q . '%']);
+                $results = [];
+                foreach ($stmt->fetchAll() as $row) {
+                    $results[] = [
+                        'id' => (int)$row['id'],
+                        'full_name' => (string)$row['full_name'],
+                        'received_food' => (int)$row['received_food'],
+                        'delivered_by_name' => $row['delivered_by_name'] !== null ? (string)$row['delivered_by_name'] : null,
+                        'delivered_at' => $row['delivered_at'] !== null ? substr((string)$row['delivered_at'], -8) : null,
+                    ];
+                }
+                json_out(['ok' => true, 'results' => $results]);
+
+            case 'manual_deliver':
+                require_csrf();
+                if ($currentAdmin === null) {
+                    json_out(['ok' => false, 'error' => 'ابتدا وارد سامانه شوید.'], 403);
+                }
+                $body = read_json_body();
+                $attendeeId = (int)($body['id'] ?? 0);
+                $stmt = db()->prepare('SELECT * FROM attendees WHERE id = ? LIMIT 1');
+                $stmt->execute([$attendeeId]);
+                $attendee = $stmt->fetch();
+                if (!$attendee) {
+                    json_out(['ok' => false, 'error' => 'این شناسه در سیستم یافت نشد.'], 404);
+                }
+                if ((int)$attendee['received_food'] === 1) {
+                    json_out(['ok' => false, 'error' => 'این فرد قبلاً غذا دریافت کرده است.'], 409);
+                }
+                $nowTime = date('Y-m-d H:i:s');
+                $upd = db()->prepare('UPDATE attendees SET received_food = 1, delivered_by_id = ?, delivered_by_name = ?, delivered_at = ?, updated_at = ? WHERE id = ? AND received_food = 0');
+                $upd->execute([(int)$currentAdmin['id'], (string)$currentAdmin['full_name'], $nowTime, $nowTime, $attendeeId]);
+                if ($upd->rowCount() === 0) {
+                    json_out(['ok' => false, 'error' => 'این فرد هم‌اکنون توسط ایستگاه دیگری ثبت شد.'], 409);
+                }
+                log_scan('manual', (string)$attendeeId, (string)$attendee['full_name'], $currentAdmin);
+                json_out(['ok' => true, 'result' => [
+                    'status' => 'ok',
+                    'message' => 'تحویل دستی (بدون ژتون) با موفقیت ثبت شد.',
                     'attendee' => [
                         'id' => (int)$attendee['id'],
                         'full_name' => (string)$attendee['full_name'],
@@ -976,17 +1053,27 @@ if ($apiAction !== '') {
                 $pdo = db();
                 $pdo->beginTransaction();
                 $insert = $pdo->prepare('INSERT INTO attendees (full_name, received_food, created_at) VALUES (?, 0, ?)');
+                $existing = [];
+                foreach ($pdo->query('SELECT full_name FROM attendees') as $row) {
+                    $existing[(string)$row['full_name']] = true;
+                }
                 $added = 0;
+                $skipped = 0;
                 foreach ($names as $name) {
                     $name = trim(preg_replace('/\s+/u', ' ', $name) ?? '');
                     if ($name === '' || u_len($name) > 120) {
                         continue;
                     }
+                    if (isset($existing[$name])) {
+                        $skipped++;
+                        continue;
+                    }
                     $insert->execute([$name, date('Y-m-d H:i:s')]);
+                    $existing[$name] = true;
                     $added++;
                 }
                 $pdo->commit();
-                json_out(['ok' => true, 'added' => $added, 'attendees' => attendees_payload(), 'stats' => stats_for((int)$currentAdmin['id'])]);
+                json_out(['ok' => true, 'added' => $added, 'skipped' => $skipped, 'attendees' => attendees_payload(), 'stats' => stats_for((int)$currentAdmin['id'])]);
 
             case 'export_excel':
                 require_csrf();
@@ -1222,25 +1309,6 @@ function first_letter(string $value): string {
         <main class="flex-1 max-w-5xl w-full mx-auto p-4 sm:p-6 no-print">
 
             <section id="section_scanner" class="space-y-4">
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    <div class="bg-white border border-slate-200 rounded-xl p-3 shadow-sm">
-                        <span class="text-xs text-slate-500">کل افراد</span>
-                        <div class="text-lg sm:text-xl font-bold text-slate-800 mt-0.5" id="statCardTotal">0</div>
-                    </div>
-                    <div class="bg-white border border-emerald-200 rounded-xl p-3 shadow-sm">
-                        <span class="text-xs text-emerald-700 font-medium">تحویل شده</span>
-                        <div class="text-lg sm:text-xl font-bold text-emerald-600 mt-0.5" id="statCardDelivered">0</div>
-                    </div>
-                    <div class="bg-white border border-amber-200 rounded-xl p-3 shadow-sm">
-                        <span class="text-xs text-amber-700 font-medium">باقی‌مانده</span>
-                        <div class="text-lg sm:text-xl font-bold text-amber-600 mt-0.5" id="statCardRemaining">0</div>
-                    </div>
-                    <div class="bg-white border border-slate-200 rounded-xl p-3 shadow-sm">
-                        <span class="text-xs text-slate-500">تحویل‌های من</span>
-                        <div class="text-lg sm:text-xl font-bold text-slate-700 mt-0.5" id="statCardMyCount">0</div>
-                    </div>
-                </div>
-
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
                     <div class="md:col-span-5 bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-3">
                         <div class="flex items-center justify-between">
@@ -1273,23 +1341,31 @@ function first_letter(string $value): string {
                             <input type="text" id="manualCodeInput" placeholder="لینک ژتون یا شناسه کاربر | امضا" dir="ltr" autocomplete="off" class="flex-1 bg-slate-50 border border-slate-200 focus:border-emerald-500 rounded-lg px-2.5 py-1.5 text-xs outline-none">
                             <button type="submit" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs font-medium">ثبت</button>
                         </form>
+
+                        <div class="pt-2 border-t border-slate-100 space-y-2">
+                            <button type="button" id="btnToggleManualDeliver" class="w-full py-1.5 rounded-lg border border-amber-300 text-amber-800 hover:bg-amber-50 text-xs font-medium transition">تحویل دستی (بدون ژتون)</button>
+                            <div id="manualDeliverPanel" class="hidden space-y-2">
+                                <input type="text" id="manualDeliverSearch" placeholder="جستجوی نام فرد..." autocomplete="off" class="w-full bg-slate-50 border border-slate-200 focus:border-amber-500 rounded-lg px-2.5 py-1.5 text-xs outline-none">
+                                <div id="manualDeliverResults" class="max-h-44 overflow-y-auto space-y-1 pr-1"></div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="md:col-span-7 space-y-4">
-                        <div id="scanResultBox" class="hidden bg-white border border-slate-200 rounded-xl p-5 shadow-sm transition">
+                        <div id="scanResultBox" class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm transition">
                             <div class="flex items-start gap-3">
                                 <div id="scanResultIcon" class="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center text-2xl shrink-0">📡</div>
                                 <div class="flex-1">
-                                    <div id="scanResultBadge" class="inline-block text-[11px] font-semibold text-slate-500 mb-1"></div>
-                                    <h3 id="scanResultTitle" class="text-base font-bold text-slate-800"></h3>
-                                    <p id="scanResultSubtitle" class="text-xs text-slate-500 mt-1"></p>
+                                    <div id="scanResultBadge" class="inline-block text-[11px] font-semibold text-slate-500 mb-1">آخرین نتیجه</div>
+                                    <h3 id="scanResultTitle" class="text-base font-bold text-slate-800">در انتظار اسکن ژتون…</h3>
+                                    <p id="scanResultSubtitle" class="text-xs text-slate-500 mt-1">نتیجهٔ آخرین اسکن همین‌جا نمایش داده می‌شود.</p>
                                     <div id="scanResultDetailsGrid" class="hidden mt-4 pt-3 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                                         <div class="bg-white/80 p-2.5 rounded border border-inherit">
                                             <span class="text-slate-500 block text-[11px]">نام شخص:</span>
                                             <strong id="scanDetailAttendee" class="text-slate-900 mt-0.5 block text-sm">---</strong>
                                         </div>
                                         <div class="bg-white/80 p-2.5 rounded border border-inherit">
-                                            <span id="scanDetailAdminLabel" class="text-slate-500 block text-[11px]">تحویل توسط:</span>
+                                            <span id="scanDetailAdminLabel" class="text-slate-500 block text-[11px]">تحویل داده شده توسط:</span>
                                             <strong id="scanDetailAdminName" class="text-slate-900 mt-0.5 block">---</strong>
                                             <span id="scanDetailTime" class="text-slate-500 text-[11px] block mt-0.5" dir="ltr">---</span>
                                         </div>
@@ -1299,6 +1375,25 @@ function first_letter(string $value): string {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-4 gap-2">
+                            <div class="bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm">
+                                <span class="text-[11px] text-slate-500">کل افراد</span>
+                                <div class="text-base sm:text-xl font-bold text-slate-800 mt-0.5" id="statCardTotal">0</div>
+                            </div>
+                            <div class="bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm">
+                                <span class="text-[11px] text-emerald-700 font-medium">تحویل شده</span>
+                                <div class="text-base sm:text-xl font-bold text-emerald-600 mt-0.5" id="statCardDelivered">0</div>
+                            </div>
+                            <div class="bg-white border border-amber-200 rounded-xl p-2.5 shadow-sm">
+                                <span class="text-[11px] text-amber-700 font-medium">باقی‌مانده</span>
+                                <div class="text-base sm:text-xl font-bold text-amber-600 mt-0.5" id="statCardRemaining">0</div>
+                            </div>
+                            <div class="bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm">
+                                <span class="text-[11px] text-slate-500">تحویل‌های من</span>
+                                <div class="text-base sm:text-xl font-bold text-slate-700 mt-0.5" id="statCardMyCount">0</div>
                             </div>
                         </div>
 

@@ -3,11 +3,11 @@ Options -Indexes
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteCond %{REQUEST_URI} !^/(assets)/
-    RewriteCond %{REQUEST_URI} \.(sqlite|sqlite3|db|log|lock|env|ini|bak|sql|md)$ [NC]
+    RewriteCond %{REQUEST_URI} \.(sqlite|sqlite3|sqlite-wal|sqlite-shm|sqlite-journal|db|log|lock|env|ini|bak|sql|md)$ [NC]
     RewriteRule ^(.*)$ - [F,L]
 </IfModule>
 
-<FilesMatch "\.(sqlite|sqlite3|db|log|lock|env|ini|bak|sql|xlsx|xls|csv|json|zip)$">
+<FilesMatch "\.(sqlite|sqlite3|sqlite-wal|sqlite-shm|sqlite-journal|db|log|lock|env|ini|bak|sql|xlsx|xls|csv|json|zip)$">
     <IfModule mod_authz_core.c>
         Require all denied
     </IfModule>
