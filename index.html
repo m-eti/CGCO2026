@@ -10,6 +10,9 @@
 <link rel="stylesheet" type="text/css" href="responsive.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
 <link rel="stylesheet" type="text/css" href="z_styles.css" />
 <link rel="stylesheet" type="text/css" href="source/jquery.fancybox.css?v=2.0.6" media="screen" />
 <style type="text/css">
@@ -70,7 +73,7 @@
 		border-top: 4px solid var(--gold);
 		border-radius: 10px;
 		box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
-		padding: 22px 24px 20px;
+		padding: 18px 20px 16px;
 	}
 	.venue-modal__close {
 		position: absolute;
@@ -93,13 +96,14 @@
 		color: var(--navy-900);
 	}
 	.venue-modal__title {
-		margin: 0 0 10px;
-		font-size: 17px;
+		margin: 0 0 8px;
+		font-size: 16px;
+		font-weight: bold;
 		color: var(--navy-800);
 	}
 	.venue-modal__text {
-		margin: 0 0 16px;
-		font-size: 14px;
+		margin: 0 0 8px;
+		font-size: 13.5px;
 		line-height: 1.9;
 		color: #333;
 	}
@@ -107,34 +111,40 @@
 		list-style: none;
 		margin: 0;
 		padding: 0;
+		display: flex;
+		justify-content: center;
+		gap: 12px;
 	}
 	.venue-modal__links li {
-		margin: 0 0 8px;
-	}
-	.venue-modal__links li:last-child {
-		margin-bottom: 0;
+		margin: 0;
 	}
 	.venue-modal__links a {
-		display: flex;
-		align-items: center;
-		gap: 10px;
-		padding: 8px 12px;
+		display: block;
+		padding: 5px;
 		border: 1px solid rgba(212, 181, 95, 0.35);
-		border-radius: 6px;
+		border-radius: 8px;
 		background: #fdfaf2;
-		color: var(--navy-800);
-		font-size: 14px;
-		text-decoration: none;
 		transition: border-color 0.15s ease, background 0.15s ease;
 	}
 	.venue-modal__links a:hover {
 		border-color: var(--gold);
 		background: #fff8e6;
 	}
+	.venue-modal__divider {
+		margin: 14px 0 12px;
+		border: none;
+		border-top: 1px dashed rgba(212, 181, 95, 0.6);
+	}
+	.venue-modal__venue-name {
+		margin: 0 0 4px;
+		font-size: 15px;
+		font-weight: bold;
+		color: var(--navy-800);
+	}
 	.venue-modal__links img {
 		display: block;
-		width: 30px;
-		height: 30px;
+		width: 34px;
+		height: 34px;
 		object-fit: contain;
 	}
 	/* organizing committee cards (loaded from committee-organizing.json) */
@@ -151,10 +161,34 @@
 		height: 175px;
 		object-fit: cover;
 	}
+	/* center each member's info vertically against the photo and center the
+	   text within the free space next to it (inline-flex keeps the cards side
+	   by side; floats are ignored by flex) */
+	#organizingCommittee .person {
+		display: inline-flex !important;
+		align-items: center;
+		gap: 15px;
+	}
+	#organizingCommittee .person .caption {
+		float: none;
+		margin: 0;
+		width: auto;
+		flex: 1 1 auto;
+		text-align: center;
+	}
 	@media only screen and (max-width: 768px) {
 		#organizingCommittee .person img {
 			width: 130px;
 			height: 130px;
+		}
+	}
+	@media only screen and (max-width: 480px) {
+		/* keep the stacked phone layout (photo on top, info below) */
+		#organizingCommittee .person {
+			flex-direction: column;
+		}
+		#organizingCommittee .person .caption {
+			width: 100%;
 		}
 	}
 	/* scientific committee table (loaded from committee-scientific.json) */
@@ -167,12 +201,12 @@
 		padding: 2px 7px;
 		text-align: center;
 		vertical-align: middle;
-		font-size: 15px;
+		font-size: 13px;
 	}
 	.komitteh-elmi td.sci-name {
 		width: 154pt;
 		font-family: "B Nazanin", "BNazanin", serif;
-		font-size: 17px;
+		font-size: 15px;
 	}
 	.komitteh-elmi td.sci-spec {
 		width: 97pt;
@@ -202,6 +236,12 @@
 	.conf-articles .conference-table tbody tr:first-child td {
 		background: var(--gold-soft) !important;
 		color: inherit;
+	}
+	/* ...and keep it regular weight: it is a data row, not a header
+	   (the generic .conf-articles first-row rule bolds it otherwise) */
+	.conf-articles .conference-table tbody tr:first-child td,
+	.conf-articles .conference-table tbody tr:first-child td span {
+		font-weight: 400;
 	}
 	.conference-table tr.sched-break td {
 		background: rgba(212, 181, 95, 0.45) !important;
@@ -388,6 +428,11 @@
 	#sessionsContent .committee-info strong {
 		color: var(--navy-800);
 	}
+	/* hour-range banners: the global * reset un-bolds the <bdi> time values,
+	   keep them bold like the rest of the line */
+	#sessionsContent strong bdi {
+		font-weight: bold;
+	}
 	#sessionsContent .papers-table {
 		font-size: 13.5px !important;
 	}
@@ -465,6 +510,17 @@
 	#otherPapersContent .col-authors {
 		color: #555 !important;
 	}
+	/* center every cell of the other-papers tables (!important to beat the
+	   inline text-align:right on the tables and the LTR title cells) */
+	#otherPapersContent .papers-table th,
+	#otherPapersContent .papers-table td {
+		text-align: center !important;
+	}
+	/* center the category (حوزه) bar text */
+	#otherPapersContent .category-header-bar {
+		justify-content: center !important;
+		text-align: center !important;
+	}
 </style>
 </head>
 <body>
@@ -511,7 +567,10 @@
 				
 				<a href="https://cgco2026.ui.ac.ir" target="_blank" rel="noopener noreferrer" class="BZar button blue medium ">سایت کنفرانس</a>
 
+				<!-- ورود کاربران: به‌صورت موقت غیرفعال شد؛ برای فعال‌سازی دوباره، لینک پایین را بازگردانید و لینک «پیام موقت» را حذف کنید
 				<a href="cert/" target="_blank" class="BZar button blue medium last">ورود کاربران</a>
+				-->
+				<a href="#" id="userLoginBtn" class="BZar button blue medium last">ورود کاربران</a>
 			</div>
 		</div>
 		<picture class="mobile-only">
@@ -571,15 +630,15 @@
 					
 					<div align="right" style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
 						<table class="komitteh-elmi" dir="rtl">
-							<tbody id="scientificCommitteeBody"><tr class="sci-header">
+								<tbody id="scientificCommitteeBody"><tr class="sci-header">
 									<td style="width:154.0pt;border:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:20.4pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:17px;font-family:"B Nazanin";color:black;'>نام و نام خانوادگی</span></p>
+										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:13px;font-family:"Calibri",sans-serif;text-align:  center;'><span style='font-size:15px;font-family:"B Nazanin";color:black;'>نام و نام خانوادگی</span></p>
 									</td>
 									<td style="width:97.0pt;border:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.4pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">تخصص</span></p>
+										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:13px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">تخصص</span></p>
 									</td>
 									<td style="width:171.75pt;border:solid windowtext 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.4pt;">
-										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">سازمان</span></p>
+										<p dir="RTL" style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:13px;font-family:"Calibri",sans-serif;text-align:  center;'><span style="color:black;">سازمان</span></p>
 									</td>
 								</tr></tbody>
 						</table>
@@ -1399,9 +1458,17 @@ var navbar = document.getElementById("col");
 		<h3 class="venue-modal__title" id="venueModalTitle">محل برگزاری کنفرانس</h3>
 		<p class="venue-modal__text">دانشگاه اصفهان، ساختمان مرکزی (شهید جمهور)، مجموعه تالارهای پیامبر اعظم (ص)</p>
 		<ul class="venue-modal__links">
-			<li><a href="https://maps.app.goo.gl/PExQkc8HjjWfheDr6" target="_blank" rel="noopener noreferrer"><img src="img/maps/google-maps.webp" width="30" height="30" alt="" />گوگل مپ</a></li>
-			<li><a href="https://nshn.ir/ac_bZ9NeGxaiB4" target="_blank" rel="noopener noreferrer"><img src="img/maps/neshan.webp" width="30" height="30" alt="" />نشان</a></li>
-			<li><a href="https://balad.ir/p/PHmxv1BMwg8Lc9" target="_blank" rel="noopener noreferrer"><img src="img/maps/balad.webp" width="30" height="30" alt="" />بلد</a></li>
+			<li><a href="https://maps.app.goo.gl/PExQkc8HjjWfheDr6" target="_blank" rel="noopener noreferrer" title="گوگل مپ"><img src="img/maps/google-maps.webp" width="34" height="34" alt="گوگل مپ" /></a></li>
+			<li><a href="https://nshn.ir/ac_bZ9NeGxaiB4" target="_blank" rel="noopener noreferrer" title="نشان"><img src="img/maps/neshan.webp" width="34" height="34" alt="نشان" /></a></li>
+			<li><a href="https://balad.ir/p/PHmxv1BMwg8Lc9" target="_blank" rel="noopener noreferrer" title="بلد"><img src="img/maps/balad.webp" width="34" height="34" alt="بلد" /></a></li>
+		</ul>
+		<hr class="venue-modal__divider" />
+		<p class="venue-modal__venue-name">مهمانسرای دانشگاه اصفهان</p>
+		<p class="venue-modal__text">خیابان هزارجریب، مجموعه خوابگاه‌های دانشگاه اصفهان، مهمانسرای دانشگاه</p>
+		<ul class="venue-modal__links">
+			<li><a href="https://maps.app.goo.gl/FjJ7kCmCCEL2WVNr6" target="_blank" rel="noopener noreferrer" title="گوگل مپ"><img src="img/maps/google-maps.webp" width="34" height="34" alt="گوگل مپ" /></a></li>
+			<li><a href="https://nshn.ir/ec_bZzCLQxa04c" target="_blank" rel="noopener noreferrer" title="نشان"><img src="img/maps/neshan.webp" width="34" height="34" alt="نشان" /></a></li>
+			<li><a href="https://balad.ir/p/PsOM40zoXlmfxJ" target="_blank" rel="noopener noreferrer" title="بلد"><img src="img/maps/balad.webp" width="34" height="34" alt="بلد" /></a></li>
 		</ul>
 	</div>
 </div>
@@ -1458,6 +1525,48 @@ var navbar = document.getElementById("col");
 		if (!wasSeen()) {
 			window.setTimeout(openModal, 600);
 		}
+	})();
+</script>
+
+<div id="loginNoticeModal" class="venue-modal" hidden role="dialog" aria-modal="true" aria-labelledby="loginNoticeTitle">
+	<div class="venue-modal__box">
+		<button type="button" id="loginNoticeClose" class="venue-modal__close" aria-label="بستن">&times;</button>
+		<h3 class="venue-modal__title" id="loginNoticeTitle">ورود کاربران</h3>
+		<p class="venue-modal__text">برای دریافت مجموعه مقالات و نیز گواهی از روز ۱۴ آبان‌ماه به همین آدرس مراجعه نمایید</p>
+	</div>
+</div>
+
+<script type="text/javascript">
+	(function () {
+		var btn = document.getElementById("userLoginBtn");
+		var modal = document.getElementById("loginNoticeModal");
+		if (!btn || !modal) return;
+		var closeBtn = document.getElementById("loginNoticeClose");
+
+		function openModal() {
+			modal.hidden = false;
+			document.body.style.overflow = "hidden";
+			if (closeBtn) closeBtn.focus();
+		}
+
+		function closeModal() {
+			if (modal.hidden) return;
+			modal.hidden = true;
+			document.body.style.overflow = "";
+		}
+
+		/* the cert section is temporarily disabled: show the notice instead */
+		btn.addEventListener("click", function (e) {
+			e.preventDefault();
+			openModal();
+		});
+		if (closeBtn) closeBtn.addEventListener("click", closeModal);
+		modal.addEventListener("click", function (e) {
+			if (e.target === modal) closeModal();
+		});
+		document.addEventListener("keydown", function (e) {
+			if (e.key === "Escape" || e.keyCode === 27) closeModal();
+		});
 	})();
 </script>
 
