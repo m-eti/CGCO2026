@@ -514,13 +514,10 @@
         var qrValue = GUIDE_BASE_URL + '?q=' + encodeURIComponent(payload);
 
         ctx.fillStyle = '#ffffff';
-        ctx.strokeStyle = '#ecdfc0';
-        ctx.lineWidth = 2;
-        ctx.strokeRect(140, 150, 440, 440);
-        ctx.drawImage(makeQr(qrValue, 400), 160, 170, 400, 400);
+        ctx.drawImage(makeQr(qrValue, 440), 140, 150, 440, 440);
 
         ctx.fillStyle = '#a08c5d';
-        ctx.font = '28px IRANSansFaNum, sans-serif';
+        ctx.font = '50px IRANSansFaNum, sans-serif';
         ctx.fillText(GUIDE_HOST, 360, 650);
 
         ctx.fillStyle = '#5c4a1e';
