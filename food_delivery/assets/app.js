@@ -820,10 +820,21 @@
             function step() {
                 if (index >= total) {
                     container.innerHTML = html + '</div>';
-                    if (text) text.textContent = 'در حال باز کردن پنجرهٔ چاپ...';
-                    window.print();
-                    if (box) setTimeout(function () { box.classList.add('hidden'); }, 900);
-                    toast('چاپ ' + total + ' ژتون آماده شد.', 'ok');
+                    if (text) text.textContent = 'آماده‌سازی نهایی تصاویر برای چاپ...';
+                    // چاپ فقط بعد از دیکد کامل همهٔ تصاویر؛ وگرنه مرورگرهای کندتر کادر خالی چاپ می‌کنند
+                    var imgs = Array.prototype.slice.call(container.querySelectorAll('img'));
+                    var decoded = Promise.all(imgs.map(function (img) {
+                        if (img.decode) return img.decode().catch(function () {});
+                        if (img.complete) return Promise.resolve();
+                        return new Promise(function (resolve) { img.onload = img.onerror = resolve; });
+                    }));
+                    var timeout = new Promise(function (resolve) { setTimeout(resolve, 20000); });
+                    Promise.race([decoded, timeout]).then(function () {
+                        if (text) text.textContent = 'در حال باز کردن پنجرهٔ چاپ...';
+                        window.print();
+                        if (box) setTimeout(function () { box.classList.add('hidden'); }, 900);
+                        toast('چاپ ' + total + ' ژتون آماده شد.', 'ok');
+                    });
                     return;
                 }
                 var attendee = state.attendees[index];
@@ -1220,6 +1231,11 @@
         }
 
         window.addEventListener('beforeunload', stopCamera);
+
+        window.addEventListener('afterprint', function () {
+            var container = $('printSheetContainer');
+            if (container) container.innerHTML = '';
+        });
 
         document.addEventListener('visibilitychange', function () {
             if (document.hidden) return;

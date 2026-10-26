@@ -16,6 +16,8 @@ define('CUSTOM_FONT_PATH', 'assets/custom-font.ttf');
 define('CUSTOM_TEMPLATE_PATH', 'assets/certificate-template.png');
 define('SESSION_TTL', 1800);
 define('MAX_ATTEMPTS', 7);
+// دریافت گواهی موقتاً غیرفعال است (از ۱۴ آبان فعال می‌شود)؛ برای فعال‌سازی: true کنید.
+define('CERT_ENABLED', false);
 
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
@@ -852,6 +854,7 @@ $articlesAvailable = file_exists(ARTICLES_FILE);
             <!-- Options menu -->
             <div class="options-grid">
 
+                <?php if (CERT_ENABLED): ?>
                 <a class="option-card" href="<?= htmlspecialchars(currentPath() . '?view=certificate', ENT_QUOTES, 'UTF-8') ?>">
                     <span class="option-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -868,6 +871,19 @@ $articlesAvailable = file_exists(ARTICLES_FILE);
                         </svg>
                     </span>
                 </a>
+                <?php else: ?>
+                <div class="option-card" style="cursor: default;">
+                    <span class="option-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="9"></circle>
+                            <path d="M12 8v5"></path>
+                            <path d="M12 16.5v.01"></path>
+                        </svg>
+                    </span>
+                    <h3>دریافت گواهی ارائه مقاله</h3>
+                    <p>برای دریافت مجموعه مقالات و نیز گواهی از روز ۱۴ آبان‌ماه به همین آدرس مراجعه نمایید</p>
+                </div>
+                <?php endif; ?>
 
                 <a class="option-card" href="<?= htmlspecialchars(currentPath() . '?view=articles', ENT_QUOTES, 'UTF-8') ?>">
                     <span class="option-icon">
@@ -888,6 +904,27 @@ $articlesAvailable = file_exists(ARTICLES_FILE);
                 </a>
 
             </div>
+
+        <?php elseif ($view === 'certificate' && !CERT_ENABLED): ?>
+
+            <!-- Certificate temporarily disabled: notice instead -->
+            <section class="card">
+                <a class="btn-back" href="<?= htmlspecialchars(currentPath(), ENT_QUOTES, 'UTF-8') ?>">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m15 18-6-6 6-6"></path>
+                    </svg>
+                    بازگشت به گزینه‌ها
+                </a>
+                <h2 class="panel-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <path d="M12 8v5"></path>
+                        <path d="M12 16.5v.01"></path>
+                    </svg>
+                    دریافت گواهی ارائه مقاله
+                </h2>
+                <div class="alert-box">برای دریافت مجموعه مقالات و نیز گواهی از روز ۱۴ آبان‌ماه به همین آدرس مراجعه نمایید</div>
+            </section>
 
         <?php elseif ($view === 'certificate'): ?>
 
