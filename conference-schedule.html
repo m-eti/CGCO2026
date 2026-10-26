@@ -28,6 +28,26 @@
 		font-weight: 700;
 		margin: 26px 0 6px;
 	}
+	#scheduleContent .schedule-note {
+		text-align: center;
+		font-size: 16px;
+		margin: 4px 0 8px;
+	}
+	#scheduleContent .schedule-note a { color: rgb(33, 18, 112); text-decoration: none; }
+	#scheduleContent .schedule-note a span { color: rgb(33, 18, 112) !important; }
+	#scheduleContent .schedule-venue {
+		text-align: center;
+		font-size: 15px;
+		font-weight: 400;
+		margin: 0 0 14px;
+	}
+	#scheduleContent a.talk-link,
+	#scheduleContent a.talk-link span {
+		color: #000 !important;
+		text-decoration: none !important;
+	}
+	#scheduleContent a.talk-link:hover,
+	#scheduleContent a.talk-link:hover span { text-decoration: underline !important; }
 	#scheduleContent .schedule-subtitle {
 		text-align: center;
 		font-size: 15px;
@@ -96,9 +116,12 @@
 </style>
 <div class="schedule-wrap">
 
+    <p class="schedule-note">می‌توانید این برنامه‌ها را از طریق کانال آپارات کنفرانس به آدرس <a href="https://aparat.com/cgco" target="_blank" rel="noopener noreferrer"><span dir="ltr">https://aparat.com/cgco</span></a> دنبال کنید.</p>
+
     <!-- ==================== روز اول ==================== -->
     <div class="schedule-day-section">
       <h2 class="schedule-title">روز اول – چهارشنبه ۶ آبان ۱۴۰۵</h2>
+      <p class="schedule-venue">مجموعه سالن‌های پیامبر اعظم - ساختمان مرکزی (شهید جمهور) دانشگاه اصفهان</p>
 
       <div class="table-scroll">
         <table class="conference-table">
@@ -134,7 +157,7 @@
             <tr>
               <td colspan="2">
                 سخنرانی کلیدی دکتر حمیدرضا مراتب
-                <span class="en-title">Causal AI for Game + Neuroscience: From Brain Signals to Counterfactual, Explainable, and Adaptive Serious Games</span>
+                <a class="talk-link" href="https://cgco2026.ui.ac.ir/fa/news.php?rid=128" target="_blank" rel="noopener noreferrer"><span class="en-title">Causal AI for Game + Neuroscience: From Brain Signals to Counterfactual, Explainable, and Adaptive Serious Games</span></a>
               </td>
               <td rowspan="4">تالار پیامبر اعظم</td>
               <td rowspan="4">۱۰:۳۰ تا ۱۲</td>
@@ -142,19 +165,19 @@
             <tr>
               <td colspan="2">
                 سخنرانی کلیدی دکتر رسول رکنی‌زاده
-                <span class="fa-title">از جهان کوانتومی تا جهان‌ بازی‌ها</span>
+                <a class="talk-link" href="https://cgco2026.ui.ac.ir/fa/news.php?rid=129" target="_blank" rel="noopener noreferrer"><span class="fa-title">از جهان کوانتومی تا جهان‌ بازی‌ها</span></a>
               </td>
             </tr>
             <tr>
               <td colspan="2">
                 سخنرانی کلیدی دکتر امیر قمرانی
-                <span class="fa-title">ای بی‌خبر ز لَذَّتِ شُربِ مُدامِ ما : كاوشی در تجارب زيسته گيمرهای حرفه‌اي نسل آلفا</span>
+                <a class="talk-link" href="https://cgco2026.ui.ac.ir/fa/news.php?rid=131" target="_blank" rel="noopener noreferrer"><span class="fa-title">ای بی‌خبر ز لَذَّتِ شُربِ مُدامِ ما : كاوشی در تجارب زيسته گيمرهای حرفه‌اي نسل آلفا</span></a>
               </td>
             </tr>
             <tr>
               <td colspan="2">
                 سخنرانی کلیدی دکتر لیدا شفقی
-                <span class="fa-title">جریان بازاندیش در تجربه بازی: تمرکز بر فرآیندهای ناظر بر شناخت و تجربه</span>
+                <a class="talk-link" href="https://cgco2026.ui.ac.ir/fa/news.php?rid=130" target="_blank" rel="noopener noreferrer"><span class="fa-title">جریان بازاندیش در تجربه بازی: تمرکز بر فرآیندهای ناظر بر شناخت و تجربه</span></a>
               </td>
             </tr>
             <tr class="sched-break">
@@ -190,7 +213,7 @@
               <td>۱۴:۳۰</td>
             </tr>
             <tr>
-              <td>پنل الگو و تحلیل روا‌نشناختی مصرف بازی‌های رایانه‌ای کودکان و نوجوانان کشور</td>
+              <td><a class="talk-link" href="https://cgco2026.ui.ac.ir/fa/news.php?rid=135" target="_blank" rel="noopener noreferrer">پنل الگو و تحلیل روا‌نشناختی مصرف بازی‌های رایانه‌ای کودکان و نوجوانان کشور</a></td>
               <td>سالن خاتم</td>
               <td rowspan="4">۱۴:۴۵ تا ۱۶</td>
             </tr>
@@ -212,7 +235,7 @@
               <td>۱۶</td>
             </tr>
             <tr>
-              <td>پنل چالش‌های تجاری‌سازی بازی‌های جدی</td>
+              <td><a class="talk-link" href="https://cgco2026.ui.ac.ir/fa/news.php?rid=136" target="_blank" rel="noopener noreferrer">پنل چالش‌های تجاری‌سازی بازی‌های جدی</a></td>
               <td>سالن مبین</td>
               <td rowspan="3">۱۶:۱۵ تا ۱۷:۴۵</td>
             </tr>
@@ -227,7 +250,7 @@
             <tr class="sched-break sched-last">
               <td colspan="2">اختتامیه‌ی کنفرانس و تقدیر از مقالات برتر</td>
               <td>سالن شهید سلیمانی</td>
-              <td>۱۸ تا ۱۹</td>
+              <td>۱۸:۳۰ تا ۱۹</td>
             </tr>
           </tbody>
         </table>
@@ -255,42 +278,42 @@
           </thead>
           <tbody>
             <tr>
-              <td><span dir="ltr">Lessons from Poland for Developing Iran’s Video Game Industry</span></td>
+              <td><a class="talk-link" href="https://cgco2026.ui.ac.ir/fa/news.php?rid=127" target="_blank" rel="noopener noreferrer"><span dir="ltr">Lessons from Poland for Developing Iran’s Video Game Industry</span></a></td>
               <td><span dir="ltr">Dr. Jakub Majewski</span></td>
               <td>۹</td>
             </tr>
             <tr>
-              <td><span dir="ltr">The Portrayal of the Nizari Isma’ilis in the Assassin’s Creed Game Series: From Medieval Legends to Contemporary Culture</span></td>
+              <td><a class="talk-link" href="https://cgco2026.ui.ac.ir/fa/news.php?rid=124" target="_blank" rel="noopener noreferrer"><span dir="ltr">The Portrayal of the Nizari Isma’ilis in the Assassin’s Creed Game Series: From Medieval Legends to Contemporary Culture</span></a></td>
               <td><span dir="ltr">Dr. Frank Bosman</span></td>
               <td>۹:۳۵</td>
             </tr>
             <tr>
-              <td><span dir="ltr">Games for Real Change: From Serious Game Design to Expanding Access to Interactive Learning Technologies</span></td>
+              <td><a class="talk-link" href="https://cgco2026.ui.ac.ir/fa/news.php?rid=126" target="_blank" rel="noopener noreferrer"><span dir="ltr">Games for Real Change: From Serious Game Design to Expanding Access to Interactive Learning Technologies</span></a></td>
               <td><span dir="ltr">Dr. Casper Harteveld</span></td>
               <td>۱۰:۰۵</td>
             </tr>
             <tr>
-              <td><span dir="ltr">Games for Impact: From Educating Refugee Children to Combating Domestic Violence</span></td>
+              <td><a class="talk-link" href="https://cgco2026.ui.ac.ir/fa/news.php?rid=125" target="_blank" rel="noopener noreferrer"><span dir="ltr">Games for Impact: From Educating Refugee Children to Combating Domestic Violence</span></a></td>
               <td><span dir="ltr">Dr. Emmanuel Guardiola</span></td>
               <td>۱۰:۳۰</td>
             </tr>
             <tr>
-              <td><span dir="ltr">Rethinking Game AI for Learning Futures; Persistent Generative World &amp; AI-Human Co-Creation</span></td>
+              <td><a class="talk-link" href="https://cgco2026.ui.ac.ir/fa/news.php?rid=123" target="_blank" rel="noopener noreferrer"><span dir="ltr">Rethinking Game AI for Learning Futures; Persistent Generative World &amp; AI-Human Co-Creation</span></a></td>
               <td><span dir="ltr">Dr. James Hutson</span></td>
               <td>۱۰:۵۵</td>
             </tr>
             <tr>
-              <td><span dir="ltr">Nuts and Bolts of Video Game AI</span></td>
+              <td><a class="talk-link" href="https://cgco2026.ui.ac.ir/fa/news.php?rid=133" target="_blank" rel="noopener noreferrer"><span dir="ltr">Nuts and Bolts of Video Game AI</span></a></td>
               <td>دکتر امین بابادی</td>
               <td>۱۱:۳۰</td>
             </tr>
             <tr>
-              <td>درس‌هایی از صنعت بازی‌سازی فنلاند برای صنعت بازی‌سازی ایران</td>
+              <td><a class="talk-link" href="https://cgco2026.ui.ac.ir/fa/news.php?rid=137" target="_blank" rel="noopener noreferrer">درس‌هایی از صنعت بازی‌سازی فنلاند برای صنعت بازی‌سازی ایران</a></td>
               <td>امین بابادی، مهدی همدرسی، سینا توکلی</td>
               <td>۱۲:۳۰</td>
             </tr>
             <tr>
-              <td><span dir="ltr">The AI Paradigm Shift: How Intelligent Systems Are Rewriting the Gaming Industry</span></td>
+              <td><a class="talk-link" href="https://cgco2026.ui.ac.ir/fa/news.php?rid=134" target="_blank" rel="noopener noreferrer"><span dir="ltr">The AI Paradigm Shift: How Intelligent Systems Are Rewriting the Gaming Industry</span></a></td>
               <td>حسین مزروعی</td>
               <td>۱۳:۳۰</td>
             </tr>
